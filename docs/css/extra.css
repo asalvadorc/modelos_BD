@@ -546,6 +546,48 @@ p {
     margin: 0 auto;
     max-width: 100%;
 }
+
+/* Highlighted copy-ready IA prompt block */
+.md-typeset .ia-prompt-box {
+    margin: 1rem 0 1.5rem;
+    padding: 0.75rem;
+    border-radius: 10px;
+    border: 2px solid rgba(1, 62, 55, 0.28);
+    background: linear-gradient(135deg, rgba(1, 62, 55, 0.06), rgba(1, 62, 55, 0.12));
+    box-shadow: 0 6px 16px rgba(1, 62, 55, 0.10);
+}
+
+.md-typeset .ia-prompt-box::before {
+    content: "PROMPT PARA COPIAR";
+    display: inline-block;
+    margin-bottom: 0.55rem;
+    padding: 0.16rem 0.55rem;
+    border-radius: 999px;
+    border: 1px solid rgba(1, 62, 55, 0.28);
+    background: rgba(1, 62, 55, 0.10);
+    color: #013E37;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+}
+
+.md-typeset .ia-prompt-box pre {
+    margin: 0;
+    border: 1px solid rgba(1, 62, 55, 0.22);
+}
+
+[data-md-color-scheme="slate"] .md-typeset .ia-prompt-box {
+    border-color: rgba(20, 184, 166, 0.45);
+    background: linear-gradient(135deg, rgba(20, 184, 166, 0.18), rgba(10, 79, 72, 0.24));
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28);
+}
+
+[data-md-color-scheme="slate"] .md-typeset .ia-prompt-box::before {
+    border-color: rgba(20, 184, 166, 0.55);
+    background: rgba(20, 184, 166, 0.20);
+    color: #dffaf6;
+}
+
 .md-typeset .tabbed-set .tabbed-content h2,
 .md-typeset .tabbed-set .tabbed-content h3 {
     color: var(--md-primary-fg-color) !important;

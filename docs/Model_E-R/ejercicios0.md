@@ -1,6 +1,9 @@
 # Ejercicios
 
+!!! tip "Revisa tu solución"
 
+    Antes de consultar la solución oficial, revisa tu propuesta utilizando el prompt del apartado **[Cómo utilizar la IA para aprender](../IA.md)**.
+    
 ## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 1 bis</span></span>
 
 Intenta sacar las relaciones con la cardinalidad del ejercicio 1

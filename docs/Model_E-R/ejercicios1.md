@@ -1,6 +1,10 @@
 # Ejercicios
 
+!!! tip "Revisa tu solución"
 
+    Antes de consultar la solución oficial, revisa tu propuesta utilizando el prompt del apartado **[Cómo utilizar la IA para aprender](../IA.md)**.
+
+    
 ## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 3</span></span>
 
 Diseñar un esquema E/R que recoja información sobre una universidad. Se

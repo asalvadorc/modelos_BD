@@ -1,5 +1,9 @@
 # 6. Ejercicios
 
+!!! tip "Revisa tu solución"
+
+    Antes de consultar la solución oficial, revisa tu propuesta utilizando el prompt del apartado **[Cómo utilizar la IA para aprender](../IA.md)**.
+    
 Realizar el esquema relacional correspondiente a los ejercicios del Tema Entidad/Relación.
 
 ## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 1</span></span>
