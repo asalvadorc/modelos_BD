@@ -1,17 +1,23 @@
+---
+hide:
+  - toc
+---
 # 4. Segunda Forma Normal (2FN)
 
 
-<div style="background-color: #d6eaf8; color: black; padding: 5px;"> 
-Se dice que una tabla está en 2FN si y solo si cumple dos condiciones:
+<div class="definition-box">
+Una relación está en Segunda Forma Normal (2FN) cuando:
 <ul>
-    <li>Se encuentra en 1FN.</li>
-    <li>Todo atributo secundario (aquellos que no pertenecen a la clave principal, los que se encuentran fuera de la caja) depende totalmente (tiene una dependencia funcional total) de la clave completa y, por tanto, no de una parte de ella.</li>
-</ul>    
+    <li>Está previamente en Primera Forma Normal (1FN).</li>
+    <li>Todos los atributos que no forman parte de la clave dependen totalmente de la clave primaria.</li>
+</ul>
+Es decir, no pueden existir dependencias parciales respecto a una clave compuesta.
 </div><p></p>
   
 ---  
   
 Esta forma normal solo se considera si la clave principal es compuesta, y por tanto, está formada por varios atributos.
+
 
 Si una tabla **T** tiene como atributos **A, B, C, D** y la clave es **A . B** cumpliéndose las dependencias:
 
@@ -22,67 +28,75 @@ Si una tabla **T** tiene como atributos **A, B, C, D** y la clave es **A . B** c
 Se observa que la tabla no se encuentra en 2FN ya que el atributo D no tiene una dependencia funcional total con la clave completa A . B, sino con una parte de la clave (B). El grafo de las dependencias funcionales sería:  
 
 
-
-![](T4_4_1.png)
-
+![alt text](image-5.png){ width=400 }
 
 
-****
+## Poner en 2FN
 
-**Si existe una flecha que sale del interior de la caja que engloba la clave, entonces la tabla no está en 2FN.**
-****
+Para convertir una tabla que no está en segunda forma normal a 2FN, se realiza una proyección en dos partes:
 
+<div class="tables-side-by-side equal-height" markdown>
 
-**<u>Poner en 2FN</u>**
+<div markdown>
 
-Para convertir una tabla que no está en segunda forma normal a 2FN, se realiza una proyección y se crea:
+### Parte A. Tabla principal
 
-**A)** Una **primera tabla** con la clave y todas sus dependencias totales con los atributos secundarios afectados:
+Se crea una **primera tabla** con la clave y todas sus dependencias totales con los atributos secundarios afectados:
 
-> ![](T4_4_2.png)  
->
+![alt text](image-9.png){width=400}
 
-****
+</div>
 
-**B)** Una **segunda tabla** con la parte de la clave que tiene dependencias, y los atributos secundarios implicados:
+<div markdown>
 
-> ![](T4_4_3.png)
+### Parte B. Tabla de la dependencia parcial
 
-****
+Se crea una **segunda tabla** con la parte de la clave que tiene dependencias, y los atributos secundarios implicados:
 
-> La clave de la nueva tabla T2 será la antigua parte de la clave.
+![alt text](image-10.png){width=450}
 
+</div>
 
+</div>
+
+!!!warning "Gráficamente"
+    Si existe una flecha que sale del interior de la caja que engloba la clave, entonces la tabla no está en 2FN.
+
+### Ejemplo aplicado
 
 **Ejemplo**: Tabla con las personas que trabajan en diversas empresas con el sueldo correspondiente, con los atributos: **DNI, NOMBRE, EMPRESA, SUELDO**
 
 Entre los atributos existen las dependencias:
 
-****
-
 **DNI** →**NOMBRE**
 
 **DNI . EMPRESA** →**SUELDO**
 
-El grafo que muestra las dependencias es el siguiente:
 
-![](T4_4_4.png)
+<div class="tables-side-by-side equal-height" markdown>
 
+<div markdown>
 
+**Grafo de dependencias**
 
-Es evidente que la tabla no se encuentra en 2FN, tras normalizar se obtiene:
+![alt text](image-39.png){width=425}
 
-![](T4_4_5.png)
+</div>
+
+<div markdown>
+
+**Grafo normalizado**
+
+![alt text](image-38.png){width=300}
+
+</div>
+
+</div>
 
 De manera que la representación de las tablas al **modelo relacional** quedaría de la manera siguiente:
 
-<pre><cod>
-            EMPLEADO(<b>dni, empresa</b>, sueldo)
-            PERSONA(<b>dni</b>, nombre)
-</cod></pre>
-
-****
+!!! quote ""
+    - EMPLEADO (<u>dni, empresa</u> sueldo)
+    - PERSONA (<u>dni</u>, nombre)
 
 
-
-Licenciado bajo la [Licencia Creative Commons Reconocimiento NoComercial SinObraDerivada 3.0](http://creativecommons.org/licenses/by-nc-nd/3.0/)

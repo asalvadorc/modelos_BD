@@ -1,87 +1,137 @@
 # 3. Dependencia Funcional
 
-<div style="background-color: #d6eaf8; color: black; padding: 5px;"> 
-Un atributo o conjunto de atributos <b>Y</b> depende funcionalmente del atributo o conjunto de atributos <b>X</b>, y se representa como <br>
-<b>X → Y</b>, si y solo si cada valor de X se corresponde con un único valor de Y.  
-</div>  
-<p></p>  
+## 3.1 Dependencia Funcional
 
+<div class="definition-box">
+    <div class="box-title">Dependencia funcional (A → B)
+    </div>
+    Existe una dependencia funcional entre dos conjuntos de atributos cuando el valor de uno de ellos determina de forma única el valor del otro.<br>
+    Se representa mediante:  <br>
 
-Por ejemplo, entre DNI y NOMBRE existe una dependencia funcional, ya que el valor DNI se corresponde con un único nombre.
+       <p> CA → B </p>
 
->>>**DNI** →**NOMBRE**
+    y se lee:  <br>
 
-En este caso (suponiendo que el NOMBRE es único y no existen dos nombres iguales) se cumple también la dependencia
+        <p>&emsp;"A determina funcionalmente a B".</p>
+</div>
+    
 
->>>**NOMBRE** →**DNI**
+---
 
-y lo podríamos abreviar por
+## Ejemplos de Dependencias
 
->>>**DNI** ←→**NOMBRE**
+### Dependencia Unidireccional
 
-No siempre se da de forma biunívoca la dependencia funcional entre dos atributos, es más, en pocos casos sucede. Por ejemplo, entre los atributos DNI y DIRECCIÓN existe una dependencia funcional ya que una persona identificada por su DNI vive en una única DIRECCIÓN.
+!!! example "DNI → NOMBRE"
+    Cada DNI tiene un único NOMBRE.
+    El inverso NO siempre se cumple (dos personas pueden tener el mismo nombre).
 
->>>**DNI** →**DIRECCIÓN**
+### Dependencia Bidireccional
 
-Pero en este caso no se da la dependencia en sentido inverso, porque en una DIRECCIÓN viven unas cuantas personas. Además, la dirección no nos dice ni siquiera la ciudad donde se encuentra (por ejemplo, el "C/ Mayor, 7" se encuentra en muchas ciudades)
+!!! example "DNI ↔ NOMBRE"
+    Si es garantizado que no hay nombres duplicados.
+    Cada DNI tiene un único NOMBRE y viceversa.
 
-Hay atributos que no tienen entre ellos una dependencia funcional como es el caso de DIRECCIÓN y FECHA_NACIMIENTO.
+### Dependencia sobre Conjunto de Atributos
 
+!!! example "DNI . EMPRESA → SUELDO"
+    Un empleado tiene múltiples sueldos (uno por empresa).
+    Solo DNI + EMPRESA juntos determinan SUELDO único.
+    DNI solo NO determina SUELDO.
 
+---
 
-En muchas ocasiones, para determinar un único valor de un atributo, no es suficiente con conocer el valor de otro atributo, sino que es necesario encontrar los valores de unos cuantos atributos. Eso es lo que pasa, si tenemos los atributos: DNI, EMPRESA y SUELDO, y sabemos que una persona puede trabajar en más de una empresa. Entre los atributos DNI y SUELDO no existe ninguna dependencia funcional, ya que un individuo puede ganar sueldos distintos en empresas distintas. Pero si conocemos la empresa en la cual trabaja, sí que podemos decir que:
+## Notación
 
->>>**DNI . EMPRESA** →**SUELDO**
+<div class="grid cards" markdown>
 
-El operador punto "." representa la expresión "junto con" o "y" entre los dos atributos y el operador barra "|" hace referencia a la expresión "o también".
+- **X → Y**
 
-Por lo tanto, podemos decir que DNI "junto con" EMPRESA determinan el SUELDO. Y para la dependencia:
+    Cada valor de X tiene único valor de Y.
 
->>>**DNI** →**NOMBRE | DIRECCIÓN**
+- **X ↔ Y**
 
-diremos que con el DNI se conoce el NOMBRE "o también" la DIRECCIÓN.
+    Dependencia bidireccional.
+    La relación funciona en ambas direcciones.
 
+- **X . Y → Z**
 
+    X e Y determinan funcionalmente a Z.
+
+- **X → Y | Z**
+
+    X determina Y "o también" Z.
+
+</div>
+
+---
 
 ## 3.2 Dependencia Funcional Total
 
-<div style="background-color: #d6eaf8; color: black; padding: 5px;"> 
-Se dice que el atributo <b>Y</b> tiene una <b>dependencia funcional total</b> del atributo <b>X</b> si tiene una dependencia funcional de X y NO depende funcionalmente de ningún subconjunto de X.  
-</div><p></p>
----  
-  
+<div class="definition-box">
+    <div class="box-title">Dependencia funcional Total</div>
+Una dependencia funcional es total cuando un atributo depende de todos los atributos de una clave compuesta y no solo de una parte de ella.
+</div>
 
+### Ejemplo de Dependencia Parcial
 
-Por ejemplo, una dependencia funcional sería:
+!!! warning "Dependencia Parcial (NO deseable)"
 
->>>**DNI . EMPRESA** →**NOMBRE**
+    **DNI . EMPRESA → NOMBRE**
+    
+    NOMBRE solo depende de DNI, no de EMPRESA.
+    Esta es una **dependencia parcial** (unos atributos son irrelevantes).
 
-Pero, lógicamente, esta dependencia no es total ya que NOMBRE depende funcionalmente de DNI. Por eso, a esta dependencia se le llama **dependencia parcial**.
+### Ejemplo de Dependencia Total
 
-La **dependencia funcional total** sería:
+!!! success "Dependencia Funcional Total (deseable)"
+    **DNI . EMPRESA → SUELDO**
+    
+    SUELDO requiere tanto DNI como EMPRESA.
+    Sin EMPRESA, no se puede determinar SUELDO.
 
->>>**DNI . EMPRESA** →**SUELDO**
+---
 
-Ahora sí, el SUELDO no depende funcionalmente de ningún subconjunto.
+## 3.3 Grafo de Dependencias Funcionales
 
-Es evidente que si X está formado únicamente por un atributo, la dependencia funcional será total.
-<div style="background-color: #d6eaf8; color: black; padding: 5px;"> 
-Las dependencias que nos interesan para la normalización son siempre las dependencias funcionales totales.
-</div></p>
+Es una representación visual que muestra gráficamente las relaciones entre atributos.
 
+### Estructura del Grafo
 
+<div class="tables-side-by-side" markdown>
 
-## 3.3 Grafo de las Dependencias Funcionales
+<div markdown>
 
-Sirve para mostrar gráficamente la relación existente entre todos los atributos y es una forma clara de tener una visión general de los datos y de la cohesión existente entre ellos. La clave principal se representa dentro de una caja de líneas continuas con sus atributos primarios. El resto de los atributos se representa fuera de la caja.
+**Estructura del grafo**
 
-Si existen dependencias de un conjunto de atributos que no son la clave, irán dentro de una caja de líneas discontinuas para no confundirlo con la clave principal de la tabla.
+| Elemento | Representación |
+|----------|----------------|
+| **Clave Principal** | Recuadro con línea continua |
+| **Atributos clave** | Dentro del recuadro |
+| **Otros atributos** | Fuera del recuadro |
+| **Dependencias secundarias** | Recuadro con línea discontinua |
 
-**Ejemplo:**
+</div>
 
-![](T4_3_3_ej.png)
+<div markdown>
 
+**Representación visual**
 
+![Estructura del grafo de dependencias](image-3.svg){ width=400 }
+
+</div>
+
+</div>
+
+El grafo permite visualizar:  
+
+- Qué atributos se determinan mutuamente
+- Qué dependencias son parciales o totales
+- La cohesión de los datos
+
+### Ejemplo
+
+![](image-1.png)
 
 Esta tabla refleja un conjunto de pedidos y cumple con las dependencias funcionales especificadas:
 
@@ -90,7 +140,13 @@ Esta tabla refleja un conjunto de pedidos y cumple con las dependencias funciona
 * B,C→O,R: La combinación de **Región e ID Producto** determina de manera única el **Nombre del Producto y el Precio Unitario** (puede variar según la región). 
 * O→P: El **Nombre del Producto** determina su **Categoría**. 
 * C→Q: El **ID de Producto** determina el **Impuesto por Región**, ya que depende del tipo de producto. 
-***
+
+<div class="tables-side-by-side" markdown>
+
+<div markdown>
+
+**Dependencias**
+
 **A . B . C** →**M | S**  
 **M** →**N**  
 **B . C** →**O | R**  
@@ -98,11 +154,14 @@ Esta tabla refleja un conjunto de pedidos y cumple con las dependencias funciona
 **C** →**Q**  
 **(clave = A . B . C)**
 
+</div>
 
+<div markdown>
 
-El grafo asociado es:
+**Grafo asociado**
 
-![](T4_3_1.png)
+![Grafo asociado](image-4.png){ width=400 }
 
+</div>
 
-Licenciado bajo la [Licencia Creative Commons Reconocimiento NoComercial SinObraDerivada 3.0](http://creativecommons.org/licenses/by-nc-nd/3.0/)
+</div>

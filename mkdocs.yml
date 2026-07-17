@@ -1,5 +1,10 @@
-site_url : https://asalvadorc.github.io/Modelado_BD
+site_url : https://asalvadorc.github.io/modelos_BD
 site_name: BD - Modelado de Bases de Datos
+copyright: >
+  © 2026 Alicia Salvador —
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">
+  Licencia CC BY-NC-SA 4.0
+  </a>
 
 
 
@@ -11,6 +16,7 @@ theme:
   logo: assets/logo.png
   favicon: assets/favicon.png
   features:
+  - toc.follow
   - navigation.tabs
   - navigation.tabs.sticky
   - navigation.top
@@ -33,8 +39,6 @@ theme:
   - content.action.view
 
   - header.autohide
-    
-  copyright: Licenciado bajo la licencia Creative Commons by-nc-nd
 
   palette: 
     - media: "(prefers-color-scheme: light)"
@@ -76,31 +80,33 @@ markdown_extensions:
 
 
 nav:
-  - Inicio: index.md
-  - Modelo Entidad-Relación:
+  - Inicio:
+    - RA y CE: RA_CE.md
+    - Introducción: introduccion.md
+  - Tema 1. Modelo Entidad-Relación:
     - Model_E-R/index.md
-    - Objetivos y conocimientos previos: Model_E-R/objetivos_y_conocimientos_previos.md
     - 1. Introducción: Model_E-R/1_introduccion.md
-    - 2. Ejemplo: Model_E-R/2_ejemplo.md
-    - 3. Las Entidades: Model_E-R/3_las_entidades_del_modelo_er.md
+    - 2. Ejemplo:Empresa: Model_E-R/2_ejemplo.md
+    - 3. Entidades y Atributos: Model_E-R/3_las_entidades_del_modelo_er.md
     - Ejercicios: Model_E-R/ejercicios.md
     - 4. Las Relaciones: Model_E-R/4_las_relaciones_del_modelo_er.md
     - Ejercicios: Model_E-R/ejercicios0.md
-    - 5. Relaciones de grado mayor que dos: Model_E-R/5_relaciones_de_grado_mayor_que_dos.md
+    - 5. Relaciones ternarias: Model_E-R/5_relaciones_de_grado_mayor_que_dos.md
     - 6. Modelo E/R Extendido: Model_E-R/6_modelo_er_extendido.md
     - 7. Restricciones externas: Model_E-R/7_restricciones_externas.md
+    - 8. Resumen elementos gráficos: Model_E-R/8_resumen_elementos_graficos.md
     - Ejercicios: Model_E-R/ejercicios1.md
     - Información adicional: Model_E-R/informacion_adicional.md
-  - Modelo Relacional:
-    - Objetivos y conocimientos previos: Model_Relacional/objetivos_y_conocimientos_previos.md
+  - Tema 2. Modelo Relacional:
+    - Model_Relacional/index.md
     - 1. Introducción: Model_Relacional/1_introduccion.md
     - 2. Estructura del Modelo Relacional: Model_Relacional/2_estructura_del_modelo_relacional.md
-    - 3. Restricciones: Model_Relacional/3_restricciones.md
-    - 4. Transformación del M. E/R al M. Relacional: Model_Relacional/4_transformacion_del_m_er_al_m_relacional.md
-    - 5. Lenguajes relacionales: Model_Relacional/5_lenguajes_relacionales.md
-    - 6. Ejercicios: Model_Relacional/6_ejercicios.md  
-  - Normalización:
-    - Objetivos: Normalizacion/objetivos.md
+    - 3. Transformación del M. E/R al M. Relacional: Model_Relacional/3_transformacion_del_m_er_al_m_relacional.md
+    - 4. Restricciones: Model_Relacional/4_restricciones.md
+    - 5. Resumen: Model_Relacional/resumen.md
+    - 6. Ejercicios: Model_Relacional/5_ejercicios.md  
+  - Tema 3. Normalización:
+    #- Objetivos: Normalizacion/objetivos.md
     - 1. Introducción: Normalizacion/1_introduccion.md
     - 2. Primera Forma Normal (1FN): Normalizacion/2_primera_forma_normal_1fn.md
     - 3. Dependencia Funcional: Normalizacion/3_dependencia_funcional.md

@@ -106,6 +106,35 @@
     text-decoration: underline;
 }
 
+/* Headings in theme green with clear size hierarchy */
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3,
+.md-typeset h4,
+.md-typeset h5,
+.md-typeset h6 {
+    color: var(--md-primary-fg-color);
+    font-weight: 400;
+}
+
+.md-typeset h1 { font-size: 2rem; }
+.md-typeset h2 { font-size: 1.65rem; }
+.md-typeset h3 { font-size: 1.35rem; }
+.md-typeset h4 { font-size: 1.05rem; }
+.md-typeset h5 { font-size: 1rem; }
+.md-typeset h6 { font-size: 0.9rem; }
+
+/* Prefix symbols by heading level for quick visual distinction */
+.md-typeset h3::before {
+    content: "▸ ";
+    color: var(--md-primary-fg-color);
+}
+
+.md-typeset h4::before {
+    content: "• ";
+    color: var(--md-primary-fg-color);
+}
+
 /* =========================================================
    📝 TIPOGRAFÍA
    ========================================================= */
@@ -145,12 +174,118 @@ p {
     background-color: rgba(1, 62, 55, 0.08);
 }
 
+/* Image pair table without visible header */
+.md-typeset .image-pair-table table thead {
+    display: none;
+}
+
+.md-typeset .image-pair-table table td {
+    border-top: none;
+}
+
 /* =========================================================
    🧠 DETALLES EXTRA
    ========================================================= */
 .md-typeset img {
+    display: block;
+    margin: 1rem auto;
     border-radius: 4px;
     border: 1px solid rgba(0, 0, 0, 0.08);
+    max-width: 100%;
+    height: auto;
+}
+
+.md-typeset img.img-left {
+    margin-left: 0;
+    margin-right: auto;
+}
+
+.img-text-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.img-text-row > div {
+    flex: 1 1 45%;
+    min-width: 280px;
+}
+
+.img-text-row img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    margin: 0 auto;
+    border-radius: 8px;
+}
+
+@media (max-width: 900px) {
+    .img-text-row {
+        flex-direction: column;
+    }
+}
+
+.tables-side-by-side {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    align-items: start;
+    margin: 1rem 0 1.5rem;
+}
+
+.tables-side-by-side > div {
+    background: rgba(1, 62, 55, 0.03);
+    border: 1px solid rgba(1, 62, 55, 0.2);
+    border-radius: 8px;
+    padding: 0.9rem;
+    overflow-x: auto;
+}
+
+.tables-side-by-side.equal-height {
+    align-items: stretch;
+}
+
+.tables-side-by-side.equal-height > div {
+    height: 100%;
+}
+
+.case-card {
+    background: rgba(1, 62, 55, 0.03);
+    border: 1px solid rgba(1, 62, 55, 0.2);
+    border-radius: 8px;
+    padding: 0.9rem;
+    margin: 1rem 0 1.5rem;
+    overflow-x: auto;
+}
+
+.md-typeset .case-badge {
+    display: inline-block;
+    margin-right: 0.5rem;
+    padding: 0.12rem 0.5rem;
+    border-radius: 999px;
+    border: 1px solid rgba(1, 62, 55, 0.35);
+    background: rgba(1, 62, 55, 0.12);
+    color: #013E37;
+    font-size: 0.78em;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    vertical-align: middle;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .case-badge {
+    border-color: rgba(79, 209, 197, 0.55);
+    background: rgba(79, 209, 197, 0.18);
+    color: #dffaf6;
+}
+
+@media (max-width: 900px) {
+    .tables-side-by-side {
+        grid-template-columns: 1fr;
+    }
 }
 
 .md-typeset pre > code {
@@ -158,9 +293,88 @@ p {
     border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
+/* Make quote admonitions look like a clear gray box */
+.md-typeset .admonition.quote,
+.md-typeset details.quote {
+    background-color: #f5f5f5;
+    border: 1px solid #cfcfcf;
+    border-left: 4px solid #9a9a9a;
+}
+
 .md-typeset .admonition {
     border-radius: 4px;
     border-left: 4px solid #013E37;
+}
+
+/* Align icon + text headings on the same baseline/height */
+.md-typeset .heading-with-icon,
+.md-typeset .exercise-title {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35em;
+}
+
+.md-typeset .heading-icon,
+.md-typeset .exercise-icon {
+    display: inline-block;
+    line-height: 1;
+    vertical-align: middle;
+}
+
+/* Reusable framed boxes for definitions and key notes */
+.md-typeset .definition-box,
+.md-typeset .info-box {
+    border-left: 6px solid #1b6ca8;
+    background: linear-gradient(180deg, #eef7ff 0%, #f7fbff 100%);
+    border-radius: 10px;
+    padding: 12px 14px;
+    margin: 12px 0 16px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.md-typeset .definition-box .box-title,
+.md-typeset .info-box .box-title {
+    color: #0f4f7a;
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+}
+
+/* Framed RA sections (RA_CE) */
+.md-typeset .ra-frame {
+    margin: 1rem 0 1.4rem;
+    padding: 1rem 1.1rem;
+    border: 2px solid rgba(1, 62, 55, 0.28);
+    border-radius: 12px;
+    background: linear-gradient(180deg, rgba(1, 62, 55, 0.05) 0%, rgba(1, 62, 55, 0.02) 100%);
+    box-shadow: 0 2px 8px rgba(1, 62, 55, 0.08);
+}
+
+.md-typeset .ra-cycle {
+    margin: 0 0 0.35rem;
+    color: #013E37;
+    letter-spacing: 0.02em;
+}
+
+.md-typeset .ra-title {
+    margin: 0 0 0.55rem;
+}
+
+.md-typeset .ra-criteria-title {
+    margin: 0.35rem 0 0.45rem;
+}
+
+.md-typeset .ra-frame ul {
+    margin-top: 0.3rem;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .ra-frame {
+    border-color: rgba(79, 209, 197, 0.42);
+    background: linear-gradient(180deg, rgba(79, 209, 197, 0.16) 0%, rgba(79, 209, 197, 0.08) 100%);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+[data-md-color-scheme="slate"] .md-typeset .ra-cycle {
+    color: #dffaf6;
 }
 
 
@@ -247,4 +461,108 @@ p {
 
     box-shadow:
         0 12px 30px rgba(0,0,0,.08);
+}
+
+/* Optional 2-column card grid for specific pages */
+.grid.cards.cards-2col > ul {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.grid.cards.cards-2col > ul > li {
+    min-width: 0;
+}
+
+.grid.cards.cards-2col pre,
+.grid.cards.cards-2col pre code {
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+@media (max-width: 900px) {
+    .grid.cards.cards-2col > ul {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Ocultar TOC vacío */
+.md-sidebar--secondary:empty {
+    display: none;
+}
+
+/* =========================================================
+   📑 TABS
+   ========================================================= */
+
+.tabbed-set {
+    border: 2px solid rgba(1, 62, 55, 0.3);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(1, 62, 55, 0.15);
+}
+
+.tabbed-set .tabbed-labels {
+    display: flex;
+    border-bottom: 2px solid rgba(1, 62, 55, 0.3);
+    background-color: rgba(1, 62, 55, 0.05);
+}
+
+.tabbed-set .tabbed-labels label {
+    flex: 1;
+    margin: 0;
+    border-radius: 0;
+}
+
+.tabbed-set .tabbed-labels label:first-child {
+    border-top-left-radius: 24px;
+}
+
+.tabbed-set .tabbed-labels label:last-child {
+    border-top-right-radius: 24px;
+}
+
+.tabbed-set .tabbed-labels label a {
+    display: block;
+    width: 100%;
+    padding: 1rem 1.2rem;
+    text-align: center;
+    color: var(--md-primary-fg-color) !important;
+    font-size: 1.5em !important;
+    font-weight: 600 !important;
+}
+
+.tabbed-set .tabbed-labels label:hover {
+    background-color: rgba(1, 62, 55, 0.1);
+}
+
+.tabbed-set > .tabbed-content {
+    border-top: none;
+    padding: 1.5rem;
+}
+
+.tabbed-set .tabbed-content img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+}
+.md-typeset .tabbed-set .tabbed-content h2,
+.md-typeset .tabbed-set .tabbed-content h3 {
+    color: var(--md-primary-fg-color) !important;
+    font-size: 1.35em !important;
+    font-weight: 700 !important;
+    margin-top: 1.4rem;
+}
+
+.md-typeset .tabbed-set .tabbed-content h3 {
+    font-size: 1.15em !important;
+    margin-top: 1rem;
+}
+
+.no_toc {
+    display: block;
+}
+
+.md-nav__link[href*="titulo-oculto"] {
+    display: none !important;
 }

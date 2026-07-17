@@ -1,38 +1,32 @@
-# 1. Introducción
+---
+hide:
+  - toc
+---
+
+# 1. Introducción al Modelo Relacional
+
+![alt text](image-3_2.png)
 
 
+???+ info "Un poco de historia"
+    El modelo relacional es uno de los modelos de bases de datos más utilizados en la actualidad. Fue propuesto en **1970** por el matemático e investigador de IBM **Edgar F. Codd**, con el objetivo de organizar la información de forma estructurada, sencilla y eficiente.
 
-En 1970 **E.F. Codd** introdujo la teoría matemática de las relaciones en el campo de los SGBD. El modelo de datos que creó se llama **MODELO RELACIONAL**, con una base matemática (la de las relaciones) muy sólida, donde los datos se estructuran en forma de relaciones (tablas) que son estructuras de datos simples y uniformes, que permiten una fácil comprensión.
+    Antes de la aparición del modelo relacional, las bases de datos utilizaban principalmente modelos jerárquicos y en red. Estos sistemas eran complejos, difíciles de mantener y dependían mucho de cómo estaban almacenados físicamente los datos.
 
-En el momento en que surgió, los modelos que funcionaban eran el jerárquico y el de red (también llamado Codasyl, por el grupo de trabajo que lo estandarizó). Como modelo los superó porque, como dijo el mismo Codd,
-"_proporciona un medio para describir los datos con su estructura únicamente, sin tener que superponer ninguna estructura adicional para representarse en la máquina_" (es decir, sin punteros ni historias).
+    **Codd** propuso una nueva forma de trabajar basada en las matemáticas y la teoría de conjuntos, donde la información se organizaba en **tablas relacionadas entre sí**. Cada tabla representa una entidad del mundo real y está formada por filas (tuplas o registros) y columnas (atributos o campos).  
 
-A pesar de ello estuvo unos años en competencia con aquellos, con mucha gente muy reticente, ya que los productos comerciales que salían no eran suficientemente eficientes, quizás porque la tecnología de la época no lo permitía. A partir de los años 80, cuando la tecnología lo permitió, salieron productos mejores, como por ejemplo el **ORACLE** (1979), y entonces su implantación fue aplastante.
+---
+Gracias al modelo relacional:
 
-Los objetivos del Modelo Relacional son:
+- los datos pueden organizarse de manera clara,
+- se reducen las redundancias,
+- se mejora la integridad de la información,
+- y se facilita la realización de consultas mediante lenguajes como SQL.
 
-  * **Fidelidad**, para originar esquemas que representen fielmente la información (los objetos y relaciones entre ellos) que existe en el dominio del problema.
-  
+Con el paso del tiempo, el modelo relacional se convirtió en el estándar de la mayoría de los sistemas gestores de bases de datos (SGBD), como MySQL, PostgreSQL, Oracle Database o Microsoft SQL Server.
 
-  * **Independencia física**[1], para que la forma de guardar los datos no influya en su manipulación lógica, y así los usuarios que acceden a estos datos no tengan que modificar sus programas por cambios en el almacenamiento físico.
-  
+En este tema estudiaremos los conceptos fundamentales del modelo relacional y cómo transformar un modelo entidad-relación en un conjunto de tablas relacionales.
 
-  * **Independencia lógica**, para que las vistas externas no se vean afectadas por cambios en el esquema conceptual de la B.D.
-  
-
-  * **Flexibilidad**, para poder ofrecer los datos a cada usuario de la forma más adecuada a su aplicación.
-  
-
-  * **Uniformidad**, las estructuras lógicas de los datos presentan un aspecto simple y uniforme (las tablas), lo que facilita la concepción y manipulación por parte de los usuarios.
-  
-
-  * **Sencillez**, las características anteriores, unidas a unos lenguajes de usuario sencillos, hacen que el M. Relacional sea fácil de entender y de utilizar por el usuario final.
-
-Recordad que las **relaciones** del Modelo Relacional son las **tablas**. No son lo mismo que las relaciones del Modelo Entidad-Relación. Para evitar confusiones intentaremos llamarlas siempre tablas.
-
-* * *
-
-[1]En realidad tanto la independencia física como lógica las han intentado conseguir todos los modelos.
+---
 
 
-Licenciado bajo la [Licencia Creative Commons Reconocimiento NoComercial CompartirIgual 3.0](http://creativecommons.org/licenses/by-nc-sa/3.0/)

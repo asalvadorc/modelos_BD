@@ -1,181 +1,207 @@
 # 4. Las Relaciones del Modelo E/R
 
-Todavía no hemos relacionado las entidades entre ellas, y por tanto todavía no hemos
-dicho que tal trabajador pertenece a tal departamento (Juan Pérez está en
-Contabilidad, por ejemplo), o que tal trabajador está en tal proyecto
-dedicándole tantas horas semanales.
-<!--
-<video width="320" height="240" controls>
-  <source src="T02_Peli2.mp4" type="video/mp4">
-  Tu navegador no soporta la etiqueta de video.
-</video>
--->
+Hasta ahora solo hemos definido entidades. Ahora conectaremos entidades entre ellas.
 
-<p></p>
-## 4.1 Relación
+**Ejemplo**: Juan Pérez trabaja en Contabilidad. El empleado trabaja en un proyecto X dedicando 20 horas semanales.
 
-Todavía no hemos relacionado las entidades entre ellas, y por tanto todavía no hemos
-dicho que tal trabajador pertenece a tal departamento (Juan Pérez está en
-Contabilidad, por ejemplo), o que tal trabajador está en tal proyecto
-dedicándole tantas horas semanales.
+---
+
+## 4.1 Concepto de Relación
+
+### Definición
 
 **RELACIÓN** es una asociación o correspondencia entre entidades.
 
-El **TIPO DE RELACIÓN** será la estructura genérica, la asociación entre dos
-tipos de entidad, y englobará las **OCURRENCIAS DE RELACIÓN**, que relacionarán
-ocurrencias de las entidades (Juan Pérez pertenece al departamento de
-Contabilidad, Pilar Gomis al de Ventas, ...).
+| Término | Significado |
+|---------|-------------|
+| **Tipo de Relación** | Estructura genérica entre tipos de entidad |
+| **Ocurrencia de Relación** | Instancia concreta (ej: Juan Pérez → Contabilidad) |
 
-Representaremos la relación por un rombo, con el nombre de la relación en el interior.
-Habitualmente será un verbo que describe la relación entre las dos entidades.
-Uniremos el rombo con los rectángulos de las entidades por medio de líneas.
+### Representación Gráfica
 
-Así tendremos:
+=== "Elementos"
+    - **Forma**: Rombo
+    - **Etiqueta**: Nombre de la relación (generalmente un verbo)
+    - **Conexión**: Líneas hacia las entidades relacionadas
 
-![](relacio1.png)
+    ![alt text](image-55.png){width=500}
 
-En una Relación pueden intervenir 2 entidades (Relación Binaria), 3 entidades
-(ternaria), o incluso más. Este número será el **GRADO** de la relación.
+   
+### Grados de una Relación
 
-Un ejemplo de relación ternaria sería:
+El **GRADO** es el número de entidades que participan en la relación:
 
-![](relacio2.png)
+<div class="grid cards" markdown>
 
-Y una ocurrencia de esta relación podría ser: Contabilidad compra una
-calculadora a Distribuciones Garcia, S.L.
+- **Binaria (Grado 2)**
 
-También se puede dar el caso de que solo intervenga una entidad. Entonces sería
-reflexiva o de grado 1. Por ejemplo, los empleados tienen un supervisor, que
-también es un empleado de la compañía.
+    ![Ejemplo de relación binaria](image-9.png)
 
-![](relacio3.png)
+    Relación entre dos entidades.   
+    **Ejemplo:** Empleado pertenece a departamento
 
-Por último, también se puede dar el caso de que dos entidades tengan entre ellas más
-de una relación. En nuestro ejemplo los empleados pertenecen a los departamentos.
-Pero algunos empleados dirigen los departamentos, y esta es una relación
-distinta a la anterior. Por eso conviene poner el nombre de la relación, para evitar
-confusiones.
+- **Ternaria (Grado 3)**
 
-![](relacio4.png)
+    ![Ejemplo de relación ternaria](image-10.png)
 
+    Relación entre tres entidades.  
+    **Ejemplo:** Departamento compra producto a Proveedor.
 
-<u>**Nota**</u> 
-<div style="background-color: #d6eaf8; color: black; padding: 5px;">
+- **Reflexiva (Grado 1)**
 
-  Quizás a medida que hagamos ejercicios nos entre pereza de poner nombre a todas las
-  relaciones, sobre todo porque muchas estará muy claro qué significan. Pero
-  tendremos que poner siempre el nombre en aquellas que puedan llevar a confusión o
-  aquellas de las que no está claro su significado.
-<p></p>
+    ![Ejemplo de relación reflexiva](image-16.png)
+
+    Relación de una entidad consigo misma.  
+    **Ejemplo:** Empleado es supervisor (además de ser empleado).
+
+- **n-aria**
+
+    ![Ejemplo de relación de grado mayor que dos](image-18.png)
+
+    Relación entre más de 3 entidades
+
 </div>
-  
-<p></p>
+
+---
+
+### Múltiples Relaciones
+
+
+Dos entidades pueden tener **más de una relación** entre ellas:
+
+!!! info "Ejemplo"
+    **EMPLEADO** y **DEPARTAMENTO**:  
+    - Relación 1: "PERTENECE" (el empleado pertenece a un departamento)  
+    - Relación 2: "DIRIGE" (un empleado dirige el departamento)  
+    
+    **Importante**: Siempre poner nombre a la relación para evitar confusiones.
+
+---
+![alt text](image-20.png)
+
 ### Aplicación al ejemplo
 
+??? "Ejemplo: Empresa"
 
+    - La compañía está organizada en departamentos. 
+    - Cada uno tiene nombre único, número único y un empleado que lo dirige. Nos interesa la fecha en la que comenzó a dirigirlo.  
+
+    - Cada departamento controla una serie de proyectos. Cada uno de estos proyectos tiene nombre y número únicos, y estará coordinado por un único departamento.
+
+    - De cada empleado nos interesa el nombre (formado por dos apellidos y nombre de pila), DNI, dirección, teléfono, sueldo y fecha de nacimiento. Todo empleado está asignado a un departamento, y muchas veces tendrá un supervisor. Puede trabajar en más de un proyecto (no necesariamente controlados por el mismo departamento) y trabajará un determinado número de horas a la semana en cada proyecto. En un proyecto siempre trabajará, como mínimo, un empleado.
+
+    - Queremos saber también los familiares de cada empleado, para administrar los términos de un seguro. Queremos saber el nombre, fecha de nacimiento y parentesco con el empleado.  
+
+
+---
 
 Después de incorporar las relaciones, nuestro ejemplo quedará:
 
+![alt text](image-22.png)
 
-![](relacio5.png)
 
-## 4.2 Atributos de Relación
+## 4.2 Atributos de la Relación
 
-Las relaciones también pueden tener atributos, igual que las entidades. Un atributo
-de relación sería el número de horas que trabaja un empleado en un proyecto, que
-sería un atributo de la relación **trabaja**. Por ejemplo _Juan Pérez_ trabaja
-en el proyecto _Estudio rendimiento_, y le dedica 5 horas semanales. Fijaos
-que no es un atributo ni de empleado ni de proyecto, sino de la relación que hay
-entre ellas. Otro atributo de relación podría ser la fecha cuando un empleado
-comienza a dirigir un departamento.
+Las relaciones **también pueden tener atributos**, igual que las entidades.
 
-Representaremos los atributos de relación como los atributos de entidad, pero ahora
-unidos a las relaciones.
+!!! Tip "Diferencia Clave"
+    Los atributos de la relación NO pertenecen a una entidad específica, sino a la asociación entre entidades.
+
+**Ejemplos**
+
+| Relación | Atributo | Significado |
+|----------|----------|-------------|
+| TRABAJA | Horas semanales | Horas que dedica un empleado a un proyecto |
+| DIRIGE | Fecha inicio | Cuándo comenzó a dirigir el departamento |
+| COMPRA | Cantidad | Número de unidades compradas |
+
 
 ### Aplicación al ejemplo
 
-Pondremos en rojo los atributos de relación:
+Representaremos los atributos de relación como los atributos de entidad, pero ahora unidos a las relaciones.
+
+Los atributos de la relación se representan como círculos unidos a la relación (rombo).
 
 
+![alt text](image-23.png)
 
-![](relacio6.png)
+!!! tip "Buena Práctica"
+    Siempre nombra claramente las relaciones con verbos activos para que su significado sea evidente. Si la relación es ambigua o poco clara, el nombre es imprescindible.
+
 
 ## 4.3 Tipo de Relación o Cardinalidad
 
+La **cardinalidad** permite expresar cuántas ocurrencias de una entidad pueden
+relacionarse con una ocurrencia de la otra.
 
+Sin cardinalidad, el diagrama queda incompleto. Por ejemplo, sabríamos que
+EMPLEADO se relaciona con DEPARTAMENTO, pero no si un empleado puede pertenecer
+a uno o a varios departamentos.
 
-Todavía no hemos reflejado toda la realidad. Por ejemplo no hemos podido expresar
-que un empleado pertenece únicamente a un departamento, y en cambio puede estar en más
-de un proyecto.
+<div class="grid cards" markdown>
 
-Esto lo haremos por medio de la cardinalidad, que nos llevará a distintas clases de
-relaciones.
+- **1:1 (uno a uno)**
 
-La **CARDINALIDAD** especifica el número de ocurrencias de una entidad que pueden
-intervenir en la relación por cada ocurrencia de la otra entidad.
+        Una ocurrencia de A se relaciona como máximo 
+        con una ocurrencia de B, y viceversa.
 
-Una ocurrencia de EMPLEADO (un empleado concreto) solo puede estar relacionado con
-una ocurrencia de DEPARTAMENTO (Juan Pérez pertenece a Contabilidad, y a ningún
-otro departamento más). En cambio una ocurrencia de DEPARTAMENTO puede estar
-relacionada con muchas ocurrencias de EMPLEADO (todos los que pertenecen a él).
-Entonces la relación PERTENECE entre DEPARTAMENTO y EMPLEADO tiene razón de
-cardinalidad **1:N** (un departamento relacionado con muchos empleados, pero un
-empleado con un departamento).
+    ![alt text](image-25.png)
 
-Lo representaremos así:
+- **1:N (uno a muchos)**
 
+        Una ocurrencia de A puede relacionarse con muchas de B,
+        pero cada ocurrencia de B solo se relaciona con una de A.
+    ![alt text](image-26.png)
 
+- **M:N (muchos a muchos)**
 
-![](relacio_card_1M.png)
+        Una ocurrencia de A puede relacionarse con muchas de B,
+        y una de B puede relacionarse con muchas de A.
+    ![alt text](image-27.png)
+    
+</div>
 
+### Cómo identificar la cardinalidad
 
-<!--
-o millor:
+Lo veremos con nuestro ejemplo. Para no equivocarnos, hacemos siempre dos preguntas simétricas:
 
-![](relacio_card2.png)
--->
+| Pregunta | Respuesta en el ejemplo |
+|---|---|
+| A un departamento determinado, ¿cuántos empleados pueden pertenecer? | Muchos |
+| Un empleado determinado, ¿a cuántos departamentos puede pertenecer? | Uno |
 
+Con esas dos respuestas, la relación **PERTENECE** entre DEPARTAMENTO y EMPLEADO es **1:N**.
 
-  
+### Representación en el diagrama
 
-Los distintos tipos de relaciones que puede haber son:
+![Diagrama de cardinalidad uno a muchos (1:N)](image-24.png)
 
-  * **1:1** (leeremos: **uno a uno**) como máximo una ocurrencia de cada. Por ejemplo la relación DIRIGE (un empleado dirige como mucho un departamento, y un departamento es dirigido por un empleado).
-
-  * **1:N** (leeremos: **uno a ene** o **uno a muchos**) en una entidad una ocurrencia y en la otra muchas.
-
-  * **M:N** (leeremos: **eme a ene** o **muchos a muchos**) hay más de una ocurrencia en cada entidad. Por ejemplo la relación TRABAJA (un empleado puede trabajar en más de un proyecto, y en un proyecto puede trabajar más de un empleado).
-
-
-
-Para poder distinguir esta cardinalidad nos haremos dos preguntas, resultado
-de fijar una ocurrencia en una entidad y ver cuántas ocurrencias se
-relacionan en la otra entidad. Es decir, para una ocurrencia de una, cuántas
-hay de la otra. En el ejemplo de más arriba:
-
-  * A un departamento determinado, ¿cuántos empleados pueden pertenecer? (muchos).
-
-  * Un empleado determinado, ¿a cuántos departamentos puede pertenecer? (a uno).
-
-Estas preguntas normalmente tienen muy fácil contestación. Si hay duda
-deberíamos investigar mejor en las especificaciones.
-
-> _**Nota**_
->
-> La cardinalidad M:N también la podríamos representar N:N. Sencillamente quiere decir
-> que son muchas ocurrencias de cada entidad por cada una de la otra. En
-> estos apuntes normalmente pondré M:N, sencillamente porque "suena" mejor.
+!!! note "Nota"
+    La cardinalidad **M:N** también se puede representar como **N:N**.
+    En ambos casos significa muchas ocurrencias en los dos lados.
 
 ### Aplicación al ejemplo
 
-El ejemplo cada vez está más completo:
+
+??? "Ejemplo: Empresa"
+
+    - La compañía está organizada en departamentos. 
+    - Cada uno tiene nombre único, número único y un empleado que lo dirige. Nos interesa la fecha en la que comenzó a dirigirlo.  
+
+    - Cada departamento controla una serie de proyectos. Cada uno de estos proyectos tiene nombre y número únicos, y estará coordinado por un único departamento.
+
+    - De cada empleado nos interesa el nombre (formado por dos apellidos y nombre de pila), DNI, dirección, teléfono, sueldo y fecha de nacimiento. Todo empleado está asignado a un departamento, y muchas veces tendrá un supervisor. Puede trabajar en más de un proyecto (no necesariamente controlados por el mismo departamento) y trabajará un determinado número de horas a la semana en cada proyecto. En un proyecto siempre trabajará, como mínimo, un empleado.
+
+    - Queremos saber también los familiares de cada empleado, para administrar los términos de un seguro. Queremos saber el nombre, fecha de nacimiento y parentesco con el empleado.  
+
+
+---
+
+
+Al incorporar cardinalidades, el modelo describe con más precisión la realidad del sistema:
 
 
 
 
+![Diagrama completo del ejemplo con cardinalidades](image-21.png)
 
-![](relacio_card3.png)
-
-
-Licenciado bajo la [Licencia Creative Commons Reconocimiento NoComercial
-CompartirIgual 3.0](http://creativecommons.org/licenses/by-nc-sa/3.0/)

@@ -2,7 +2,7 @@
 
 
 **<u>1FN</u>**  
-<div style="background-color: #d6eaf8; color: black; padding: 5px;">  
+<div class="definition-box">  
 Una tabla está en 1FN si y solo si los valores que componen los atributos de una tupla son atómicos.
 </div><p></p>
 
@@ -16,7 +16,7 @@ Se descompone la tabla en dos
 
 **<u>2FN</u>**  
   
-<div style="background-color: #d6eaf8; color: black; padding: 5px;"> 
+<div class="definition-box">
 Se dice que una tabla está en 2FN si y solo si cumple dos condiciones:
 <ul>
     <li>Se encuentra en 1FN.</li>
@@ -39,7 +39,7 @@ Se descompone la tabla en dos
 
 **<u>3FN</u>**  
   
-<div style="background-color: #d6eaf8; color: black; padding: 5px;"> 
+<div class="definition-box">
 Se dice que una tabla está en 3FN si y solo si se cumplen dos condiciones:
 <ul>
   <li>Se encuentra en 2FN.</li>
@@ -62,7 +62,7 @@ Se descompone la tabla en dos
 
 **<u>FNBC</u>**  
   
-<div style="background-color: #d6eaf8; color: black; padding: 5px;"> 
+<div class="definition-box">
 Una tabla T está en FNBC si y solo si está en 1FN y las únicas dependencias funcionales elementales son aquellas en las cuales la clave principal (y claves candidatas) determinan un atributo.
 </div><p></p>
 
@@ -75,6 +75,4 @@ Se descompone la tabla en dos
 
 ![](T4_R_3.png)
 
-
-
-Licenciado bajo la [Licencia Creative Commons Reconocimiento NoComercial SinObraDerivada 3.0](http://creativecommons.org/licenses/by-nc-nd/3.0/)
+`r`n

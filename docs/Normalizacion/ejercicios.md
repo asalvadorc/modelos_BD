@@ -1,6 +1,6 @@
 # Ejercicios
 
-## ![](icon_activity.gif)  Ejercicio 1
+## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 1</span></span>
 
 Normalizar la tabla relacional que tiene como grafo de dependencias funcionales el siguiente:
 
@@ -8,15 +8,21 @@ Normalizar la tabla relacional que tiene como grafo de dependencias funcionales 
 
 Podéis normalizarlo todo directamente, sin tener que pasar primero por 2FN, 3FN y FNBC.
 
-## ![](icon_activity.gif) Ejercicio 2
+## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 2</span></span>
 
 En un Instituto tienen distribuida la información en los siguientes ficheros:
 
-![](T4_ex_2.png)
+=== "T4_Ex_1"
+
+	![](T4_Ex_1.png)
+
+=== "T4_ex_2"
+
+	![](T4_ex_2.png)
   
 Normalizad los ficheros, si los consideramos tablas de una Base de Datos. Debéis prestar especial atención a ver si está en 1FN.
 
-## ![](icon_activity.gif) Ejercicio 3
+## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 3</span></span>
 
 La factura de un hotel es la siguiente:
 
@@ -28,6 +34,3 @@ Si consideramos toda la información en una única tabla tendremos:
   
 Intentad normalizarla. Prestad especial atención a ver si está en 1FN.
 
-
-
-Licenciado bajo la [Licencia Creative Commons Reconocimiento NoComercial SinObraDerivada 3.0](http://creativecommons.org/licenses/by-nc-nd/3.0/)

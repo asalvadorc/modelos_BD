@@ -1,4 +1,4 @@
-# ![](icon_objectives.gif) Objetivos
+# <span class="heading-with-icon"><span class="heading-icon">🎯</span><span>Objetivos</span></span>
 
 
 El proceso de normalización consiste en optimizar las tablas para eliminar toda redundancia y mal diseño posible.
@@ -30,7 +30,3 @@ Los objetivos mínimos serán, por tanto:
 Los objetivos de ampliación (y que no nos interesan tanto) serán:
 
   * Saber poner en Forma Normal Boyce-Codd 
-
-
-
-Licenciado bajo la [Licencia Creative Commons Reconocimiento NoComercial SinObraDerivada 3.0](http://creativecommons.org/licenses/by-nc-nd/3.0/)

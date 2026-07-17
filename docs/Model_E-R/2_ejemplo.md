@@ -1,87 +1,96 @@
-# 2. Ejemplo
+---
+hide:
+  - toc
+---
+# 2. Ejemplo Práctico
 
-Vamos a presentar un ejemplo sobre el cual nos basaremos durante todo el tema. Se
-trata de una compañía, y el resultado del análisis de requerimientos es el
-siguiente:
-
-  1. La compañía está organizada en departamentos. Cada uno tiene nombre único, número único y un empleado que lo dirige. Nos interesa la fecha en la que comenzó a dirigirlo.
-  2. Cada departamento controla una serie de proyectos. Cada uno de estos proyectos tiene nombre y número únicos, y estará coordinado por un único departamento.
-  3. De cada empleado nos interesa el nombre (formado por dos apellidos y nombre de pila), DNI, dirección, teléfono, sueldo y fecha de nacimiento. Todo empleado está asignado a un departamento, y muchas veces tendrá un supervisor. Puede trabajar en más de un proyecto (no necesariamente controlados por el mismo departamento) y trabajará un determinado número de horas a la semana en cada proyecto. En un proyecto siempre trabajará, como mínimo, un empleado.
-  4. Queremos saber también los familiares de cada empleado, para administrar los términos de un seguro. Queremos saber el nombre, fecha de nacimiento y parentesco con el empleado.
+Durante todo el tema trabajaremos con el mismo caso de estudio: **una empresa de gestión de departamentos y proyectos**. Sobre este ejemplo iremos identificando y representando, paso a paso, los diferentes elementos del modelo Entidad/Relación, de manera que al finalizar el tema dispondremos del diagrama E/R completo.
 
 
+## Análisis de Requerimientos
 
-## Organización de la compañía
 
-!!! info "Departamentos"
-    La compañía está organizada en departamentos.
+- La compañía está organizada en departamentos. 
+- Cada uno tiene nombre único, número único y un empleado que lo dirige. Nos interesa la fecha en la que comenzó a dirigirlo.  
 
-    Cada uno tiene:
+- Cada departamento controla una serie de proyectos. Cada uno de estos proyectos tiene nombre y número únicos, y estará coordinado por un único departamento.
 
-    - nombre único
-    - número único
-    - un empleado que lo dirige
+- De cada empleado nos interesa el nombre (formado por dos apellidos y nombre de pila), DNI, dirección, teléfono, sueldo y fecha de nacimiento. Todo empleado está asignado a un departamento, y muchas veces tendrá un supervisor. Puede trabajar en más de un proyecto (no necesariamente controlados por el mismo departamento) y trabajará un determinado número de horas a la semana en cada proyecto. En un proyecto siempre trabajará, como mínimo, un empleado.
 
-    Nos interesa la fecha en la que comenzó a dirigirlo.
+- Queremos saber también los familiares de cada empleado, para administrar los términos de un seguro. Queremos saber el nombre, fecha de nacimiento y parentesco con el empleado.  
 
 ---
 
-## Proyectos
+??? Tip "Resumen"
 
-!!! info "Proyectos"
-    Cada departamento controla una serie de proyectos.
+    ```text title="🏢 DEPARTAMENTOS"
+    
+    Nombre único, número único.
+    Dirigidos por un empleado.
+    Fecha de inicio de dirección.
+    Controla varios proyectos.
+    ```
 
-    Cada uno de estos proyectos tiene:
+    ```text title="📋 PROYECTOS"
+        
+    Nombre y número únicos.
+    Controlados por un departamento.
+    Trabajará, como mínimo, un empleado.
+    ```
 
-    - nombre único
-    - número único
+    
+    ```text title="👤 EMPLEADO"
+        
+    Nombre completo, DNI, dirección.
+    Teléfono, sueldo, fecha de nacimiento.
+    Asignados a un departamento con supervisor.
+    Trabaja en varios proyectos.
+    Trabaja unas horas semanales por proyecto.
+    ```
 
-    Además, cada proyecto estará coordinado por un único departamento.
+    ```text title="👨‍👩‍👧 FAMILIARES"
+        
+    Nombre, fecha de nacimiento, parentesco.
+    Para gestión de seguros.
+    ```
 
+<!--
 ---
 
-## Empleados
+## Estructura Detallada 
 
-!!! info "Empleados"
-    De cada empleado nos interesa:
+### 🏢 Departamentos
 
-    - nombre (formado por dos apellidos y nombre de pila)
-    - DNI
-    - dirección
-    - teléfono
-    - sueldo
-    - fecha de nacimiento
+- **Nombre**: Único para cada departamento
+- **Número**: Identificador único
+- **Director**: Empleado responsable
+- **Fecha de dirección**: Cuándo comenzó a dirigir
 
-    Todo empleado:
+### 📋 Proyectos
 
-    - está asignado a un departamento
-    - muchas veces tendrá un supervisor
+- **Nombre**: Único dentro de la compañía
+- **Número**: Identificador único
+- **Departamento responsable**: Control centralizado
 
----
+### 👤 Empleados
 
-## Participación en proyectos
+- **Identificación**: Nombre completo + Apellidos + DNI
+- **Contacto**: Dirección, teléfono
+- **Datos laborales**: Sueldo, departamento, supervisor
+- **Personal**: Fecha de nacimiento
 
-!!! info "Trabajo en proyectos"
-    Un empleado puede trabajar en más de un proyecto
-    (no necesariamente controlados por el mismo departamento).
+### 🔗 Relación: Trabajo en Proyectos
 
-    Además, trabajará un determinado número de horas a la semana en cada proyecto.
+- Un empleado puede trabajar en **varios proyectos**
+- Los proyectos no tienen que ser del mismo departamento
+- Cada asignación incluye **horas semanales**
+- Todo proyecto requiere **al menos un empleado**
 
-    En un proyecto siempre trabajará, como mínimo, un empleado.
+### 👨‍👩‍👧 Familiares
 
----
+- **Nombre**: Identificación del familiar
+- **Fecha de nacimiento**: Datos demográficos
+- **Parentesco**: Relación con el empleado
+- **Uso**: Gestión de coberturas de seguros
 
-## Familiares
-
-!!! info "Familiares"
-    Queremos saber también los familiares de cada empleado,
-    para administrar los términos de un seguro.
-
-    De cada familiar queremos conocer:
-
-    - nombre
-    - fecha de nacimiento
-    - parentesco con el empleado
-
----
-
+-->

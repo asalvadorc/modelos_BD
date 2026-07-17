@@ -1,7 +1,7 @@
 # Ejercicios
 
 
-## ![](icon_activity.gif) Ejercicio 3
+## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 3</span></span>
 
 Diseñar un esquema E/R que recoja información sobre una universidad. Se
 considera que:
@@ -21,7 +21,7 @@ considera que:
   * Existen áreas de conocimiento (como por ejemplo el área de _Informática_, que incluye los departamentos de _Lenguajes y Sistemas Informáticos_ y de _Ingeniería y Ciencia de los Computadores_) y todo departamento tendrá una única área de conocimiento.
 
 
-## ![](icon_activity.gif) Ejercicio 4
+## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 4</span></span>
 
 El análisis de requisitos de una determinada red bancaria es el siguiente:
 
@@ -38,7 +38,7 @@ El análisis de requisitos de una determinada red bancaria es el siguiente:
   * Las sucursales pueden otorgar préstamos a los clientes, que no estarán asociados a las cuentas. Cada préstamo se otorga a nombre de un único cliente, y a un cliente se le puede otorgar más de un préstamo.
 
 
-## ![](icon_activity.gif) Ejercicio 5
+## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 5</span></span>
 
 Se quiere mantener información sobre una **biblioteca**, donde podemos tener de cada
 libro más de un ejemplar, que además se pueden prestar, y que también nos
@@ -50,7 +50,7 @@ interesa un histórico de préstamos. El análisis de requerimientos sería el s
 
   * Aparte del préstamo actual, querremos saber en el pasado a quién se ha prestado. Por tanto en el histórico de préstamos cada ejemplar se habrá prestado a muchos lectores, y para poder llevar el seguimiento nos interesa la fecha de préstamo y la de devolución.
 
-## ![](icon_activity.gif) Ejercicio 6
+## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 6</span></span>
 
 Realizad el esquema E/R que recoja información de una asociación
 de aficionados a las **mariposas**, que quieren guardar información respecto a
@@ -75,7 +75,7 @@ colección:
   * Una mariposa solo puede pertenecer a una colección, y una colección está formada al menos por un ejemplar. Toda mariposa que pertenece a una colección tendrá un determinado valor. 
 
 <!--
-## ![](icon_activity.gif) Ejercicio 7
+## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 7</span></span>
 
 Una empresa de líneas ferroviarias quiere que se le diseñe una Base de Datos para su gestión. Este es el análisis de requerimientos:
 
@@ -95,5 +95,4 @@ Opcionalmente, podemos poner todas las estaciones a las que se llega en un traye
 
 -->
 
-Licenciado bajo la [Licencia Creative Commons Reconocimiento NoComercial
-CompartirIgual 3.0](http://creativecommons.org/licenses/by-nc-sa/3.0/)
+

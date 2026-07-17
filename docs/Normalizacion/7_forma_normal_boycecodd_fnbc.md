@@ -1,3 +1,9 @@
+---
+hide:
+  - toc
+---
+
+
 # 7. Forma Normal Boyce-Codd (FNBC)
 
 
@@ -6,11 +12,11 @@ Tras la creación de la 3FN se observó, posteriormente, que podían haber anoma
 
 Son casos de tablas que aunque están en 3FN, mantienen una dependencia de un atributo secundario con parte de la clave. Es el único caso de dependencia transitiva que se nos podía haber escapado. Gráficamente es el siguiente caso:
 
-![](T4_7_1.png)
+![alt text](image-29.png){width=200}
 
 
-<div style="background-color: #d6eaf8; color: black; padding: 5px;"> 
-Una tabla T está en FNBC si y solo si está en 1FN y las únicas dependencias funcionales elementales son aquellas en las cuales la clave principal (y claves candidatas) determinan un atributo.
+<div class="definition-box">
+Una tabla está en <b>FNBC</b> cuando todas las dependencias funcionales tienen como origen una clave candidata. Es decir, ningún atributo que no sea clave puede determinar a otros atributos.
 </div><p></p>
 ---  
   
@@ -22,17 +28,9 @@ Si la clave está formada por un único atributo y ya estaba en 3FN, la tabla es
 
 <u>**Ejemplo**</u>: Tabla de una guía de calles
 
-**GUÍA DE CALLES**
+![alt text](image-32.png){width=300}
 
-**<u>DIRECCIÓN</u>** |  **<u>CIUDAD</u>** |  **CODPOST**  
----|---|---  
-C/ Pez, 2  |  Benicarló  |  12580   
-C/ Luz, 5  |  Benicarló  |  12580   
-C/ Mar, 4  |  Castelló  |  12005   
-C/ Sol, 4  |  Vinaròs  |  12500   
-C/ Sal, 9  |  Castelló  |  12004   
-C/ Mar, 4  |  Vinaròs  |  12500   
-  
+ 
 Las dependencias funcionales que nos encontramos son:
 
 **DIRECCIÓN . CIUDAD** →**CODPOST**
@@ -41,9 +39,8 @@ Las dependencias funcionales que nos encontramos son:
 
 Gráficamente:
 
+![alt text](image-30.png){width=400}
 
-
-![](T4_7_2.png)
 
 Si observamos atentamente las tuplas de una tabla como esta, veremos que para un mismo código postal existen multitud de tuplas que se corresponden con la misma ciudad (tantas como direcciones haya diferentes), por lo tanto existe información duplicada.
 
@@ -69,47 +66,26 @@ Si tenemos una dependencia funcional **C → B** donde **C** y **B** son disjunt
 
 Se obtienen las proyecciones:
 
-> **A)** Una **primera tabla T1** con todos los atributos, excepto **B** (el que formaba parte de la clave principal); ahora formará parte de la clave principal **C**.
-
-> **B)** Una **segunda tabla T2** con los atributos **C** e **B**, y será la clave principal **C**
-
-En el ejemplo inicial de esta pregunta quedará:
-
-**A)**  
-
-  ![](T4_7_3.png)  
+| Opción | Descripción |
+| --- | --- |
+| **A)** | Una **primera tabla T1** con todos los atributos, excepto **B** (el que formaba parte de la clave principal); ahora formará parte de la clave principal **C**. |
+| **B)** | Una **segunda tabla T2** con los atributos **C** e **B**, y será la clave principal **C**. |
 
 
-**B)** 
-
-  ![](T4_7_4.png)  
+| A) | B) |
+| --- | --- |
+| ![](T4_7_3.png) | ![](T4_7_4.png) |
   
 En el ejemplo de la GUÍA DE CALLES:
 
-![](T4_7_5.png)
+![alt text](image-35.png){width=400}
+
 
 Y quedarían con la siguiente información:
 
-**GUÍA-DIRECCIÓN**
-
-| **<u>DIRECCIÓN</u>** |  **<u>CODPOST</u>** 
----|---
-C/ Pez, 2  |  12580   
-C/ Luz, 5  |  12580   
-C/ Mar, 4  |  12005   
-C/ Sol, 4  |  12500   
-C/ Sal, 9  |  12004   
-C/ Mar, 4  |  12500     
-
-**GUÍA-CODPOST**
-
-| **<u>CODPOST</u>** |  **CIUDAD**  
----|---  
-12004  |  Castelló   
-12005  |  Castelló   
-12500  |  Vinaròs   
-12580  |  Benicarló   
-  
+| DIRECCIÓN-CODPOST | CODPOST-CIUDAD |
+| --- | --- |
+| ![alt text](image-33.png){width=200} | ![](image-34.png){width=200} |
 
 
 Por último, observemos las tablas que nos quedan. ¿Querremos tener una tabla de códigos postales? Si el diseño es para Correos o Telefónica, o una empresa grande que tenga muchos clientes y los quiere tener distribuidos por códigos postales, pues seguro que sí.
@@ -121,6 +97,3 @@ De manera que la representación de las tablas al **modelo relacional** quedarí
     GUIA-DIRECCIÓN(<b>dirección, codpos</b>)
     GUIA-CODPOST(<b>codpost</b>, ciudad)
 </cod></pre>
-****
-
-Licenciado bajo la [Licencia Creative Commons Reconocimiento NoComercial SinObraDerivada 3.0](http://creativecommons.org/licenses/by-nc-nd/3.0/)

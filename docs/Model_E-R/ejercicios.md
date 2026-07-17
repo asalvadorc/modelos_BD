@@ -1,7 +1,7 @@
 # Ejercicios
 
 
-## ![](icon_activity.gif) Ejercicio 1
+## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 1</span></span>
 
 Intentar sacar las entidades y atributos correspondientes a una cooperativa de vino,
 con los siguientes requisitos  
@@ -15,5 +15,4 @@ con los siguientes requisitos
 Intentad hacerlo sobre papel, sin miedo de hacerlo mal.  
 
 
-Licenciado bajo la [Licencia Creative Commons Reconocimiento NoComercial
-CompartirIgual 3.0](http://creativecommons.org/licenses/by-nc-sa/3.0/)
+

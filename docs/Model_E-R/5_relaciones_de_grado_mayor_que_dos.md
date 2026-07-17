@@ -1,65 +1,99 @@
-# 5. Relaciones de grado mayor que dos
+# 5. Relaciones ternarias
+
+En este apartado profundizamos en las **relaciones ternarias** (grado 3),
+que son un caso típico de relación de grado mayor que dos.
+
+---
+
+## 5.1 Relación ternaria frente a tres binarias
+
+A veces se intenta representar una relación ternaria como tres relaciones binarias.
+En ciertos casos puede servir, pero no siempre conserva el mismo significado.
+
+| Relación ternaria completa | Descomposición en binarias |
+|---|---|
+| ![Relación ternaria completa departamento-artículo-proveedor](relacio_tern2.svg){ width="100%" } | ![Descomposición de una ternaria en tres binarias](relacio_tern1.svg){ width="100%" } |
+
+=== "Qué problema aparece"
+
+    Si descomponemos la relación en tres relaciones binarias, pueden darse situaciones ambiguas.
+
+    Por ejemplo:
+
+    - Contabilidad adquiere una calculadora.
+    - Contabilidad compra a Distribuciones García, S.L.
+    - Distribuciones García, S.L. suministra calculadoras.
+
+    Sin embargo, con estas relaciones por separado no se garantiza que la calculadora adquirida por Contabilidad sea precisamente la suministrada por ese proveedor.
+
+=== "Qué aporta la ternaria"
+
+    En una relación ternaria queda registrada, de forma conjunta:
+
+    - quién realiza la compra,
+    - qué producto compra,
+    - y a qué proveedor se lo compra.
+
+    De esta forma, la relación mantiene el significado completo de la operación y evita ambigüedades.
+
+    Por ello, una relación ternaria puede aportar más información semántica que tres relaciones binarias independientes.
 
 
 
-Vamos a estudiar un poco más el caso de las relaciones ternarias. Dada su
-complejidad podríamos, y de hecho así se hace a veces, descomponerla en
-tres relaciones binarias
+---
+
+## 5.2 Cardinalidad en relaciones ternarias
+
+En una relación ternaria, la cardinalidad se interpreta fijando dos entidades
+y observando cuántas ocurrencias intervienen de la tercera.
+
+![ref](relacio_tern2.svg)
+
+<div class="grid cards" markdown>
+
+- Fijamos: **Departamento + Artículo**
+
+	¿A cuántos **proveedores** puede comprar ese departamento ese artículo?
+
+- Fijamos: **Artículo + Proveedor**
+
+	¿Cuántos **departamentos** compran ese artículo a ese proveedor?
+
+- Fijamos: **Departamento + Proveedor**
+
+	¿Cuántos **artículos** compra ese departamento a ese proveedor?
+
+</div>
+
+En el ejemplo, las tres respuestas pueden ser **N**.
+Por eso suele aparecer una cardinalidad **N:N:N**.
+
+No obstante, no tiene por qué ser siempre así.
+Por ejemplo, si un departamento compra cada artículo siempre al mismo proveedor,
+en ese lado la cardinalidad sería **1**.
+
+![Ejemplo de cardinalidad en relación ternaria](relacio_tern3.svg)
+
+
+!!! note "Nota"
+	En relaciones ternarias suele usarse la notación con **N**.
+	En este contexto no usamos **M**, aunque el significado práctico es equivalente.
+
+---
+
+## 5.3 Transformación a relaciones binarias
+
+Algunas herramientas de diseño de bases de datos solo permiten relaciones binarias.
+En ese caso se puede aplicar una transformación:
+
+1. Crear una entidad nueva que represente la combinación ternaria.
+2. Conectarla con las tres entidades originales mediante relaciones binarias.
+3. Hacer que dependa en identificación de esas entidades (entidad débil).
+
+Este enfoque es un recurso técnico de modelado.
+La explicación formal de entidades débiles aparece en el siguiente apartado.
+
+![Transformación de ternaria a entidad débil con binarias](image-2.png)
 
 
 
-![](relacio_tern1.png)
-
-
-
-  
-Así puede haber una ocurrencia de que Contabilidad adquiere una calculadora, otra
-de que Contabilidad compra a Distribuciones Garcia, S.L., y otra de que
-Distribuciones Garcia, S.L. suministra calculadoras.
-
-Pero esto no tiene por qué querer decir que la calculadora comprada por
-Contabilidad, la haya comprado a Distribuciones Garcia, S.L. Puede haberla
-comprado a otro proveedor, y lo que le compra a Garcia son bolígrafos
-(aunque Garcia también pueda vender calculadoras).
-
-En cambio en una relación ternaria se dice quién compra, qué compra y a quién compra.
-Por tanto una relación ternaria proporciona más información que 3 binarias.
-
-
-
-![](relacio_tern2.png)
-
-
-
-La cardinalidad se calcula fijando 2 y viendo cuántas ocurrencias entran en
-la tercera. Así, un determinado departamento puede comprar un determinado artículo
-a más de un proveedor (N). Un artículo de un proveedor lo puede comprar más de un
-departamento (N). Y un departamento puede comprar a un proveedor más de un artículo.
-No tiene porqué ser siempre N:N:N (en este caso de las ternarias no utilizaremos
-ya la M, solo la N). Por ejemplo supongamos que un departamento siempre compra un
-artículo al mismo proveedor; entonces en Proveedor tendríamos 1.
-
-
-
-![](relacio_tern3.png)
-
-
-
-
-
-Algunas herramientas de diseño de B.D. solo permiten relaciones binarias.
-Entonces se tendría que hacer un truco para representar la relación ternaria,
-construyendo una entidad nueva, débil, que dependa en identificación de las otras
-3. Veremos las entidades débiles en el siguiente punto.
-
-
-
-
-
-![](T2_5_4.PNG)
-
-
-
-
-Licenciado bajo la [Licencia Creative Commons Reconocimiento NoComercial
-CompartirIgual 3.0](http://creativecommons.org/licenses/by-nc-sa/3.0/)

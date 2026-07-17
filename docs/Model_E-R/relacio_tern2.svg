@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 490 245" width="490" height="245">
+  <style>
+    .entity { fill: #fff; stroke: #000; stroke-width: 1.5; }
+    .line { stroke: #000; stroke-width: 1.5; fill: none; }
+    .txt { font-family: Georgia, "Times New Roman", serif; font-size: 13px; }
+    .label { font-family: Georgia, "Times New Roman", serif; font-size: 12px; }
+  </style>
+  <rect x="20" y="35" width="135" height="50" class="entity"/>
+  <rect x="335" y="35" width="135" height="50" class="entity"/>
+  <rect x="177" y="170" width="135" height="50" class="entity"/>
+  <polygon points="245,15 290,60 245,105 200,60" class="line"/>
+  <line x1="155" y1="60" x2="200" y2="60" class="line"/>
+  <line x1="290" y1="60" x2="335" y2="60" class="line"/>
+  <line x1="245" y1="105" x2="245" y2="170" class="line"/>
+  <text x="87" y="64" text-anchor="middle" class="label">DEPARTAMENTO</text>
+  <text x="402" y="64" text-anchor="middle" class="label">ARTÍCULO</text>
+  <text x="245" y="200" text-anchor="middle" class="label">PROVEEDOR</text>
+  <text x="245" y="65" text-anchor="middle" class="txt">Compra</text>
+  <text x="187" y="56" class="txt">N</text>
+  <text x="298" y="56" class="txt">N</text>
+  <text x="250" y="132" class="txt">N</text>
+</svg>

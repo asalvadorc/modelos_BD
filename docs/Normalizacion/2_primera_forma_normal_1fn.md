@@ -1,88 +1,139 @@
+---
+hide:
+  - toc
+---
 # 2. Primera Forma Normal (1FN)
 
  
-<div style="background-color: #d6eaf8; color: black; padding: 5px;"> 
-Una tabla está en 1FN si y solo si los valores que componen cada atributo de una tupla son atómicos. Es decir, en un atributo no deben aparecer valores repetitivos.</div>
+<div class="definition-box">
+  <div class="box-title">Definición (1FN)</div>
+  Una relación está en Primera Forma Normal (1FN) cuando todos sus atributos contienen valores atómicos, es decir, cada celda almacena un único valor y no existen grupos repetitivos ni atributos multivaluados.
+</div>
 ---  
 
+!!!Warning "Problemas cuando una tabla no cumple la Primera Forma Normal (1FN):"
+    - Redundancia de datos, al almacenar información repetida.
+    - Anomalías de inserción, actualización y borrado, que pueden provocar inconsistencias o pérdida de información.
+    - Consultas más complejas, debido a que los datos no están organizados de forma uniforme.
+    - Menor flexibilidad y mayor mantenimiento, al dificultar la ampliación y modificación de la base de datos.
 
-Por ejemplo, en la siguiente tabla hay una serie de tipos de materiales existentes en una ferretería. Un material tiene un código que lo identifica, su descripción y sus medidas (la clave principal es el campo subrayado)
 
-**MATERIALES**
+!!!Note "Casos en los que una tabla no está en 1FN:"
+    - Varios valores en una misma celda.
+    - Un campo para cada posible valor.
+    - Atributos compuestos.
+
+<div class="case-card" markdown>
+
+**<span class="case-badge">CASO 1</span> Varios valores en una misma celda**
+
+En este caso tenemos un campo para almacenar varias medidas de un mismo material.
 
 <u>**COD-MAT**</u> |  **DESCRIPCIÓN** |  **MEDIDAS**  
 ---|---|---  
 039  |  Tornillo  |  3,5 - 5 - 7 - 9   
 067  |  Arandela  |  2 - 5   
 461  |  Broca  |  2,5 - 3 - 3,5   
-  
-Los problemas que plantea **el campo MEDIDAS** son los siguientes:
 
-  * La falta de espacio en el campo para los valores que puedan aparecer o, por el contrario, el desaprovechamiento del atributo cuando existen pocos valores. 
-
-  * La dificultad del tratamiento para actualizaciones, consultas y búsquedas de un valor determinado. 
-
-  
-
-**<u>Poner en 1FN</u>**
-
-Para pasar a 1FN una tabla que no lo estaba **se descompone** en **dos** distintas:
-
-**A)** La **primera tabla** será la proyección de la tabla original sobre los siguientes atributos:
-
-  * La clave de la tabla original. 
-  * Los atributos atómicos (los que contienen valores únicos). 
-  
-**MATERIALES**
-
-<u>**COD-MAT**</u> |  **DESCRIPCIÓN**  
----|---  
-039  |  Tornillo   
-067  |  Arandela   
-461  |  Broca
-
-
-  
-**B)** La **segunda tabla** será la proyección de la tabla original sobre los siguientes atributos:
-
-  * La clave de la tabla original. 
-  * Los atributos que tienen valores múltiples, distribuyendo estos valores múltiples en tuplas distintas y por lo tanto en una fila existirá un único valor elemental. 
-
-> La clave de esta segunda tabla estará formada por todos los atributos.
-
-**MAT-MEDIDAS**
-
-<u>**COD-MAT**</u> | **MEDIDA**  
----|---  
-039  |  3,5   
-039  |  5   
-039  |  7   
-039  | 9   
-067  |  2   
-067  |  5   
-461  |  2,5   
-461  |  3   
-461  |  3,5   
-  
-
-<u>**Nota**</u> 
-<div style="background-color: #d6eaf8; color: black; padding: 5px;"> 
-También deberemos ser capaces de detectar que no está en 1FN cuando tenemos unos atributos multivaluados "encubiertos". Por ejemplo, una variante del ejemplo anterior podría ser:
 </div>
-<p></p>
 
-**MATERIALES**
+<div class="case-card" markdown>
+
+**<span class="case-badge">CASO 2</span> Un campo para cada posible valor (grupos repetitivos)**
+
+En este caso tenemos un campo para cada medida. 
 
 <u>**COD-MAT**</u> |  **DESCRIPCIÓN** |  **MEDIDA1** | **MEDIDA2** |  **MEDIDA3** | **MEDIDA4**  
 ---|---|---|---|---|---  
 039  |  Tornillo  |  3,5  |  5 |  7 |  9  
 067  |  Arandela  |  2  |  5 |  |   
 461  |  Broca  |  2,5  |  3 |  3,5 |   
+
+</div>
+
+<div class="case-card" markdown>
+
+**<u>Poner en 1FN</u>**
+
+Los casos **1** y **2** comparten la misma solución: la tabla que no estaba en 1FN **se descompone** en **dos** tablas distintas:
+
+<div class="tables-side-by-side" markdown>
+
+<div markdown>
+
+**A)** La **primera tabla** se creará con los siguientes atributos:
+
+  * La clave de la tabla original.
+  * Los atributos atómicos (los que contienen valores únicos).
+
+
+<u>**COD-MAT**</u> |  **DESCRIPCIÓN**
+---|---
+039  |  Tornillo
+067  |  Arandela
+461  |  Broca
+
+</div>
+
+<div markdown>
+
+**B)** La **segunda tabla** se creará con los siguientes atributos:
+
+  * La clave de la tabla original.
+  * Los atributos que contienen varios valores se separan en distintas filas, de forma que en cada fila aparezca un único valor.
+
+La clave primaria de esta segunda tabla estará formada por **COD-MAT + MEDIDA**.
+
+<u>**COD-MAT**</u> | <u>**MEDIDA**</u>
+---|---
+039  |  3,5
+039  |  5
+039  |  7
+039  | 9
+067  |  2
+067  |  5
+461  |  2,5
+461  |  3
+461  |  3,5
+
+</div>
+
+</div>
+
+Con esta descomposición se eliminan los grupos repetitivos y se consigue que cada celda almacene un único valor atómico.
+
   
+</div>
+
+<div class="case-card" markdown>
+
+**<span class="case-badge">CASO 3</span> Atributos compuestos**
+
+En este caso el atributo PROVEEDOR mezcla dos datos distintos: el nombre del proveedor y la ciudad.
+
+<u>**COD-MAT**</u> |  **DESCRIPCIÓN** |  **PROVEEDOR**  
+---|---|---  
+039  |  Tornillo  |  Ferretería López, Castellón   
+067  |  Arandela  |  Suministros Pérez, Valencia  
+461  |  Broca  |  Herramientas SL, Madrid  
+
+**<u>Poner en 1FN</u>**
+
+Si el problema es un **atributo compuesto**, la solución no consiste en crear una segunda tabla, sino en **descomponer ese atributo en atributos atómicos** dentro de la misma relación.
 
 
-Se ve que se trata de una manera de "disimular" los atributos multivaluados. Estamos ante el mismo caso que en el ejemplo de arriba y tendremos los mismos problemas, y por lo tanto la solución es la misma.  
+<u>**COD-MAT**</u> | **DESCRIPCIÓN** | **PROVEEDOR** | **CIUDAD**
+---|---|---|---
+039 | Tornillo | Ferretería López | Castellón
+067 | Arandela | Suministros Pérez | Valencia
+461 | Broca | Herramientas SL | Madrid
+
+En este caso, la tabla queda en 1FN porque cada atributo almacena un único dato elemental.
+
+</div>
 
 
 
-Licenciado bajo la [Licencia Creative Commons Reconocimiento NoComercial SinObraDerivada 3.0](http://creativecommons.org/licenses/by-nc-nd/3.0/)
+
+
+

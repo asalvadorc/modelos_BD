@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # 5. Dependencia Funcional Transitiva
 
 
@@ -6,9 +11,8 @@ La dependencia funcional transitiva se aplica para analizar las tablas en tercer
 
 En términos simples, esta dependencia ocurre cuando un atributo no clave (o no primario) depende indirectamente de la clave principal mediante otro atributo.
 
-<div style="background-color: #d6eaf8; color: black; padding: 5px;"> 
-
-<b>Dependencia transitiva:</b> A→B→C. Si A→B y B→C, entonces decimos que C depende de forma transitiva de A.
+<div class="definition-box">
+<div class="box-title">Dependencia transitiva:</b> (A→B→C)</div> Si A→B y B→C, entonces decimos que C depende de forma transitiva de A.
 </div> 
 ---  
 <!--
@@ -17,7 +21,7 @@ Supongamos tres subconjuntos distintos de atributos A, B y C que pertenecen a un
   
 Gráficamente se puede mostrar:
 
-![](T4_5_1.png)
+![alt text](image-12.png){width=200}
 
 Por lo tanto, un atributo C es transitivamente dependiente de otro A si se conoce por diferentes vías, una directamente, y otra a partir de otro atributo intermedio B.
 
@@ -25,21 +29,17 @@ Por ejemplo, consideremos tres atributos que forman parte de la tabla ALUMNOS:
 
 * NUMMAT = nº de matrícula.
 * GRUPO = Grupo asignado.
-* AULAGRUPO = Aula asignada al grupo.
+* AULAGRUPO = Aula asignada al grupo.  
 
 
+**NUMMAT** →**GRUPO | AULAGRUPO**
 
->>> **NUMMAT** →**GRUPO | AULAGRUPO**
-
->>> **GRUPO** →**AULAGRUPO**
+**GRUPO** →**AULAGRUPO**  
 
   
 El atributo AULAGRUPO es transitivamente dependiente de NUMMAT, ya que se puede conocer por medio del atributo NUMMAT y a través del atributo GRUPO
 
-
-
-![](T4_5_2.png)
+![alt text](image-15.png){width=400}
 
 
 
-Licenciado bajo la [Licencia Creative Commons Reconocimiento NoComercial SinObraDerivada 3.0](http://creativecommons.org/licenses/by-nc-nd/3.0/)
