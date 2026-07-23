@@ -1,6 +1,5 @@
-## 🧪 Práctica 0
+## 🧪 Objetivo
 
-**Objetivo**
 
 El objetivo de esta práctica no es evaluar tus conocimientos sobre el modelo Entidad/Relación, sino aprender la metodología de trabajo que utilizarás durante todo el curso.
 
