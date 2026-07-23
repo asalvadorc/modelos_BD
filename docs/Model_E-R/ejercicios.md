@@ -1,10 +1,6 @@
-# Ejercicios
+# Ejercicio
 
-!!! tip "Revisa tu solución"
-
-    Antes de consultar la solución oficial, revisa tu propuesta utilizando el prompt del apartado **[Cómo utilizar la IA para aprender](../IA.md)**.
-
-
+   
 ## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 1</span></span>
 
 Intentar sacar las entidades y atributos correspondientes a una cooperativa de vino,
@@ -16,8 +12,7 @@ con los siguientes requisitos
 
   * Los socios retiran de la cooperativa distintas cantidades. Se les hace un vale donde tiene que constar la fecha y la cantidad retirada.
 
-Intentad hacerlo sobre papel, sin miedo de hacerlo mal.  
+🎯 Intenta resolver el ejercicio primero sobre papel, sin miedo a equivocarte. Si lo deseas, puedes revisar posteriormente tu propuesta con la IA para detectar posibles errores y mejorarla. Una vez hayas finalizado el proceso de revisión (o si prefieres no utilizar la IA), consulta la solución y compárala con la tuya.
 
-
-
-
+??? success "⏳ espera antes de ver la solución"
+    ![](Ej1_drawio.png)

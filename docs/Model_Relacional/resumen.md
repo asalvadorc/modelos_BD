@@ -3,4 +3,4 @@ hide:
     - toc
 ---
 
- ![](reglas_transformacion.png)
+![alt text](reglas_transformacion.png)

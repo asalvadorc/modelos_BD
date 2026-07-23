@@ -6,14 +6,10 @@ Antes de consultar la resolución, asegúrate de haber intentado resolver el eje
 ??? success "Ver solución propuesta Ejercicio 1"
     * **Entidad SOCIOS**: Atributos (<u>DNI</u>, nombre, dirección, ciudad, código postal, ...)
     * **Entidad CLASES_VINO**: Atributos (<u>ID_Clase</u>, descripción, precio_venta, categoría, procedencia, año_cosecha)
-    * **Entidad VALE_RETIRO**: Atributos (<u>ID_Vale</u>, fecha, cantidad_retirada)
-    *(Nota: La relación entre estas entidades se verá en el siguiente tema)*
-
-
+    
 ??? success "Ver solución propuesta Ejercicio 1 bis"
-    * **SOCIOS** (1,N) --- *retiran* --- (1,1) **VALE_RETIRO**
-    * **VALE_RETIRO** (1,N) --- *contiene* --- (0,N) **CLASES_VINO**    
 
+    ![](Ej1bis.png)
 
 ??? success "Ver solución propuesta Ejercicio 2"
     * **PERSONA** (1,1) --- *habita* --- (0,N) **VIVIENDA**
@@ -29,7 +25,7 @@ Antes de consultar la resolución, asegúrate de haber intentado resolver el eje
     * **PROFESOR** --- *adscrito_a* --- **CÁTEDRA** (Atributo: *fecha*)
     * **ÁREA_CONOCIMIENTO** --- *incluye* --- **DEPARTAMENTO**    
 
-??? success "Ver solución propuesta (Ejercicio 4)"
+??? success "Ver solución propuesta Ejercicio 4"
     * **BANCO** --- *tiene* --- **SUCURSAL**
     * **SUCURSAL** --- *asignada* --- **CUENTA**
     * **CUENTA** --- *pertenece_a* --- **CLIENTE** (Atributos de relación: *privilegios*)
@@ -37,7 +33,7 @@ Antes de consultar la resolución, asegúrate de haber intentado resolver el eje
     * **SUCURSAL** --- *otorga* --- **PRÉSTAMO** --- *a* --- **CLIENTE**
 
 
-??? success "Ver solución propuesta (Ejercicio 5)"
+??? success "Ver solución propuesta Ejercicio 5"
     * **LIBRO** --- *trata* --- **TEMA**
     * **LIBRO** --- *editado_por* --- **EDITORIAL**
     * **LIBRO** --- *escrito_por* --- **AUTOR**
@@ -46,7 +42,7 @@ Antes de consultar la resolución, asegúrate de haber intentado resolver el eje
     * **EJEMPLAR** --- *historico_prestamos* --- **LECTOR** (Atributos: *fecha_prestamo*, *fecha_devolucion*)
 
 
-??? success "Ver solución propuesta (Ejercicio 6)"
+??? success "Ver solución propuesta Ejercicio 6"
     * **MARIPOSA** --- *pertenece_a* --- **ESPECIE** --- *pertenece_a* --- **GÉNERO** --- *pertenece_a* --- **FAMILIA**
     * **PERSONA** --- *captura* --- **MARIPOSA** (Atributos: *comarca*, *duración_observación*)
     * **PERSONA** --- *propietaria* --- **COLECCIÓN**

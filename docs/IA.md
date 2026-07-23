@@ -48,10 +48,21 @@ podrás resolver completamente el ejercicio explicando el razonamiento seguido.
 
 ## ¿Cómo utilizar este prompt?
 
-Cada vez que quieras revisar un ejercicio:
+Cada vez que quieras revisar un ejercicio, sigue estos pasos:
 
-1. Copia el prompt anterior en la IA.
-2. A continuación, pega el enunciado del ejercicio.
-3. Después, añade tu solución (texto, imagen o diagrama).
-4. Sigue las indicaciones de la IA hasta corregir tu propuesta.
-5. Solo cuando estés satisfecho, consulta la solución incluida en los apuntes.
+1. Resuelve el ejercicio por tu cuenta, sin consultar la solución.
+2. Abre la IA de tu elección (ChatGPT, Copilot, Gemini, Claude, etc.).
+3. Copia el prompt de estos apuntes.
+4. Pega el enunciado del ejercicio.
+5. Añade tu solución:  
+    - Si se trata de un ejercicio escrito, pega el texto.
+    - Si el ejercicio consiste en un diagrama (por ejemplo, un modelo E/R), puedes elegir una de estas opciones:
+        - Realizar el diagrama con diagrams.net (**Draw.io**) y exportarlo como PNG antes de adjuntarlo a la conversación.
+        - Realizar el diagrama **a mano sobre papel**, hacer una fotografía con buena iluminación y subirla a la conversación.
+6. Sigue las indicaciones de la IA hasta corregir tu propuesta.
+7. Consulta la solución oficial únicamente cuando hayas terminado la revisión o no consigas avanzar.
+
+!!! tip "Recomendación"
+    Para los ejercicios de modelado E/R se recomienda utilizar **diagrams.net (Draw.io)**. Además de ser una herramienta gratuita y sencilla de utilizar, genera diagramas que la IA puede interpretar y corregir con gran precisión.
+
+

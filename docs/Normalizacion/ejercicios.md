@@ -1,5 +1,6 @@
 # Ejercicios
 
+
 !!! tip "Revisa tu solución"
 
     Antes de consultar la solución oficial, revisa tu propuesta utilizando el prompt del apartado **[Cómo utilizar la IA para aprender](../IA.md)**.
