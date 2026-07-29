@@ -99,8 +99,8 @@ nav:
     - 7. Restricciones externas: Model_E-R/7_restricciones_externas.md
     - 8. Resumen elementos gráficos: Model_E-R/8_resumen_elementos_graficos.md
     - Ejercicios: Model_E-R/ejercicios1.md
-    - Soluciones: Model_E-R/soluciones.md
-    - Información adicional: Model_E-R/informacion_adicional.md
+    #- Soluciones: Model_E-R/soluciones.md
+    #- Información adicional: Model_E-R/informacion_adicional.md
   - Tema 2. Modelo Relacional:
     - Model_Relacional/index.md
     - 1. Introducción: Model_Relacional/1_introduccion.md
@@ -109,7 +109,7 @@ nav:
     - 4. Restricciones: Model_Relacional/4_restricciones.md
     - 5. Resumen: Model_Relacional/resumen.md
     - Ejercicios: Model_Relacional/5_ejercicios.md  
-    - #Soluciones: Model_Relacional/soluciones.md
+    #- Soluciones: Model_Relacional/soluciones.md
   - Tema 3. Normalización:
     #- Objetivos: Normalizacion/objetivos.md
     - 1. Introducción: Normalizacion/1_introduccion.md
@@ -122,4 +122,4 @@ nav:
     - Ejemplo Completo: Normalizacion/Ejemplo_completo.md
     - Resumen: Normalizacion/resumen.md
     - Ejercicios: Normalizacion/ejercicios.md
-    - #Soluciones: Normalizacion/soluciones.md
+    #- Soluciones: Normalizacion/soluciones.md
