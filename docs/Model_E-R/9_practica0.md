@@ -13,7 +13,7 @@ Al finalizar esta práctica sabrás:
 ---
 
 !!! abstract "Enunciado"
-    Se desea diseñar un modelo Entidad/Relación para gestionar la información de los alumnos y los grupos de un centro educativo. De cada alumno se desea almacenar su identificador, nombre y apellidos. De cada grupo interesa conocer su identificador y su nombre. Además, cada alumno pertenece a un único grupo, mientras que un grupo puede estar formado por varios alumnos.
+    Se desea diseñar un modelo Entidad/Relación para gestionar la información de los alumnos y los grupos de un **centro educativo**. De cada alumno se desea almacenar su identificador, nombre y apellidos. De cada grupo interesa conocer su identificador y su nombre. Además, cada alumno pertenece a un único grupo, mientras que un grupo puede estar formado por varios alumnos.
 
     ??? note "Desglose"
 

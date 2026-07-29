@@ -41,9 +41,7 @@ Recordad que teníamos 3 opciones:
 ## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 6</span></span>
 
 
-
-
-![](T2Ex6.jpeg)
+![alt text](image.png)
 
 
 ## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 7</span></span>

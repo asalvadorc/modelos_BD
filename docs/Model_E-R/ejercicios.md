@@ -3,7 +3,7 @@
    
 ## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 1</span></span>
 
-Intentar sacar las entidades y atributos correspondientes a una cooperativa de vino,
+Intentar sacar las entidades y atributos correspondientes a una **cooperativa de vino**,
 con los siguientes requisitos  
 
   * En la cooperativa hay una serie de socios de los cuales nos interesa el nombre, dirección, ciudad, código postal, DNI, ... 

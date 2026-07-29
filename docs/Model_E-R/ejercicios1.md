@@ -7,7 +7,7 @@
     
 ## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 3</span></span>
 
-Diseñar un esquema E/R que recoja información sobre una universidad. Se
+Diseñar un esquema E/R que recoja información sobre una **universidad**. Se
 considera que:
 
   * Los departamentos (como por ejemplo el Departamento de _Lenguajes y Sistemas Informáticos_) pueden estar en una única facultad o ser interfacultativos, agrupando en este caso cátedras que pertenecen a facultades distintas.
@@ -27,7 +27,7 @@ considera que:
 
 ## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 4</span></span>
 
-El análisis de requisitos de una determinada red bancaria es el siguiente:
+El análisis de requisitos de una determinada **red bancaria** es el siguiente:
 
   * De cada banco nos interesa el nombre y la dirección de la sede social. Hay un código distinto para cada entidad bancaria.
 
