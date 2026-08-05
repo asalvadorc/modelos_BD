@@ -70,13 +70,13 @@ Las relaciones 1:N de nuestro **ejemplo** se representarían así:
 
 !!! quote ""
     - EMPLEADO (<u>dni</u>, nombre, direccion, telefono, sueldo, fecha_n, <mark>departamento</mark>, <mark>supervisor</mark>)
-        - departamento -> DEPARTAMENTO (num_d) [no nulo]
+        - departamento -> DEPARTAMENTO (num_d) <span class="tag-no-nulo">[no nulo]</span>
         - supervisor -> EMPLEADO (dni)
     - DEPARTAMENTO (<u>num_d</u>, nombre_d)
     - PROYECTO (<u>num_p</u>, nombre_p, <mark>departamento</mark>)
-        - departamento -> DEPARTAMENTO (num_d) [no nulo]
+        - departamento -> DEPARTAMENTO (num_d) <span class="tag-no-nulo">[no nulo]</span>
     - FAMILIAR (<u>nombre</u>, fecha_n, parentesco, <mark>dni_e</mark>)
-        - dni_e -> EMPLEADO (dni) [no nulo]
+        - dni_e -> EMPLEADO (dni) <span class="tag-no-nulo">[no nulo]</span>
 
 
   * Por la relación **_Pertenece_** (figura de arriba) incluiremos el atributo **departamento** a **Empleado**, que además deberá ser no nulo.
@@ -159,7 +159,7 @@ Todos los departamentos tienen director (no nula) y solo uno (única), pero no t
 
 !!! quote ""
     - DEPARTAMENTO (<u>num_d</u>, nom_d, <mark>director</mark>, Fecha)
-        - director -> EMPLEADO (dni) [no nula] [única]
+        - director -> EMPLEADO (dni) <span class="tag-no-nulo">[no nula]</span> [única]
 
 
 
@@ -228,7 +228,7 @@ En el ejemplo:
 ![alt text](image-19.png)
 
 !!! quote ""
-    - FAMILIAR (<u><mark>dni_e</mark>, nom_f</u>, fecha_n, parentesco  (borrar en cascada)
+    - FAMILIAR (<u><mark>dni_e</mark>, nom_f</u>, fecha_n, parentesco  <span class="tag-cascade">(borrar en cascada)</span>
         - dni_e -> PERSONA (dni)
 
 
@@ -260,7 +260,7 @@ Importante:
 - Es **una única clave externa compuesta**.
 
 !!! quote ""
-    - FAMILIAR (<u><i>dni_e</i>, nom_f</u>, fecha_n, parentesco  (borrar en cascada)
+    - FAMILIAR (<u><i>dni_e</i>, nom_f</u>, fecha_n, parentesco  <span class="tag-cascade">(borrar en cascada)</span>
         - dni_e -> PERSONA (dni)
     - CARTAS (<u>id</u>, texto, <mark>dni_e, nom_f</mark>)
         - dni_e, nom_f -> FAMILIAR (dni_e, nom_f)
@@ -309,9 +309,9 @@ Las claves externas se mantienen y, normalmente, son no nulas:
     - ARTICULO (<u>cod_art</u>, ....)
     - PROVEEDOR (<u>cod_pr</u>, ....)
     - COMPRA (<u>id</u>,<mark>num_d</mark>, <mark>cod_art</mark>, <mark>cod_pr</mark>, fecha_c , cantidad) 
-        - num_d -> DEPARTAMENTO (num_d) [no nulo]
-        - cod_art-> ARTICULO (cod_art) [no nulo]
-        - cod_pr-> PROVEEDOR (cod_pr) [no nulo]
+        - num_d -> DEPARTAMENTO (num_d) <span class="tag-no-nulo">[no nulo]</span>
+        - cod_art-> ARTICULO (cod_art) <span class="tag-no-nulo">[no nulo]</span>
+        - cod_pr-> PROVEEDOR (cod_pr) <span class="tag-no-nulo">[no nulo]</span>
 
 
 ## 3.8 Especializaciones
@@ -425,14 +425,14 @@ Sin tener en cuenta la especialización tendremos esta solución:
 
 !!! quote ""
     - EMPLEADO (<u>dni</u>, nombre, direccion, telefono, sueldo, fecha_n, <mark>departamento</mark>, <mark>supervisor</mark>)
-        - departamento -> DEPARTAMENTO (num_d) [no nulo]
+        - departamento -> DEPARTAMENTO (num_d) <span class="tag-no-nulo">[no nulo]</span>
         - supervisor -> EMPLEADO (dni)
-    - FAMILIAR (<u><mark>dni_e</mark>, nombre_f</u>, fecha_n, parentesco, ) (borrar en cascada)
+    - FAMILIAR (<u><mark>dni_e</mark>, nombre_f</u>, fecha_n, parentesco, ) <span class="tag-cascade">(borrar en cascada)</span>
         - dni_e -> EMPLEADO (dni)   
     - DEPARTAMENTO (<u>num_d</u>, nombre_d, <mark>director</mark>, fecha)
-        - director -> EMPLEADO (dni) [no nulo] [unico]
+        - director -> EMPLEADO (dni) <span class="tag-no-nulo">[no nulo]</span> [unico]
     - PROYECTO (<u>num_p</u>, nombre_p, <mark>departamento</mark>)
-        - departamento -> DEPARTAMENTO (num_d) [no nulo]
+        - departamento -> DEPARTAMENTO (num_d) <span class="tag-no-nulo">[no nulo]</span>
     - TRABAJA (<u><mark>dni</mark>, <mark>num_p</mark></u>, horas)    
         - dni -> EMPLEADO (dni)
         - num_p -> PROYECTO (num_p)
@@ -448,18 +448,18 @@ Y teniendo en cuenta la especialización:
 
 !!! quote ""
     - EMPLEADO (<u>dni</u>, nombre, direccion, telefono, sueldo, fecha_n, <mark>departamento</mark>, <mark>supervisor</mark>)
-        - departamento -> DEPARTAMENTO (num_d) [no nulo]
+        - departamento -> DEPARTAMENTO (num_d) <span class="tag-no-nulo">[no nulo]</span>
         - supervisor -> EMPLEADO (dni)
     - JEFE (<u><mark>dni</mark></u>, opinion)
         - dni -> EMPLEADO (dni)
     - TRABAJADOR  (<u><mark>dni</mark></u>, horas_extra) 
         - dni -> EMPLEADO (dni)     
-    - FAMILIAR (<u><mark>dni_e</mark>, nombre_f</u>, fecha_n, parentesco, ) (borrar en cascada)
+    - FAMILIAR (<u><mark>dni_e</mark>, nombre_f</u>, fecha_n, parentesco, ) <span class="tag-cascade">(borrar en cascada)</span>
         - dni_e -> EMPLEADO (dni)   
     - DEPARTAMENTO (<u>num_d</u>, nombre_d, <mark>director</mark>, fecha)
-        - director -> JEFE (dni) [no nulo] [unico]
+        - director -> JEFE (dni) <span class="tag-no-nulo">[no nulo]</span> [unico]
     - PROYECTO (<u>num_p</u>, nombre_p, <mark>departamento</mark>)
-        - departamento -> DEPARTAMENTO (num_d) [no nulo]
+        - departamento -> DEPARTAMENTO (num_d) <span class="tag-no-nulo">[no nulo]</span>
     - TRABAJA (<u><mark>dni</mark>, <mark>num_p</mark></u>, horas)    
         - dni -> EMPLEADO (dni)
         - num_p -> PROYECTO (num_p)

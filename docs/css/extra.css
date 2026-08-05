@@ -301,9 +301,74 @@ p {
     border-left: 4px solid #9a9a9a;
 }
 
+/* Keep quote boxes readable in dark mode */
+[data-md-color-scheme="slate"] .md-typeset .admonition.quote,
+[data-md-color-scheme="slate"] .md-typeset details.quote {
+    background-color: #263231;
+    border: 1px solid #4f6462;
+    border-left: 4px solid #7d9390;
+    color: #e6f1ef;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .admonition.quote > .admonition-title,
+[data-md-color-scheme="slate"] .md-typeset details.quote > summary {
+    background-color: rgba(230, 241, 239, 0.08);
+    color: #e6f1ef;
+}
+
 .md-typeset .admonition {
     border-radius: 4px;
     border-left: 4px solid #013E37;
+}
+
+/* Semantic tags for relational constraints */
+.md-typeset .tag-no-nulo,
+.md-typeset .tag-cascade,
+.md-typeset .tag-unico {
+    display: inline-block;
+    padding: 0.08rem 0.45rem;
+    border-radius: 999px;
+    font-size: 0.78em;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    vertical-align: baseline;
+    margin-left: 0.2rem;
+}
+
+.md-typeset .tag-no-nulo {
+    color: #214a00;
+    background: #e7f7cc;
+    border: 1px solid #8ebf4f;
+}
+
+.md-typeset .tag-cascade {
+    color: #7a2f00;
+    background: #ffe2cc;
+    border: 1px solid #e39a63;
+}
+
+.md-typeset .tag-unico {
+    color: #073b5b;
+    background: #d7f1ff;
+    border: 1px solid #5bb6e8;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .tag-no-nulo {
+    color: #dcffc0;
+    background: rgba(82, 123, 33, 0.34);
+    border: 1px solid #9cd463;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .tag-cascade {
+    color: #ffd7bf;
+    background: rgba(122, 60, 24, 0.4);
+    border: 1px solid #f0ab78;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .tag-unico {
+    color: #caeeff;
+    background: rgba(16, 78, 112, 0.42);
+    border: 1px solid #6dc8ff;
 }
 
 /* Align icon + text headings on the same baseline/height */
