@@ -54,7 +54,9 @@ Además, ¿qué sucede si se elimina la tupla con dirección "C/ Sol, 4" de "Vin
 
 Si analizamos con más detalle la tabla, veríamos que en realidad se puede sustituir la clave principal por **A + C** (en el ejemplo **DIRECCIÓN + CÓDIGO POSTAL**), ya que si A + B ya era clave principal, como por cada valor de C solo podemos tener uno de B, la combinación A + C también podrá identificar unívocamente cada ocurrencia de la tabla. Por lo tanto, si sustituyéramos la clave principal, ya no tendríamos dudas de cómo normalizar la tabla, que será justamente como veremos a continuación:
 
-![](T4_7_1.png)  es equivalente a   ![](T4_7_1_5.png)  
+|  |  |  |
+| --- | :---: | --- |
+| ![alt text](image-7.png){width=320} | **es equivalente a** | ![alt text](image-8.png){width=320} |
   
 
 
@@ -74,7 +76,7 @@ Se obtienen las proyecciones:
 
 | A) | B) |
 | --- | --- |
-| ![](T4_7_3.png) | ![](T4_7_4.png) |
+| ![alt text](image-13.png){width=200} | ![alt text](image-14.png){width=300} |
   
 En el ejemplo de la GUÍA DE CALLES:
 
@@ -83,9 +85,9 @@ En el ejemplo de la GUÍA DE CALLES:
 
 Y quedarían con la siguiente información:
 
-| DIRECCIÓN-CODPOST | CODPOST-CIUDAD |
+| GUIA-DIRECCIÓN | GUIA-CODPOST |
 | --- | --- |
-| ![alt text](image-33.png){width=200} | ![](image-34.png){width=200} |
+| ![alt text](image-33.png){width=250} | ![](image-34.png){width=200} |
 
 
 Por último, observemos las tablas que nos quedan. ¿Querremos tener una tabla de códigos postales? Si el diseño es para Correos o Telefónica, o una empresa grande que tenga muchos clientes y los quiere tener distribuidos por códigos postales, pues seguro que sí.
@@ -93,7 +95,9 @@ Por último, observemos las tablas que nos quedan. ¿Querremos tener una tabla d
 Pero si se trata de una empresa no demasiado grande, y que tampoco interesa demasiado la distribución por códigos postales, seguramente mantener una tabla de códigos postales puede parecer incluso ridículo. Entonces, mantener la tabla en 3FN y asumir la poquita redundancia que supone no tenerla en FNBC, puede ser incluso saludable. Por eso se ha comentado desde el principio del tema la importancia de normalizar hasta la 3FN, y la FNBC tiene una importancia relativa.
 
 De manera que la representación de las tablas al **modelo relacional** quedaría de la siguiente manera:
-<pre><cod>
-    GUIA-DIRECCIÓN(<b>dirección, codpos</b>)
-    GUIA-CODPOST(<b>codpost</b>, ciudad)
-</cod></pre>
+
+!!! quote ""
+    - GUIA-DIRECCIÓN(<u>dirección, codpos</u>)
+    - GUIA-CODPOST(<u>codpost</u, ciudad)
+
+

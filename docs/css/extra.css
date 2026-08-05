@@ -371,6 +371,66 @@ p {
     border: 1px solid #6dc8ff;
 }
 
+/* Colored chips for Normalizacion full example steps */
+.md-typeset .example-chip {
+    display: inline-block;
+    padding: 0.2rem 0.65rem;
+    border-radius: 999px;
+    font-size: 0.82em;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    margin-top: 0.35rem;
+    margin-bottom: 0.35rem;
+}
+
+.md-typeset .example-chip.chip-inicial {
+    color: #2e2400;
+    background: #ffefb3;
+    border: 1px solid #d8b84d;
+}
+
+.md-typeset .example-chip.chip-grafo {
+    color: #00384e;
+    background: #d9f3ff;
+    border: 1px solid #65bde7;
+}
+
+.md-typeset .example-chip.chip-norm {
+    color: #254400;
+    background: #e1f6cc;
+    border: 1px solid #89bf4f;
+}
+
+.md-typeset .example-chip.chip-solucion {
+    color: #4d1a00;
+    background: #ffe0cf;
+    border: 1px solid #df9468;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .example-chip.chip-inicial {
+    color: #ffeebd;
+    background: rgba(133, 106, 17, 0.42);
+    border: 1px solid #d9bc56;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .example-chip.chip-grafo {
+    color: #d0f2ff;
+    background: rgba(18, 87, 117, 0.44);
+    border: 1px solid #73c8ef;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .example-chip.chip-norm {
+    color: #def9c7;
+    background: rgba(66, 106, 29, 0.42);
+    border: 1px solid #96cf59;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .example-chip.chip-solucion {
+    color: #ffdaca;
+    background: rgba(132, 56, 21, 0.42);
+    border: 1px solid #f0aa7f;
+}
+
 /* Align icon + text headings on the same baseline/height */
 .md-typeset .heading-with-icon,
 .md-typeset .exercise-title {

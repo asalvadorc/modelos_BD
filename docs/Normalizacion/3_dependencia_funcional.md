@@ -8,7 +8,7 @@
     Existe una dependencia funcional entre dos conjuntos de atributos cuando el valor de uno de ellos determina de forma única el valor del otro.<br>
     Se representa mediante:  <br>
 
-       <p> CA → B </p>
+       <p> A → B </p>
 
     y se lee:  <br>
 

@@ -9,7 +9,7 @@ hide:
 
 La dependencia funcional transitiva se aplica para analizar las tablas en tercera forma normal (3FN). Consiste básicamente en considerar que **un atributo no primario solo debe conocerse a través de la clave principal o claves secundarias** (atributos que, aunque no son claves principales, sirven para identificar de manera única una fila en algunos contextos específicos). En otro caso, estará produciendo redundancia de información con las anomalías típicas que lleva consigo.
 
-En términos simples, esta dependencia ocurre cuando un atributo no clave (o no primario) depende indirectamente de la clave principal mediante otro atributo.
+En términos simples, esta dependencia ocurre cuando un atributo no clave (o no primario) depende **indirectamente** de la clave principal mediante otro atributo.
 
 <div class="definition-box">
 <div class="box-title">Dependencia transitiva:</b> (A→B→C)</div> Si A→B y B→C, entonces decimos que C depende de forma transitiva de A.

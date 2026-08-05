@@ -28,7 +28,7 @@ Si una tabla **T** tiene como atributos **A, B, C, D** y la clave es **A . B** c
 Se observa que la tabla no se encuentra en 2FN ya que el atributo D no tiene una dependencia funcional total con la clave completa A . B, sino con una parte de la clave (B). El grafo de las dependencias funcionales sería:  
 
 
-![alt text](image-5.png){ width=400 }
+![alt text](image.png){ width=400 }
 
 
 ## Poner en 2FN

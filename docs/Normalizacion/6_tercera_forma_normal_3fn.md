@@ -49,16 +49,18 @@ El grafo queda del siguiente modo:
 
 **Opción 2**
 
-![alt text](image-17.png){width=450}
+![alt text](image-2.png){width=450}
 
 </div>
 
 </div>
 
 
-Las flechas que muestran las dependencias funcionales que tiene la clave candidata B no se representan (como hemos dicho anteriormente) porque son evidentes y no simplifican la visión del grafo. Además, para la normalización, no se necesitan para nada; por el contrario, suelen complicar el análisis.
+!!!Warning "Ojo"
+    Las flechas que muestran las dependencias funcionales que tiene la clave candidata B no se representan (como hemos dicho anteriormente) porque son evidentes y no simplifican la visión del grafo. Además, para la normalización, no se necesitan para nada; por el contrario, suelen complicar el análisis.
 
-La tabla T no está en 3FN ya que los atributos D y E son transitivamente dependientes respecto de la clave A.
+!!!Note ""
+    La tabla T no está en 3FN ya que los atributos D y E son transitivamente dependientes respecto de la clave A.
 
 
 
@@ -72,7 +74,7 @@ Para normalizar una tabla que no esté en tercera forma normal, es decir, que te
 
 **A)** Una **primera tabla** con la clave principal más los atributos que no dependen transitivamente
 
-![alt text](image-18.png){width=400}
+![alt text](image-5.png){width=400}
 
 </div>
 
@@ -80,7 +82,7 @@ Para normalizar una tabla que no esté en tercera forma normal, es decir, que te
 
 **B)** Una **segunda tabla** con los atributos que dependen transitivamente, más el atributo del que dependen, que será clave principal
 
-![alt text](image-19.png){width=400}
+![alt text](image-6.png){width=400}
 
 </div>
 
