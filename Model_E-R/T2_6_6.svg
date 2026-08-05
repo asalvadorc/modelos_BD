@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 490 135" width="490" height="135">
+  <style>
+    .entity { fill: #fff; stroke: #000; stroke-width: 1.5; }
+    .line { stroke: #000; stroke-width: 1.5; fill: none; }
+    .txt { font-family: Georgia, "Times New Roman", serif; font-size: 13px; }
+    .small { font-family: Georgia, "Times New Roman", serif; font-size: 11px; }
+  </style>
+  <rect x="10" y="24" width="140" height="56" class="entity"/>
+  <rect x="338" y="20" width="142" height="64" class="entity"/>
+  <rect x="342" y="24" width="134" height="56" class="entity"/>
+  <polygon points="240,5 285,50 240,95 195,50" class="line"/>
+  <line x1="150" y1="50" x2="195" y2="50" class="line"/>
+  <line x1="285" y1="50" x2="338" y2="50" class="line"/>
+  <line x1="285" y1="54" x2="338" y2="54" class="line"/>
+  <line x1="80" y1="80" x2="80" y2="110" class="line"/>
+  <line x1="409" y1="84" x2="409" y2="110" class="line"/>
+  <circle cx="80" cy="114" r="5" fill="#000"/>
+  <circle cx="409" cy="114" r="5" fill="#000"/>
+  <text x="80" y="56" text-anchor="middle" class="txt">EMPLEADO</text>
+  <text x="409" y="56" text-anchor="middle" class="txt">FAMILIAR</text>
+  <text x="240" y="55" text-anchor="middle" class="txt">tiene</text>
+  <text x="240" y="25" text-anchor="middle" class="small">ID</text>
+  <text x="188" y="47" class="txt">1</text>
+  <text x="292" y="47" class="txt">N</text>
+  <text x="95" y="118" class="txt">DNI</text>
+  <text x="424" y="118" class="txt">Nombre</text>
+</svg>
