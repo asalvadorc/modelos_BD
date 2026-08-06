@@ -8,35 +8,33 @@
 	
 ## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 1</span></span>
 
-Normalizar la tabla relacional que tiene como grafo de dependencias funcionales el siguiente:
+Normaliza la relación representada mediante el siguiente grafo de dependencias funcionales. Se supone que la relación se encuentra inicialmente en Primera Forma Normal (1FN).
 
-![](T4_Ex_1.png)
+![alt text](image-45.png){width=400}
 
-Podéis normalizarlo todo directamente, sin tener que pasar primero por 2FN, 3FN y FNBC.
+
 
 ## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 2</span></span>
 
-En un Instituto tienen distribuida la información en los siguientes ficheros:
+En un instituto, la información se encuentra distribuida en varios ficheros. Considerando cada fichero como una tabla de una base de datos, analizad su estructura y prestad especial atención a comprobar si cumple la Primera Forma Normal (1FN).
 
-=== "T4_Ex_1"
 
-	![](T4_Ex_1.png)
-
-=== "T4_ex_2"
-
-	![](T4_ex_2.png)
+![alt text](image-48.png){width=600}
   
-Normalizad los ficheros, si los consideramos tablas de una Base de Datos. Debéis prestar especial atención a ver si está en 1FN.
+Normalizad 
 
 ## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 3</span></span>
 
-La factura de un hotel es la siguiente:
+La siguiente imagen muestra la factura de un hotel y los campos extraídos de ella para almacenar la información. Prestad especial atención a comprobar si la tabla cumple la Primera Forma Normal (1FN).
 
-![](T4_ex_3.png)
-  
-Si consideramos toda la información en una única tabla tendremos:
+<div class="image-pair-grid">
+  <div class="image-panel">
+    <img src="../image-49.png" alt="Factura de hotel del ejercicio 3" />
+  </div>
+  <div class="image-panel">
+    <img src="../image-50.png" alt="Tabla resultante del ejercicio 3" />
+  </div>
+</div>
 
-![](T4_ex_3_2.png)
-  
-Intentad normalizarla. Prestad especial atención a ver si está en 1FN.
+
 

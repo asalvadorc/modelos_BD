@@ -58,7 +58,9 @@ theme:
 
 extra_css:
   - css/extra.css
-  
+
+extra_javascript:
+  - javascripts/lightbox.js
 
 markdown_extensions:
   - admonition
@@ -99,7 +101,7 @@ nav:
     - 7. Restricciones externas: Model_E-R/7_restricciones_externas.md
     - 8. Resumen elementos gráficos: Model_E-R/8_resumen_elementos_graficos.md
     - Ejercicios: Model_E-R/ejercicios1.md
-    #- Soluciones: Model_E-R/soluciones.md
+    - Soluciones: Model_E-R/soluciones.md
     #- Información adicional: Model_E-R/informacion_adicional.md
   - Tema 2. Modelo Relacional:
     - Model_Relacional/index.md

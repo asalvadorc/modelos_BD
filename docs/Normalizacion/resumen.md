@@ -1,5 +1,6 @@
 # Resumen
 
+![](image-27.png)
 
 **<u>1FN</u>**  
 <div class="definition-box">  

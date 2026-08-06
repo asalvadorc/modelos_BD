@@ -1,6 +1,7 @@
 # Soluciones
 
-Antes de consultar la resolución, asegúrate de haber intentado resolver el ejercicio. Comparar tu propuesta con la solución te ayudará mucho más que leerla directamente.
+!!! warning "Advertencia"
+    Antes de consultar la resolución, asegúrate de haber intentado resolver el ejercicio. Comparar tu propuesta con la solución te ayudará mucho más que leerla directamente.
 
 
 ??? success "Ver solución propuesta Ejercicio 1"
