@@ -213,7 +213,7 @@ hide:
     - **IMPRESORA** (<u>codigo_i</u>, <mark>codigo_o</mark>)
         - codigo_o -> ORDENADOR (codigo_o) <span class="tag-no-nulo">[no nulo]</span> <span class="tag-unico">[unico]</span>
     - **APLICACIÓN** (<u>codigo_a,codigo_o</u>)
-        - codigo_o -> ORDENADOR (codigo_o) <span class="tag-no-nulo">[no nulo]
+        - codigo_o -> ORDENADOR (codigo_o) <span class="tag-no-nulo">[no nulo]</span>
     - **RED_ORDENADOR** (<u><mark>codigo_x</mark></u>, <u><mark>codigo_o</mark></u>)
         - codigo_x -> RED (codigo_x)
         - codigo_o -> ORDENADOR (codigo_o)
@@ -232,10 +232,10 @@ hide:
     
     - **SECTOR** (<u>cod_sector</u>)
     - **CIUDAD** (<u>cod_ciudad</u>, <mark>cod_sector</mark>)
-        - cod_sector -> SECTOR (cod_sector) <span class="tag-no-nulo">[no nulo]
+        - cod_sector -> SECTOR (cod_sector) <span class="tag-no-nulo">[no nulo]</span>
     - **VIAJANTE** (<u>cod_viajante</u>)
     - **CLIENTE** (<u>cod_cliente</u>, <mark>cod_ciudad</mark>)
-        - cod_ciudad -> CIUDAD (cod_ciudad) <span class="tag-no-nulo">[no nulo]
+        - cod_ciudad -> CIUDAD (cod_ciudad) <span class="tag-no-nulo">[no nulo]</span>
     - **PRODUCTO** (<u>cod_producto</u>)
     - **VIAJANTE_PRODUCTO** (<u><mark>cod_viajante</mark>, <mark>cod_producto</mark></u>)
         - cod_viajante -> VIAJANTE (cod_viajante)
@@ -244,10 +244,10 @@ hide:
         - cod_viajante -> VIAJANTE (cod_viajante)
         - cod_sector -> SECTOR (cod_procod_sectorducto)     
     - **OFRECE** (<u><mark>cod_cliente</mark>, <mark>cod_producto</mark></u>, <mark>cod_viajante</mark>, precio)
-        - cod_viajante -> VIAJANTE (cod_viajante) <span class="tag-no-nulo">[no nulo]
+        - cod_viajante -> VIAJANTE (cod_viajante) <span class="tag-no-nulo">[no nulo]</span>
         - cod_cliente -> CLIENTE (cod_cliente)
         - cod_producto -> PRODUCTO (cod_producto)  
-        - precio: <span class="tag-no-nulo">[no nulo]
+        - precio: <span class="tag-no-nulo">[no nulo]</span>
 
 ??? success "Ver solución propuesta (Ejercicio 10)"
     
@@ -259,7 +259,7 @@ hide:
     - **HABITAT** (<u>cod_h</u>, clima, vegetacion)
     - **ZONA** (<u>cod_z</u>, extension)
     - **ESPECIE** (<u>nom_c</u>, nombre, descripcion, <mark>cod_z</mark>)
-        - cod_z -> ZONA (cod_z) <span class="tag-no-nulo">[no nulo]
+        - cod_z -> ZONA (cod_z) <span class="tag-no-nulo">[no nulo]</span>
     - **ESPECIE_HABITAT** (<u><mark>nom_c</mark>, <mark>cod_h</mark></u>)
         - nom_c -> ESPECIE (nom_c)
         - cod_h -> HABITAT (cod_h)

@@ -81,7 +81,8 @@ Asegura que un campo (o conjunto) no se repita, **sin ser clave principal**.
 **Representación**:
 
 !!! quote ""
-    - EMPLEADO (<u>dni</u>, nombre, email [único])
+    - EMPLEADO (<u>dni</u>, nombre, email)
+        - email <span class="tag-unico">[unico]</span>
 
 ### 4.2.4 Restricción de Valor No Nulo
 
@@ -95,8 +96,8 @@ Obliga a que el atributo **siempre tenga un valor**.
 
     
 !!! quote ""
-    - EMPLEADO (<u>dni</u>, nombre `[no nulo]`, direccion, telefono, sueldo, fecha_n)
-
+    - EMPLEADO (<u>dni</u>, nombre, direccion, telefono, sueldo, fecha_n)
+        - nombre  <span class="tag-no-nulo">[no nulo]</span>
 
 
 ### 4.2.5 Integridad Referencial

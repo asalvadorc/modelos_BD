@@ -159,7 +159,7 @@ Todos los departamentos tienen director (no nula) y solo uno (única), pero no t
 
 !!! quote ""
     - DEPARTAMENTO (<u>num_d</u>, nom_d, <mark>director</mark>, Fecha)
-        - director -> EMPLEADO (dni) <span class="tag-no-nulo">[no nula]</span> [única]
+        - director -> EMPLEADO (dni) <span class="tag-no-nulo">[no nulo]</span> <span class="tag-unico">[unico]</span> 
 
 
 
@@ -430,7 +430,7 @@ Sin tener en cuenta la especialización tendremos esta solución:
     - FAMILIAR (<u><mark>dni_e</mark>, nombre_f</u>, fecha_n, parentesco, ) <span class="tag-cascade">(borrar en cascada)</span>
         - dni_e -> EMPLEADO (dni)   
     - DEPARTAMENTO (<u>num_d</u>, nombre_d, <mark>director</mark>, fecha)
-        - director -> EMPLEADO (dni) <span class="tag-no-nulo">[no nulo]</span> [unico]
+        - director -> EMPLEADO (dni) <span class="tag-no-nulo">[no nulo]</span> <span class="tag-unico">[unico]</span>
     - PROYECTO (<u>num_p</u>, nombre_p, <mark>departamento</mark>)
         - departamento -> DEPARTAMENTO (num_d) <span class="tag-no-nulo">[no nulo]</span>
     - TRABAJA (<u><mark>dni</mark>, <mark>num_p</mark></u>, horas)    
@@ -457,7 +457,7 @@ Y teniendo en cuenta la especialización:
     - FAMILIAR (<u><mark>dni_e</mark>, nombre_f</u>, fecha_n, parentesco, ) <span class="tag-cascade">(borrar en cascada)</span>
         - dni_e -> EMPLEADO (dni)   
     - DEPARTAMENTO (<u>num_d</u>, nombre_d, <mark>director</mark>, fecha)
-        - director -> JEFE (dni) <span class="tag-no-nulo">[no nulo]</span> [unico]
+        - director -> JEFE (dni) <span class="tag-no-nulo">[no nulo]</span> <span class="tag-unico">[unico]</span>
     - PROYECTO (<u>num_p</u>, nombre_p, <mark>departamento</mark>)
         - departamento -> DEPARTAMENTO (num_d) <span class="tag-no-nulo">[no nulo]</span>
     - TRABAJA (<u><mark>dni</mark>, <mark>num_p</mark></u>, horas)    
