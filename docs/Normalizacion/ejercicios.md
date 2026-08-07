@@ -19,7 +19,7 @@ Normaliza la relación representada mediante el siguiente grafo de dependencias 
 En un instituto, la información se encuentra distribuida en varios ficheros. Considerando cada fichero como una tabla de una base de datos, analizad su estructura y prestad especial atención a comprobar si cumple la Primera Forma Normal (1FN).
 
 
-![alt text](image-48.png){width=600}
+![alt text](image-48.png){width=500}
   
 Normalizad 
 
