@@ -312,6 +312,8 @@
           
             
               
+                
+              
               <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
@@ -497,6 +499,8 @@
       
         
           
+        
+      
         
       
         
@@ -902,6 +906,34 @@
     
   
     Ejercicios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Model_E-R/soluciones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Soluciones
   
 
     
@@ -1622,7 +1654,9 @@
             
             
               
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden>
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -1646,85 +1680,27 @@
               <article class="md-content__inner md-typeset">
                 
                   
+  
+
 
 
 
 <h1 id="soluciones">Soluciones</h1>
+<div class="admonition warning">
+<p class="admonition-title">Advertencia</p>
 <p>Antes de consultar la resolución, asegúrate de haber intentado resolver cada ejercicio. Comparar tu propuesta con la solución te ayudará más que leerla directamente.</p>
+</div>
 <details class="success">
 <summary>Ver solución propuesta (Ejercicio 1)</summary>
-<p>Una propuesta coherente con el grafo (suponiendo tabla en 1FN y clave compuesta inicial) es:</p>
-<ul>
-<li><strong>T1</strong> (<u>A, B, C</u>, Q, S)</li>
-<li><strong>T2</strong> (<u>A</u>, M)</li>
-<li><strong>T3</strong> (<u>M</u>, N, P)</li>
-<li><strong>T4</strong> (<u>C</u>, O, R)</li>
-</ul>
-<p>Relaciones entre tablas:</p>
-<ul>
-<li>A en <strong>T1</strong> -&gt; <strong>T2</strong> (A)</li>
-<li>M en <strong>T2</strong> -&gt; <strong>T3</strong> (M)</li>
-<li>C en <strong>T1</strong> -&gt; <strong>T4</strong> (C)</li>
-</ul>
-<p>Con esta descomposición se eliminan dependencias parciales y transitivas del esquema inicial.</p>
+<p><img alt="alt text" src="../image-51.png" /></p>
 </details>
 <details class="success">
 <summary>Ver solución propuesta (Ejercicio 2)</summary>
-<p>El problema principal está en <strong>FPROF</strong> y <strong>FCURS</strong>, porque contienen grupos repetidos (CODCURS1..10, CODASSIG1..10, ...), por lo que inicialmente no están en 1FN.</p>
-<p>Una descomposición razonable es:</p>
-<ul>
-<li><strong>ALUMNO</strong> (<u>CODAL</u>, NUMEX, COGNOM1, COGNOM2, NOM)</li>
-<li><strong>CURSO</strong> (<u>CODCURS</u>, NOMCURS, CODTUTOR)</li>
-<li><strong>PROFESOR</strong> (<u>CODPROF</u>, NOMPROF)</li>
-<li><strong>ASIGNATURA</strong> (<u>CODASSIG</u>, NOMASSIG)</li>
-<li><strong>MATRICULA</strong> (<u>CODAL, CODCURS</u>)<ul>
-<li>CODAL -&gt; ALUMNO (CODAL)</li>
-<li>CODCURS -&gt; CURSO (CODCURS)</li>
-</ul>
-</li>
-<li><strong>CURSO_ASIGNATURA</strong> (<u>CODCURS, CODASSIG</u>)<ul>
-<li>CODCURS -&gt; CURSO (CODCURS)</li>
-<li>CODASSIG -&gt; ASIGNATURA (CODASSIG)</li>
-</ul>
-</li>
-<li><strong>DOCENCIA</strong> (<u>CODPROF, CODCURS, CODASSIG</u>)<ul>
-<li>CODPROF -&gt; PROFESOR (CODPROF)</li>
-<li>CODCURS -&gt; CURSO (CODCURS)</li>
-<li>CODASSIG -&gt; ASIGNATURA (CODASSIG)</li>
-</ul>
-</li>
-</ul>
-<p>Además:</p>
-<ul>
-<li><strong>FGAL</strong> se reparte entre <strong>ALUMNO</strong> y <strong>MATRICULA</strong>.</li>
-<li><strong>FASSIGN</strong> se reparte entre <strong>ASIGNATURA</strong> y <strong>DOCENCIA</strong>.</li>
-<li><strong>FCURS</strong> se reparte entre <strong>CURSO</strong>, <strong>CURSO_ASIGNATURA</strong> y (si procede) <strong>PROFESOR</strong> para el tutor.</li>
-</ul>
+<p><img alt="alt text" src="../image-52.png" /></p>
 </details>
 <details class="success">
 <summary>Ver solución propuesta (Ejercicio 3)</summary>
-<p>La tabla inicial no está en 1FN porque tiene grupos repetidos de líneas de factura (COD1..COD15, CONCEPTE1..CONCEPTE15, ...).</p>
-<p>Una propuesta de normalización:</p>
-<ul>
-<li><strong>CLIENTE</strong> (<u>DNICLI</u>, NOMCLI, ADRCLI, CPCLI, CIUCLI, TELCLI)</li>
-<li><strong>HABITACION</strong> (<u>NUMHAB</u>, TIPHAB, TARHAB)</li>
-<li><strong>FACTURA</strong> (<u>NUMFACT</u>, DATA, DNICLI, NUMHAB, NUMPERS, BASE_IMPONIBLE, IVA, TOTFAC)<ul>
-<li>DNICLI -&gt; CLIENTE (DNICLI)</li>
-<li>NUMHAB -&gt; HABITACION (NUMHAB)</li>
-</ul>
-</li>
-<li><strong>CONCEPTO</strong> (<u>CODCONCEPTO</u>, DESCRIPCION)</li>
-<li><strong>LINEA_FACTURA</strong> (<u>NUMFACT, NLINEA</u>, CODCONCEPTO, CANTIDAD, PRECIO_UNITARIO, TOTAL_LINEA)<ul>
-<li>NUMFACT -&gt; FACTURA (NUMFACT)</li>
-<li>CODCONCEPTO -&gt; CONCEPTO (CODCONCEPTO)</li>
-</ul>
-</li>
-</ul>
-<p>Nota práctica:</p>
-<ul>
-<li>Si el precio puede variar en el tiempo, debe guardarse en <strong>LINEA_FACTURA</strong> (como en la propuesta).</li>
-<li>Si el precio es fijo por concepto, puede guardarse en <strong>CONCEPTO</strong> y omitirlo en la línea.</li>
-</ul>
+<p><img alt="alt text" src="../image-53.png" /></p>
 </details>
 
 
@@ -1733,8 +1709,13 @@
 
 
 
+  
+  
 
 
+
+
+  
 
 
 
@@ -1759,6 +1740,8 @@
         <footer class="md-footer">
   
     
+      
+        
       
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
@@ -1818,6 +1801,8 @@
     
     
       <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/lightbox.js"></script>
       
     
   </body>
