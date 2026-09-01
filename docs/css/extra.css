@@ -70,6 +70,17 @@
     color: #ffffff !important;
 }
 
+/* Topics pending publication remain available but visually inactive. */
+.md-tabs__link[href$="proximamente/#tema-2"],
+.md-tabs__link[href$="proximamente/#tema-3"] {
+    opacity: 0.5;
+}
+
+.md-tabs__link[href$="proximamente/#tema-2"]:hover,
+.md-tabs__link[href$="proximamente/#tema-3"]:hover {
+    opacity: 0.7;
+}
+
 .md-nav__item--active > .md-nav__link {
     background-color: rgba(1, 62, 55, 0.12) !important;
     border-left: 3px solid #013E37 !important;
