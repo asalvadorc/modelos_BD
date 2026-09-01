@@ -106,15 +106,15 @@
     text-decoration: underline;
 }
 
-/* Headings in theme green with clear size hierarchy */
+/* Headings with clear size hierarchy */
 .md-typeset h1,
 .md-typeset h2,
 .md-typeset h3,
 .md-typeset h4,
 .md-typeset h5,
 .md-typeset h6 {
-    color: var(--md-primary-fg-color);
-    font-weight: 400;
+    color: var(--md-default-fg-color);
+    font-weight: 600;
 }
 
 .md-typeset h1 { font-size: 2rem; }
@@ -124,16 +124,7 @@
 .md-typeset h5 { font-size: 1rem; }
 .md-typeset h6 { font-size: 0.9rem; }
 
-/* Prefix symbols by heading level for quick visual distinction */
-.md-typeset h3::before {
-    content: "▸ ";
-    color: var(--md-primary-fg-color);
-}
-
-.md-typeset h4::before {
-    content: "• ";
-    color: var(--md-primary-fg-color);
-}
+/* Prefix symbols removed for cleaner look */
 
 /* =========================================================
    📝 TIPOGRAFÍA
@@ -483,10 +474,7 @@ body.lightbox-open {
     color: #e6f1ef;
 }
 
-.md-typeset .admonition {
-    border-radius: 4px;
-    border-left: 4px solid #013E37;
-}
+/* Admonition custom border removed to restore Material default colors */
 
 /* Semantic tags for relational constraints */
 .md-typeset .tag-no-nulo,
