@@ -90,7 +90,7 @@ nav:
     - Introducción: introduccion.md
     - Cómo utilizar la IA para aprender: IA.md
   #- 📅 Hoja de Ruta Semipresencial: guia_estudio.md
-  - Tema 1. Modelo Entidad-Relación:
+  - T1. Modelo Entidad-Relación:
     - Model_E-R/index.md
     - 1. Introducción: Model_E-R/1_introduccion.md
     - 2. Ejemplo:Empresa: Model_E-R/2_ejemplo.md
@@ -105,7 +105,7 @@ nav:
     - 8. Resumen elementos gráficos: Model_E-R/8_resumen_elementos_graficos.md
     - Ejercicios: Model_E-R/ejercicios1.md
     - Soluciones: proximamente.md
-  - Tema 2. Modelo Relacional:
+  - T2. Modelo Relacional:
     - proximamente.md
     #- Model_Relacional/index.md
     #- 1. Introducción: Model_Relacional/1_introduccion.md
@@ -115,7 +115,7 @@ nav:
     #- 5. Resumen: Model_Relacional/resumen.md
     #- Ejercicios: Model_Relacional/5_ejercicios.md
     #- Soluciones: proximamente.md
-  - Tema 3. Normalización:
+  - T3. Normalización:
     - proximamente.md
     #- 1. Introducción: Normalizacion/1_introduccion.md
     #- 2. Primera Forma Normal (1FN): Normalizacion/2_primera_forma_normal_1fn.md
