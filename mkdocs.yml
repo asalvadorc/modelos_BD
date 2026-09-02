@@ -86,6 +86,7 @@ markdown_extensions:
 
 nav:
   - 🏠 Inicio:
+    - index.md
     - RA y CE: RA_CE.md
     - Introducción: introduccion.md
     - Cómo utilizar la IA para aprender: IA.md
