@@ -26,9 +26,10 @@ function initLightbox() {
   overlay.appendChild(dialog);
   document.body.appendChild(overlay);
 
-  function openLightbox(src, alt) {
+  function openLightbox(src, alt, grayscale) {
     image.src = src;
     image.alt = alt || 'Vista ampliada';
+    image.classList.toggle('grayscale', !!grayscale);
     overlay.classList.add('is-open');
     document.body.classList.add('lightbox-open');
   }
@@ -49,7 +50,7 @@ function initLightbox() {
 
     event.preventDefault();
     event.stopPropagation();
-    openLightbox(clickedImage.currentSrc || clickedImage.src, clickedImage.alt || clickedImage.title || '');
+    openLightbox(clickedImage.currentSrc || clickedImage.src, clickedImage.alt || clickedImage.title || '', clickedImage.classList.contains('grayscale'));
   });
 
   overlay.addEventListener('click', function (event) {
