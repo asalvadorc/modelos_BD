@@ -12,36 +12,36 @@ Realizar el esquema relacional correspondiente a los ejercicios del Tema Entidad
 
 Recordad que teníamos 3 opciones:
 
-![alt text](image-35.png){width=400}
+![alt text](image-35.png){ .grayscale width=400 }
 
 
 ## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 2</span></span>
 
 
-![alt text](image-34.png)
+![alt text](image-34.png){ .grayscale }
 
 
 ## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 3</span></span>
 
 
-![alt text](image-57.png)
+![alt text](image-57.png){ .grayscale }
 
 ## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 4</span></span>
 
 
-![alt text](image-38.png)
+![alt text](image-38.png){ .grayscale }
 
 
 ## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 5</span></span>
 
 
-![alt text](image-46.png)
+![alt text](image-46.png){ .grayscale }
 
 
 ## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 6</span></span>
 
 
-![alt text](image.png)
+![alt text](image.png){ .grayscale }
 
 
 ## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 7</span></span>
@@ -52,14 +52,14 @@ En la de arriba consideramos únicamente los viajes (y no los trayectos). Ademá
 
 En la segunda incorporamos los trayectos, y además marcamos todas las estaciones donde se para en un trayecto.
 
-![alt text](image-48.png)
+![alt text](image-48.png){ .grayscale }
 
 
 ## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 8</span></span>
 
 Realizar el esquema relacional correspondiente a un sistema de información sobre el material informático de una empresa.
 
-![alt text](image-2.png)
+![alt text](image-2.png){ .grayscale }
 
 <!--
 Se desea mantener información sobre el material informático de una empresa.
@@ -112,7 +112,7 @@ Observad cómo por un lado debéis guardar los permisos de los empleados sobre l
 Realizar el esquema relacional correspondiente a un sistema de información de una empresa que vende gran variedad de productos. Para la venta de estos productos, dispone de un conjunto de viajantes que realizan visitas a los clientes ofreciendo sus productos.
 
 
-![alt text](image-52.png)
+![alt text](image-52.png){ .grayscale }
 
 <!--
 Diseñar el diagrama E-R, y traducirlo después al relacional, de un sistema de información de una empresa que vende gran variedad de productos. Para la venta de estos productos, dispone de un conjunto de viajantes que realizan visitas a los clientes ofreciendo sus productos.
@@ -144,7 +144,7 @@ El sistema de información ha de ser capaz de responder a consultas como:
 Realizar el esquema relacional correspondiente a un Parque Zoológico que quiere guardar información de las especies que tiene, los empleados (cuidadores y guías), y los distintos itinerarios de visita que ofrece.
 
 
-![alt text](image-3.png)!
+![alt text](image-3.png){ .grayscale }
 
 <!--
 Hacer el esquema E/R y posteriormente pasarlo a relacional correspondiente a un Parque Zoológico que quiere guardar información de las especies que tiene, los empleados (cuidadores y guías), y los distintos itinerarios de visita que ofrece.

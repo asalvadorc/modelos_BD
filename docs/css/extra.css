@@ -96,6 +96,78 @@
 }
 
 /* =========================================================
+   🏠 PORTADA (HERO APAISADO)
+   ========================================================= */
+.home-hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    width: 100%;
+    max-width: 1100px;
+    aspect-ratio: 3 / 1;
+    margin: 1rem auto;
+    padding: 0 3rem;
+    border-radius: 12px;
+    overflow: hidden;
+    background: linear-gradient(90deg, #013E37 0%, #0b5c52 100%);
+}
+
+[data-md-color-scheme="slate"] .home-hero {
+    background: linear-gradient(90deg, #0f766e 0%, #14b8a6 100%);
+}
+
+.md-typeset .home-hero__img {
+    max-width: 40%;
+    max-height: 85%;
+    width: auto;
+    height: auto;
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.home-hero__text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    color: #ffffff;
+}
+
+.home-hero__title {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.15;
+}
+
+.home-hero__subtitle {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+@media (max-width: 600px) {
+    .home-hero {
+        aspect-ratio: 16 / 9;
+        gap: 1rem;
+        padding: 0 1.25rem;
+    }
+
+    .md-typeset .home-hero__img {
+        max-width: 35%;
+    }
+
+    .home-hero__title {
+        font-size: 1.2rem;
+    }
+
+    .home-hero__subtitle {
+        font-size: 0.85rem;
+    }
+}
+
+/* =========================================================
    🔝 HEADER
    ========================================================= */
 .md-header {
@@ -264,6 +336,10 @@ p {
     cursor: zoom-in;
 }
 
+.md-typeset img.grayscale {
+    filter: grayscale(100%);
+}
+
 .md-typeset .infografia-ejercicio {
     display: block;
     width: 100%;
@@ -311,6 +387,10 @@ body.lightbox-open {
     border-radius: 8px;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
     background: #fff;
+}
+
+.lightbox-image.grayscale {
+    filter: grayscale(100%);
 }
 
 .lightbox-close {
