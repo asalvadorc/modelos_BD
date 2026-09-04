@@ -113,7 +113,7 @@ Las relaciones **también pueden tener atributos**, igual que las entidades.
 |----------|----------|-------------|
 | TRABAJA | Horas semanales | Horas que dedica un empleado a un proyecto |
 | DIRIGE | Fecha inicio | Cuándo comenzó a dirigir el departamento |
-| COMPRA | Cantidad | Número de unidades compradas |
+
 
 
 ### Aplicación al ejemplo

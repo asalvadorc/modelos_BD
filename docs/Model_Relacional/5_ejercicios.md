@@ -164,4 +164,4 @@ La información está estructurada de la siguiente manera:
     * Guías: Interesa saber qué guías llevan cada itinerario, teniendo en cuenta que un guía puede llevar unos cuantos itinerarios y que un itinerario puede ser asignado a más de un guía en diferentes horas. Estas horas son un dato de interés. 
 
     * Cuidadores: se encargan de cuidar las diferentes especies. Un cuidador puede encargarse de unas cuantas especies y una especie puede ser atendida por unos cuantos cuidadores. Nos interesa la fecha en la cual un cuidador se hace cargo de una especie. 
--->`r`n
+-->
