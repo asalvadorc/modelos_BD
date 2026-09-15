@@ -1,0 +1,67 @@
+{"kind":"deck","id":"pr/s5li68","name":"Deck"}
+{"kind":"layout","layoutId":"3951d970-2b8d-4f81-af34-db9119f972f9","name":"Master","type":"master"}
+{"kind":"layout","layoutId":"01463124-c870-48a7-88e3-1668213fbcb8","name":"Title Slide","type":"title"}
+{"kind":"slide","id":"sl/k3d20t","slide":1,"title":"01","textShapes":3}
+{"kind":"shape","id":"sh/twv6d0na","slide":1,"bbox":[0,0,1280,720]}
+{"kind":"shape","id":"sh/sv2pkf6p","slide":1,"bbox":[0,480,1280,240]}
+{"kind":"textbox","id":"sh/fydofa50","slide":1,"text":"01","textPreview":"01","textChars":2,"textLines":1,"bbox":[72,54,90,45]}
+{"kind":"textbox","id":"sh/ux47m5of","slide":1,"text":"La infraestructura invisible","textPreview":"La infraestructura invisible","textChars":28,"textLines":1,"bbox":[72,492,1120,78]}
+{"kind":"textbox","id":"sh/10v6hkn6","slide":1,"text":"Bases de datos, sociedad y ciberseguridad","textPreview":"Bases de datos, sociedad y ciberseguridad","textChars":41,"textLines":1,"bbox":[76,576,1110,54]}
+{"kind":"image","id":"im/36psjqps","slide":1,"name":"","alt":"Escena 1: La infraestructura invisible","bbox":[0,0,1280,720]}
+{"kind":"notes","id":"nt/k3d20t","slide":1,"text":"Imagina que todas las bases de datos desaparecieran durante cinco minutos. Tu banco no sabría cuánto dinero tienes. Un hospital no podría consultar historiales médicos. Las aerolíneas perderían sus reservas y el instituto, sus matrículas. Las bases de datos sostienen casi toda nuestra sociedad digital.\n\nImagen generada con IA para esta presentación. Contenido técnico preparado para 1.º de ASIR."}
+{"kind":"slide","id":"sl/udgtz8","slide":2,"title":"02","textShapes":3}
+{"kind":"shape","id":"sh/547ihsri","slide":2,"bbox":[0,0,1280,720]}
+{"kind":"shape","id":"sh/k3yhonax","slide":2,"bbox":[0,480,1280,240]}
+{"kind":"textbox","id":"sh/76p0j29o","slide":2,"text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[72,54,90,45]}
+{"kind":"textbox","id":"sh/65gzqxs3","slide":2,"text":"Datos que adquieren sentido","textPreview":"Datos que adquieren sentido","textChars":27,"textLines":1,"bbox":[72,492,1120,78]}
+{"kind":"textbox","id":"sh/t8rilcru","slide":2,"text":"Organización, relaciones, consultas y control de acceso","textPreview":"Organización, relaciones, consultas y control de acceso","textChars":55,"textLines":1,"bbox":[76,576,1110,54]}
+{"kind":"image","id":"im/3a54bmp4","slide":2,"name":"","alt":"Escena 2: Datos que adquieren sentido","bbox":[0,0,1280,720]}
+{"kind":"notes","id":"nt/udgtz8","slide":2,"text":"Una base de datos reúne información organizada para consultarla y actualizarla con eficacia. Un sistema gestor añade control de acceso, relaciones entre datos, validación y concurrencia. Así, muchos usuarios pueden trabajar sobre información coherente sin convertirla en una colección de ficheros aislados.\n\nImagen generada con IA para esta presentación. Contenido técnico preparado para 1.º de ASIR."}
+{"kind":"slide","id":"sl/8rgaqg","slide":3,"title":"03","textShapes":3}
+{"kind":"shape","id":"sh/n29sn2tw","slide":3,"bbox":[0,0,1280,720]}
+{"kind":"shape","id":"sh/m10rexcr","slide":3,"bbox":[0,480,1280,240]}
+{"kind":"textbox","id":"sh/x8ratcbe","slide":3,"text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[72,54,90,45]}
+{"kind":"textbox","id":"sh/w7i9k7ut","slide":3,"text":"Una tecnología presente todo el día","textPreview":"Una tecnología presente todo el día","textChars":35,"textLines":1,"bbox":[72,492,1120,78]}
+{"kind":"textbox","id":"sh/b69sr2t8","slide":3,"text":"Sanidad · banca · educación · transporte · comercio","textPreview":"Sanidad · banca · educación · transporte · comercio","textChars":51,"textLines":1,"bbox":[76,576,1110,54]}
+{"kind":"image","id":"im/x4bm5svy","slide":3,"name":"","alt":"Escena 3: Una tecnología presente todo el día","bbox":[0,0,1280,720]}
+{"kind":"notes","id":"nt/8rgaqg","slide":3,"text":"Cuando pagas con tarjeta, una base de datos comprueba la cuenta y registra la operación. Hospitales, centros educativos, comercios, videojuegos y transportes dependen de ellas. La inteligencia artificial también necesita grandes cantidades de datos bien almacenados y gobernados.\n\nImagen generada con IA para esta presentación. Contenido técnico preparado para 1.º de ASIR."}
+{"kind":"slide","id":"sl/8uinyq","slide":4,"title":"04","textShapes":3}
+{"kind":"shape","id":"sh/b6p47ihw","slide":4,"bbox":[0,0,1280,720]}
+{"kind":"shape","id":"sh/alg3yd0b","slide":4,"bbox":[0,480,1280,240]}
+{"kind":"textbox","id":"sh/pk7m58zq","slide":4,"text":"04","textPreview":"04","textChars":2,"textLines":1,"bbox":[72,54,90,45]}
+{"kind":"textbox","id":"sh/ojylw3i5","slide":4,"text":"Cada problema necesita una estructura","textPreview":"Cada problema necesita una estructura","textChars":37,"textLines":1,"bbox":[72,492,1120,78]}
+{"kind":"textbox","id":"sh/nip43yhk","slide":4,"text":"Relacionales · documentales · clave-valor · grafos · vectoriales","textPreview":"Relacionales · documentales · clave-valor · grafos · vectoriales","textChars":64,"textLines":1,"bbox":[76,576,1110,54]}
+{"kind":"image","id":"im/p0ryxobq","slide":4,"name":"","alt":"Escena 4: Cada problema necesita una estructura","bbox":[0,0,1280,720]}
+{"kind":"notes","id":"nt/8uinyq","slide":4,"text":"Las bases relacionales conectan tablas y destacan cuando la consistencia resulta crítica. Las documentales aceptan estructuras flexibles. Las bases clave-valor priorizan búsquedas muy rápidas. Los grafos representan conexiones y ayudan a detectar fraude o calcular rutas. Las vectoriales localizan contenidos por similitud y tienen un papel creciente en la inteligencia artificial.\n\nImagen generada con IA para esta presentación. Contenido técnico preparado para 1.º de ASIR."}
+{"kind":"slide","id":"sl/0xtrkj","slide":5,"title":"05","textShapes":3}
+{"kind":"shape","id":"sh/wzehcnih","slide":5,"bbox":[0,0,1280,720]}
+{"kind":"shape","id":"sh/x0nilsz2","slide":5,"bbox":[0,480,1280,240]}
+{"kind":"textbox","id":"sh/m9cz6d0f","slide":5,"text":"05","textPreview":"05","textChars":2,"textLines":1,"bbox":[72,54,90,45]}
+{"kind":"textbox","id":"sh/nal0fyh0","slide":5,"text":"Servicios que no pueden detenerse","textPreview":"Servicios que no pueden detenerse","textChars":33,"textLines":1,"bbox":[72,492,1120,78]}
+{"kind":"textbox","id":"sh/8beh83i5","slide":5,"text":"Réplicas, alta disponibilidad y recuperación","textPreview":"Réplicas, alta disponibilidad y recuperación","textChars":44,"textLines":1,"bbox":[76,576,1110,54]}
+{"kind":"image","id":"im/ypszuh4z","slide":5,"name":"","alt":"Escena 5: Servicios que no pueden detenerse","bbox":[0,0,1280,720]}
+{"kind":"notes","id":"nt/0xtrkj","slide":5,"text":"Muchos servicios deben funcionar las veinticuatro horas. Las réplicas permiten que otro servidor continúe cuando uno falla. Las copias de seguridad facilitan la recuperación tras errores, averías o ataques. Para ASIR, una base de datos debe funcionar, rendir y poder recuperarse.\n\nImagen generada con IA para esta presentación. Contenido técnico preparado para 1.º de ASIR."}
+{"kind":"slide","id":"sl/cifmra","slide":6,"title":"06","textShapes":3}
+{"kind":"shape","id":"sh/p8zuh0bm","slide":6,"bbox":[0,0,1280,720]}
+{"kind":"shape","id":"sh/o7qdova1","slide":6,"bbox":[0,480,1280,240]}
+{"kind":"textbox","id":"sh/fixcbqtk","slide":6,"text":"06","textPreview":"06","textChars":2,"textLines":1,"bbox":[72,54,90,45]}
+{"kind":"textbox","id":"sh/ehobilsz","slide":6,"text":"Los datos se han convertido en objetivo","textPreview":"Los datos se han convertido en objetivo","textChars":39,"textLines":1,"bbox":[72,492,1120,78]}
+{"kind":"textbox","id":"sh/1kzud0ba","slide":6,"text":"Filtraciones · ransomware · inyección SQL · sabotaje","textPreview":"Filtraciones · ransomware · inyección SQL · sabotaje","textChars":52,"textLines":1,"bbox":[76,576,1110,54]}
+{"kind":"image","id":"im/36p0v2xs","slide":6,"name":"","alt":"Escena 6: Los datos se han convertido en objetivo","bbox":[0,0,1280,720]}
+{"kind":"notes","id":"nt/cifmra","slide":6,"text":"Una filtración puede exponer credenciales, domicilios o información médica. El ransomware puede cifrar la base y detener una organización. Una inyección SQL aprovecha consultas construidas de forma insegura. Alterar registros silenciosamente puede causar aún más daño que robarlos.\n\nImagen generada con IA para esta presentación. Contenido técnico preparado para 1.º de ASIR."}
+{"kind":"slide","id":"sl/3lagw5","slide":7,"title":"07","textShapes":3}
+{"kind":"shape","id":"sh/o32dwzmd","slide":7,"bbox":[0,0,1280,720]}
+{"kind":"shape","id":"sh/9obup43y","slide":7,"bbox":[0,480,1280,240]}
+{"kind":"textbox","id":"sh/apkvy943","slide":7,"text":"07","textPreview":"07","textChars":2,"textLines":1,"bbox":[72,54,90,45]}
+{"kind":"textbox","id":"sh/bqtcrelo","slide":7,"text":"La defensa necesita varias capas","textPreview":"La defensa necesita varias capas","textChars":32,"textLines":1,"bbox":[72,492,1120,78]}
+{"kind":"textbox","id":"sh/wr2d0jm9","slide":7,"text":"Mínimo privilegio · cifrado · MFA · auditoría · copias aisladas","textPreview":"Mínimo privilegio · cifrado · MFA · auditoría · copias aisladas","textChars":63,"textLines":1,"bbox":[76,576,1110,54]}
+{"kind":"image","id":"im/2tkjy1w3","slide":7,"name":"","alt":"Escena 7: La defensa necesita varias capas","bbox":[0,0,1280,720]}
+{"kind":"notes","id":"nt/3lagw5","slide":7,"text":"Cada cuenta debe tener solo los permisos necesarios. El cifrado protege comunicaciones y datos sensibles. La autenticación multifactor reduce el riesgo de cuentas robadas. Los registros de auditoría ayudan a investigar incidentes. Las copias deben mantenerse aisladas y probarse mediante restauraciones reales.\n\nImagen generada con IA para esta presentación. Contenido técnico preparado para 1.º de ASIR."}
+{"kind":"slide","id":"sl/t1a6wi","slide":8,"title":"08","textShapes":3}
+{"kind":"shape","id":"sh/dsjil036","slide":8,"bbox":[0,0,1280,720]}
+{"kind":"shape","id":"sh/cra1svm1","slide":8,"bbox":[0,480,1280,240]}
+{"kind":"textbox","id":"sh/zu10nalc","slide":8,"text":"08","textPreview":"08","textChars":2,"textLines":1,"bbox":[72,54,90,45]}
+{"kind":"textbox","id":"sh/etsju5kr","slide":8,"text":"Proteger los datos protege a las personas","textPreview":"Proteger los datos protege a las personas","textChars":41,"textLines":1,"bbox":[72,492,1120,78]}
+{"kind":"textbox","id":"sh/1g3ipk3i","slide":8,"text":"Confidencialidad · integridad · disponibilidad","textPreview":"Confidencialidad · integridad · disponibilidad","textChars":46,"textLines":1,"bbox":[76,576,1110,54]}
+{"kind":"image","id":"im/361sb6dk","slide":8,"name":"","alt":"Escena 8: Proteger los datos protege a las personas","bbox":[0,0,1280,720]}
+{"kind":"notes","id":"nt/t1a6wi","slide":8,"text":"La confidencialidad limita el acceso a quienes están autorizados. La integridad mantiene los datos correctos y detecta modificaciones. La disponibilidad permite utilizarlos cuando hacen falta. En una sociedad construida sobre datos, proteger una base de datos significa proteger servicios, derechos y personas. Pregunta final: ¿qué sería más peligroso en un hospital, robar los datos, borrarlos o modificarlos sin que nadie lo detecte?\n\nImagen generada con IA para esta presentación. Contenido técnico preparado para 1.º de ASIR."}
