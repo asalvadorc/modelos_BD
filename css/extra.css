@@ -126,6 +126,7 @@
     border: none;
     border-radius: 0;
     box-shadow: none;
+    background: none;
 }
 
 .home-hero__text {
@@ -334,6 +335,8 @@ p {
     max-width: 100%;
     height: auto;
     cursor: zoom-in;
+    /* Fondo blanco: evita que las líneas negras de los diagramas SVG desaparezcan en modo oscuro */
+    background-color: #ffffff;
 }
 
 .md-typeset img.grayscale {
