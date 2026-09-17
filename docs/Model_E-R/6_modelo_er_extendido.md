@@ -132,7 +132,14 @@ para poder identificarse.
 A esto lo llamamos **dependencia en identificación**.
 Suele marcarse con **ID** junto a la relación.
 
-![alt text](image-19.png)
+Por ejemplo, **FAMILIAR** necesita el **DNI de EMPLEADO** para completar su identificación. El nombre del familiar puede repetirse entre empleados distintos.
+
+![Dependencia en identificación entre EMPLEADO y FAMILIAR: DNI del empleado y nombre del familiar](T2_6_6.svg)
+
+En este ejemplo, suponemos que los nombres de los familiares de un mismo empleado no se repiten. Así, cada familiar se identifica mediante **DNI del empleado + nombre del familiar**.
+
+!!! note "¿Qué significa ID?"
+    **ID** indica que la relación es de **dependencia en identificación**. La clave que aporta EMPLEADO es su **DNI**, pero este no basta por sí solo para distinguir a sus distintos familiares.
 
 ### Dos ejemplos típicos
 
@@ -152,11 +159,9 @@ Suele marcarse con **ID** junto a la relación.
 
 ### En nuestro ejemplo (EMPLEADO - FAMILIAR)
 
-Si el nombre del familiar fuese suficiente para identificarlo,
-modelaríamos dependencia en existencia.
+Si el familiar tuviese un identificador propio y único, sin necesitar el DNI del empleado, modelaríamos solo dependencia en existencia.
 
-Si no es suficiente, usaríamos dependencia en identificación,
-con clave compuesta: **DNI del empleado + nombre del familiar**.
+Si necesitamos el DNI del empleado para identificarlo, modelamos dependencia en identificación. Con la suposición anterior, la clave es **DNI del empleado + nombre del familiar**. Si un empleado pudiera tener dos familiares con el mismo nombre, necesitaríamos otro dato para distinguirlos, como un número de familiar.
 
 Representación con dependencia en existencia:
 
