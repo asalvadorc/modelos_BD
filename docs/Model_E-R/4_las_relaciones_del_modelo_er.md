@@ -2,8 +2,6 @@
 
 Hasta ahora solo hemos definido entidades. Ahora conectaremos entidades entre ellas.
 
-**Ejemplo**: Juan Pérez trabaja en Contabilidad. El empleado trabaja en un proyecto X dedicando 20 horas semanales.
-
 ---
 
 ## 4.1 Concepto de Relación
@@ -12,19 +10,38 @@ Hasta ahora solo hemos definido entidades. Ahora conectaremos entidades entre el
 
 **RELACIÓN** es una asociación o correspondencia entre entidades.
 
-| Término | Significado |
-|---------|-------------|
-| **Tipo de Relación** | Estructura genérica entre tipos de entidad |
-| **Ocurrencia de Relación** | Instancia concreta (ej: Juan Pérez → Contabilidad) |
-
 ### Representación Gráfica
 
 === "Elementos"
+
     - **Forma**: Rombo
     - **Etiqueta**: Nombre de la relación (generalmente un verbo)
     - **Conexión**: Líneas hacia las entidades relacionadas
 
-    ![alt text](image-55.png){width=500}
+    ![Representación gráfica de una relación](image-3.png){width=500}
+
+| Término | Significado |
+|---------|-------------|
+| **Tipo de Relación** | Define qué entidades pueden relacionarse |
+| **Ocurrencia de Relación** | Indica qué ejemplares concretos están relacionados |
+
+### Ejemplo
+
+Supongamos el siguiente **tipo de relación**:
+
+**EMPLEADO — trabaja en — DEPARTAMENTO**
+
+Este tipo de relación indica, de forma general, que un empleado puede trabajar en un departamento.
+
+Una **ocurrencia concreta** de esta relación sería:
+
+**Juan Pérez — trabaja en — Contabilidad**
+
+!!! example "Recuerda"
+    - **Tipo de relación:** EMPLEADO — trabaja en — DEPARTAMENTO
+    - **Ocurrencia:** Juan Pérez — trabaja en — Contabilidad
+
+    ![alt text](image-1.png){width=500}
 
    
 ### Grados de una Relación
@@ -84,13 +101,13 @@ Dos entidades pueden tener **más de una relación** entre ellas:
 ??? "Ejemplo: Empresa"
 
     - La compañía está organizada en departamentos. 
-    - Cada uno tiene nombre único, número único y un empleado que lo dirige. Nos interesa la fecha en la que comenzó a dirigirlo.  
+    - Cada uno tiene nombre único, número único y un empleado que lo <mark>dirige</mark>. Nos interesa la fecha en la que comenzó a dirigirlo.  
 
-    - Cada departamento controla una serie de proyectos. Cada uno de estos proyectos tiene nombre y número únicos, y estará coordinado por un único departamento.
+    - Cada departamento <mark>controla</mark> una serie de proyectos. Cada uno de estos proyectos tiene nombre y número únicos, y estará <mark>coordinado</mark> por un único departamento.
 
-    - De cada empleado nos interesa el nombre (formado por dos apellidos y nombre de pila), DNI, dirección, teléfono, sueldo y fecha de nacimiento. Todo empleado está asignado a un departamento, y muchas veces tendrá un supervisor. Puede trabajar en más de un proyecto (no necesariamente controlados por el mismo departamento) y trabajará un determinado número de horas a la semana en cada proyecto. En un proyecto siempre trabajará, como mínimo, un empleado.
+    - De cada empleado nos interesa el nombre (formado por dos apellidos y nombre de pila), DNI, dirección, teléfono, sueldo y fecha de nacimiento. Todo empleado está <mark>asignado</mark> a un departamento, y muchas veces <mark>tendrá</mark> un supervisor. Puede <mark>trabajar</mark> en más de un proyecto (no necesariamente controlados por el mismo departamento) y trabajará un determinado número de horas a la semana en cada proyecto. En un proyecto siempre trabajará, como mínimo, un empleado.
 
-    - Queremos saber también los familiares de cada empleado, para administrar los términos de un seguro. Queremos saber el nombre, fecha de nacimiento y parentesco con el empleado.  
+    - Queremos saber también los familiares <mark>de cada</mark> empleado, para administrar los términos de un seguro. Queremos saber el nombre, fecha de nacimiento y parentesco con el empleado.  
 
 
 ---

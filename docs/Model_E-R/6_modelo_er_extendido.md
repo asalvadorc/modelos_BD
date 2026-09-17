@@ -24,7 +24,7 @@ cuántas ocurrencias como mínimo y como máximo pueden participar.
 
 - **Cardinalidad mínima**
 
-    Valor mínimo de participación.
+    Valor mínimo de participación.  
     Los valores habituales son **0** o **1**.
 
 - **Cardinalidad máxima**
@@ -43,7 +43,7 @@ cuántas ocurrencias como mínimo y como máximo pueden participar.
 
 En la relación DIRIGE:
 
-- un EMPLEADO puede dirigir **0 o 1** departamentos,
+- un EMPLEADO puede dirigir **0 o 1** departamentos.
 - un DEPARTAMENTO es dirigido por **1 y solo 1** empleado.
 
 ![Cardinalidad mínima y máxima en una relación](estes_tot1.svg)
@@ -86,6 +86,16 @@ porque su representación gráfica es muy directa.
 
 Aplicando participación total y parcial, el ejemplo queda así:
 
+??? "Ejemplo: Empresa"
+
+    - La compañía está organizada en departamentos. 
+    - Cada uno tiene nombre único, número único y un empleado que lo dirige. Nos interesa la fecha en la que comenzó a dirigirlo.  
+
+    - Cada departamento controla una serie de proyectos. Cada uno de estos proyectos tiene nombre y número únicos, y estará coordinado por un único departamento.
+
+    - De cada empleado nos interesa el nombre (formado por dos apellidos y nombre de pila), DNI, dirección, teléfono, sueldo y fecha de nacimiento. Todo empleado está asignado a un departamento, y muchas veces tendrá un supervisor. Puede trabajar en más de un proyecto (no necesariamente controlados por el mismo departamento) y trabajará un determinado número de horas a la semana en cada proyecto. En un proyecto siempre trabajará, como mínimo, un empleado.
+
+    - Queremos saber también los familiares de cada empleado, para administrar los términos de un seguro. Queremos saber el nombre, fecha de nacimiento y parentesco con el empleado.  
 
 ![Ejemplo con participación total y parcial](image-28.png)
 ---
@@ -236,6 +246,17 @@ Ejemplos rápidos:
     y otras veces se simplifica por motivos prácticos.
 
 ### Aplicación al ejemplo
+
+??? "Ejemplo: Empresa"
+
+    - La compañía está organizada en departamentos. 
+    - Cada uno tiene nombre único, número único y un empleado que lo dirige. Nos interesa la fecha en la que comenzó a dirigirlo.  
+
+    - Cada departamento controla una serie de proyectos. Cada uno de estos proyectos tiene nombre y número únicos, y estará coordinado por un único departamento.
+
+    - De cada empleado nos interesa el nombre (formado por dos apellidos y nombre de pila), DNI, dirección, teléfono, sueldo y fecha de nacimiento. Todo empleado está asignado a un departamento, y muchas veces tendrá un supervisor. Puede trabajar en más de un proyecto (no necesariamente controlados por el mismo departamento) y trabajará un determinado número de horas a la semana en cada proyecto. En un proyecto siempre trabajará, como mínimo, un empleado.
+
+    - Queremos saber también los familiares de cada empleado, para administrar los términos de un seguro. Queremos saber el nombre, fecha de nacimiento y parentesco con el empleado.  
 
 Tomando solo los subtipos **JEFE** y **TRABAJADOR** de **EMPLEADO**:
 
