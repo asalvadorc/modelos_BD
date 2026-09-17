@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="510" viewBox="0 0 1000 510" role="img" aria-labelledby="title desc">
+  <title id="title">La mínima 1 y la doble línea expresan la misma obligación</title>
+  <desc id="desc">Arriba, EMPLEADO se relaciona mediante PERTENECE con DEPARTAMENTO: (0,N) junto a EMPLEADO y (1,1) junto a DEPARTAMENTO. Abajo, la misma relación tiene doble línea junto a EMPLEADO, N en ese lado y 1 junto a DEPARTAMENTO. Todo empleado debe pertenecer a un único departamento. La mínima 1 corresponde a la doble línea del extremo opuesto.</desc>
+  <rect width="1000" height="510" fill="white"/>
+  <g font-family="Arial, sans-serif" fill="#18332f">
+    <text x="500" y="36" text-anchor="middle" font-size="23" font-weight="700">Todo empleado debe pertenecer a un único departamento</text>
+    <rect x="20" y="58" width="960" height="182" rx="12" fill="#f3f8f7" stroke="#c9dcd8"/>
+    <text x="42" y="88" font-size="19" font-weight="700">1. Notación (mínima, máxima)</text>
+    <g stroke="#344744" stroke-width="2" fill="white">
+      <rect x="55" y="124" width="220" height="60" rx="3"/>
+      <path d="M500 110 L580 154 L500 198 L420 154 Z"/>
+      <rect x="725" y="124" width="220" height="60" rx="3"/>
+      <path d="M275 154 H420 M580 154 H725" fill="none"/>
+    </g>
+    <g text-anchor="middle" font-size="19">
+      <text x="165" y="161">EMPLEADO</text>
+      <text x="500" y="160" font-size="17">PERTENECE</text>
+      <text x="835" y="161">DEPARTAMENTO</text>
+      <text x="340" y="137">(0,N)</text>
+      <text x="651" y="132" fill="#111111">(<tspan fill="#006b58" font-weight="700">1</tspan>,1)</text>
+      <text x="651" y="222" font-size="16" fill="#006b58">Mínima 1 junto a DEPARTAMENTO</text>
+    </g>
+    <rect x="20" y="256" width="960" height="182" rx="12" fill="#f3f8f7" stroke="#c9dcd8"/>
+    <text x="42" y="286" font-size="19" font-weight="700">2. Participación total mediante doble línea</text>
+    <g stroke="#344744" stroke-width="2" fill="white">
+      <rect x="55" y="322" width="220" height="60" rx="3"/>
+      <path d="M500 308 L580 352 L500 396 L420 352 Z"/>
+      <rect x="725" y="322" width="220" height="60" rx="3"/>
+      <path d="M580 352 H725" fill="none"/>
+    </g>
+    <path d="M275 348 H427 M275 356 H427" fill="none" stroke="#006b58" stroke-width="3"/>
+    <g text-anchor="middle" font-size="19">
+      <text x="165" y="359">EMPLEADO</text>
+      <text x="500" y="358" font-size="17">PERTENECE</text>
+      <text x="835" y="359">DEPARTAMENTO</text>
+      <text x="340" y="335">N</text>
+      <text x="651" y="335">1</text>
+      <text x="265" y="420" font-size="16" fill="#006b58">Doble línea junto a EMPLEADO</text>
+    </g>
+    <text x="500" y="472" text-anchor="middle" font-size="20" fill="#006b58" font-weight="700">Mínima 1 = doble línea en el extremo opuesto</text>
+    <text x="500" y="498" text-anchor="middle" font-size="16">Equivalencia según la convención utilizada en estos apuntes.</text>
+  </g>
+</svg>
