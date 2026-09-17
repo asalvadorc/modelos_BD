@@ -1997,11 +1997,11 @@ y una de B puede relacionarse con muchas de A.
 </thead>
 <tbody>
 <tr>
-<td>A un departamento determinado, ¿cuántos empleados pueden pertenecer?</td>
+<td>A un departamento determinado, ¿<mark>cuántos</mark> empleados pueden pertenecer?</td>
 <td>Muchos</td>
 </tr>
 <tr>
-<td>Un empleado determinado, ¿a cuántos departamentos puede pertenecer?</td>
+<td>Un empleado determinado, ¿a <mark>cuántos</mark> departamentos puede pertenecer?</td>
 <td>Uno</td>
 </tr>
 </tbody>
@@ -2018,24 +2018,41 @@ En ambos casos significa muchas ocurrencias en los dos lados.</p>
 <details>
 <summary>Ejemplo: Empresa</summary>
 <ul>
-<li>La compañía está organizada en departamentos. </li>
 <li>
-<p>Cada uno tiene nombre único, número único y un empleado que lo dirige. Nos interesa la fecha en la que comenzó a dirigirlo.  </p>
+<p>La compañía está organizada en departamentos. </p>
 </li>
 <li>
-<p>Cada departamento controla una serie de proyectos. Cada uno de estos proyectos tiene nombre y número únicos, y estará coordinado por un único departamento.</p>
+<p>Cada uno tiene nombre único, número único y <mark>un</mark> empleado que lo dirige. 
+  Nos interesa la fecha en la que comenzó a dirigirlo.</p>
 </li>
 <li>
-<p>De cada empleado nos interesa el nombre (formado por dos apellidos y nombre de pila), DNI, dirección, teléfono, sueldo y fecha de nacimiento. Todo empleado está asignado a un departamento, y muchas veces tendrá un supervisor. Puede trabajar en más de un proyecto (no necesariamente controlados por el mismo departamento) y trabajará un determinado número de horas a la semana en cada proyecto. En un proyecto siempre trabajará, como mínimo, un empleado.</p>
+<p>Cada departamento controla <mark>una serie</mark> de proyectos. 
+  Cada uno de estos proyectos tiene nombre y número únicos, y estará coordinado 
+  por <mark>un único</mark> departamento.</p>
 </li>
 <li>
-<p>Queremos saber también los familiares de cada empleado, para administrar los términos de un seguro. Queremos saber el nombre, fecha de nacimiento y parentesco con el empleado.  </p>
+<p>De cada empleado nos interesa el nombre (formado por dos apellidos y nombre de pila), 
+  DNI, dirección, teléfono, sueldo y fecha de nacimiento. 
+  Todo empleado está asignado <mark>a un</mark> departamento, y muchas veces tendrá 
+  <mark>un</mark> supervisor. 
+  Puede trabajar en <mark>más de un</mark> proyecto (no necesariamente controlados 
+  por el mismo departamento) y trabajará un determinado número de horas a la semana 
+  en cada proyecto. 
+  En un proyecto siempre trabajará, como mínimo, un empleado.</p>
+</li>
+<li>
+<p>Queremos saber también los <mark>familiares</mark> de cada empleado, para administrar 
+  los términos de un seguro. Queremos saber el nombre, fecha de nacimiento y parentesco 
+  con el empleado.</p>
 </li>
 </ul>
 </details>
 <hr />
-<p>Al incorporar cardinalidades, el modelo describe con más precisión la realidad del sistema:</p>
 <p><img alt="Diagrama completo del ejemplo con cardinalidades" src="../image-21.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">¿Y si el enunciado no indica la cardinalidad?</p>
+<p>Fíjate: las cardinalidades no siempre aparecen indicadas de forma explícita. Expresiones como un, un único, varios, una serie, más de uno o el uso del plural nos ayudan a deducirlas. Cuando el enunciado no proporciona suficiente información, debemos aplicar el sentido común y, si existe ambigüedad, consultar al usuario.</p>
+</div>
 
 
 
