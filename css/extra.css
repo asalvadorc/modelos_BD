@@ -921,6 +921,14 @@ body.lightbox-open {
     max-width: 100%;
 }
 
+/* Ajustar el complemento E/R al ancho del recuadro, conservando la copia. */
+.md-typeset .er-review pre,
+.md-typeset .er-review pre > code {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    text-align: justify;
+}
+
 /* Highlighted copy-ready IA prompt block */
 .md-typeset .ia-prompt-box {
     margin: 1rem 0 1.5rem;
