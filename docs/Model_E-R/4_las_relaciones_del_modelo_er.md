@@ -184,8 +184,8 @@ Lo veremos con nuestro ejemplo. Para no equivocarnos, hacemos siempre dos pregun
 
 | Pregunta | Respuesta en el ejemplo |
 |---|---|
-| A un departamento determinado, ¿cuántos empleados pueden pertenecer? | Muchos |
-| Un empleado determinado, ¿a cuántos departamentos puede pertenecer? | Uno |
+| A un departamento determinado, ¿<mark>cuántos</mark> empleados pueden pertenecer? | Muchos |
+| Un empleado determinado, ¿a <mark>cuántos</mark> departamentos puede pertenecer? | Uno |
 
 Con esas dos respuestas, la relación **PERTENECE** entre DEPARTAMENTO y EMPLEADO es **1:N**.
 
@@ -203,22 +203,34 @@ Con esas dos respuestas, la relación **PERTENECE** entre DEPARTAMENTO y EMPLEAD
 ??? "Ejemplo: Empresa"
 
     - La compañía está organizada en departamentos. 
-    - Cada uno tiene nombre único, número único y un empleado que lo dirige. Nos interesa la fecha en la que comenzó a dirigirlo.  
 
-    - Cada departamento controla una serie de proyectos. Cada uno de estos proyectos tiene nombre y número únicos, y estará coordinado por un único departamento.
+    - Cada uno tiene nombre único, número único y <mark>un</mark> empleado que lo dirige. 
+      Nos interesa la fecha en la que comenzó a dirigirlo.
 
-    - De cada empleado nos interesa el nombre (formado por dos apellidos y nombre de pila), DNI, dirección, teléfono, sueldo y fecha de nacimiento. Todo empleado está asignado a un departamento, y muchas veces tendrá un supervisor. Puede trabajar en más de un proyecto (no necesariamente controlados por el mismo departamento) y trabajará un determinado número de horas a la semana en cada proyecto. En un proyecto siempre trabajará, como mínimo, un empleado.
+    - Cada departamento controla <mark>una serie</mark> de proyectos. 
+      Cada uno de estos proyectos tiene nombre y número únicos, y estará coordinado 
+      por <mark>un único</mark> departamento.
 
-    - Queremos saber también los familiares de cada empleado, para administrar los términos de un seguro. Queremos saber el nombre, fecha de nacimiento y parentesco con el empleado.  
+    - De cada empleado nos interesa el nombre (formado por dos apellidos y nombre de pila), 
+      DNI, dirección, teléfono, sueldo y fecha de nacimiento. 
+      Todo empleado está asignado <mark>a un</mark> departamento, y muchas veces tendrá 
+      <mark>un</mark> supervisor. 
+      Puede trabajar en <mark>más de un</mark> proyecto (no necesariamente controlados 
+      por el mismo departamento) y trabajará un determinado número de horas a la semana 
+      en cada proyecto. 
+      En un proyecto siempre trabajará, como mínimo, un empleado.
+
+    - Queremos saber también los <mark>familiares</mark> de cada empleado, para administrar 
+      los términos de un seguro. Queremos saber el nombre, fecha de nacimiento y parentesco 
+      con el empleado.
 
 
 ---
 
 
-Al incorporar cardinalidades, el modelo describe con más precisión la realidad del sistema:
-
-
-
 
 ![Diagrama completo del ejemplo con cardinalidades](image-21.png)
 
+
+!!! note "¿Y si el enunciado no indica la cardinalidad?"
+    Fíjate: las cardinalidades no siempre aparecen indicadas de forma explícita. Expresiones como un, un único, varios, una serie, más de uno o el uso del plural nos ayudan a deducirlas. Cuando el enunciado no proporciona suficiente información, debemos aplicar el sentido común y, si existe ambigüedad, consultar al usuario.
