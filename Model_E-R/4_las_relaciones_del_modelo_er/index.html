@@ -1807,11 +1807,23 @@
 
 <h1 id="4-las-relaciones-del-modelo-er">4. Las Relaciones del Modelo E/R</h1>
 <p>Hasta ahora solo hemos definido entidades. Ahora conectaremos entidades entre ellas.</p>
-<p><strong>Ejemplo</strong>: Juan Pérez trabaja en Contabilidad. El empleado trabaja en un proyecto X dedicando 20 horas semanales.</p>
 <hr />
 <h2 id="41-concepto-de-relacion">4.1 Concepto de Relación</h2>
 <h3 id="definicion">Definición</h3>
 <p><strong>RELACIÓN</strong> es una asociación o correspondencia entre entidades.</p>
+<h3 id="representacion-grafica">Representación Gráfica</h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Elementos</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ul>
+<li><strong>Forma</strong>: Rombo</li>
+<li><strong>Etiqueta</strong>: Nombre de la relación (generalmente un verbo)</li>
+<li><strong>Conexión</strong>: Líneas hacia las entidades relacionadas</li>
+</ul>
+<p><img alt="Representación gráfica de una relación" src="../image-3.png" width="500" /></p>
+</div>
+</div>
+</div>
 <table>
 <thead>
 <tr>
@@ -1822,26 +1834,27 @@
 <tbody>
 <tr>
 <td><strong>Tipo de Relación</strong></td>
-<td>Estructura genérica entre tipos de entidad</td>
+<td>Define qué entidades pueden relacionarse</td>
 </tr>
 <tr>
 <td><strong>Ocurrencia de Relación</strong></td>
-<td>Instancia concreta (ej: Juan Pérez → Contabilidad)</td>
+<td>Indica qué ejemplares concretos están relacionados</td>
 </tr>
 </tbody>
 </table>
-<h3 id="representacion-grafica">Representación Gráfica</h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Elementos</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
+<h3 id="ejemplo">Ejemplo</h3>
+<p>Supongamos el siguiente <strong>tipo de relación</strong>:</p>
+<p><strong>EMPLEADO — trabaja en — DEPARTAMENTO</strong></p>
+<p>Este tipo de relación indica, de forma general, que un empleado puede trabajar en un departamento.</p>
+<p>Una <strong>ocurrencia concreta</strong> de esta relación sería:</p>
+<p><strong>Juan Pérez — trabaja en — Contabilidad</strong></p>
+<div class="admonition example">
+<p class="admonition-title">Recuerda</p>
 <ul>
-<li><strong>Forma</strong>: Rombo</li>
-<li><strong>Etiqueta</strong>: Nombre de la relación (generalmente un verbo)</li>
-<li><strong>Conexión</strong>: Líneas hacia las entidades relacionadas</li>
+<li><strong>Tipo de relación:</strong> EMPLEADO — trabaja en — DEPARTAMENTO</li>
+<li><strong>Ocurrencia:</strong> Juan Pérez — trabaja en — Contabilidad</li>
 </ul>
-<p><img alt="alt text" src="../image-55.png" width="500" /></p>
-</div>
-</div>
+<p><img alt="alt text" src="../image-1.png" width="500" /></p>
 </div>
 <h3 id="grados-de-una-relacion">Grados de una Relación</h3>
 <p>El <strong>GRADO</strong> es el número de entidades que participan en la relación:</p>
@@ -1890,16 +1903,16 @@
 <ul>
 <li>La compañía está organizada en departamentos. </li>
 <li>
-<p>Cada uno tiene nombre único, número único y un empleado que lo dirige. Nos interesa la fecha en la que comenzó a dirigirlo.  </p>
+<p>Cada uno tiene nombre único, número único y un empleado que lo <mark>dirige</mark>. Nos interesa la fecha en la que comenzó a dirigirlo.  </p>
 </li>
 <li>
-<p>Cada departamento controla una serie de proyectos. Cada uno de estos proyectos tiene nombre y número únicos, y estará coordinado por un único departamento.</p>
+<p>Cada departamento <mark>controla</mark> una serie de proyectos. Cada uno de estos proyectos tiene nombre y número únicos, y estará <mark>coordinado</mark> por un único departamento.</p>
 </li>
 <li>
-<p>De cada empleado nos interesa el nombre (formado por dos apellidos y nombre de pila), DNI, dirección, teléfono, sueldo y fecha de nacimiento. Todo empleado está asignado a un departamento, y muchas veces tendrá un supervisor. Puede trabajar en más de un proyecto (no necesariamente controlados por el mismo departamento) y trabajará un determinado número de horas a la semana en cada proyecto. En un proyecto siempre trabajará, como mínimo, un empleado.</p>
+<p>De cada empleado nos interesa el nombre (formado por dos apellidos y nombre de pila), DNI, dirección, teléfono, sueldo y fecha de nacimiento. Todo empleado está <mark>asignado</mark> a un departamento, y muchas veces <mark>tendrá</mark> un supervisor. Puede <mark>trabajar</mark> en más de un proyecto (no necesariamente controlados por el mismo departamento) y trabajará un determinado número de horas a la semana en cada proyecto. En un proyecto siempre trabajará, como mínimo, un empleado.</p>
 </li>
 <li>
-<p>Queremos saber también los familiares de cada empleado, para administrar los términos de un seguro. Queremos saber el nombre, fecha de nacimiento y parentesco con el empleado.  </p>
+<p>Queremos saber también los familiares <mark>de cada</mark> empleado, para administrar los términos de un seguro. Queremos saber el nombre, fecha de nacimiento y parentesco con el empleado.  </p>
 </li>
 </ul>
 </details>

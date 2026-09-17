@@ -1845,7 +1845,7 @@ cuántas ocurrencias como mínimo y como máximo pueden participar.</p>
 <ul>
 <li>
 <p><strong>Cardinalidad mínima</strong></p>
-<p>Valor mínimo de participación.
+<p>Valor mínimo de participación.<br />
 Los valores habituales son <strong>0</strong> o <strong>1</strong>.</p>
 </li>
 <li>
@@ -1863,7 +1863,7 @@ Los valores habituales son <strong>1</strong> o <strong>N</strong>.</p>
 <h3 id="ejemplo">Ejemplo</h3>
 <p>En la relación DIRIGE:</p>
 <ul>
-<li>un EMPLEADO puede dirigir <strong>0 o 1</strong> departamentos,</li>
+<li>un EMPLEADO puede dirigir <strong>0 o 1</strong> departamentos.</li>
 <li>un DEPARTAMENTO es dirigido por <strong>1 y solo 1</strong> empleado.</li>
 </ul>
 <p><img alt="Cardinalidad mínima y máxima en una relación" src="../estes_tot1.svg" /></p>
@@ -1896,6 +1896,24 @@ porque su representación gráfica es muy directa.</p>
 <p>[1] Hay autores que colocan estas marcas en el lado opuesto de la relación.</p>
 <h3 id="aplicacion-al-ejemplo">Aplicación al ejemplo</h3>
 <p>Aplicando participación total y parcial, el ejemplo queda así:</p>
+<details>
+<summary>Ejemplo: Empresa</summary>
+<ul>
+<li>La compañía está organizada en departamentos. </li>
+<li>
+<p>Cada uno tiene nombre único, número único y un empleado que lo dirige. Nos interesa la fecha en la que comenzó a dirigirlo.  </p>
+</li>
+<li>
+<p>Cada departamento controla una serie de proyectos. Cada uno de estos proyectos tiene nombre y número únicos, y estará coordinado por un único departamento.</p>
+</li>
+<li>
+<p>De cada empleado nos interesa el nombre (formado por dos apellidos y nombre de pila), DNI, dirección, teléfono, sueldo y fecha de nacimiento. Todo empleado está asignado a un departamento, y muchas veces tendrá un supervisor. Puede trabajar en más de un proyecto (no necesariamente controlados por el mismo departamento) y trabajará un determinado número de horas a la semana en cada proyecto. En un proyecto siempre trabajará, como mínimo, un empleado.</p>
+</li>
+<li>
+<p>Queremos saber también los familiares de cada empleado, para administrar los términos de un seguro. Queremos saber el nombre, fecha de nacimiento y parentesco con el empleado.  </p>
+</li>
+</ul>
+</details>
 <h2 id="_1"><img alt="Ejemplo con participación total y parcial" src="../image-28.png" /></h2>
 <h2 id="62-entidades-debiles">6.2 Entidades débiles</h2>
 <p>No todas las entidades tienen el mismo grado de independencia.</p>
@@ -2032,6 +2050,24 @@ por lo que no hace falta repetirlos.</p>
 y otras veces se simplifica por motivos prácticos.</p>
 </div>
 <h3 id="aplicacion-al-ejemplo_1">Aplicación al ejemplo</h3>
+<details>
+<summary>Ejemplo: Empresa</summary>
+<ul>
+<li>La compañía está organizada en departamentos. </li>
+<li>
+<p>Cada uno tiene nombre único, número único y un empleado que lo dirige. Nos interesa la fecha en la que comenzó a dirigirlo.  </p>
+</li>
+<li>
+<p>Cada departamento controla una serie de proyectos. Cada uno de estos proyectos tiene nombre y número únicos, y estará coordinado por un único departamento.</p>
+</li>
+<li>
+<p>De cada empleado nos interesa el nombre (formado por dos apellidos y nombre de pila), DNI, dirección, teléfono, sueldo y fecha de nacimiento. Todo empleado está asignado a un departamento, y muchas veces tendrá un supervisor. Puede trabajar en más de un proyecto (no necesariamente controlados por el mismo departamento) y trabajará un determinado número de horas a la semana en cada proyecto. En un proyecto siempre trabajará, como mínimo, un empleado.</p>
+</li>
+<li>
+<p>Queremos saber también los familiares de cada empleado, para administrar los términos de un seguro. Queremos saber el nombre, fecha de nacimiento y parentesco con el empleado.  </p>
+</li>
+</ul>
+</details>
 <p>Tomando solo los subtipos <strong>JEFE</strong> y <strong>TRABAJADOR</strong> de <strong>EMPLEADO</strong>:</p>
 <p><img alt="Especialización del ejemplo con subtipos JEFE y TRABAJADOR" src="../image-13.png" /></p>
 <div class="admonition note">
