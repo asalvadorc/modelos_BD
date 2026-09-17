@@ -1,8 +1,18 @@
 # Ejercicios
 
-!!! tip "Revisa tu solución"
+!!! tip er-review "Revisa tu solución"
 
     Antes de consultar la solución oficial, revisa tu propuesta utilizando el prompt del apartado **[Cómo utilizar la IA para aprender](../IA.md)**.
+
+    Existen distintas convenciones para representar y leer las cardinalidades en los diagramas E/R. La IA puede utilizar una diferente a la de estos apuntes, por lo que conviene indicarle cuál usamos. Añade este texto al prompt general:
+
+    ```text
+    Hay distintas convenciones para leer las cardinalidades. En estos apuntes, se leen al otro lado de la relación: 
+
+    Ejemplo: DEPARTAMENTO (1)—PERTENECE—(N) EMPLEADO significa que un departamento tiene muchos empleados y cada empleado pertenece a un único departamento.
+
+    Usa esta convención y, antes de corregir las cardinalidades, explica cómo has leído la relación en ambos sentidos.
+    ```
 
     
 ## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 3</span></span>
@@ -98,5 +108,3 @@ Una empresa de líneas ferroviarias quiere que se le diseñe una Base de Datos p
 Opcionalmente, podemos poner todas las estaciones a las que se llega en un trayecto (sustituyendo la estación origen y destino). Tendremos que saber si la estación es origen, destino o de paso.
 
 -->
-
-

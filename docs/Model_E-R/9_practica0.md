@@ -91,6 +91,16 @@ Te recomendamos utilizar estos recursos para comprender el procedimiento de reso
     </video>
 
 
-!!! tip "Revisa tu solución"
+!!! tip er-review "Revisa tu solución"
 
     Antes de consultar la solución oficial, revisa tu propuesta utilizando el prompt del apartado **[Cómo utilizar la IA para aprender](../IA.md)**.
+
+    Existen distintas convenciones para representar y leer las cardinalidades en los diagramas E/R. La IA puede utilizar una diferente a la de estos apuntes, por lo que conviene indicarle cuál usamos. Añade este texto al prompt general:
+
+    ```text
+    Hay distintas convenciones para leer las cardinalidades. En estos apuntes, se leen al otro lado de la relación: el valor junto a B indica cuántos B pueden relacionarse con un A, y viceversa.
+
+    Ejemplo: DEPARTAMENTO (1)—PERTENECE—(N) EMPLEADO significa que un departamento tiene muchos empleados y cada empleado pertenece a un único departamento.
+
+    Usa esta convención y, antes de corregir las cardinalidades, explica cómo has leído la relación en ambos sentidos. Si una etiqueta no se ve clara, pregúntame.
+    ```
