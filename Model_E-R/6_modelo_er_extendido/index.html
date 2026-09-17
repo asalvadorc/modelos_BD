@@ -1924,7 +1924,13 @@ además de depender para existir, la entidad débil necesita la clave de la regu
 para poder identificarse.</p>
 <p>A esto lo llamamos <strong>dependencia en identificación</strong>.
 Suele marcarse con <strong>ID</strong> junto a la relación.</p>
-<p><img alt="alt text" src="../image-19.png" /></p>
+<p>Por ejemplo, <strong>FAMILIAR</strong> necesita el <strong>DNI de EMPLEADO</strong> para completar su identificación. El nombre del familiar puede repetirse entre empleados distintos.</p>
+<p><img alt="Dependencia en identificación entre EMPLEADO y FAMILIAR: DNI del empleado y nombre del familiar" src="../T2_6_6.svg" /></p>
+<p>En este ejemplo, suponemos que los nombres de los familiares de un mismo empleado no se repiten. Así, cada familiar se identifica mediante <strong>DNI del empleado + nombre del familiar</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">¿Qué significa ID?</p>
+<p><strong>ID</strong> indica que la relación es de <strong>dependencia en identificación</strong>. La clave que aporta EMPLEADO es su <strong>DNI</strong>, pero este no basta por sí solo para distinguir a sus distintos familiares.</p>
+</div>
 <h3 id="dos-ejemplos-tipicos">Dos ejemplos típicos</h3>
 <div class="grid cards">
 <ul>
@@ -1941,10 +1947,8 @@ para evitar repeticiones.</p>
 </ul>
 </div>
 <h3 id="en-nuestro-ejemplo-empleado-familiar">En nuestro ejemplo (EMPLEADO - FAMILIAR)</h3>
-<p>Si el nombre del familiar fuese suficiente para identificarlo,
-modelaríamos dependencia en existencia.</p>
-<p>Si no es suficiente, usaríamos dependencia en identificación,
-con clave compuesta: <strong>DNI del empleado + nombre del familiar</strong>.</p>
+<p>Si el familiar tuviese un identificador propio y único, sin necesitar el DNI del empleado, modelaríamos solo dependencia en existencia.</p>
+<p>Si necesitamos el DNI del empleado para identificarlo, modelamos dependencia en identificación. Con la suposición anterior, la clave es <strong>DNI del empleado + nombre del familiar</strong>. Si un empleado pudiera tener dos familiares con el mismo nombre, necesitaríamos otro dato para distinguirlos, como un número de familiar.</p>
 <p>Representación con dependencia en existencia:</p>
 <p><img alt="Dependencia en existencia" src="../T2_6_5.svg" /></p>
 <p>Representación con dependencia en identificación:</p>
