@@ -21,10 +21,12 @@ hide:
 
 ??? success "Ver solución propuesta Ejercicio 2"
        
-    ![](Ej2.png)
+    ![](image-15.png)
+
+    
 
 ??? success "Ver solución propuesta Ejercicio 3"
-    ![](Ej3.png)    
+    ![](Ej3.png)   
 
 ??? success "Ver solución propuesta Ejercicio 4"
     ![](Ej4.png)

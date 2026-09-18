@@ -100,11 +100,11 @@ nav:
     - 4. Las Relaciones: Model_E-R/4_las_relaciones_del_modelo_er.md
     - Práctica guiada: Model_E-R/9_practica0.md
     - Ejercicios: Model_E-R/ejercicios0.md
-    - 5. Relaciones ternarias: Model_E-R/5_relaciones_de_grado_mayor_que_dos.md
-    - 6. Modelo E/R Extendido: Model_E-R/6_modelo_er_extendido.md
-    - 7. Restricciones externas: Model_E-R/7_restricciones_externas.md
-    - 8. Resumen elementos gráficos: Model_E-R/8_resumen_elementos_graficos.md
+    - 5. Modelo E/R Extendido: Model_E-R/6_modelo_er_extendido.md
     - Ejercicios: Model_E-R/ejercicios1.md
+    - 6. Relaciones ternarias: Model_E-R/5_relaciones_de_grado_mayor_que_dos.md
+    - 7. Restricciones externas: Model_E-R/7_restricciones_externas.md
+    - 8. Resumen elementos gráficos: Model_E-R/8_resumen_elementos_graficos.md 
     - Soluciones: Model_E-R/soluciones.md
   - T2. Modelo Relacional:
     #- proximamente.md
