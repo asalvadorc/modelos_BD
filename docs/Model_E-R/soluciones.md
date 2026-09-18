@@ -26,7 +26,8 @@ hide:
     
 
 ??? success "Ver solución propuesta Ejercicio 3"
-    ![](Ej3.png)   
+    ![](image-29.png)  
+    
 
 ??? success "Ver solución propuesta Ejercicio 4"
     ![](Ej4.png)
