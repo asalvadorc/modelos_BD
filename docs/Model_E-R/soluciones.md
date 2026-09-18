@@ -34,7 +34,8 @@ hide:
 
 
 ??? success "Ver solución propuesta Ejercicio 5"
-    ![](Ej5.png)
+    ![](image-30.png)
+    
 
 
 ??? success "Ver solución propuesta Ejercicio 6"
