@@ -202,7 +202,8 @@ En este contexto:
 | **Generalización** | Vista global desde los subtipos al supertipo |
 | **Especialización** | División del supertipo en subtipos |
 
-![Generalización y especialización en EER](image-11.png)
+![Generalización y especialización en EER](image-33.png)
+
 
 ### Herencia
 
