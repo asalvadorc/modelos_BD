@@ -1817,44 +1817,59 @@ se queda corto para representar restricciones reales del sistema.</p>
 <p>Para cubrir estos casos usamos el <strong>Modelo Entidad-Relación Extendido (EER)</strong>.</p>
 <hr />
 <h2 id="61-cardinalidad-maxima-y-minima-participacion-total">6.1 Cardinalidad máxima y mínima. Participación total</h2>
-<p>Hasta ahora, la cardinalidad <strong>1 o N</strong> nos indicaba el número <strong>máximo</strong> de ocurrencias que podían relacionarse. Ahora añadimos otra pregunta: <strong>¿es obligatorio participar en la relación?</strong></p>
-<p>Esta obligación se puede expresar de <strong>dos maneras equivalentes</strong>: mediante la <strong>cardinalidad mínima</strong> o mediante la <strong>participación total/parcial</strong>.</p>
-<h3 id="primera-forma-notacion-minima-maxima">Primera forma: notación (mínima, máxima)</h3>
-<p>El par <strong>(mínima, máxima)</strong> indica cuántas ocurrencias de una entidad pueden relacionarse con una de la otra:</p>
+<p>Hasta ahora hemos indicado cuántas ocurrencias pueden relacionarse <strong>como máximo</strong>. Ahora veremos cómo indicar también si participar es <strong>obligatorio u opcional</strong>.</p>
+<h3 id="1-el-par-minima-maxima">1. El par (mínima, máxima)</h3>
+<p>El par <strong>(mínima, máxima)</strong> indica con cuántas ocurrencias de la otra entidad puede relacionarse una ocurrencia:</p>
 <ul>
-<li>La <strong>mínima</strong> indica si la participación es opcional (<strong>0</strong>) u obligatoria (<strong>1</strong>).</li>
-<li>La <strong>máxima</strong> indica si puede relacionarse con una (<strong>1</strong>) o con muchas (<strong>N</strong>).</li>
+<li>La <strong>mínima</strong> indica si participar es <strong>opcional (0)</strong> u <strong>obligatorio (1)</strong>: puede no relacionarse con ninguna o debe relacionarse al menos con una.</li>
+<li>La <strong>máxima</strong> indica con cuántas puede relacionarse como máximo: <strong>una (1)</strong> o <strong>muchas (N)</strong>.</li>
 </ul>
-<p>Por ejemplo, <strong>(0,N)</strong> significa de cero a muchas; <strong>(1,1)</strong>, exactamente una.</p>
-<h3 id="segunda-forma-participacion-total-o-parcial">Segunda forma: participación total o parcial</h3>
-<p>Podemos expresar esa misma obligatoriedad mediante las líneas que unen cada entidad con la relación, manteniendo <strong>1 o N</strong> para indicar la cardinalidad máxima.</p>
+<p>Por ejemplo, <strong>(0,1)</strong> significa «ninguna o una», mientras que <strong>(1,1)</strong> significa «exactamente una».</p>
+<div class="admonition warning">
+<p class="admonition-title">¿Dónde se escribe el par?</p>
+<p>En la convención de estos apuntes, se escribe <strong>en el extremo opuesto a la entidad que estamos considerando</strong>. Para expresar que cada EMPLEADO debe pertenecer a un único departamento, escribimos <strong>(1,1) junto a DEPARTAMENTO</strong>.</p>
+</div>
+<p><img alt="Desde EMPLEADO leemos el par (1,1) junto a DEPARTAMENTO: la mínima 1 se representa en el extremo opuesto" src="../cardinalidad_minima_extremo_opuesto.svg" /></p>
+<h3 id="2-participacion-total-o-parcial">2. Participación total o parcial</h3>
+<p>La participación indica si <strong>todas las ocurrencias de una entidad deben intervenir en la relación</strong> o si puede haber alguna que no lo haga:</p>
+<ul>
+<li><strong>Total:</strong> todas deben participar. Se representa con <strong>doble línea</strong>.</li>
+<li><strong>Parcial:</strong> puede haber ocurrencias que no participen. Se representa con <strong>línea simple</strong>.</li>
+</ul>
+<p>La línea se dibuja <strong>junto a la propia entidad cuya participación describimos</strong>. Los números <strong>1 o N</strong> siguen indicando la cardinalidad máxima.</p>
+<p>Por ejemplo, si ningún EMPLEADO puede quedar sin departamento, la participación de EMPLEADO es <strong>total</strong>: dibujamos una <strong>doble línea junto a EMPLEADO</strong>.</p>
+<p><img alt="Participación total de EMPLEADO con doble línea roja y participación parcial de DEPARTAMENTO con línea simple azul, junto a cada entidad" src="../participacion_junto_entidad.svg" /></p>
+<h3 id="3-como-se-relacionan-ambas-representaciones">3. ¿Cómo se relacionan ambas representaciones?</h3>
+<p>Ahora podemos conectar las dos formas de representarlo:</p>
 <table>
 <thead>
 <tr>
-<th>Participación</th>
-<th>Significado</th>
-<th>Representación</th>
+<th>Cardinalidad mínima</th>
+<th>Equivale a</th>
+<th>Representación de la participación</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong style="white-space: nowrap;">Total (mínima 1)</strong></td>
-<td>Todas las ocurrencias de la entidad deben participar al menos una vez.</td>
-<td><strong>Doble línea</strong> junto a esa entidad.</td>
+<td><strong>1: obligatorio</strong></td>
+<td><strong>Participación total</strong></td>
+<td><strong>Doble línea</strong></td>
 </tr>
 <tr>
-<td><strong style="white-space: nowrap;">Parcial (mínima 0)</strong></td>
-<td>Puede haber ocurrencias de la entidad que no participen.</td>
-<td><strong>Línea simple</strong> junto a esa entidad.</td>
+<td><strong>0: opcional</strong></td>
+<td><strong>Participación parcial</strong></td>
+<td><strong>Línea simple</strong></td>
 </tr>
 </tbody>
 </table>
-<h3 id="la-misma-informacion-dos-representaciones">La misma información, dos representaciones</h3>
-<div class="admonition note">
-<p class="admonition-title">Fíjate en el lado</p>
-<p>Con nuestra convención, la <strong>mínima 1</strong> corresponde a la <strong>doble línea del extremo opuesto</strong>. Ambas expresan la misma obligación; cambia la forma de representarla.</p>
+<p><strong>«Todo empleado pertenece a un departamento»</strong> significa que pertenecer es <strong>obligatorio</strong>: cada empleado se relaciona <strong>al menos con uno</strong>. Por eso podemos expresarlo mediante <strong>mínima 1</strong> o mediante <strong>participación total de EMPLEADO</strong>.</p>
+<div class="admonition warning">
+<p class="admonition-title">La misma condición, en extremos opuestos</p>
+<p>En nuestra convención, la <strong>mínima 1 junto a DEPARTAMENTO</strong> equivale a la <strong>doble línea junto a EMPLEADO</strong>. Ambas indican que ningún empleado puede quedar sin departamento.</p>
+<p><strong>El par se escribe al otro lado; la línea, junto a la entidad cuya participación describimos.</strong></p>
 </div>
 <p><img alt="Comparación entre la mínima 1 junto a DEPARTAMENTO y la doble línea junto a EMPLEADO" src="../participacion_empleado_departamento.svg" /></p>
+<p>La equivalencia afecta a la <strong>mínima</strong>. La doble línea significa <strong>al menos una vez</strong> y sirve tanto para <strong>(1,1)</strong> como para <strong>(1,N)</strong>; la máxima se indica por separado.</p>
 <hr />
 <h3 id="aplicacion-al-ejemplo">Aplicación al ejemplo</h3>
 <p>Los siguientes diagramas muestran el mismo ejemplo de Empresa con las dos representaciones.</p>

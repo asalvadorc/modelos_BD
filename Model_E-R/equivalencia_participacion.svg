@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="440" viewBox="0 0 1000 440" role="img" aria-labelledby="title desc">
+  <title id="title">Equivalencia entre cardinalidad mínima y participación</title>
+  <desc id="desc">Participación total: mínima 1 equivale a doble línea junto a la entidad. Participación parcial: mínima 0 equivale a línea simple junto a la entidad. En la convención de estos apuntes, la mínima se escribe en el extremo opuesto y la línea junto a la entidad cuya participación se describe.</desc>
+  <rect width="1000" height="440" fill="white"/>
+  <g font-family="Arial, sans-serif" fill="#18332f">
+    <text x="500" y="34" text-anchor="middle" font-size="24" font-weight="700">La misma participación, dos formas de expresarla</text>
+    <rect x="20" y="54" width="960" height="154" rx="12" fill="#fff5f5" stroke="#efb9b9"/>
+    <rect x="20" y="222" width="960" height="154" rx="12" fill="#f0f6ff" stroke="#b7cdeb"/>
+    <g font-size="20" font-weight="700">
+      <text x="42" y="84">TOTAL · Participar es obligatorio</text>
+      <text x="42" y="252">PARCIAL · Participar es opcional</text>
+    </g>
+    <g text-anchor="middle">
+      <text x="200" y="137" font-size="30" font-weight="700" fill="#d32f2f">Mínima 1</text>
+      <text x="420" y="145" font-size="48" font-weight="700" fill="#d32f2f">≡</text>
+      <text x="200" y="305" font-size="30" font-weight="700" fill="#1565c0">Mínima 0</text>
+      <text x="420" y="313" font-size="48" font-weight="700" fill="#1565c0">≡</text>
+      <g fill="white" stroke="#344744" stroke-width="2">
+        <rect x="530" y="106" width="165" height="48" rx="3"/>
+        <path d="M835 94 L905 130 L835 166 L765 130 Z"/>
+        <rect x="530" y="274" width="165" height="48" rx="3"/>
+        <path d="M835 262 L905 298 L835 334 L765 298 Z"/>
+      </g>
+      <path d="M695 126 H773 M695 134 H773" fill="none" stroke="#d32f2f" stroke-width="4"/>
+      <path d="M695 298 H765" fill="none" stroke="#1565c0" stroke-width="4"/>
+      <g font-size="17">
+        <text x="612" y="136">ENTIDAD</text>
+        <text x="835" y="136" font-size="14">RELACIÓN</text>
+        <text x="612" y="304">ENTIDAD</text>
+        <text x="835" y="304" font-size="14">RELACIÓN</text>
+        <text x="200" y="185">Al menos una vez</text>
+        <text x="200" y="353">Puede no participar</text>
+        <text x="720" y="185" fill="#d32f2f" font-weight="700">Doble línea junto a la entidad</text>
+        <text x="720" y="353" fill="#1565c0" font-weight="700">Línea simple junto a la entidad</text>
+      </g>
+      <text x="500" y="405" font-size="18" font-weight="700">≡ significa «expresa lo mismo».</text>
+      <text x="500" y="429" font-size="16">En estos apuntes: mínima en el extremo opuesto; línea junto a la entidad que participa.</text>
+    </g>
+  </g>
+</svg>
