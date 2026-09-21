@@ -26,17 +26,17 @@ hide:
     
 
 ??? success "Ver solución propuesta Ejercicio 3"
-    ![alt text](image-35.png)
+    ![alt text](image-36.png){ .grayscale }
     
 
 ??? success "Ver solución propuesta Ejercicio 4"
-    ![](Ej4.png)
+    ![alt text](image-37.png){ .grayscale }
 
 
 ??? success "Ver solución propuesta Ejercicio 5"
-    ![](image-30.png)
+   ![alt text](image-38.png){ .grayscale }
     
 
 
 ??? success "Ver solución propuesta Ejercicio 6"
-    ![](Ej6.png)
+    ![alt text](image-39.png){ .grayscale }

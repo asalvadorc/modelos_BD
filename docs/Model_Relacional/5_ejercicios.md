@@ -24,12 +24,12 @@ Recordad que teníamos 3 opciones:
 ## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 3</span></span>
 
 
-![alt text](image-57.png){ .grayscale }
+![alt text](image-6.png){ .grayscale }
 
 ## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 4</span></span>
 
 
-![alt text](image-38.png){ .grayscale }
+![alt text](image-9.png){ .grayscale }
 
 
 ## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 5</span></span>
