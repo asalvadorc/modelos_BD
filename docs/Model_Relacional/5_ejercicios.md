@@ -29,7 +29,7 @@ Recordad que teníamos 3 opciones:
 ## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 4</span></span>
 
 
-![alt text](image-11.png){ .grayscale }
+![alt text](image-13.png){ .grayscale }
 
 
 ## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 5</span></span>
@@ -41,7 +41,7 @@ Recordad que teníamos 3 opciones:
 ## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 6</span></span>
 
 
-![alt text](image.png){ .grayscale }
+![alt text](image-11.png){ .grayscale }
 
 
 ## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 7</span></span>
