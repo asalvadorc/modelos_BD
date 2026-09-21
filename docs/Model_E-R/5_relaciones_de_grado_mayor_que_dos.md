@@ -44,8 +44,7 @@ En ciertos casos puede servir, pero no siempre conserva el mismo significado.
 
 ## 5.2 Cardinalidad en relaciones ternarias
 
-En una relación ternaria, la cardinalidad se interpreta fijando dos entidades
-y observando cuántas ocurrencias intervienen de la tercera.
+En una relación ternaria, la cardinalidad se interpreta fijando dos entidades y observando cuántas ocurrencias intervienen de la tercera.
 
 ![ref](relacio_tern2.svg)
 

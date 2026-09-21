@@ -15,35 +15,54 @@ Para cubrir estos casos usamos el **Modelo Entidad-Relación Extendido (EER)**.
 
 ## 6.1 Cardinalidad máxima y mínima. Participación total
 
-Hasta ahora, la cardinalidad **1 o N** nos indicaba el número **máximo** de ocurrencias que podían relacionarse. Ahora añadimos otra pregunta: **¿es obligatorio participar en la relación?**
+Hasta ahora hemos indicado cuántas ocurrencias pueden relacionarse **como máximo**. Ahora veremos cómo indicar también si participar es **obligatorio u opcional**.
 
-Esta obligación se puede expresar de **dos maneras equivalentes**: mediante la **cardinalidad mínima** o mediante la **participación total/parcial**.
+### 1. El par (mínima, máxima)
 
-### Primera forma: notación (mínima, máxima)
+El par **(mínima, máxima)** indica con cuántas ocurrencias de la otra entidad puede relacionarse una ocurrencia:
 
-El par **(mínima, máxima)** indica cuántas ocurrencias de una entidad pueden relacionarse con una de la otra:
+- La **mínima** indica si participar es **opcional (0)** u **obligatorio (1)**: puede no relacionarse con ninguna o debe relacionarse al menos con una.
+- La **máxima** indica con cuántas puede relacionarse como máximo: **una (1)** o **muchas (N)**.
 
-- La **mínima** indica si la participación es opcional (**0**) u obligatoria (**1**).
-- La **máxima** indica si puede relacionarse con una (**1**) o con muchas (**N**).
+Por ejemplo, **(0,1)** significa «ninguna o una», mientras que **(1,1)** significa «exactamente una».
 
-Por ejemplo, **(0,N)** significa de cero a muchas; **(1,1)**, exactamente una.
+!!! warning "¿Dónde se escribe el par?"
+    En la convención de estos apuntes, se escribe **en el extremo opuesto a la entidad que estamos considerando**. Para expresar que cada EMPLEADO debe pertenecer a un único departamento, escribimos **(1,1) junto a DEPARTAMENTO**.
 
+![Desde EMPLEADO leemos el par (1,1) junto a DEPARTAMENTO: la mínima 1 se representa en el extremo opuesto](cardinalidad_minima_extremo_opuesto.svg)
 
-### Segunda forma: participación total o parcial
+### 2. Participación total o parcial
 
-Podemos expresar esa misma obligatoriedad mediante las líneas que unen cada entidad con la relación, manteniendo **1 o N** para indicar la cardinalidad máxima.
+La participación indica si **todas las ocurrencias de una entidad deben intervenir en la relación** o si puede haber alguna que no lo haga:
 
-| Participación | Significado | Representación |
+- **Total:** todas deben participar. Se representa con **doble línea**.
+- **Parcial:** puede haber ocurrencias que no participen. Se representa con **línea simple**.
+
+La línea se dibuja **junto a la propia entidad cuya participación describimos**. Los números **1 o N** siguen indicando la cardinalidad máxima.
+
+Por ejemplo, si ningún EMPLEADO puede quedar sin departamento, la participación de EMPLEADO es **total**: dibujamos una **doble línea junto a EMPLEADO**.
+
+![Participación total de EMPLEADO con doble línea roja y participación parcial de DEPARTAMENTO con línea simple azul, junto a cada entidad](participacion_junto_entidad.svg)
+
+### 3. ¿Cómo se relacionan ambas representaciones?
+
+Ahora podemos conectar las dos formas de representarlo:
+
+| Cardinalidad mínima | Equivale a | Representación de la participación |
 |---|---|---|
-| <strong style="white-space: nowrap;">Total (mínima 1)</strong> | Todas las ocurrencias de la entidad deben participar al menos una vez. | **Doble línea** junto a esa entidad. |
-| <strong style="white-space: nowrap;">Parcial (mínima 0)</strong> | Puede haber ocurrencias de la entidad que no participen. | **Línea simple** junto a esa entidad. |
+| **1: obligatorio** | **Participación total** | **Doble línea** |
+| **0: opcional** | **Participación parcial** | **Línea simple** |
 
-### La misma información, dos representaciones
+**«Todo empleado pertenece a un departamento»** significa que pertenecer es **obligatorio**: cada empleado se relaciona **al menos con uno**. Por eso podemos expresarlo mediante **mínima 1** o mediante **participación total de EMPLEADO**.
 
-!!! note "Fíjate en el lado"
-    Con nuestra convención, la **mínima 1** corresponde a la **doble línea del extremo opuesto**. Ambas expresan la misma obligación; cambia la forma de representarla.
+!!! warning "La misma condición, en extremos opuestos"
+    En nuestra convención, la **mínima 1 junto a DEPARTAMENTO** equivale a la **doble línea junto a EMPLEADO**. Ambas indican que ningún empleado puede quedar sin departamento.
+
+    **El par se escribe al otro lado; la línea, junto a la entidad cuya participación describimos.**
 
 ![Comparación entre la mínima 1 junto a DEPARTAMENTO y la doble línea junto a EMPLEADO](participacion_empleado_departamento.svg)
+
+La equivalencia afecta a la **mínima**. La doble línea significa **al menos una vez** y sirve tanto para **(1,1)** como para **(1,N)**; la máxima se indica por separado.
 
 ---
 ### Aplicación al ejemplo

@@ -17,7 +17,7 @@
       <text x="500" y="160" font-size="17">PERTENECE</text>
       <text x="835" y="161">DEPARTAMENTO</text>
       <text x="340" y="137">(0,N)</text>
-      <text x="651" y="132" fill="#111111">(<tspan fill="#006b58" font-weight="700">1</tspan>,1)</text>
+      <text x="651" y="132" fill="#111111">(<tspan fill="#d32f2f" font-size="24" font-weight="700">1</tspan>,1)</text>
       <text x="651" y="222" font-size="16" fill="#006b58">Mínima 1 junto a DEPARTAMENTO</text>
     </g>
     <rect x="20" y="256" width="960" height="182" rx="12" fill="#f3f8f7" stroke="#c9dcd8"/>
@@ -28,7 +28,7 @@
       <rect x="725" y="322" width="220" height="60" rx="3"/>
       <path d="M580 352 H725" fill="none"/>
     </g>
-    <path d="M275 348 H427 M275 356 H427" fill="none" stroke="#006b58" stroke-width="3"/>
+    <path d="M275 348 H427 M275 356 H427" fill="none" stroke="#d32f2f" stroke-width="4"/>
     <g text-anchor="middle" font-size="19">
       <text x="165" y="359">EMPLEADO</text>
       <text x="500" y="358" font-size="17">PERTENECE</text>
