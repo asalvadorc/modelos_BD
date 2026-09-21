@@ -148,12 +148,11 @@ Los atributos de la relación se representan como círculos unidos a la relació
 
 ## 4.3 Tipo de Relación o Cardinalidad
 
-La **cardinalidad** permite expresar cuántas ocurrencias de una entidad pueden
-relacionarse con una ocurrencia de la otra.
+La **cardinalidad** permite expresar cuántas ocurrencias de una entidad pueden relacionarse con una ocurrencia de la otra.
 
-Sin cardinalidad, el diagrama queda incompleto. Por ejemplo, sabríamos que
-EMPLEADO se relaciona con DEPARTAMENTO, pero no si un empleado puede pertenecer
-a uno o a varios departamentos.
+Sin cardinalidad, el diagrama queda incompleto. Por ejemplo, sabríamos que EMPLEADO se relaciona con DEPARTAMENTO, pero no si un empleado puede pertenecer a uno o a varios departamentos.
+
+
 
 <div class="grid cards" markdown>
 
@@ -190,14 +189,6 @@ Lo veremos con nuestro ejemplo. Para no equivocarnos, hacemos siempre dos pregun
 Con esas dos respuestas, la relación **PERTENECE** entre DEPARTAMENTO y EMPLEADO es **1:N**.
 
 ### Representación en el diagrama
-
-!!! warning "¡Atención! La cardinalidad se lee en el otro lado de la relación"
-    En esta notación, para saber con cuántas ocurrencias de B puede relacionarse **una ocurrencia de A**, hay que mirar el número o la letra situado **junto a B, en el extremo opuesto**.
-
-    - Desde **DEPARTAMENTO**, miramos la **N junto a EMPLEADO**: un departamento puede tener muchos empleados.
-    - Desde **EMPLEADO**, miramos el **1 junto a DEPARTAMENTO**: un empleado solo puede pertenecer a un departamento.
-
-    **Recuerda: parte de una entidad, cruza la relación y lee la cardinalidad del otro lado.**
 
 ![Diagrama de cardinalidad uno a muchos (1:N)](image-24.png)
 
