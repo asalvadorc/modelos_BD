@@ -18,30 +18,30 @@ Recordad que teníamos 3 opciones:
 ## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 2</span></span>
 
 
-![alt text](image-34.png){ .grayscale }
+![alt text](Ej2.jpg){ .grayscale }
 
 
 ## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 3</span></span>
 
 
-![alt text](image-6.png){ .grayscale }
+![alt text](Ej3.jpg){ .grayscale }
 
 ## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 4</span></span>
 
 
-![alt text](image-13.png){ .grayscale }
+![alt text](Ej4.jpg){ .grayscale }
 
 
 ## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 5</span></span>
 
 
-![alt text](image-46.png){ .grayscale }
+![alt text](Ej5.jpg){ .grayscale }
 
 
 ## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 6</span></span>
 
 
-![alt text](image-11.png){ .grayscale }
+![alt text](Ej6.jpg){ .grayscale }
 
 
 ## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 7</span></span>

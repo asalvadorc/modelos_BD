@@ -21,22 +21,22 @@ hide:
 
 ??? success "Ver solución propuesta Ejercicio 2"
        
-    ![](image-15.png)
+    ![](Ej2.jpg)
 
     
 
 ??? success "Ver solución propuesta Ejercicio 3"
-    ![alt text](image-36.png){ .grayscale }
+    ![](Ej3.jpg){ .grayscale }
     
 
 ??? success "Ver solución propuesta Ejercicio 4"
-    ![alt text](image-37.png){ .grayscale }
+   ![](Ej4.jpg){ .grayscale }
 
 
 ??? success "Ver solución propuesta Ejercicio 5"
-   ![alt text](image-38.png){ .grayscale }
+   ![](Ej5.jpg){ .grayscale }
     
 
 
 ??? success "Ver solución propuesta Ejercicio 6"
-    ![alt text](image-39.png){ .grayscale }
+    ![](Ej6.jpg){ .grayscale }
