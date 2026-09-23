@@ -22,19 +22,20 @@ hide:
 ??? success "Ver solución propuesta Ejercicio 2"
        
     ![](Ej2.jpg)
-
-    
+  
 
 ??? success "Ver solución propuesta Ejercicio 3"
     ![](Ej3.jpg){ .grayscale }
     
 
 ??? success "Ver solución propuesta Ejercicio 4"
-   ![](Ej4.jpg){ .grayscale }
+
+    ![](Ej4.jpg){ .grayscale }
 
 
 ??? success "Ver solución propuesta Ejercicio 5"
-   ![](Ej5.jpg){ .grayscale }
+
+    ![](Ej5.jpg){ .grayscale }
     
 
 
