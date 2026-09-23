@@ -1,4 +1,4 @@
-# 6. Modelo E/R Extendido
+# 5. Modelo E/R Extendido
 
 El modelo E/R que hemos visto hasta ahora es muy potente, pero en algunos casos
 se queda corto para representar restricciones reales del sistema.
@@ -13,7 +13,7 @@ Para cubrir estos casos usamos el **Modelo Entidad-Relación Extendido (EER)**.
 
 ---
 
-## 6.1 Cardinalidad máxima y mínima. Participación total
+## 5.1 Cardinalidad máxima y mínima. Participación total
 
 Hasta ahora hemos indicado cuántas ocurrencias pueden relacionarse **como máximo**. Ahora veremos cómo indicar también si participar es **obligatorio u opcional**.
 
@@ -115,7 +115,7 @@ Los siguientes diagramas muestran el mismo ejemplo de Empresa con las dos repres
 
     La notación **(mínima, máxima)** se ha mostrado para reconocer otra forma de expresar la misma información.
 
-## 6.2 Entidades débiles
+## 5.2 Entidades débiles
 
 No todas las entidades tienen el mismo grado de independencia.
 
@@ -202,7 +202,7 @@ pueden llevar a decisiones distintas.
 
 ---
 
-## 6.3 Generalización y herencia
+## 5.3 Generalización y herencia
 
 Otro aspecto importante del EER es la posibilidad de especializar entidades.
 

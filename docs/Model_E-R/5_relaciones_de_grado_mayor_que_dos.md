@@ -1,11 +1,11 @@
-# 5. Relaciones ternarias
+# 6. Relaciones ternarias
 
 En este apartado profundizamos en las **relaciones ternarias** (grado 3),
 que son un caso típico de relación de grado mayor que dos.
 
 ---
 
-## 5.1 Relación ternaria frente a tres binarias
+## 6.1 Relación ternaria frente a tres binarias
 
 A veces se intenta representar una relación ternaria como tres relaciones binarias.
 En ciertos casos puede servir, pero no siempre conserva el mismo significado.
@@ -42,7 +42,7 @@ En ciertos casos puede servir, pero no siempre conserva el mismo significado.
 
 ---
 
-## 5.2 Cardinalidad en relaciones ternarias
+## 6.2 Cardinalidad en relaciones ternarias
 
 En una relación ternaria, la cardinalidad se interpreta fijando dos entidades y observando cuántas ocurrencias intervienen de la tercera.
 
@@ -80,7 +80,7 @@ en ese lado la cardinalidad sería **1**.
 
 ---
 
-## 5.3 Transformación a relaciones binarias
+## 6.3 Transformación a relaciones binarias
 
 Algunas herramientas de diseño de bases de datos solo permiten relaciones binarias.
 En ese caso se puede aplicar una transformación:
