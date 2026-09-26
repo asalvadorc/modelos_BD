@@ -24,6 +24,7 @@ El par **(mínima, máxima)** indica con cuántas ocurrencias de la otra entidad
 - La **mínima** indica si participar es **opcional (0)** u **obligatorio (1)**: puede no relacionarse con ninguna o debe relacionarse al menos con una.
 - La **máxima** indica con cuántas puede relacionarse como máximo: **una (1)** o **muchas (N)**.
 
+
 | Cardinalidad | Significado |
 |-------------|-------------|
 | **(0,1)** | Puede no relacionarse; si lo hace, como máximo con una |
@@ -32,7 +33,9 @@ El par **(mínima, máxima)** indica con cuántas ocurrencias de la otra entidad
 | **(1,N)** | Debe relacionarse al menos con una y puede hacerlo con muchas |
 
 !!! warning "¿Dónde se escribe el par?"
-    En la convención de estos apuntes, se escribe **en el extremo opuesto a la entidad que estamos considerando**. Para expresar que cada EMPLEADO debe pertenecer a un único departamento, escribimos **(1,1) junto a DEPARTAMENTO**.
+    Seguimos la misma convención que ya usábamos para la máxima: se escribe **en el extremo opuesto a la entidad que estamos considerando**. Para expresar que cada EMPLEADO debe pertenecer a un único departamento, escribimos **(1,1) junto a DEPARTAMENTO**.
+
+    La mínima no cambia dónde se escribe la máxima: **la acompaña en ese mismo lugar**, dando continuidad a la notación que ya conocíamos.
 
 ![Desde EMPLEADO leemos el par (1,1) junto a DEPARTAMENTO: la mínima 1 se representa en el extremo opuesto](cardinalidad_minima_extremo_opuesto.svg)
 
@@ -43,13 +46,22 @@ La participación indica si **todas las ocurrencias de una entidad deben interve
 - **Total:** todas deben participar. Se representa con **doble línea**.
 - **Parcial:** puede haber ocurrencias que no participen. Se representa con **línea simple**.
 
+!!! tip "Idea clave"
+    En realidad, esto es lo mismo que ya expresaba la **cardinalidad mínima**: **obligatorio (1)** equivale a **participación total**, y **opcional (0)** equivale a **participación parcial**. Más adelante, en el punto 3, veremos cómo se relacionan ambas representaciones.
+
+#### Representación
+
 La línea se dibuja **junto a la propia entidad cuya participación describimos**. Los números **1 o N** siguen indicando la cardinalidad máxima.
 
-Por ejemplo, si ningún EMPLEADO puede quedar sin departamento, la participación de EMPLEADO es **total**: dibujamos una **doble línea junto a EMPLEADO**.
+Por ejemplo, si ningún EMPLEADO puede quedar sin departamento, la participación de EMPLEADO es **total**: dibujamos una **doble línea junto a EMPLEADO**. Si puede haber departamentos sin empleados, la participación de DEPARTAMENTO es **parcial**: dibujamos una **línea simple junto a DEPARTAMENTO**
 
 ![Participación total de EMPLEADO con doble línea roja y participación parcial de DEPARTAMENTO con línea simple azul, junto a cada entidad](participacion_junto_entidad.svg)
 
+
 ### 3. ¿Cómo se relacionan ambas representaciones?
+
+!!! tip "Idea clave"
+    La **cardinalidad mínima** está **directamente relacionada** con la **participación total o parcial**.
 
 Ahora podemos conectar las dos formas de representarlo:
 
@@ -57,6 +69,8 @@ Ahora podemos conectar las dos formas de representarlo:
 |---|---|---|
 | **1: obligatorio** | **Participación total** | **Doble línea** |
 | **0: opcional** | **Participación parcial** | **Línea simple** |
+
+
 
 **«Todo empleado pertenece a un departamento»** significa que pertenecer es **obligatorio**: cada empleado se relaciona **al menos con uno**. Por eso podemos expresarlo mediante **mínima 1** o mediante **participación total de EMPLEADO**.
 
@@ -187,23 +201,36 @@ Si el familiar tuviese un identificador propio y único, sin necesitar el DNI de
 
 Si necesitamos el DNI del empleado para identificarlo, modelamos dependencia en identificación. Con la suposición anterior, la clave es **DNI del empleado + nombre del familiar**. Si un empleado pudiera tener dos familiares con el mismo nombre, necesitaríamos otro dato para distinguirlos, como un número de familiar.
 
-Representación con dependencia en existencia:
+- Representación con dependencia en **existencia**:
 
 ![Dependencia en existencia](T2_6_5.svg)
 
-Representación con dependencia en identificación:
+- Representación con dependencia en **identificación**, en sus dos formas equivalentes:
+
+<div class="image-pair-grid" markdown>
+
+<div class="image-panel" markdown>
+
+**Con ID junto a la relación**
 
 ![Dependencia en identificación con ID](T2_6_6.svg)
 
-Representación alternativa (rombo de doble raya):
+</div>
+
+<div class="image-panel" markdown>
+
+**Alternativa (rombo de doble raya)**
 
 ![Representación alternativa de dependencia en identificación](T2_6_7.svg)
 
+</div>
+
+</div>
+
 * * *
 
-[1] En la práctica, participación total y dependencia en existencia pueden parecer
-muy parecidas. Aun así conviene diferenciarlas porque en el paso al Modelo Relacional
-pueden llevar a decisiones distintas.
+!!!Note "Nota práctica"
+    En la práctica, participación total y dependencia en existencia pueden parecer muy parecidas. Aun así conviene diferenciarlas porque en el paso al Modelo Relacional pueden llevar a decisiones distintas.
 
 ---
 
@@ -284,6 +311,8 @@ Ejemplos rápidos:
 
     - Queremos saber también los familiares de cada empleado, para administrar los términos de un seguro. Queremos saber el nombre, fecha de nacimiento y parentesco con el empleado.  
 
+El enunciado original no distingue tipos de EMPLEADO, pero para ilustrar la generalización/especialización supondremos que la empresa sí diferencia entre **JEFE** y **TRABAJADOR**, cada uno con sus propios atributos.
+
 Tomando solo los subtipos **JEFE** y **TRABAJADOR** de **EMPLEADO**:
 
 ![Especialización del ejemplo con subtipos JEFE y TRABAJADOR](image-13.png)
@@ -291,7 +320,7 @@ Tomando solo los subtipos **JEFE** y **TRABAJADOR** de **EMPLEADO**:
 !!!Note "Nota"
     En el triángulo, la marca **T,D** indica que la especialización es:
 
-    - **Total**
-    - **Disjunta**
+    - **Total**: todo EMPLEADO es JEFE o TRABAJADOR, no se contempla ningún otro perfil.
+    - **Disjunta**: un mismo EMPLEADO no puede ser JEFE y TRABAJADOR a la vez, pertenece a un único subtipo.
 
 
