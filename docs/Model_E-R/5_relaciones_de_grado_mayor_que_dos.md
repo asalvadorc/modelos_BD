@@ -89,8 +89,6 @@ En ese caso se puede aplicar una transformación:
 2. Conectarla con las tres entidades originales mediante relaciones binarias.
 3. Hacer que dependa en identificación de esas entidades (entidad débil).
 
-Este enfoque es un recurso técnico de modelado.
-La explicación formal de entidades débiles aparece en el siguiente apartado.
 
 ![Transformación de ternaria a entidad débil con binarias](image-2.png)
 
