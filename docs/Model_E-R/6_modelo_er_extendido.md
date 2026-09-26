@@ -24,7 +24,12 @@ El par **(mínima, máxima)** indica con cuántas ocurrencias de la otra entidad
 - La **mínima** indica si participar es **opcional (0)** u **obligatorio (1)**: puede no relacionarse con ninguna o debe relacionarse al menos con una.
 - La **máxima** indica con cuántas puede relacionarse como máximo: **una (1)** o **muchas (N)**.
 
-Por ejemplo, **(0,1)** significa «ninguna o una», mientras que **(1,1)** significa «exactamente una».
+| Cardinalidad | Significado |
+|-------------|-------------|
+| **(0,1)** | Puede no relacionarse; si lo hace, como máximo con una |
+| **(1,1)** | Debe relacionarse exactamente con una |
+| **(0,N)** | Puede no relacionarse; si lo hace, puede ser con muchas |
+| **(1,N)** | Debe relacionarse al menos con una y puede hacerlo con muchas |
 
 !!! warning "¿Dónde se escribe el par?"
     En la convención de estos apuntes, se escribe **en el extremo opuesto a la entidad que estamos considerando**. Para expresar que cada EMPLEADO debe pertenecer a un único departamento, escribimos **(1,1) junto a DEPARTAMENTO**.
