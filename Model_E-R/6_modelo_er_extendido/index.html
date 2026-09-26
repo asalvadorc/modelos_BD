@@ -1824,7 +1824,32 @@ se queda corto para representar restricciones reales del sistema.</p>
 <li>La <strong>mínima</strong> indica si participar es <strong>opcional (0)</strong> u <strong>obligatorio (1)</strong>: puede no relacionarse con ninguna o debe relacionarse al menos con una.</li>
 <li>La <strong>máxima</strong> indica con cuántas puede relacionarse como máximo: <strong>una (1)</strong> o <strong>muchas (N)</strong>.</li>
 </ul>
-<p>Por ejemplo, <strong>(0,1)</strong> significa «ninguna o una», mientras que <strong>(1,1)</strong> significa «exactamente una».</p>
+<table>
+<thead>
+<tr>
+<th>Cardinalidad</th>
+<th>Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>(0,1)</strong></td>
+<td>Puede no relacionarse; si lo hace, como máximo con una</td>
+</tr>
+<tr>
+<td><strong>(1,1)</strong></td>
+<td>Debe relacionarse exactamente con una</td>
+</tr>
+<tr>
+<td><strong>(0,N)</strong></td>
+<td>Puede no relacionarse; si lo hace, puede ser con muchas</td>
+</tr>
+<tr>
+<td><strong>(1,N)</strong></td>
+<td>Debe relacionarse al menos con una y puede hacerlo con muchas</td>
+</tr>
+</tbody>
+</table>
 <div class="admonition warning">
 <p class="admonition-title">¿Dónde se escribe el par?</p>
 <p>En la convención de estos apuntes, se escribe <strong>en el extremo opuesto a la entidad que estamos considerando</strong>. Para expresar que cada EMPLEADO debe pertenecer a un único departamento, escribimos <strong>(1,1) junto a DEPARTAMENTO</strong>.</p>
