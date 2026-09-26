@@ -1852,7 +1852,8 @@ se queda corto para representar restricciones reales del sistema.</p>
 </table>
 <div class="admonition warning">
 <p class="admonition-title">¿Dónde se escribe el par?</p>
-<p>En la convención de estos apuntes, se escribe <strong>en el extremo opuesto a la entidad que estamos considerando</strong>. Para expresar que cada EMPLEADO debe pertenecer a un único departamento, escribimos <strong>(1,1) junto a DEPARTAMENTO</strong>.</p>
+<p>Seguimos la misma convención que ya usábamos para la máxima: se escribe <strong>en el extremo opuesto a la entidad que estamos considerando</strong>. Para expresar que cada EMPLEADO debe pertenecer a un único departamento, escribimos <strong>(1,1) junto a DEPARTAMENTO</strong>.</p>
+<p>La mínima no cambia dónde se escribe la máxima: <strong>la acompaña en ese mismo lugar</strong>, dando continuidad a la notación que ya conocíamos.</p>
 </div>
 <p><img alt="Desde EMPLEADO leemos el par (1,1) junto a DEPARTAMENTO: la mínima 1 se representa en el extremo opuesto" src="../cardinalidad_minima_extremo_opuesto.svg" /></p>
 <h3 id="2-participacion-total-o-parcial">2. Participación total o parcial</h3>
@@ -1861,10 +1862,19 @@ se queda corto para representar restricciones reales del sistema.</p>
 <li><strong>Total:</strong> todas deben participar. Se representa con <strong>doble línea</strong>.</li>
 <li><strong>Parcial:</strong> puede haber ocurrencias que no participen. Se representa con <strong>línea simple</strong>.</li>
 </ul>
+<div class="admonition tip">
+<p class="admonition-title">Idea clave</p>
+<p>En realidad, esto es lo mismo que ya expresaba la <strong>cardinalidad mínima</strong>: <strong>obligatorio (1)</strong> equivale a <strong>participación total</strong>, y <strong>opcional (0)</strong> equivale a <strong>participación parcial</strong>. Más adelante, en el punto 3, veremos cómo se relacionan ambas representaciones.</p>
+</div>
+<h4 id="representacion">Representación</h4>
 <p>La línea se dibuja <strong>junto a la propia entidad cuya participación describimos</strong>. Los números <strong>1 o N</strong> siguen indicando la cardinalidad máxima.</p>
-<p>Por ejemplo, si ningún EMPLEADO puede quedar sin departamento, la participación de EMPLEADO es <strong>total</strong>: dibujamos una <strong>doble línea junto a EMPLEADO</strong>.</p>
+<p>Por ejemplo, si ningún EMPLEADO puede quedar sin departamento, la participación de EMPLEADO es <strong>total</strong>: dibujamos una <strong>doble línea junto a EMPLEADO</strong>. Si puede haber departamentos sin empleados, la participación de DEPARTAMENTO es <strong>parcial</strong>: dibujamos una <strong>línea simple junto a DEPARTAMENTO</strong></p>
 <p><img alt="Participación total de EMPLEADO con doble línea roja y participación parcial de DEPARTAMENTO con línea simple azul, junto a cada entidad" src="../participacion_junto_entidad.svg" /></p>
 <h3 id="3-como-se-relacionan-ambas-representaciones">3. ¿Cómo se relacionan ambas representaciones?</h3>
+<div class="admonition tip">
+<p class="admonition-title">Idea clave</p>
+<p>La <strong>cardinalidad mínima</strong> está <strong>directamente relacionada</strong> con la <strong>participación total o parcial</strong>.</p>
+</div>
 <p>Ahora podemos conectar las dos formas de representarlo:</p>
 <table>
 <thead>
@@ -1989,16 +1999,28 @@ para evitar repeticiones.</p>
 <h3 id="en-nuestro-ejemplo-empleado-familiar">En nuestro ejemplo (EMPLEADO - FAMILIAR)</h3>
 <p>Si el familiar tuviese un identificador propio y único, sin necesitar el DNI del empleado, modelaríamos solo dependencia en existencia.</p>
 <p>Si necesitamos el DNI del empleado para identificarlo, modelamos dependencia en identificación. Con la suposición anterior, la clave es <strong>DNI del empleado + nombre del familiar</strong>. Si un empleado pudiera tener dos familiares con el mismo nombre, necesitaríamos otro dato para distinguirlos, como un número de familiar.</p>
-<p>Representación con dependencia en existencia:</p>
+<ul>
+<li>Representación con dependencia en <strong>existencia</strong>:</li>
+</ul>
 <p><img alt="Dependencia en existencia" src="../T2_6_5.svg" /></p>
-<p>Representación con dependencia en identificación:</p>
+<ul>
+<li>Representación con dependencia en <strong>identificación</strong>, en sus dos formas equivalentes:</li>
+</ul>
+<div class="image-pair-grid">
+<div class="image-panel">
+<p><strong>Con ID junto a la relación</strong></p>
 <p><img alt="Dependencia en identificación con ID" src="../T2_6_6.svg" /></p>
-<p>Representación alternativa (rombo de doble raya):</p>
+</div>
+<div class="image-panel">
+<p><strong>Alternativa (rombo de doble raya)</strong></p>
 <p><img alt="Representación alternativa de dependencia en identificación" src="../T2_6_7.svg" /></p>
+</div>
+</div>
 <hr />
-<p>[1] En la práctica, participación total y dependencia en existencia pueden parecer
-muy parecidas. Aun así conviene diferenciarlas porque en el paso al Modelo Relacional
-pueden llevar a decisiones distintas.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota práctica</p>
+<p>En la práctica, participación total y dependencia en existencia pueden parecer muy parecidas. Aun así conviene diferenciarlas porque en el paso al Modelo Relacional pueden llevar a decisiones distintas.</p>
+</div>
 <hr />
 <h2 id="53-generalizacion-y-herencia">5.3 Generalización y herencia</h2>
 <p>Otro aspecto importante del EER es la posibilidad de especializar entidades.</p>
@@ -2097,14 +2119,15 @@ y otras veces se simplifica por motivos prácticos.</p>
 </li>
 </ul>
 </details>
+<p>El enunciado original no distingue tipos de EMPLEADO, pero para ilustrar la generalización/especialización supondremos que la empresa sí diferencia entre <strong>JEFE</strong> y <strong>TRABAJADOR</strong>, cada uno con sus propios atributos.</p>
 <p>Tomando solo los subtipos <strong>JEFE</strong> y <strong>TRABAJADOR</strong> de <strong>EMPLEADO</strong>:</p>
 <p><img alt="Especialización del ejemplo con subtipos JEFE y TRABAJADOR" src="../image-13.png" /></p>
 <div class="admonition note">
 <p class="admonition-title">Nota</p>
 <p>En el triángulo, la marca <strong>T,D</strong> indica que la especialización es:</p>
 <ul>
-<li><strong>Total</strong></li>
-<li><strong>Disjunta</strong></li>
+<li><strong>Total</strong>: todo EMPLEADO es JEFE o TRABAJADOR, no se contempla ningún otro perfil.</li>
+<li><strong>Disjunta</strong>: un mismo EMPLEADO no puede ser JEFE y TRABAJADOR a la vez, pertenece a un único subtipo.</li>
 </ul>
 </div>
 
