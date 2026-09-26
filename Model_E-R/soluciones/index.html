@@ -1705,37 +1705,165 @@
 <p class="admonition-title">Advertencia</p>
 <p>Antes de consultar la resolución, asegúrate de haber intentado resolver el ejercicio. Comparar tu propuesta con la solución te ayudará mucho más que leerla directamente.</p>
 </div>
+<details class="example">
+<summary>Ejercicio 1</summary>
+<details class="question">
+<summary>Enunciado</summary>
+<p>Intentar sacar las entidades y atributos correspondientes a una <strong>cooperativa de vino</strong>, con los siguientes requisitos</p>
+<ul>
+<li>
+<p>En la cooperativa hay una serie de socios de los cuales nos interesa el nombre, dirección, ciudad, código postal, DNI, ...</p>
+</li>
+<li>
+<p>Hay unas clases de vino que tiene la cooperativa. De estas clases de vino queremos tener una descripción, el precio de venta, la categoría, la procedencia y el año de cosecha.</p>
+</li>
+<li>
+<p>Los socios retiran de la cooperativa distintas cantidades. Se les hace un vale donde tiene que constar la fecha y la cantidad retirada.</p>
+</li>
+</ul>
+</details>
 <details class="success">
-<summary>Ver solución propuesta Ejercicio 1</summary>
+<summary>Solución propuesta</summary>
 <ul>
 <li><strong>Entidad SOCIOS</strong>: Atributos (<u>dni</u>, nombre, dirección, ciudad, código postal, ...)</li>
 <li><strong>Entidad CLASES_VINO</strong>: Atributos (<u>codi</u>, descripción, precio_venta, categoría, procedencia, año_cosecha)</li>
 </ul>
 <p><img alt="" src="../Ej1.png" /></p>
 </details>
+</details>
+<details class="example">
+<summary>Ejercicio 1 bis</summary>
+<details class="question">
+<summary>Enunciado</summary>
+<p>Diseñar el esquema E/R del ejercicio 1.</p>
+</details>
 <details class="success">
-<summary>Ver solución propuesta Ejercicio 1 bis</summary>
+<summary>Solución propuesta</summary>
 <p><img alt="" src="../Ej1bis.png" /></p>
 </details>
+</details>
+<details class="example">
+<summary>Ejercicio 2</summary>
+<details class="question">
+<summary>Enunciado</summary>
+<p>Diseñar un esquema E/R que recoja información sobre el <strong>padrón</strong> de municipios, viviendas y personas. Cada persona solo puede habitar una vivienda y residir en un municipio, pero puede ser propietaria de más de una vivienda. Evidentemente, una vivienda puede tener más de un propietario. Nos interesa también la relación de las personas con la persona de referencia del hogar de la familia.</p>
+</details>
 <details class="success">
-<summary>Ver solución propuesta Ejercicio 2</summary>
+<summary>Solución propuesta</summary>
 <p><img alt="" src="../Ej2.jpg" /></p>
 </details>
+</details>
+<details class="example">
+<summary>Ejercicio 3</summary>
+<details class="question">
+<summary>Enunciado</summary>
+<p>Diseñar un esquema E/R que recoja información sobre una <strong>universidad</strong>. Se considera que:</p>
+<ul>
+<li>
+<p>Los departamentos (como por ejemplo el Departamento de <em>Lenguajes y Sistemas Informáticos</em>) pueden estar en una única facultad o ser interfacultativos, agrupando en este caso cátedras que pertenecen a facultades distintas.</p>
+</li>
+<li>
+<p>Una cátedra (por ejemplo la de <em>Bases de Datos</em>) pertenece a un único departamento.</p>
+</li>
+<li>
+<p>Una cátedra está en una única facultad.</p>
+</li>
+<li>
+<p>Un profesor está siempre asignado a un único departamento y adscrito a una o más de una cátedra. Puede cambiar de cátedra pero no de departamento. Nos interesa la fecha en que un profesor es adscrito a una cátedra.</p>
+</li>
+<li>
+<p>Existen áreas de conocimiento (como por ejemplo el área de <em>Informática</em>, que incluye los departamentos de <em>Lenguajes y Sistemas Informáticos</em> y de <em>Ingeniería y Ciencia de los Computadores</em>) y todo departamento tendrá una única área de conocimiento.</p>
+</li>
+</ul>
+</details>
 <details class="success">
-<summary>Ver solución propuesta Ejercicio 3</summary>
+<summary>Solución propuesta</summary>
 <p><img alt="" class="grayscale" src="../Ej3.jpg" /></p>
 </details>
+</details>
+<details class="example">
+<summary>Ejercicio 4</summary>
+<details class="question">
+<summary>Enunciado</summary>
+<p>El análisis de requisitos de una determinada <strong>red bancaria</strong> es el siguiente:</p>
+<ul>
+<li>
+<p>De cada banco nos interesa el nombre y la dirección de la sede social. Hay un código distinto para cada entidad bancaria.</p>
+</li>
+<li>
+<p>Cada banco tiene distintas sucursales, que se identifican <em>internamente</em> por un código.</p>
+</li>
+<li>
+<p>Cada sucursal tiene asignados una serie de cuentas corrientes, que se identifican <em>internamente</em> por un código. Una cuenta puede pertenecer a uno o más de un cliente. Es posible que cada cliente pueda hacer operaciones distintas con las cuentas. Así podría ser que, aunque dos clientes sean titulares de una misma cuenta, solo uno tenga facultad para cerrarla.</p>
+</li>
+<li>
+<p>Cada cliente, que se identifica por su DNI, puede tener más de una cuenta, y evidentemente privilegios distintos en cada una de ellas.</p>
+</li>
+<li>
+<p>Cada cuenta puede tener domiciliaciones asociadas a ella.</p>
+</li>
+<li>
+<p>Las sucursales pueden otorgar préstamos a los clientes, que no estarán asociados a las cuentas. Cada préstamo se otorga a nombre de un único cliente, y a un cliente se le puede otorgar más de un préstamo.</p>
+</li>
+</ul>
+</details>
 <details class="success">
-<summary>Ver solución propuesta Ejercicio 4</summary>
+<summary>Solución propuesta</summary>
 <p><img alt="" class="grayscale" src="../Ej4.jpg" /></p>
 </details>
-<details class="success">
-<summary>Ver solución propuesta Ejercicio 5</summary>
-<p><img alt="" class="grayscale" src="../Ej5.jpg" /></p>
+</details>
+<details class="example">
+<summary>Ejercicio 5</summary>
+<details class="question">
+<summary>Enunciado</summary>
+<p>Se quiere mantener información sobre una <strong>biblioteca</strong>, donde podemos tener de cada libro más de un ejemplar, que además se pueden prestar, y que también nos interesa un histórico de préstamos. El análisis de requerimientos sería el siguiente:</p>
+<ul>
+<li>
+<p>Cada libro (con un determinado título, ISBN, idioma, número de edición y fecha de edición) trata solo de un tema, está editado por una única editorial, escrito por uno o más autores, y dispondremos de unos cuantos ejemplares. De los ejemplares siempre tendremos el número de registro, que lo identifica unívocamente.</p>
+</li>
+<li>
+<p>Los préstamos son de los ejemplares de los libros, que son las materializaciones de los libros. Un ejemplar se puede prestar a un único lector (del cual tendremos Dni, Nombre, Dirección y Teléfono), y nos interesa la fecha en la cual se ha prestado. Un lector puede tener más de un libro prestado.</p>
+</li>
+<li>
+<p>Aparte del préstamo actual, querremos saber en el pasado a quién se ha prestado. Por tanto en el histórico de préstamos cada ejemplar se habrá prestado a muchos lectores, y para poder llevar el seguimiento nos interesa la fecha de préstamo y la de devolución.</p>
+</li>
+</ul>
 </details>
 <details class="success">
-<summary>Ver solución propuesta Ejercicio 6</summary>
+<summary>Solución propuesta</summary>
+<p><img alt="" class="grayscale" src="../Ej5.jpg" /></p>
+</details>
+</details>
+<details class="example">
+<summary>Ejercicio 6</summary>
+<details class="question">
+<summary>Enunciado</summary>
+<p>Realizad el esquema E/R que recoja información de una asociación de aficionados a las <strong>mariposas</strong>, que quieren guardar información respecto a ejemplares capturados bien para su observación, bien para ser incluidos en una colección:</p>
+<ul>
+<li>
+<p>Como en cualquier orden natural, un ejemplar de mariposa pertenece a una especie única. Una especie pertenece a un género único, y un género a una familia natural única.</p>
+</li>
+<li>
+<p>Cada especie de mariposa tiene un nombre científico único, aunque su nombre común, que depende de la comarca donde se ha cogido, también nos interesa.</p>
+</li>
+<li>
+<p>Ya sea para la observación o para formar parte de una colección, primero se tiene que capturar el ejemplar de mariposa. Esta captura la realiza una única persona, y querremos saber también en qué lugar (comarca) se ha capturado. Si el ejemplar es destinado a la observación querremos saber la duración de la observación.</p>
+</li>
+<li>
+<p>Una determinada persona solo puede ser propietaria de una colección, pero los ejemplares de esta colección pueden haber estado capturados por otras personas.</p>
+</li>
+<li>
+<p>Se quiere mantener información de las familias, géneros y especies de mariposas aunque no se hayan capturado ejemplares de los mismos.</p>
+</li>
+<li>
+<p>Una mariposa solo puede pertenecer a una colección, y una colección está formada al menos por un ejemplar. Toda mariposa que pertenece a una colección tendrá un determinado valor.</p>
+</li>
+</ul>
+</details>
+<details class="success">
+<summary>Solución propuesta</summary>
 <p><img alt="" class="grayscale" src="../Ej6.jpg" /></p>
+</details>
 </details>
 
 
