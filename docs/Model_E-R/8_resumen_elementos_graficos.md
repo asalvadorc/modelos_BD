@@ -3,4 +3,4 @@ hide:
   - toc
 ---
 
-![alt text](image-62.png)
+![alt text](image-40.png)
