@@ -101,15 +101,16 @@ Los siguientes diagramas muestran el mismo ejemplo de Empresa con las dos repres
 
     - Queremos saber también los familiares de cada empleado, para administrar los términos de un seguro. Queremos saber el nombre, fecha de nacimiento y parentesco con el empleado.
 
-    En el ejemplo encontramos estas participaciones obligatorias (**mínima 1**, equivalentes a doble línea):
+    !!! note "Participaciones obligatorias y parcial en el ejemplo"
+        En el ejemplo encontramos estas participaciones obligatorias (**mínima 1**, equivalentes a doble línea):
 
-    - Todo departamento es dirigido por un empleado = No existen departamentos sin director.
-    - Todo empleado pertenece a un departamento = No existen empleados sin departamento.
-    - Todo proyecto es controlado por un departamento = No puede haber proyectos que no pertenezcan a ningún departamento.
-    - Todo familiar es de algún empleado = No hay familiares que no sean de ningún empleado.
-    - Todo proyecto es trabajado por algún empleado = No hay proyectos en los que no trabaje ningún empleado.
+        - Todo departamento es dirigido por un empleado = No existen departamentos sin director.
+        - Todo empleado pertenece a un departamento = No existen empleados sin departamento.
+        - Todo proyecto es controlado por un departamento = No puede haber proyectos que no pertenezcan a ningún departamento.
+        - Todo familiar es de algún empleado = No hay familiares que no sean de ningún empleado.
+        - Todo proyecto es trabajado por algún empleado = No hay proyectos en los que no trabaje ningún empleado.
 
-    En cambio, «muchas veces tendrá un supervisor» permite que haya empleados sin supervisor: su participación es **parcial (mínima 0)**.
+        En cambio, «muchas veces tendrá un supervisor» permite que haya empleados sin supervisor: su participación es **parcial (mínima 0)**.
 
 <div class="image-pair-grid" markdown>
 
