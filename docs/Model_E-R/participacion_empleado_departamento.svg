@@ -3,7 +3,8 @@
   <desc id="desc">Arriba, EMPLEADO se relaciona mediante PERTENECE con DEPARTAMENTO: (0,N) junto a EMPLEADO y (1,1) junto a DEPARTAMENTO. Abajo, la misma relación tiene doble línea junto a EMPLEADO, N en ese lado y 1 junto a DEPARTAMENTO. Todo empleado debe pertenecer a un único departamento. La mínima 1 corresponde a la doble línea del extremo opuesto.</desc>
   <rect width="1000" height="510" fill="white"/>
   <g font-family="Arial, sans-serif" fill="#18332f">
-    <text x="500" y="36" text-anchor="middle" font-size="23" font-weight="700">Todo empleado debe pertenecer a un único departamento</text>
+    <text x="500" y="30" text-anchor="middle" font-size="20"><tspan fill="#d32f2f">Todo</tspan> empleado debe pertenecer a un departamento</text>
+    <text x="500" y="52" text-anchor="middle" font-size="20" fill="#444444"><tspan fill="#d32f2f">equivale a</tspan>: los empleados <tspan fill="#d32f2f">obligatoriamente</tspan> han de pertenecer a un departamento</text>
     <rect x="20" y="58" width="960" height="182" rx="12" fill="#f3f8f7" stroke="#c9dcd8"/>
     <text x="42" y="88" font-size="19" font-weight="700">1. Notación (mínima, máxima)</text>
     <g stroke="#344744" stroke-width="2" fill="white">

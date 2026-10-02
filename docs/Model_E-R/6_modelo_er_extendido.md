@@ -51,11 +51,14 @@ La participación indica si **todas las ocurrencias de una entidad deben interve
 
 #### Representación
 
-La línea se dibuja **junto a la propia entidad cuya participación describimos**. Los números **1 o N** siguen indicando la cardinalidad máxima.
+La línea se dibuja **junto a la propia entidad cuya participación describimos**.
 
-Por ejemplo, si ningún EMPLEADO puede quedar sin departamento, la participación de EMPLEADO es **total**: dibujamos una **doble línea junto a EMPLEADO**. Si puede haber departamentos sin empleados, la participación de DEPARTAMENTO es **parcial**: dibujamos una **línea simple junto a DEPARTAMENTO**
+![Representación de la participación: doble línea junto a la entidad para total, línea simple junto a la entidad para parcial](representacion_total_parcial.svg)
 
-![Participación total de EMPLEADO con doble línea roja y participación parcial de DEPARTAMENTO con línea simple azul, junto a cada entidad](participacion_junto_entidad.svg)
+!!! example "Ejemplo"
+    **Todo empleado debe pertenecer a un departamento**: no tiene sentido que un EMPLEADO quede sin departamento, así que su participación es **total** y dibujamos una **doble línea junto a EMPLEADO**. En cambio, **todos los departamentos no tienen por qué tener empleados**: puede que un DEPARTAMENTO todavía no tenga empleados asignados (por ser de nueva creación) o se haya quedado sin ellos, así que su participación es **parcial** y dibujamos una **línea simple junto a DEPARTAMENTO**.
+
+    ![Participación total de EMPLEADO con doble línea roja y participación parcial de DEPARTAMENTO con línea simple azul, junto a cada entidad](participacion_junto_entidad.svg)
 
 
 ### 3. ¿Cómo se relacionan ambas representaciones?
@@ -81,7 +84,6 @@ Ahora podemos conectar las dos formas de representarlo:
 
 ![Comparación entre la mínima 1 junto a DEPARTAMENTO y la doble línea junto a EMPLEADO](participacion_empleado_departamento.svg)
 
-La equivalencia afecta a la **mínima**. La doble línea significa **al menos una vez** y sirve tanto para **(1,1)** como para **(1,N)**; la máxima se indica por separado.
 
 ---
 ### Aplicación al ejemplo
