@@ -156,13 +156,17 @@ Las entidades débiles se representan con doble rectángulo:
 
 ![Entidad débil representada con doble rectángulo](debil1.svg)
 
+!!!Tip "Entidad débil: participación y cardinalidades"
+    Una entidad débil siempre participa de forma total en la relación de dependencia con la entidad regular; es decir, su cardinalidad mínima en esa relación es 1.
+
 ### Dependencia en existencia
 
 Cuando una entidad débil depende de otra para existir,
 decimos que hay **dependencia en existencia**.
 
-En este caso, la débil participa de forma total en una relación 1:N
-respecto de la regular.
+!!! tip "Dependencia en existencia: participación y cardinalidades"
+    Una entidad débil con dependencia en existencia siempre participa de forma total en la relación de dependencia con la entidad regular; es decir, su cardinalidad mínima en esa relación es 1 y su máxima puede ser 1 o N, según el enunciado.
+    ![alt text](image-42.png){width=800}
 
 ### Dependencia en identificación
 
@@ -181,6 +185,12 @@ En este ejemplo, suponemos que los nombres de los familiares de un mismo emplead
 
 !!! note "¿Qué significa ID?"
     **ID** indica que la relación es de **dependencia en identificación**. La clave que aporta EMPLEADO es su **DNI**, pero este no basta por sí solo para distinguir a sus distintos familiares.
+
+
+!!! tip "Dependencia en identificación: participación y cardinalidades"
+    Una entidad débil con dependencia en identificación siempre participa de forma total en la relación identificadora con la entidad regular; es decir, sus cardinalidades mínima y máxima en esa relación son (1,1), porque depende de una única entidad regular para identificarse.
+    ![alt text](image-46.png){width=800}
+
 
 ### Dos ejemplos típicos
 
@@ -232,10 +242,7 @@ Si necesitamos el DNI del empleado para identificarlo, modelamos dependencia en 
 
 * * *
 
-!!!Note "Nota práctica"
-    En la práctica, participación total y dependencia en existencia pueden parecer muy parecidas. Aun así conviene diferenciarlas porque en el paso al Modelo Relacional pueden llevar a decisiones distintas.
 
----
 
 ## 5.3 Generalización y herencia
 
