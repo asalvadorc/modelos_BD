@@ -19,9 +19,9 @@ hide:
         !!! quote "Opción 1"
             - **SOCIO** (<u>dni</u>, nombre, direccion, telefono, correo)   
             - **VINO** (<u>codi_vi</u>, descripcion, año_cogida)       
-            - **RETIRA** (<u>codi_vi</u>, <mark>dni</mark>, <mark>codi_vi</mark>, fecha, cant)
+            - **RETIRA** (<u>cod_re</u>, <mark>dni</mark>, <mark>codi_vi</mark>, fecha, cant)
                 - dni -> SOCIO (dni)
-                - codi_vi -> VINO (num_p)  
+                - codi_vi -> VINO (codi_vi)  
 
         !!! quote "Opción 2"
             - **SOCIO** (<u>dni</u>, nombre, direccion, telefono, correo)   
