@@ -22,7 +22,8 @@ A continuación veremos las reglas de transformación del Modelo E/R al Modelo R
     Para entender mejor el proceso, continuaremos utilizando el ejemplo visto en el tema anterior y aplicaremos sobre él las transformaciones correspondientes, utilizando la **notaión textual**.
 
 ???+ "Ejemplo: Empresa"
-    ![Ejemplo: Empresa](image-28.png)
+    <!--![Ejemplo: Empresa](image-28.png)-->
+    ![alt text](image-30.png)
 
 
 ## 3.1 Entidades
