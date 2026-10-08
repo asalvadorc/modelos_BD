@@ -67,7 +67,7 @@ Las relaciones 1:N de nuestro **ejemplo** se representarían así:
 <!--![alt text](image-8.png)-->
 
 ???+ "Ejemplo: Empresa"
-    ![Ejemplo: Empresa](image-12_2.png)
+    ![Ejemplo: Empresa](image-32.png)
 
 !!! quote ""
     - EMPLEADO (<u>dni</u>, nombre, direccion, telefono, sueldo, fecha_n, <mark>departamento</mark>, <mark>supervisor</mark>)
