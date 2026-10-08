@@ -22,7 +22,7 @@ A continuación veremos las reglas de transformación del Modelo E/R al Modelo R
     Para entender mejor el proceso, continuaremos utilizando el ejemplo visto en el tema anterior y aplicaremos sobre él las transformaciones correspondientes, utilizando la **notaión textual**.
 
 ???+ "Ejemplo: Empresa"
-    ![Ejemplo: Empresa](image-12.png)
+    ![Ejemplo: Empresa](image-28.png)
 
 
 ## 3.1 Entidades
@@ -225,7 +225,7 @@ Una entidad débil depende de una entidad principal para existir. Por eso, su tr
 
 En el ejemplo:
 
-![alt text](image-19.png)
+![alt text](image-29.png)
 
 !!! quote ""
     - FAMILIAR (<u><mark>dni_e</mark>, nom_f</u>, fecha_n, parentesco  <span class="tag-cascade">(borrar en cascada)</span>
