@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="320" viewBox="0 0 800 320" role="img" aria-labelledby="title desc">
+  <title id="title">Representación gráfica de la participación total y parcial</title>
+  <desc id="desc">Participación total: doble línea junto a la entidad. Participación parcial: línea simple junto a la entidad.</desc>
+  <rect width="800" height="320" fill="white"/>
+  <g font-family="Arial, sans-serif" fill="#18332f" text-anchor="middle">
+    <text x="400" y="34" font-size="19" font-weight="700" fill="#d32f2f">Participación TOTAL → doble línea junto a la entidad</text>
+    <g fill="white" stroke="#344744" stroke-width="2">
+      <rect x="120" y="70" width="180" height="56" rx="4"/>
+      <path d="M420 98 L500 64 L580 98 L500 132 Z"/>
+    </g>
+    <path d="M300 94 H420 M300 102 H420" fill="none" stroke="#d32f2f" stroke-width="4"/>
+    <text x="210" y="103" font-size="18">ENTIDAD</text>
+    <text x="500" y="103" font-size="14">RELACIÓN</text>
+
+    <text x="400" y="204" font-size="19" font-weight="700" fill="#1565c0">Participación PARCIAL → línea simple junto a la entidad</text>
+    <g fill="white" stroke="#344744" stroke-width="2">
+      <rect x="120" y="240" width="180" height="56" rx="4"/>
+      <path d="M420 268 L500 234 L580 268 L500 302 Z"/>
+    </g>
+    <path d="M300 268 H420" fill="none" stroke="#1565c0" stroke-width="4"/>
+    <text x="210" y="273" font-size="18">ENTIDAD</text>
+    <text x="500" y="273" font-size="14">RELACIÓN</text>
+  </g>
+</svg>

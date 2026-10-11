@@ -3,6 +3,54 @@
 !!! tip "Revisa tu solución"
 
     Antes de consultar la solución oficial, revisa tu propuesta utilizando el prompt del apartado **[Cómo utilizar la IA para aprender](../IA.md)**.
+
+    **📤 Cómo entregar tu ejercicio a la IA**
+
+    1. **💬 Copia el prompt general de revisión.**
+    2. **📎 Adjunta el enunciado y el diagrama E/R de partida.**
+    3. **📝 Añade tu esquema relacional**, preferiblemente como texto.
+
+    **Comprueba que tu propuesta incluye:**
+
+    - **Tablas:** cada tabla y sus atributos.
+    - **PK:** la clave primaria de cada tabla.
+    - **FK:** cada clave ajena y la tabla y campos a los que apunta.
+    - **Restricciones:** no nulo, único y borrado en cascada, cuando corresponda.
+    - **Reglas adicionales:** las restricciones adicionales que hayas identificado.
+
+    **📋 Ejemplo de entrega**
+
+    Copia este formato para cada tabla de tu solución:
+
+    ```text
+    EMPLEADO(dni, nombre, departamento)
+    PK: dni
+    FK: departamento → DEPARTAMENTO(num_d)
+    Restricciones: departamento no nulo
+    ```
+
+    !!! note "🔗 Claves compuestas"
+
+        Si una clave contiene varios campos, **escríbelos juntos**:
+
+        ```text
+        PK: (campo1, campo2)
+        FK: (campo1, campo2) → TABLA_DESTINO(campo1, campo2)
+        ```
+
+    ??? info "📷 Si entregas tu solución como imagen"
+
+        También puedes adjuntar una **fotografía de tu solución en papel** o una **imagen exportada de Draw.io**.
+
+        - Debe estar **completa, bien enfocada y sin sombras**.
+        - Explica cómo has marcado las **PK, las FK y las restricciones**.
+        - No dependas únicamente de los colores.
+
+    !!! success "🔄 Corrige y vuelve a revisar"
+
+        Después de corregir tu propuesta, envía la **versión completa actualizada** y pide a la IA que vuelva a revisarla.
+
+
     
 Realizar el esquema relacional correspondiente a los ejercicios del Tema Entidad/Relación.
 

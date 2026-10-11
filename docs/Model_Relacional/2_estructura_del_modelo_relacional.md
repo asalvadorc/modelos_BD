@@ -5,12 +5,12 @@ hide:
 -->
 # 2. Estructura del Modelo Relacional
 
-El elemento básico del Modelo Relacional es la **RELACIÓN**, que es una tabla bidimensional con características y restricciones específicas.
+El elemento básico del Modelo Relacional es la **RELACIÓN**, que es una **tabla** bidimensional con características y restricciones específicas.
 
 ![alt text](image-44.png)
 ---
 
-## 2.1 Componentes de una Relación
+## 2.1 Componentes de una Relación (Tabla)
 
 <div class="grid cards" markdown>
 
@@ -43,23 +43,43 @@ El elemento básico del Modelo Relacional es la **RELACIÓN**, que es una tabla 
 | **Dominio** | Conjunto de valores posibles para cada atributo.
 
 
-## 2.3 Representaciones de Tablas
+## 2.3 Representación de una Relación (Tabla)
 
-### Representación 1: Notación Textual
+=== "Representación 1: Notación Textual"
 
+    <div class="grid cards" markdown>
 
-| Convenciones ||
-|---|---|
-| - Nombre de tabla en MAYÚSCULAS<br>- Atributos en minúsculas, separados por comas<br>- Clave principal subrayada<br>- Evitar caracteres especiales (ñ, acentos, guiones)           ||
+    - **Convenciones**
 
-| Ejemplo ||
-|---|---|
-| EMPLEADO (<u>dni</u>, nombre, direccion, telefono, sueldo, fecha_n)||
+        - Nombre de tabla en MAYÚSCULAS.
+        - Atributos en minúsculas, separados por comas.
+        - Clave principal subrayada.
+        - Evitar caracteres especiales (ñ, acentos, guiones).
+
+    - **Ejemplo**
+
+        | Relación |
+        |---|
+        | EMPLEADO (<u>dni</u>, nombre, direccion, telefono, sueldo, fecha_n)|
+
+    </div>
     
-### Representación 2: Diagrama Visual
+=== "Representación 2: Diagrama Visual"
 
-| Convenciones | Ejemplo ||
-|---|---|---|
-| Una tabla con:<br>- Nombre en la parte superior<br>- Atributos listados en el interior<br>- Clave principal en negrita o subrayada | ![Diagrama visual de una relación](image-4.png) ||
+    <div class="grid cards" markdown>
+
+    - **Convenciones**
+
+        - Una tabla con el nombre en la parte superior.
+        - Los atributos listados en el interior.
+        - La clave principal en negrita o subrayada.
+
+    - **Ejemplo**
+
+        | Relación |
+        |---|
+        | ![Diagrama visual de una relación](image-4.png) |
+
+    </div>
 
 ---

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 490 100"
+   width="490"
+   height="100"
+   version="1.1"
+   id="svg9"
+   sodipodi:docname="estes_tot1.svg"
+   inkscape:version="1.4.4 (dcaf3e7, 2026-05-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs9" />
+  <sodipodi:namedview
+     id="namedview9"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="3.6244898"
+     inkscape:cx="205.96002"
+     inkscape:cy="94.220158"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="2872"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg9" />
+  <style
+     id="style1">
+    .entity { fill: #fff; stroke: #000; stroke-width: 1.5; }
+    .line { stroke: #000; stroke-width: 1.5; fill: none; }
+    .txt { font-family: Georgia, &quot;Times New Roman&quot;, serif; font-size: 13px; }
+    .mark { font-family: Georgia, &quot;Times New Roman&quot;, serif; font-size: 12px; fill: #c00; }
+  </style>
+  <rect
+     x="43.337345"
+     y="24.09523"
+     width="108.15076"
+     height="50.430038"
+     class="entity"
+     id="rect1" />
+  <rect
+     x="334.75662"
+     y="22.480703"
+     width="118.82912"
+     height="52.279583"
+     class="entity"
+     id="rect2" />
+  <polygon
+     points="245,96 202,50 245,4 288,50 "
+     class="line"
+     id="polygon2"
+     transform="matrix(0.96336623,0,0,0.88490363,7.3198682,5.134886)" />
+  <line
+     x1="152"
+     y1="50"
+     x2="202"
+     y2="50"
+     class="line"
+     id="line2" />
+  <line
+     x1="284"
+     y1="50"
+     x2="334"
+     y2="50"
+     class="line"
+     id="line3" />
+  <text
+     x="95.555183"
+     y="54.068695"
+     text-anchor="middle"
+     class="txt"
+     id="text3">EMPLEADO</text>
+  <text
+     x="395.31195"
+     y="53.981026"
+     text-anchor="middle"
+     class="txt"
+     id="text5-0"
+     style="font-size:13px;font-family:Georgia, 'Times New Roman', serif">DEPARTAMENTO</text>
+  <text
+     x="245"
+     y="55"
+     text-anchor="middle"
+     class="txt"
+     id="text5">dirige</text>
+  <text
+     x="190"
+     y="47"
+     class="txt"
+     id="text6">1</text>
+  <text
+     x="299"
+     y="47"
+     class="txt"
+     id="text7">1</text>
+  <text
+     x="158"
+     y="71"
+     class="mark"
+     id="text8">(1,1)</text>
+  <text
+     x="309"
+     y="71"
+     class="mark"
+     id="text9">(0,1)</text>
+</svg>

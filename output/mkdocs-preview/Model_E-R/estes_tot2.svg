@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 490 90"
+   width="490"
+   height="90"
+   version="1.1"
+   id="svg8"
+   sodipodi:docname="estes_tot2.svg"
+   inkscape:version="1.4.4 (dcaf3e7, 2026-05-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs8" />
+  <sodipodi:namedview
+     id="namedview8"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="3.6244898"
+     inkscape:cx="244.86205"
+     inkscape:cy="45.109797"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="2872"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg8" />
+  <style
+     id="style1">
+    .entity { fill: #fff; stroke: #000; stroke-width: 1.5; }
+    .line { stroke: #000; stroke-width: 1.5; fill: none; }
+    .double { stroke: #000; stroke-width: 1.5; fill: none; }
+    .txt { font-family: Georgia, &quot;Times New Roman&quot;, serif; font-size: 13px; }
+  </style>
+  <rect
+     x="14"
+     y="22"
+     width="138"
+     height="56"
+     class="entity"
+     id="rect1" />
+  <rect
+     x="330"
+     y="22"
+     width="138"
+     height="56"
+     class="entity"
+     id="rect2" />
+  <polygon
+     points="288,50 245,96 202,50 245,4 "
+     class="line"
+     id="polygon2"
+     transform="matrix(0.91540405,0,0,0.91505533,17.001347,0.24667049)" />
+  <line
+     x1="152"
+     y1="46"
+     x2="202"
+     y2="46"
+     class="line"
+     id="line2" />
+  <line
+     x1="280"
+     y1="48"
+     x2="330"
+     y2="48"
+     class="line"
+     id="line3" />
+  <line
+     x1="279"
+     y1="44"
+     x2="329"
+     y2="44"
+     class="double"
+     id="line4" />
+  <text
+     x="83"
+     y="56"
+     text-anchor="middle"
+     class="txt"
+     id="text4">EMPLEADO</text>
+  <text
+     x="407"
+     y="56"
+     text-anchor="middle"
+     class="txt"
+     id="text5">DEPARTAMENTO</text>
+  <text
+     x="241"
+     y="49"
+     text-anchor="middle"
+     class="txt"
+     id="text6">dirige</text>
+  <text
+     x="190"
+     y="41"
+     class="txt"
+     id="text7">1</text>
+  <text
+     x="299"
+     y="41"
+     class="txt"
+     id="text8">1</text>
+</svg>

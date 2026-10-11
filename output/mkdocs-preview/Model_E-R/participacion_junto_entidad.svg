@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="350" viewBox="0 0 1000 350" role="img" aria-labelledby="title desc">
+  <title id="title">La participación se representa junto a la propia entidad</title>
+  <desc id="desc">EMPLEADO se une a PERTENECE con doble línea roja: todo empleado debe pertenecer a un departamento, participación total. DEPARTAMENTO se une con línea simple azul: puede haber departamentos sin empleados, participación parcial. Las máximas N junto a EMPLEADO y 1 junto a DEPARTAMENTO se mantienen.</desc>
+  <defs>
+    <marker id="red-arrow" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L8 4 L0 8" fill="none" stroke="#d32f2f" stroke-width="2"/></marker>
+    <marker id="blue-arrow" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L8 4 L0 8" fill="none" stroke="#1565c0" stroke-width="2"/></marker>
+  </defs>
+  <rect width="1000" height="350" rx="12" fill="white"/>
+  <g font-family="Arial, sans-serif" fill="#18332f" text-anchor="middle">
+    <text x="500" y="34" font-size="23" font-weight="700">La línea se dibuja junto a la entidad que participa</text>
+    <text x="270" y="80" font-size="19" fill="#d32f2f" font-weight="700">EMPLEADO: participación total</text>
+    <text x="740" y="80" font-size="19" fill="#1565c0" font-weight="700">DEPARTAMENTO: participación parcial</text>
+    <path d="M270 93 H315 V166" fill="none" stroke="#d32f2f" stroke-width="2.5" marker-end="url(#red-arrow)"/>
+    <path d="M740 93 H680 V170" fill="none" stroke="#1565c0" stroke-width="2.5" marker-end="url(#blue-arrow)"/>
+    <g fill="white" stroke="#344744" stroke-width="2">
+      <rect x="55" y="150" width="220" height="60" rx="4" fill="#fff5f5"/>
+      <path d="M500 136 L580 180 L500 224 L420 180 Z"/>
+      <rect x="725" y="150" width="220" height="60" rx="4" fill="#f0f6ff"/>
+    </g>
+    <path d="M275 176 H427 M275 184 H427" fill="none" stroke="#d32f2f" stroke-width="4"/>
+    <path d="M580 180 H725" fill="none" stroke="#1565c0" stroke-width="4"/>
+    <g font-size="19">
+      <text x="165" y="187">EMPLEADO</text>
+      <text x="500" y="186" font-size="17">PERTENECE</text>
+      <text x="835" y="187">DEPARTAMENTO</text>
+      <text x="355" y="160">N</text>
+      <text x="640" y="160">1</text>
+    </g>
+    <g font-size="19" font-weight="700">
+      <text x="260" y="260" fill="#d32f2f">Doble línea: participación total</text>
+      <text x="750" y="260" fill="#1565c0">Línea simple: participación parcial</text>
+    </g>
+    <g font-size="17">
+      <text x="260" y="286">Ningún empleado queda sin departamento.</text>
+      <text x="750" y="286">Puede haber departamentos sin empleados.</text>
+      <text x="500" y="329" font-weight="700">Las máximas 1 y N se siguen leyendo en el extremo opuesto.</text>
+    </g>
+  </g>
+</svg>
