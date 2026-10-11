@@ -1225,6 +1225,83 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#421-restriccion-de-dominio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2.1 Restricción de Dominio
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#422-restriccion-de-clave-principal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2.2 Restricción de Clave Principal
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#423-restriccion-de-unicidad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2.3 Restricción de Unicidad
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#424-restriccion-de-valor-no-nulo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2.4 Restricción de Valor No Nulo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#425-integridad-referencial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2.5 Integridad Referencial
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#426-acciones-sobre-claves-ajenas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2.6 Acciones sobre claves ajenas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#427-restricciones-externas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2.7 Restricciones Externas
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1766,6 +1843,83 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#421-restriccion-de-dominio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2.1 Restricción de Dominio
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#422-restriccion-de-clave-principal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2.2 Restricción de Clave Principal
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#423-restriccion-de-unicidad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2.3 Restricción de Unicidad
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#424-restriccion-de-valor-no-nulo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2.4 Restricción de Valor No Nulo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#425-integridad-referencial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2.5 Integridad Referencial
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#426-acciones-sobre-claves-ajenas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2.6 Acciones sobre claves ajenas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#427-restricciones-externas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2.7 Restricciones Externas
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1785,6 +1939,7 @@
 
 <h1 id="4-restricciones">4. Restricciones</h1>
 <p>El Modelo Relacional define restricciones que garantizan la integridad de los datos. Hay dos tipos: <strong>inherentes</strong> (impuestas por el modelo) y <strong>de usuario</strong> (definidas por los diseñadores).</p>
+<p>Como este apartado continúa la transformación del modelo E/R al modelo relacional, la mayoría de estas restricciones ya se han aplicado en los ejemplos anteriores. Ahora las reuniremos, definiremos con más precisión y veremos cómo condicionan el diseño de las tablas.</p>
 <hr />
 <h2 id="41-restricciones-inherentes">4.1 Restricciones Inherentes</h2>
 <p>Son impuestas por el propio Modelo Relacional. Toda relación válida debe cumplirlas:</p>
@@ -1811,40 +1966,36 @@
 </ul>
 <hr />
 <h2 id="42-restricciones-de-usuario-semanticas">4.2 Restricciones de Usuario (Semánticas)</h2>
-<p>Define el usuario para garantizar que la BD represente la realidad y evite errores.</p>
-<h3 id="421-restriccion-de-dominio">4.2.1 Restricción de Dominio</h3>
-<p>Especifica qué valores puede tomar un atributo.</p>
+<p>Las define el usuario para garantizar que la BD represente la realidad y evitar errores.</p>
+<h2 id="421-restriccion-de-dominio">4.2.1 Restricción de Dominio</h2>
+<p>Especifica qué valores puede tomar un atributo. Por ejemplo:</p>
 <table>
 <thead>
 <tr>
 <th>Aspecto</th>
 <th>Descripción</th>
+<th>Ejemplo</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><strong>Tipo de dato</strong></td>
 <td>Entero, real, texto, fecha, hora, etc.</td>
+<td>Sueldo: Real (rechaza "2.R00")</td>
 </tr>
 <tr>
 <td><strong>Rango</strong></td>
 <td>Intervalo permitido (ej: nota 0-10)</td>
+<td>Fecha: Formato DD-MM-YYYY (rechaza "31-2-1958")</td>
 </tr>
 <tr>
 <td><strong>Enumeración</strong></td>
 <td>Valores específicos permitidos</td>
+<td>Nota: (MD, IN, SUF, BI, NOT, SOB)</td>
 </tr>
 </tbody>
 </table>
-<div class="admonition info">
-<p class="admonition-title">Ejemplo</p>
-<ul>
-<li>Sueldo: Real (rechaza "2.R00")</li>
-<li>Fecha: Formato DD-MM-YYYY (rechaza "31-2-1958")</li>
-<li>Nota: {MD, IN, SUF, BI, NOT, SOB}</li>
-</ul>
-</div>
-<h3 id="422-restriccion-de-clave-principal">4.2.2 Restricción de Clave Principal</h3>
+<h2 id="422-restriccion-de-clave-principal">4.2.2 Restricción de Clave Principal</h2>
 <p>Define un atributo (o conjunto) como <strong>identificador único</strong> de cada tupla.</p>
 <p><strong>Características</strong>:  </p>
 <ul>
@@ -1862,15 +2013,15 @@
 <p class="admonition-title">Buena Práctica</p>
 <p>Si no existe una clave natural candidata, crear un campo artificial (ID, código, etc.)</p>
 </div>
-<h3 id="423-restriccion-de-unicidad">4.2.3 Restricción de Unicidad</h3>
+<h2 id="423-restriccion-de-unicidad">4.2.3 Restricción de Unicidad</h2>
 <p>Asegura que un campo (o conjunto) no se repita, <strong>sin ser clave principal</strong>.</p>
 <div class="admonition info">
 <p class="admonition-title">Cuándo usarla</p>
 <p>Cuando algunos valores pueden ser nulos pero, si existen, deben ser únicos.</p>
-<p>Ejemplo: Email de empleado (algunos sin email, pero no hay dos iguales)</p>
 </div>
 <p><strong>Representación</strong>:</p>
-<div class="admonition quote">
+<div class="admonition example">
+<p class="admonition-title">Ejemplo: no puede haber dos Empleados con el mismo email</p>
 <ul>
 <li>EMPLEADO (<u>dni</u>, nombre, email)<ul>
 <li>email <span class="tag-unico">[unico]</span></li>
@@ -1878,17 +2029,11 @@
 </li>
 </ul>
 </div>
-<h3 id="424-restriccion-de-valor-no-nulo">4.2.4 Restricción de Valor No Nulo</h3>
+<h2 id="424-restriccion-de-valor-no-nulo">4.2.4 Restricción de Valor No Nulo</h2>
 <p>Obliga a que el atributo <strong>siempre tenga un valor</strong>.</p>
+<p><strong>Representación</strong>:</p>
 <div class="admonition example">
-<p class="admonition-title">Ejemplos</p>
-<ul>
-<li>Nombre: siempre obligatorio</li>
-<li>Dirección: puede ser nula si vive en el extranjero</li>
-<li>DNI: puede ser nulo si es extranjero </li>
-</ul>
-</div>
-<div class="admonition quote">
+<p class="admonition-title">Ejemplo: el atributo nombre siempre es obligatorio</p>
 <ul>
 <li>EMPLEADO (<u>dni</u>, nombre, direccion, telefono, sueldo, fecha_n)<ul>
 <li>nombre  <span class="tag-no-nulo">[no nulo]</span></li>
@@ -1896,17 +2041,17 @@
 </li>
 </ul>
 </div>
-<h3 id="425-integridad-referencial">4.2.5 Integridad Referencial</h3>
-<p>Garantiza que los valores de una clave externa solo apunten a registros existentes en la tabla referenciada.</p>
-<p><img alt="alt text" src="../image-42.png" /></p>
+<h2 id="425-integridad-referencial">4.2.5 Integridad Referencial</h2>
+<p>Garantiza que todo valor no nulo de una clave externa corresponda a un registro existente en la tabla referenciada.</p>
+<p><img alt="alt text" src="../image-55.png" /></p>
 <p>Si en <strong>FAMILIAR</strong> existe <code>dni_empleado</code> como clave externa hacia <code>EMPLEADO.dni</code>, no puede aparecer un <code>dni_empleado</code> que no exista en EMPLEADO.</p>
 <div class="admonition example">
 <p class="admonition-title">Ejemplo</p>
 <p>No es válido insertar en FAMILIAR el DNI <code>18.754.321</code> si no existe antes en EMPLEADO.</p>
 </div>
 <p>También puede haber claves externas reflexivas (la misma tabla se referencia a sí misma), por ejemplo el atributo <code>supervisor</code> en EMPLEADO.</p>
-<p><img alt="alt text" src="../image-31.png" /></p>
-<h3 id="426-acciones-sobre-claves-ajenas">4.2.6 Acciones sobre claves ajenas</h3>
+<p><img alt="alt text" src="../image-45.png" /></p>
+<h2 id="426-acciones-sobre-claves-ajenas">4.2.6 Acciones sobre claves ajenas</h2>
 <p>Cuando se borra o modifica una clave referenciada, suelen definirse estas acciones:</p>
 <ul>
 <li><strong>NO ACTION</strong>: bloquea la operación si rompe integridad.</li>
@@ -1914,12 +2059,55 @@
 <li><strong>SET NULL / SET DEFAULT</strong>: sustituye el valor de la clave externa por nulo o por defecto.</li>
 </ul>
 <hr />
-<h3 id="426-restricciones-externas">4.2.6 Restricciones Externas</h3>
-<p>Hay reglas de negocio que no se expresan directamente con las restricciones estándar del modelo relacional.</p>
-<p>Estas restricciones externas suelen provenir del modelo E/R o de condiciones de negocio específicas.</p>
+<h2 id="427-restricciones-externas">4.2.7 Restricciones Externas</h2>
+<p>Las <strong>restricciones externas</strong> son aquellas que no se pueden expresar directamente mediante el modelo de datos. Por tanto, las describiremos mediante texto.</p>
+<p>Normalmente, las restricciones externas del modelo E/R seguirán siendo externas en el modelo relacional. En nuestro ejemplo teníamos:</p>
+<blockquote>
+<p><strong>Rex1</strong>: El jefe de un departamento debe ser miembro de este.</p>
+<p><strong>Rex2</strong>: Un empleado solo puede trabajar en proyectos coordinados por su departamento.</p>
+</blockquote>
+<p>Estas condiciones no quedan garantizadas mediante las claves primarias y externas del esquema obtenido, por lo que las mantendremos como restricciones externas.</p>
+<p>Además, pueden aparecer nuevas restricciones externas al transformar el modelo E/R al modelo relacional. Por ejemplo, en la siguiente relación:</p>
+<p><img alt="alt text" src="../image-58.png" width="600" /></p>
+<p>Además de las tablas de las entidades, se crea una tabla para la relación:</p>
+<div class="admonition quote">
+<ul>
+<li>TRABAJA (<u><mark>dni</mark>, <mark>num_p</mark></u>, horas)  <ul>
+<li>FK: dni-&gt;EMPLEADO(dni)  </li>
+<li>FK: num_p-&gt;PROYECTO(num_p)  </li>
+</ul>
+</li>
+</ul>
+</div>
+<p>En la tabla <strong>TRABAJA</strong>, los atributos <strong>dni</strong> y <strong>num_p</strong> son claves externas y forman conjuntamente la clave primaria. También se incorpora el atributo <strong>horas</strong> de la relación.</p>
+<p>Sin embargo, la entidad <strong>PROYECTO</strong> participa de forma <strong>total</strong>: todo proyecto debe tener al menos un empleado trabajando en él.</p>
+<p>Las claves externas de TRABAJA garantizan que el empleado y el proyecto referenciados existan, pero <strong>no garantizan que todos los proyectos aparezcan en TRABAJA</strong>. Por tanto, necesitamos una nueva restricción externa:</p>
+<blockquote>
+<p><strong>RexR3</strong>: Todo proyecto debe tener al menos un empleado trabajando en él.</p>
+</blockquote>
+<h3 id="participaciones-totales-que-generan-restricciones-externas">Participaciones totales que generan restricciones externas</h3>
+<ul>
+<li>En una relación <strong>1:N</strong>, la participación total de la entidad situada en el lado <strong>1</strong>.</li>
+<li>En una relación <strong>M:N</strong>, cualquier participación total. Si ambas entidades participan de forma total, habrá dos restricciones externas.</li>
+<li>En una relación <strong>1:1</strong>, dependerá de cómo se transforme la relación al modelo relacional.</li>
+</ul>
+<h3 id="implementacion-de-las-restricciones-externas">Implementación de las restricciones externas</h3>
+<p>Las restricciones externas pueden implementarse mediante <strong>triggers</strong>, que se ejecutan cuando se produce una inserción, modificación o eliminación que afecta a la restricción.</p>
+<p>Para garantizar <strong>RexR3</strong>, debemos controlar:</p>
+<ul>
+<li>La <strong>creación de proyectos</strong>, para garantizar que se registre al menos un empleado trabajando en cada nuevo proyecto.</li>
+<li>Las <strong>modificaciones y eliminaciones en TRABAJA</strong>, para evitar que un proyecto se quede sin empleados.</li>
+</ul>
+<p>La comprobación puede realizarse al finalizar la transacción, si el SGBD lo permite. Así, podemos insertar primero el proyecto y después su correspondiente fila en TRABAJA.</p>
+<p>Si una modificación o eliminación en TRABAJA deja un proyecto existente sin empleados, debe impedirse la operación.</p>
 <div class="admonition note">
-<p class="admonition-title">Implementación habitual</p>
-<p>Muchos SGBD resuelven estas reglas mediante <strong>disparadores (TRIGGERS)</strong>, ejecutando lógica definida por el usuario tras inserciones, actualizaciones o borrados.</p>
+<p class="admonition-title">Restricciones externas del ejemplo</p>
+<p>En nuestro ejemplo, tendremos las siguientes restricciones externas en el modelo relacional:</p>
+<ul>
+<li><strong>Rex1</strong>: El jefe de un departamento debe ser miembro de este.</li>
+<li><strong>Rex2</strong>: Un empleado solo puede trabajar en proyectos coordinados por su departamento.</li>
+<li><strong>Rex3</strong>: Todo proyecto debe tener al menos un empleado trabajando en él.</li>
+</ul>
 </div>
 
 

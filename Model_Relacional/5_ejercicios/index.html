@@ -1963,6 +1963,47 @@
 <div class="admonition tip">
 <p class="admonition-title">Revisa tu solución</p>
 <p>Antes de consultar la solución oficial, revisa tu propuesta utilizando el prompt del apartado <strong><a href="../../IA/">Cómo utilizar la IA para aprender</a></strong>.</p>
+<p><strong>📤 Cómo entregar tu ejercicio a la IA</strong></p>
+<ol>
+<li><strong>💬 Copia el prompt general de revisión.</strong></li>
+<li><strong>📎 Adjunta el enunciado y el diagrama E/R de partida.</strong></li>
+<li><strong>📝 Añade tu esquema relacional</strong>, preferiblemente como texto.</li>
+</ol>
+<p><strong>Comprueba que tu propuesta incluye:</strong></p>
+<ul>
+<li><strong>Tablas:</strong> cada tabla y sus atributos.</li>
+<li><strong>PK:</strong> la clave primaria de cada tabla.</li>
+<li><strong>FK:</strong> cada clave ajena y la tabla y campos a los que apunta.</li>
+<li><strong>Restricciones:</strong> no nulo, único y borrado en cascada, cuando corresponda.</li>
+<li><strong>Reglas adicionales:</strong> las restricciones adicionales que hayas identificado.</li>
+</ul>
+<p><strong>📋 Ejemplo de entrega</strong></p>
+<p>Copia este formato para cada tabla de tu solución:</p>
+<div class="highlight"><pre><span></span><code>EMPLEADO(dni, nombre, departamento)
+PK: dni
+FK: departamento → DEPARTAMENTO(num_d)
+Restricciones: departamento no nulo
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">🔗 Claves compuestas</p>
+<p>Si una clave contiene varios campos, <strong>escríbelos juntos</strong>:</p>
+<div class="highlight"><pre><span></span><code>PK: (campo1, campo2)
+FK: (campo1, campo2) → TABLA_DESTINO(campo1, campo2)
+</code></pre></div>
+</div>
+<details class="info">
+<summary>📷 Si entregas tu solución como imagen</summary>
+<p>También puedes adjuntar una <strong>fotografía de tu solución en papel</strong> o una <strong>imagen exportada de Draw.io</strong>.</p>
+<ul>
+<li>Debe estar <strong>completa, bien enfocada y sin sombras</strong>.</li>
+<li>Explica cómo has marcado las <strong>PK, las FK y las restricciones</strong>.</li>
+<li>No dependas únicamente de los colores.</li>
+</ul>
+</details>
+<div class="admonition success">
+<p class="admonition-title">🔄 Corrige y vuelve a revisar</p>
+<p>Después de corregir tu propuesta, envía la <strong>versión completa actualizada</strong> y pide a la IA que vuelva a revisarla.</p>
+</div>
 </div>
 <p>Realizar el esquema relacional correspondiente a los ejercicios del Tema Entidad/Relación.</p>
 <h2 id="ejercicio-1"><span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 1</span></span></h2>

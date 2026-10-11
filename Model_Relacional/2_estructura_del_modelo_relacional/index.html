@@ -1159,10 +1159,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#21-componentes-de-una-relacion" class="md-nav__link">
+  <a href="#21-componentes-de-una-relacion-tabla" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.1 Componentes de una Relación
+        2.1 Componentes de una Relación (Tabla)
       
     </span>
   </a>
@@ -1181,10 +1181,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#23-representaciones-de-tablas" class="md-nav__link">
+  <a href="#23-representacion-de-una-relacion-tabla" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.3 Representaciones de Tablas
+        2.3 Representación de una Relación (Tabla)
       
     </span>
   </a>
@@ -1778,10 +1778,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#21-componentes-de-una-relacion" class="md-nav__link">
+  <a href="#21-componentes-de-una-relacion-tabla" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.1 Componentes de una Relación
+        2.1 Componentes de una Relación (Tabla)
       
     </span>
   </a>
@@ -1800,10 +1800,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#23-representaciones-de-tablas" class="md-nav__link">
+  <a href="#23-representacion-de-una-relacion-tabla" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.3 Representaciones de Tablas
+        2.3 Representación de una Relación (Tabla)
       
     </span>
   </a>
@@ -1833,9 +1833,9 @@ hide:
 ---
 -->
 <h1 id="2-estructura-del-modelo-relacional">2. Estructura del Modelo Relacional</h1>
-<p>El elemento básico del Modelo Relacional es la <strong>RELACIÓN</strong>, que es una tabla bidimensional con características y restricciones específicas.</p>
+<p>El elemento básico del Modelo Relacional es la <strong>RELACIÓN</strong>, que es una <strong>tabla</strong> bidimensional con características y restricciones específicas.</p>
 <h2 id="_1"><img alt="alt text" src="../image-44.png" /></h2>
-<h2 id="21-componentes-de-una-relacion">2.1 Componentes de una Relación</h2>
+<h2 id="21-componentes-de-una-relacion-tabla">2.1 Componentes de una Relación (Tabla)</h2>
 <div class="grid cards">
 <ul>
 <li>
@@ -1889,53 +1889,70 @@ También llamadas campos.</p>
 </tr>
 </tbody>
 </table>
-<h2 id="23-representaciones-de-tablas">2.3 Representaciones de Tablas</h2>
-<h3 id="representacion-1-notacion-textual">Representación 1: Notación Textual</h3>
+<h2 id="23-representacion-de-una-relacion-tabla">2.3 Representación de una Relación (Tabla)</h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Representación 1: Notación Textual</label><label for="__tabbed_1_2">Representación 2: Diagrama Visual</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="grid cards" markdown>
+<ul>
+<li>
+<p><strong>Convenciones</strong></p>
+<ul>
+<li>Nombre de tabla en MAYÚSCULAS.</li>
+<li>Atributos en minúsculas, separados por comas.</li>
+<li>Clave principal subrayada.</li>
+<li>Evitar caracteres especiales (ñ, acentos, guiones).</li>
+</ul>
+</li>
+<li>
+<p><strong>Ejemplo</strong></p>
 <table>
 <thead>
 <tr>
-<th>Convenciones</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>- Nombre de tabla en MAYÚSCULAS<br>- Atributos en minúsculas, separados por comas<br>- Clave principal subrayada<br>- Evitar caracteres especiales (ñ, acentos, guiones)</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>Ejemplo</th>
-<th></th>
+<th>Relación</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>EMPLEADO (<u>dni</u>, nombre, direccion, telefono, sueldo, fecha_n)</td>
-<td></td>
 </tr>
 </tbody>
 </table>
-<h3 id="representacion-2-diagrama-visual">Representación 2: Diagrama Visual</h3>
+</li>
+</ul>
+</div>
+</div>
+<div class="tabbed-block">
+<div class="grid cards" markdown>
+<ul>
+<li>
+<p><strong>Convenciones</strong></p>
+<ul>
+<li>Una tabla con el nombre en la parte superior.</li>
+<li>Los atributos listados en el interior.</li>
+<li>La clave principal en negrita o subrayada.</li>
+</ul>
+</li>
+<li>
+<p><strong>Ejemplo</strong></p>
 <table>
 <thead>
 <tr>
-<th>Convenciones</th>
-<th>Ejemplo</th>
-<th></th>
+<th>Relación</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Una tabla con:<br>- Nombre en la parte superior<br>- Atributos listados en el interior<br>- Clave principal en negrita o subrayada</td>
 <td><img alt="Diagrama visual de una relación" src="../image-4.png" /></td>
-<td></td>
 </tr>
 </tbody>
 </table>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 <hr />
 
 

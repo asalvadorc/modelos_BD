@@ -1231,10 +1231,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#36-resumen-dependencias" class="md-nav__link">
+  <a href="#36-resumen-de-dependencias" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3.6 Resumen dependencias
+        3.6 Resumen de dependencias
       
     </span>
   </a>
@@ -1242,10 +1242,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#37-relaciones-ternarias" class="md-nav__link">
+  <a href="#37-claves-externas-compuestas" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3.7 Relaciones ternarias
+        3.7 Claves externas compuestas
       
     </span>
   </a>
@@ -1253,10 +1253,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#38-especializaciones" class="md-nav__link">
+  <a href="#38-relaciones-ternarias" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3.8 Especializaciones
+        3.8 Relaciones ternarias
       
     </span>
   </a>
@@ -1264,10 +1264,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#39-restricciones-externas" class="md-nav__link">
+  <a href="#39-especializacion-y-herencia" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3.9 Restricciones externas
+        3.9 Especialización y Herencia
       
     </span>
   </a>
@@ -1275,10 +1275,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#310-ejemplo" class="md-nav__link">
+  <a href="#310-restricciones-externas" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3.10 Ejemplo
+        3.10 Restricciones externas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#311-ejemplo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.11 Ejemplo
       
     </span>
   </a>
@@ -1888,10 +1899,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#36-resumen-dependencias" class="md-nav__link">
+  <a href="#36-resumen-de-dependencias" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3.6 Resumen dependencias
+        3.6 Resumen de dependencias
       
     </span>
   </a>
@@ -1899,10 +1910,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#37-relaciones-ternarias" class="md-nav__link">
+  <a href="#37-claves-externas-compuestas" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3.7 Relaciones ternarias
+        3.7 Claves externas compuestas
       
     </span>
   </a>
@@ -1910,10 +1921,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#38-especializaciones" class="md-nav__link">
+  <a href="#38-relaciones-ternarias" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3.8 Especializaciones
+        3.8 Relaciones ternarias
       
     </span>
   </a>
@@ -1921,10 +1932,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#39-restricciones-externas" class="md-nav__link">
+  <a href="#39-especializacion-y-herencia" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3.9 Restricciones externas
+        3.9 Especialización y Herencia
       
     </span>
   </a>
@@ -1932,10 +1943,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#310-ejemplo" class="md-nav__link">
+  <a href="#310-restricciones-externas" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3.10 Ejemplo
+        3.10 Restricciones externas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#311-ejemplo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.11 Ejemplo
       
     </span>
   </a>
@@ -1973,10 +1995,10 @@ Si no ves el visor de arriba o prefieres leerlo aparte:
 <p class="admonition-title">Reglas de transformación</p>
 <ul>
 <li>Las entidades pasan a ser tablas</li>
-<li>Los atributos pasar a ser columnas</li>
-<li>Los atributos identificadores pasar a ser claves primarias.</li>
-<li>Los atributos de las relaciones pasan a columnas detrás de las claves ajenas</li>
-<li>Las relaciones, dependiendo de la cardinalidad, pasarán a ser claves ajenas y/o tablas.</li>
+<li>Los atributos pasan a ser columnas</li>
+<li>Los atributos identificadores pasan a ser <strong>claves primarias (PK)</strong>.</li>
+<li>Las relaciones, dependiendo de la cardinalidad, pasarán a ser <strong>claves ajenas (FK)</strong> y/o <strong>tablas</strong>.</li>
+<li>Los atributos de las relaciones pasan a columnas detrás de las claves ajenas.</li>
 </ul>
 </div>
 <div class="admonition note">
@@ -1984,13 +2006,17 @@ Si no ves el visor de arriba o prefieres leerlo aparte:
 </div>
 <details open="open">
 <summary>Ejemplo: Empresa</summary>
-<p><!--<img alt="Ejemplo: Empresa" src="image-28.png" />-->
-<img alt="alt text" src="../image-30.png" /></p>
+<p><img alt="Ejemplo: Empresa" src="../image-28.png" />
+<!--<img alt="alt text" src="image-30.png" />--></p>
 </details>
 <h2 id="31-entidades">3.1 Entidades</h2>
-<p>Toda entidad se transformará en una tabla, con todos sus atributos, que se considerarán como simples. Se elige uno (o un conjunto) como clave principal, y lo denotaremos subrayándolo. Las entidades débiles las estudiaremos mejor más adelante.</p>
+<p>Toda entidad, fuerte o débil, se transformará en una tabla, con todos sus atributos, que se considerarán como simples. Se elige uno (o un conjunto) como <strong>clave primaria (PK)</strong>, que se representa mediante <u>subrayado</u>. </p>
 <p>En nuestro ejemplo, como teníamos 4 entidades, nos saldrán de momento 4 tablas:</p>
 <p><img alt="alt text" src="../image-10.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Recuerda</p>
+<p>La <strong>clave principal</strong> se denota subrayándola.</p>
+</div>
 <div class="admonition quote">
 <ul>
 <li>EMPLEADO (<u>dni</u>, nombre, direccion, telefono, sueldo, fecha_n, departamento, supervisor)</li>
@@ -2002,8 +2028,8 @@ Si no ves el visor de arriba o prefieres leerlo aparte:
 <!--[](T3_4_1_1.png)-->
 
 <h2 id="32-relaciones-1n">3.2 Relaciones 1:N</h2>
-<p>La clave primaria de la entidad con cardinalidad máxima 1 (A) se incluye en la entidad con cardinalidad máxima N (B) como clave externa que apuntará a la clave principal de A.<br />
-En muchas ocasiones al campo nuevo de B se le pone el mismo nombre que a la clave principal de A, pero es opcional.</p>
+<p>La clave primaria de la entidad situada en el lado 1 (A) se incorpora a la tabla correspondiente a la entidad situada en el lado N (B) como clave externa, también denominada <strong>clave ajena, clave foránea o foreign key (FK)</strong>. Esta clave referencia la clave primaria de A. En nuestros apuntes, la representamos resaltándola en <mark>amarillo</mark> e indicando su origen.</p>
+<p>Si, además, la entidad situada en el lado N participa de forma total en la relación, la clave externa no puede ser nula (es decir, siempre debe tener un valor). En nuestros apuntes, lo indicaremos mediante la etiqueta <span class="tag-no-nulo">[no nulo]</span>.</p>
 <p><img alt="alt text" src="../image-5.png" /></p>
 <!--
 La siguiente animación intenta explicarlo mejor:
@@ -2019,22 +2045,22 @@ Si además la entidad que participa con grado N lo hace de forma **total** (como
 
 <details open="open">
 <summary>Ejemplo: Empresa</summary>
-<p><img alt="Ejemplo: Empresa" src="../image-32.png" /></p>
+<p><img alt="Ejemplo: Empresa" src="../image-33.png" /></p>
 </details>
 <div class="admonition quote">
 <ul>
 <li>EMPLEADO (<u>dni</u>, nombre, direccion, telefono, sueldo, fecha_n, <mark>departamento</mark>, <mark>supervisor</mark>)<ul>
-<li>departamento -&gt; DEPARTAMENTO (num_d) <span class="tag-no-nulo">[no nulo]</span></li>
-<li>supervisor -&gt; EMPLEADO (dni)</li>
+<li>FK: departamento-&gt;DEPARTAMENTO(num_d) <span class="tag-no-nulo">[no nulo]</span></li>
+<li>FK: supervisor-&gt;EMPLEADO(dni)</li>
 </ul>
 </li>
 <li>DEPARTAMENTO (<u>num_d</u>, nombre_d)</li>
 <li>PROYECTO (<u>num_p</u>, nombre_p, <mark>departamento</mark>)<ul>
-<li>departamento -&gt; DEPARTAMENTO (num_d) <span class="tag-no-nulo">[no nulo]</span></li>
+<li>FK: departamento-&gt;DEPARTAMENTO(num_d) <span class="tag-no-nulo">[no nulo]</span></li>
 </ul>
 </li>
 <li>FAMILIAR (<u>nombre</u>, fecha_n, parentesco, <mark>dni_e</mark>)<ul>
-<li>dni_e -&gt; EMPLEADO (dni) <span class="tag-no-nulo">[no nulo]</span></li>
+<li>FK: dni_e-&gt;EMPLEADO(dni) <span class="tag-no-nulo">[no nulo]</span></li>
 </ul>
 </li>
 </ul>
@@ -2053,12 +2079,28 @@ Si además la entidad que participa con grado N lo hace de forma **total** (como
 <p>Por la relación <strong><em>Tiene</em></strong> entre empleado y familiar, incluiremos en <strong>FAMILIAR</strong> el atributo <strong>dni_e</strong>, pero como Familiar es débil la veremos mejor un poco más adelante.</p>
 </li>
 </ul>
+<h3 id="relacion-reflexiva-empleado-y-supervisor">Relación reflexiva: empleado y supervisor</h3>
+<p>Una relación es <strong>reflexiva</strong> cuando una entidad se relaciona consigo misma. En este ejemplo, los empleados pueden supervisar a otros empleados: la entidad <strong>EMPLEADO</strong> participa en la relación <strong>Supervisa</strong> con dos roles distintos, supervisor y empleado supervisado.</p>
+<p>Si cada empleado tiene como máximo un supervisor y un supervisor puede supervisar a varios empleados, la relación es <strong>1:N</strong>. Aplicamos la misma regla de transformación que para cualquier relación 1:N: incorporamos la clave primaria del lado 1 como clave externa en la tabla del lado N. Como ambos lados corresponden a la misma entidad, la clave externa queda en <strong>EMPLEADO</strong> y referencia esa misma tabla:</p>
+<div class="admonition quote">
+<ul>
+<li>EMPLEADO (<u>dni</u>, nombre, direccion, telefono, sueldo, fecha_n, <mark>supervisor</mark>)<ul>
+<li>FK: supervisor-&gt;EMPLEADO(dni)</li>
+</ul>
+</li>
+</ul>
+</div>
+<p>El atributo <code>supervisor</code> contiene el <code>dni</code> del empleado que supervisa a esa persona. Puede ser <strong>nulo</strong> cuando el empleado no tiene supervisor (por ejemplo, quien dirige la organización). Un mismo <code>dni</code> de supervisor puede aparecer en varias filas, ya que una persona puede supervisar a varios empleados.</p>
+<div class="admonition example">
+<p class="admonition-title">Ejemplo</p>
+<p>Si la empleada con DNI <code>12345678A</code> supervisa al empleado con DNI <code>87654321B</code>, en la fila de este último se almacena <code>supervisor = 12345678A</code>. La clave externa garantiza que ese supervisor existe en <strong>EMPLEADO</strong>.</p>
+</div>
 <h2 id="33-relaciones-mn">3.3 Relaciones M:N</h2>
 <p>Por cada relación <strong>M:N</strong> se crea una <strong>tabla intermedia</strong>.</p>
 <p>En esa tabla:</p>
 <ul>
 <li>Las claves principales de las dos entidades pasan a ser <strong>claves externas</strong>.</li>
-<li>La combinación de esas claves externas forma la <strong>clave principal</strong> (o parte de ella).</li>
+<li>La combinación de esas claves externas forma la <strong>clave primaria</strong> (o parte de ella).</li>
 <li>Se añaden también los atributos propios de la relación.</li>
 </ul>
 <h3 id="ejemplo-base">Ejemplo base</h3>
@@ -2068,8 +2110,8 @@ Si además la entidad que participa con grado N lo hace de forma **total** (como
 <div class="admonition quote">
 <ul>
 <li>TRABAJA (<mark><u>dni, num_p</u></mark>, horas)<ul>
-<li>dni -&gt; EMPLEADO (dni)</li>
-<li>num_p -&gt; PROYECTO (num_p)</li>
+<li>FK: dni-&gt;EMPLEADO(dni)</li>
+<li>FK: num_p-&gt;PROYECTO(num_p)</li>
 </ul>
 </li>
 </ul>
@@ -2086,14 +2128,27 @@ Si además la entidad que participa con grado N lo hace de forma **total** (como
 <div class="admonition quote">
 <ul>
 <li>TRABAJA (<mark><u>dni, num_p</mark>, fecha incio</u>, fecha_fin, horas)<ul>
-<li>dni -&gt; EMPLEADO (dni)</li>
-<li>num_p -&gt; PROYECTO (num_p)</li>
+<li>FK: dni-&gt;EMPLEADO(dni)</li>
+<li>FK: num_p-&gt;PROYECTO(num_p)</li>
 </ul>
 </li>
 </ul>
 </div>
 <h3 id="criterio-practico">Criterio práctico</h3>
 <p>Evita claves principales excesivamente largas. Como regla práctica, si la clave principal empieza a tener demasiados campos (por ejemplo, 4 o más), conviene usar una clave artificial (como <code>id_trabaja</code>) y mantener las claves externas igualmente.</p>
+<h3 id="relacion-reflexiva-nn-empleados-que-colaboran">Relación reflexiva N:N: empleados que colaboran</h3>
+<p>Una relación reflexiva también puede ser <strong>N:N</strong>. Por ejemplo, un empleado puede colaborar con varios empleados y, a su vez, colaborar con varios más. Como en cualquier relación N:N, se crea una tabla intermedia; en este caso, sus dos claves externas apuntan a la misma tabla <strong>EMPLEADO</strong>, pero representan roles distintos:</p>
+<div class="admonition quote">
+<ul>
+<li>EMPLEADO (<u>dni</u>, nombre, ...)</li>
+<li>COLABORA (<mark><u>dni_empleado, dni_colaborador</u></mark>)<ul>
+<li>FK: dni_empleado-&gt;EMPLEADO(dni)</li>
+<li>FK: dni_colaborador-&gt;EMPLEADO(dni)</li>
+</ul>
+</li>
+</ul>
+</div>
+<p>La clave primaria compuesta impide registrar dos veces la misma pareja en el mismo orden. Si la colaboración no tiene dirección (A colabora con B equivale a B colabora con A), también hay que evitar registrar ambas combinaciones <code>(A, B)</code> y <code>(B, A)</code>, mediante una regla adicional de implementación.</p>
 <h2 id="34-relaciones-11">3.4 Relaciones 1:1</h2>
 <p>No existe una única traducción para una relación <strong>1:1</strong>. La decisión depende de la participación (<strong>total</strong> o <strong>parcial</strong>) y del criterio práctico de diseño.</p>
 <h3 id="caso-1-una-entidad-participa-de-forma-total">Caso 1: Una entidad participa de forma total</h3>
@@ -2110,8 +2165,9 @@ Si además la entidad que participa con grado N lo hace de forma **total** (como
 Todos los departamentos tienen director (no nula) y solo uno (única), pero no todos los empleados dirigen un departamento.</p>
 <div class="admonition quote">
 <ul>
+<li>EMPLEADO (<u>dni</u>, nombre, direccion, telefono, sueldo, fecha_n)</li>
 <li>DEPARTAMENTO (<u>num_d</u>, nom_d, <mark>director</mark>, Fecha)<ul>
-<li>director -&gt; EMPLEADO (dni) <span class="tag-no-nulo">[no nulo]</span> <span class="tag-unico">[unico]</span> </li>
+<li>FK: director-&gt;EMPLEADO(dni) <span class="tag-no-nulo">[no nulo]</span> <span class="tag-unico">[unico]</span></li>
 </ul>
 </li>
 </ul>
@@ -2139,8 +2195,8 @@ Todos los departamentos tienen director (no nula) y solo uno (única), pero no t
 <li>PERSONA (<u>dni</u>, ...(datos persona)...)</li>
 <li>COLECCION (<u>cod_col</u>, ...(datos colección)...)</li>
 <li>PROPIETARIO (<mark><u>dni, cod_col</u></mark>)<ul>
-<li>dni -&gt; PERSONA (dni)</li>
-<li>cod_col -&gt; COLECCION (cod_col)</li>
+<li>FK: dni-&gt;PERSONA(dni)</li>
+<li>FK: cod_col-&gt;COLECCION(cod_col)</li>
 </ul>
 </li>
 </ul>
@@ -2148,41 +2204,53 @@ Todos los departamentos tienen director (no nula) y solo uno (única), pero no t
 <p>Si una participación es "casi total", puede seguir siendo más eficiente usar clave externa (caso 1), aceptando algunos nulos.</p>
 <h3 id="regla-practica">Regla práctica</h3>
 <p>En la mayoría de escenarios reales, una relación <strong>1:1</strong> se traduce mejor como <strong>clave externa en la tabla con participación total o casi total</strong>.</p>
+<h3 id="relacion-reflexiva-11-empleados-emparejados-como-mentores">Relación reflexiva 1:1: empleados emparejados como mentores</h3>
+<p>Una relación reflexiva <strong>1:1</strong> relaciona instancias de la misma entidad, con un máximo de una instancia en cada rol. Por ejemplo, cada empleado puede tener como máximo un mentor y cada empleado puede ser mentor de como máximo otra persona.</p>
+<p>Se puede representar con una clave externa a la propia tabla <strong>EMPLEADO</strong>. La restricción de unicidad mantiene la cardinalidad 1:1; el valor puede ser nulo si no todos los empleados tienen mentor:</p>
+<div class="admonition quote">
+<ul>
+<li>EMPLEADO (<u>dni</u>, nombre, <mark>mentor</mark>)<ul>
+<li>FK: mentor-&gt;EMPLEADO(dni) <span class="tag-unico">[unico]</span></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>Si la participación exigiera que todos tuvieran mentor, <code>mentor</code> sería además <span class="tag-no-nulo">[no nulo]</span>. La decisión de dónde ubicar la clave externa sigue el criterio general del caso 1:1 descrito arriba.</p>
 <h2 id="35-entidades-debiles">3.5 Entidades débiles</h2>
-<p>Una entidad débil depende de una entidad principal para existir. Por eso, su traducción al modelo relacional es más estricta.</p>
-<h3 id="reglas-clave">Reglas clave</h3>
+<p>Una entidad débil depende de una entidad principal para existir y participa de forma <strong>total</strong> en la relación de dependencia. Al transformarla al modelo relacional, su tabla incorpora una <strong>clave externa no nula</strong> que referencia a la entidad principal.</p>
+<p>Además, en nuestros apuntes aplicaremos las siguientes reglas:</p>
 <ul>
-<li>Debe tener una <strong>clave externa no nula</strong> hacia la entidad principal.</li>
-<li>La participación es total: cada fila de la entidad débil debe estar vinculada a una fila de la entidad principal.</li>
-</ul>
-<h3 id="tipos-de-dependencia">Tipos de dependencia</h3>
-<ul>
-<li><strong>Dependencia en existencia</strong>:
-  la clave externa debe <strong>actualizar y borrar en cascada</strong>.</li>
-<li><strong>Dependencia en identificación</strong>:
-  además, la clave externa <strong>forma parte de la clave principal</strong>.</li>
-</ul>
-<h3 id="nota-practica">Nota práctica</h3>
-<ul>
-<li>Si la relación identificadora es <strong>1:N</strong>, normalmente hace falta otro atributo para completar la clave principal.</li>
-<li>Si es <strong>1:1</strong>, la clave externa puede ser suficiente como clave principal.</li>
+<li>
+<p>Dependencia en <strong>existencia</strong>: la entidad débil se indica con <span class="tag-cascade">(borrar en cascada)</span>.</p>
+<p><img alt="alt text" src="../image-37.png" /></p>
+</li>
+<li>
+<p>Dependencia en <strong>identificación</strong>: además de lo anterior, la clave externa forma parte de la clave primaria de la entidad débil. En este caso, no indicamos explícitamente que es <span class="tag-no-nulo">[no nulo]</span>, ya que esta restricción está implícita al formar parte de la clave primaria.</p>
+<p><img alt="alt text" src="../image-39.png" /></p>
+</li>
 </ul>
 <p>En el ejemplo:</p>
 <p><img alt="alt text" src="../image-29.png" /></p>
 <div class="admonition quote">
 <ul>
+<li>EMPLEADO (<u>dni</u>, nombre, direccion, telefono, sueldo, fecha_n)</li>
 <li>FAMILIAR (<u><mark>dni_e</mark>, nom_f</u>, fecha_n, parentesco  <span class="tag-cascade">(borrar en cascada)</span><ul>
-<li>dni_e -&gt; PERSONA (dni)</li>
+<li>FK: dni_e-&gt;PERSONA(dni)</li>
 </ul>
 </li>
 </ul>
 </div>
-<h2 id="36-resumen-dependencias">3.6 Resumen dependencias</h2>
-<p>Resumen de cómo se traduce cada grado de dependencia al modelo relacional:</p>
-<p><img alt="alt text" src="../image-20.png" /></p>
-<p><strong>Caso particular</strong>: si una entidad débil depende en identificación mediante una relación <strong>1:1</strong>, la clave principal de <strong>A</strong> puede pasar directamente a ser clave principal de <strong>B</strong>.</p>
-<p><img alt="alt text" src="../image-21.png" /></p>
-<h3 id="claves-externas-compuestas">Claves externas compuestas</h3>
+<div class="admonition note">
+<p class="admonition-title">Nota práctica</p>
+<ul>
+<li>Si la relación en <strong>identificación</strong> es <strong>1:N</strong>, normalmente hace falta otro atributo para completar la clave principal.</li>
+<li>Si es <strong>1:1</strong>, la clave externa puede ser suficiente como clave principal.
+    <img alt="alt text" src="../image-36.png" /></li>
+</ul>
+</div>
+<h2 id="36-resumen-de-dependencias">3.6 Resumen de dependencias</h2>
+<p><img alt="alt text" src="../image-54.png" />    </p>
+<h2 id="37-claves-externas-compuestas">3.7 Claves externas compuestas</h2>
 <p>Una duda frecuente aparece cuando la tabla referenciada tiene clave principal de varios campos.</p>
 <p>Ejemplo: la tabla <strong>FAMILIAR</strong> tiene clave principal compuesta. Si otra tabla depende de ella (por ejemplo, cartas/comunicaciones), la relación en el modelo E/R podría ser:</p>
 <p><img alt="alt text" src="../image-23.png" /></p>
@@ -2195,37 +2263,73 @@ Todos los departamentos tienen director (no nula) y solo uno (única), pero no t
 <div class="admonition quote">
 <ul>
 <li>FAMILIAR (<u><i>dni_e</i>, nom_f</u>, fecha_n, parentesco  <span class="tag-cascade">(borrar en cascada)</span><ul>
-<li>dni_e -&gt; PERSONA (dni)</li>
+<li>FK: dni_e-&gt;PERSONA(dni)</li>
 </ul>
 </li>
 <li>CARTAS (<u>id</u>, texto, <mark>dni_e, nom_f</mark>)<ul>
-<li>dni_e, nom_f -&gt; FAMILIAR (dni_e, nom_f)</li>
+<li>FK: dni_e, nom_f-&gt;FAMILIAR(dni_e, nom_f)</li>
 </ul>
 </li>
 </ul>
 </div>
-<h2 id="37-relaciones-ternarias">3.7 Relaciones ternarias</h2>
-<p>En una relación ternaria (o de grado superior) se crea una <strong>tabla nueva</strong> para representar la relación.</p>
-<h3 id="regla-general">Regla general</h3>
+<h2 id="38-relaciones-ternarias">3.8 Relaciones ternarias</h2>
+<p>Las relaciones de grado 3 pueden generar una nueva tabla dependiendo de la cardinalidad de la relación:</p>
+<h3 id="cardinalidad-nnn">Cardinalidad N:N:N</h3>
+<p>En este caso creamos una tabla. La clave primaria de la nueva tabla estará formada por las tres claves de las entidades que participan en la relación.</p>
+<p><img alt="alt text" src="../image-43.png" /></p>
+<p>Creamos la tabla COMPRA:</p>
+<div class="admonition quote">
 <ul>
-<li>La nueva tabla incluye como <strong>claves externas</strong> las claves primarias de todas las entidades participantes.</li>
-<li>También incluye los atributos propios de la relación.</li>
-<li>Habitualmente, la clave principal es la combinación de esas claves externas.</li>
+<li>DEPARTAMENTO (<u>num_d</u>, ....)</li>
+<li>ARTICULO (<u>cod_art</u>, ....)</li>
+<li>PROVEEDOR (<u>cod_pr</u>, ....)</li>
+<li>COMPRA (<u><mark>num_d</mark>, <mark>cod_art</mark>, <mark>cod_pr</mark> </u>) <ul>
+<li>FK: num_d-&gt;DEPARTAMENTO(num_d)</li>
+<li>FK: cod_art-&gt;ARTICULO(cod_art)</li>
+<li>FK: cod_pr-&gt;PROVEEDOR(cod_pr)</li>
 </ul>
-<h3 id="ajuste-por-cardinalidad">Ajuste por cardinalidad</h3>
-<p>Si alguna entidad participa con cardinalidad máxima 1, su clave puede no formar parte de la clave principal de la tabla de relación.</p>
-<h3 id="ejemplo">Ejemplo</h3>
+</li>
+</ul>
+</div>
+<h3 id="cardinalidad-1nn">Cardinalidad 1:N:N</h3>
+<p>En este caso creamos una tabla. La clave primaria de la nueva tabla estará formada por las dos claves de las entidades que participan como N en la relación.</p>
+<p><img alt="alt text" src="../image-47.png" /></p>
+<p>La tabla resultante sería:</p>
+<div class="admonition quote">
+<ul>
+<li>COMPRA (<u><mark>num_d</mark>, <mark>cod_art</mark> </u>, <mark>cod_pr</mark>) <ul>
+<li>FK: num_d-&gt;DEPARTAMENTO(num_d)</li>
+<li>FK: cod_art-&gt;ARTICULO(cod_art)</li>
+<li>FK: cod_pr-&gt;PROVEEDOR(cod_pr) <span class="tag-no-nulo">[no nulo]</span></li>
+</ul>
+</li>
+</ul>
+</div>
+<h3 id="cardinalidad-11n">Cardinalidad 1:1:N</h3>
+<p>Creamos una tabla para la relación con las claves primarias de las tres entidades como claves externas. La clave primaria se forma con la clave de la entidad del lado N y la de una de las entidades del lado 1. La combinación del lado N con el otro lado 1 debe declararse <span class="tag-unico">[única]</span>.</p>
+<p><img alt="alt text" src="../image-49.png" width="600" /></p>
+<div class="admonition quote">
+<ul>
+<li>COMPRA (<u><mark>num_d</mark>, <mark>cod_art</mark> </u>, <mark>cod_pr</mark>) <ul>
+<li>FK: num_d-&gt;DEPARTAMENTO(num_d)</li>
+<li>FK: cod_art-&gt;ARTICULO(cod_art)</li>
+<li>FK: cod_pr-&gt;PROVEEDOR(cod_pr) <span class="tag-no-nulo">[no nulo]</span> <span class="tag-unico">[única]</span></li>
+</ul>
+</li>
+</ul>
+</div>
+<h3 id="ternaria-con-atributos-en-la-relacion">Ternaria con atributos en la relación</h3>
 <p>En el ejemplo ternario, con atributos como <strong>fecha de compra</strong> y <strong>cantidad</strong>:</p>
-<p><img alt="alt text" src="../image-22.png" /></p>
+<p><img alt="alt text" src="../image-50.png" width="600" /></p>
 <div class="admonition quote">
 <ul>
 <li>DEPARTAMENTO (<u>num_d</u>, ....)</li>
 <li>ARTICULO (<u>cod_art</u>, ....)</li>
 <li>PROVEEDOR (<u>cod_pr</u>, ....)</li>
 <li>COMPRA (<u><mark>num_d</mark>, <mark>cod_art</mark>, <mark>cod_pr</mark>, fecha_c </u>, cantidad) <ul>
-<li>num_d -&gt; DEPARTAMENTO (num_d)</li>
-<li>cod_art-&gt; ARTICULO (cod_art)</li>
-<li>cod_pr-&gt; PROVEEDOR (cod_pr)</li>
+<li>FK: num_d-&gt;DEPARTAMENTO(num_d)</li>
+<li>FK: cod_art-&gt;ARTICULO(cod_art)</li>
+<li>FK: cod_pr-&gt;PROVEEDOR(cod_pr)</li>
 </ul>
 </li>
 </ul>
@@ -2243,28 +2347,28 @@ Todos los departamentos tienen director (no nula) y solo uno (única), pero no t
 <li>ARTICULO (<u>cod_art</u>, ....)</li>
 <li>PROVEEDOR (<u>cod_pr</u>, ....)</li>
 <li>COMPRA (<u>id</u>,<mark>num_d</mark>, <mark>cod_art</mark>, <mark>cod_pr</mark>, fecha_c , cantidad) <ul>
-<li>num_d -&gt; DEPARTAMENTO (num_d) <span class="tag-no-nulo">[no nulo]</span></li>
-<li>cod_art-&gt; ARTICULO (cod_art) <span class="tag-no-nulo">[no nulo]</span></li>
-<li>cod_pr-&gt; PROVEEDOR (cod_pr) <span class="tag-no-nulo">[no nulo]</span></li>
+<li>FK: num_d-&gt;DEPARTAMENTO(num_d) <span class="tag-no-nulo">[no nulo]</span></li>
+<li>FK: cod_art-&gt;ARTICULO(cod_art) <span class="tag-no-nulo">[no nulo]</span></li>
+<li>FK: cod_pr-&gt;PROVEEDOR(cod_pr) <span class="tag-no-nulo">[no nulo]</span></li>
 </ul>
 </li>
 </ul>
 </div>
-<h2 id="38-especializaciones">3.8 Especializaciones</h2>
+<h2 id="39-especializacion-y-herencia">3.9 Especialización y Herencia</h2>
 <p>Las especializaciones no tienen una única traducción óptima. La solución teórica puede ser correcta, pero en la práctica puede generar demasiadas tablas y mayor mantenimiento.</p>
 <p><img alt="alt text" src="../image-25.png" /></p>
 <h3 id="opcion-1-mantener-superclase-y-subclases">Opción 1: Mantener superclase y subclases</h3>
-<p>Cada subclase se traduce a su propia tabla, heredando la clave principal de la superclase y añadiendo sus atributos específicos. Suele ser útil incluir un atributo de tipo en la superclase.</p>
+<p>Cada subtipo se transforma en una tabla que incorpora la clave primaria del supertipo y sus atributos específicos. Esta clave actúa también como clave ajena hacia la tabla del supertipo y, en nuestros apuntes, la definimos con actualización y borrado en cascada.</p>
 <p>En el ejemplo:</p>
 <div class="admonition quote">
 <ul>
 <li>EMPLEADO (<u>dni</u>,nombre, direccion, telefono,..., tipo)</li>
-<li>JEFE (<u><mark>dni</mark></u>, opinion)<ul>
-<li>dni -&gt; EMPLEADO (dni)</li>
+<li>JEFE (<u><mark>dni</mark></u>, opinion) <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li>FK: dni-&gt;EMPLEADO(dni)</li>
 </ul>
 </li>
-<li>TRABAJADOR (<u><mark>dni</mark></u>, horas_extra)<ul>
-<li>dni -&gt; EMPLEADO (dni)</li>
+<li>TRABAJADOR (<u><mark>dni</mark></u>, horas_extra) <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li>FK: dni-&gt;EMPLEADO(dni)</li>
 </ul>
 </li>
 </ul>
@@ -2276,24 +2380,17 @@ Todos los departamentos tienen director (no nula) y solo uno (única), pero no t
 <li>EMPLEADO (<u>dni</u>,nombre, direccion, telefono,... tipo, opinion, horas_extra)</li>
 </ul>
 </div>
-<h3 id="opcion-3-simplificar-superclase">Opción 3: Simplificar superclase</h3>
-<p>Los atributos de la superclase se reparten entre las subclases. Las relaciones también se trasladan a cada subclase, ajustando las participaciones.</p>
+<h3 id="opcion-3-integrar-el-supertipo-en-los-subtipos">Opción 3: Integrar el supertipo en los subtipos</h3>
+<p>Creamos una tabla por subtipo, incorporando los atributos del supertipo y los específicos de cada subtipo. No se crea una tabla para el supertipo. Sus relaciones se trasladan a las tablas de los subtipos.</p>
 <div class="admonition quote">
 <ul>
-<li>EMPLEADO (<u>dni</u>)</li>
-<li>JEFE (<u><mark>dni</mark></u>, nombre, direccion, telefono,..., opinion)<ul>
-<li>dni -&gt; EMPLEADO (dni)</li>
-</ul>
-</li>
-<li>TRABAJADOR (<u><mark>dni</mark></u>, nombre, direccion, telefono,..., horas_extra)<ul>
-<li>dni -&gt; EMPLEADO (dni)</li>
-</ul>
-</li>
+<li>JEFE (<u>dni</u>, nombre, direccion, telefono, ..., opinion)</li>
+<li>TRABAJADOR (<u>dni</u>, nombre, direccion, telefono, ..., horas_extra)</li>
 </ul>
 </div>
 <h3 id="criterio-practico_1">Criterio práctico</h3>
 <p>Elige la opción que mejor equilibre claridad del modelo, volumen de datos y coste de mantenimiento.</p>
-<h2 id="39-restricciones-externas">3.9 Restricciones externas</h2>
+<h2 id="310-restricciones-externas">3.10 Restricciones externas</h2>
 <p>Ya hemos comentado que restricciones externas son restricciones que no se pueden expresar por medio del modelo de datos. Entonces las expresaremos de palabra.</p>
 <p>Normalmente, las restricciones externas del Modelo E/R continuarán siéndolo en el Modelo Relacional, porque tampoco se podrán expresar. En nuestro ejemplo teníamos las restricciones externas del Modelo E/R:</p>
 <blockquote>
@@ -2307,8 +2404,8 @@ Todos los departamentos tienen director (no nula) y solo uno (única), pero no t
 <div class="admonition quote">
 <ul>
 <li>TRABAJA (<u><mark>dni</mark>, <mark>num_p</mark></u>, horas)<ul>
-<li>dni -&gt; EMPLEADO (dni)</li>
-<li>num_p -&gt; PROYECTO (num_p)</li>
+<li>FK: dni-&gt;EMPLEADO(dni)</li>
+<li>FK: num_p-&gt;PROYECTO(num_p)</li>
 </ul>
 </li>
 </ul>
@@ -2337,31 +2434,35 @@ Todos los departamentos tienen director (no nula) y solo uno (única), pero no t
 <p><strong>RexR2</strong>: Un empleado solo puede trabajar en proyectos coordinados por su departamento.</p>
 <p><strong>RexR3</strong>: Todo proyecto debe tener como mínimo un empleado trabajando en él.</p>
 </blockquote>
-<h2 id="310-ejemplo">3.10 Ejemplo</h2>
+<h2 id="311-ejemplo">3.11 Ejemplo</h2>
 <p>Vamos a ver cómo quedará definitivamente la traducción del ejemplo que estamos arrastrando desde el Tema 2. Daremos 2 versiones, teniendo en cuenta o no la especialización de que el trabajador puede ser jefe o trabajador normal.</p>
 <p>Sin tener en cuenta la especialización tendremos esta solución:</p>
+<details open="open">
+<summary>Ejemplo: Empresa</summary>
+<p><img alt="Ejemplo: Empresa" src="../image-28.png" /></p>
+</details>
 <div class="admonition quote">
 <ul>
 <li>EMPLEADO (<u>dni</u>, nombre, direccion, telefono, sueldo, fecha_n, <mark>departamento</mark>, <mark>supervisor</mark>)<ul>
-<li>departamento -&gt; DEPARTAMENTO (num_d) <span class="tag-no-nulo">[no nulo]</span></li>
-<li>supervisor -&gt; EMPLEADO (dni)</li>
+<li>FK: departamento-&gt;DEPARTAMENTO(num_d) <span class="tag-no-nulo">[no nulo]</span></li>
+<li>FK: supervisor-&gt;EMPLEADO(dni)</li>
 </ul>
 </li>
 <li>FAMILIAR (<u><mark>dni_e</mark>, nombre_f</u>, fecha_n, parentesco, ) <span class="tag-cascade">(borrar en cascada)</span><ul>
-<li>dni_e -&gt; EMPLEADO (dni)   </li>
+<li>FK: dni_e-&gt;EMPLEADO(dni)</li>
 </ul>
 </li>
 <li>DEPARTAMENTO (<u>num_d</u>, nombre_d, <mark>director</mark>, fecha)<ul>
-<li>director -&gt; EMPLEADO (dni) <span class="tag-no-nulo">[no nulo]</span> <span class="tag-unico">[unico]</span></li>
+<li>FK: director-&gt;EMPLEADO(dni) <span class="tag-no-nulo">[no nulo]</span> <span class="tag-unico">[unico]</span></li>
 </ul>
 </li>
 <li>PROYECTO (<u>num_p</u>, nombre_p, <mark>departamento</mark>)<ul>
-<li>departamento -&gt; DEPARTAMENTO (num_d) <span class="tag-no-nulo">[no nulo]</span></li>
+<li>FK: departamento-&gt;DEPARTAMENTO(num_d) <span class="tag-no-nulo">[no nulo]</span></li>
 </ul>
 </li>
 <li>TRABAJA (<u><mark>dni</mark>, <mark>num_p</mark></u>, horas)    <ul>
-<li>dni -&gt; EMPLEADO (dni)</li>
-<li>num_p -&gt; PROYECTO (num_p)</li>
+<li>FK: dni-&gt;EMPLEADO(dni)</li>
+<li>FK: num_p-&gt;PROYECTO(num_p)</li>
 </ul>
 </li>
 </ul>
@@ -2369,36 +2470,40 @@ Todos los departamentos tienen director (no nula) y solo uno (única), pero no t
 <p>Y esta sería la forma alternativa de representarlo:</p>
 <p><img alt="alt text" src="../image-40.png" width="600" /></p>
 <p>Y teniendo en cuenta la especialización:</p>
+<details open="open">
+<summary>Ejemplo con especialización: Empresa</summary>
+<p><img alt="Ejemplo: Empresa" src="../image-30.png" /></p>
+</details>
 <div class="admonition quote">
 <ul>
 <li>EMPLEADO (<u>dni</u>, nombre, direccion, telefono, sueldo, fecha_n, <mark>departamento</mark>, <mark>supervisor</mark>)<ul>
-<li>departamento -&gt; DEPARTAMENTO (num_d) <span class="tag-no-nulo">[no nulo]</span></li>
-<li>supervisor -&gt; EMPLEADO (dni)</li>
+<li>FK: departamento-&gt;DEPARTAMENTO(num_d) <span class="tag-no-nulo">[no nulo]</span></li>
+<li>FK: supervisor-&gt;EMPLEADO(dni)</li>
 </ul>
 </li>
-<li>JEFE (<u><mark>dni</mark></u>, opinion)<ul>
-<li>dni -&gt; EMPLEADO (dni)</li>
+<li>JEFE (<u><mark>dni</mark></u>, opinion) <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li>FK: dni-&gt;EMPLEADO(dni)</li>
 </ul>
 </li>
-<li>TRABAJADOR  (<u><mark>dni</mark></u>, horas_extra) <ul>
-<li>dni -&gt; EMPLEADO (dni)     </li>
+<li>TRABAJADOR  (<u><mark>dni</mark></u>, horas_extra)  <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li>FK: dni-&gt;EMPLEADO(dni)     </li>
 </ul>
 </li>
 <li>FAMILIAR (<u><mark>dni_e</mark>, nombre_f</u>, fecha_n, parentesco, ) <span class="tag-cascade">(borrar en cascada)</span><ul>
-<li>dni_e -&gt; EMPLEADO (dni)   </li>
+<li>FK: dni_e-&gt;EMPLEADO(dni)</li>
 </ul>
 </li>
 <li>DEPARTAMENTO (<u>num_d</u>, nombre_d, <mark>director</mark>, fecha)<ul>
-<li>director -&gt; JEFE (dni) <span class="tag-no-nulo">[no nulo]</span> <span class="tag-unico">[unico]</span></li>
+<li>FK: director-&gt;JEFE(dni) <span class="tag-no-nulo">[no nulo]</span> <span class="tag-unico">[unico]</span></li>
 </ul>
 </li>
 <li>PROYECTO (<u>num_p</u>, nombre_p, <mark>departamento</mark>)<ul>
-<li>departamento -&gt; DEPARTAMENTO (num_d) <span class="tag-no-nulo">[no nulo]</span></li>
+<li>FK: departamento-&gt;DEPARTAMENTO(num_d) <span class="tag-no-nulo">[no nulo]</span></li>
 </ul>
 </li>
 <li>TRABAJA (<u><mark>dni</mark>, <mark>num_p</mark></u>, horas)    <ul>
-<li>dni -&gt; EMPLEADO (dni)</li>
-<li>num_p -&gt; PROYECTO (num_p)</li>
+<li>FK: dni-&gt;EMPLEADO(dni)</li>
+<li>FK: num_p-&gt;PROYECTO(num_p)</li>
 </ul>
 </li>
 </ul>
