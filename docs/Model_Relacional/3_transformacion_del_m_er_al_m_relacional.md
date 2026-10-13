@@ -43,10 +43,10 @@ En nuestro ejemplo, como teníamos 4 entidades, nos saldrán de momento 4 tablas
     La **clave principal** se denota subrayándola.
 
 !!! quote ""
-    - EMPLEADO (<u>dni</u>, nombre, direccion, telefono, sueldo, fecha_n, departamento, supervisor)
-    - DEPARTAMENTO (<u>num_d</u>, nombre_d)
-    - PROYECTO (<u>num_p</u>, nombre_p, departamento)
-    - FAMILIAR (<u>nombre</u>, fecha_n, parentesco, dni_e)
+    - EMPLEADO (<u>dni</u>, nombre, direccion, telefono, sueldo, fecha_n)
+    - DEPARTAMENTO (<u>num_d</u>)
+    - PROYECTO (<u>num_p</u>, nombre_p)
+    - FAMILIAR (<u>nombre</u>, fecha_n, parentesco)
 
 
 <!--[](T3_4_1_1.png)-->
