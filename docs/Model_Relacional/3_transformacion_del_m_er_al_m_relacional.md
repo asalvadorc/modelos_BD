@@ -286,7 +286,7 @@ En el ejemplo:
 
 ## 3.6 Resumen de dependencias
 
-![alt text](image-54.png)    
+![alt text](image-60.png)   
 
 
 ## 3.7 Claves externas compuestas
