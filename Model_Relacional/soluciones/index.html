@@ -998,6 +998,8 @@
       
         
       
+        
+      
     
     
     
@@ -1174,6 +1176,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../Ejemplo_Empresa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Ejemplo completo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../resumen/" class="md-nav__link">
         
   
@@ -1181,7 +1211,7 @@
   <span class="md-ellipsis">
     
   
-    5. Resumen
+    6. Resumen
   
 
     
@@ -1819,8 +1849,44 @@
 <summary>Ejercicio 4</summary>
 <details class="question">
 <summary>Enunciado</summary>
-<p><img alt="alt text" class="grayscale" src="../Ej4.jpg" /></p>
+<p><img alt="alt text" class="grayscale" src="../Ej5.jpg" /></p>
 </details>
+<details class="success">
+<summary>Solución propuesta</summary>
+<ul>
+<li><strong>TEMA</strong> (<u>codigo_tema</u>)</li>
+<li><strong>AUTOR</strong> (<u>codigo_autor</u>)</li>
+<li><strong>EDITORIAL</strong> (<u>codigo_editorial</u>)</li>
+<li><strong>LIBRO</strong> (<u>isbn</u>, <mark>codigo_tema</mark>, <mark>codigo_editorial</mark>)<ul>
+<li>FK: codigo_tema-&gt;TEMA(codigo_tema)</li>
+<li>FK: codigo_editorial-&gt;EDITORIAL(codigo_editorial)</li>
+</ul>
+</li>
+<li><strong>EJEMPLAR</strong> (<u>numero_registro</u>, <mark>isbn</mark>,<mark>dni</mark>, fecha_prestamo ) <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li>FK: isbn-&gt;LIBRO(isbn) <span class="tag-no-nulo">[no nulo]</span></li>
+<li>FK: dni-&gt;LECTOR(dni)</li>
+</ul>
+</li>
+<li><strong>ESCRIBE</strong> (<u><mark>codigo_autor</mark>, <mark>isbn</mark></u>)<ul>
+<li>FK: codigo_autor-&gt;AUTOR(codigo_autor)</li>
+<li>FK: isbn-&gt;LIBRO(isbn)</li>
+</ul>
+</li>
+<li><strong>LECTOR</strong> (<u>dni</u>)</li>
+<li><strong>HISTORICO</strong> ( <u><mark>numero_registro</mark>, <mark>dni</mark>, fecha_prestamo</u>, fecha_devolucion)<ul>
+<li>FK: numero_registro-&gt;EJEMPLAR(numero_registro)</li>
+<li>FK: dni-&gt;LECTOR(dni)</li>
+</ul>
+</li>
+</ul>
+</details>
+</details>
+<details class="example">
+<summary>Ejercicio 5</summary>
+<details class="question">
+<summary>Enunciado</summary>
+</details>
+<p><img alt="alt text" class="grayscale" src="../Ej4.jpg" /></p>
 <details class="success">
 <summary>Solución propuesta</summary>
 <div class="admonition quote">
@@ -1876,47 +1942,11 @@
 </li>
 <li><strong>PERMISOS</strong> (<u> cod_p</u>,<mark>numero_entidad</mark>, <mark>numero_sucursal</mark>, <mark>numero_cuenta</mark>, <mark>dni</mark>, privilegio)<ul>
 <li>FK: numero_entidad, numero_sucursal, numero_cuenta-&gt;CUENTA CORRIENTE(numero_entidad, numero_sucursal, numero_cuenta) <span class="tag-no-nulo">[no nulo]</span></li>
-<li>FK: dni-&gt;CLIENTE(dni)</li>
+<li>FK: dni-&gt;CLIENTE(dni)    </li>
 </ul>
 </li>
 </ul>
 </div>
-</details>
-</details>
-<details class="example">
-<summary>Ejercicio 5</summary>
-<details class="question">
-<summary>Enunciado</summary>
-<p><img alt="alt text" class="grayscale" src="../Ej5.jpg" /></p>
-</details>
-<details class="success">
-<summary>Solución propuesta</summary>
-<ul>
-<li><strong>TEMA</strong> (<u>codigo_tema</u>)</li>
-<li><strong>AUTOR</strong> (<u>codigo_autor</u>)</li>
-<li><strong>EDITORIAL</strong> (<u>codigo_editorial</u>)</li>
-<li><strong>LIBRO</strong> (<u>isbn</u>, <mark>codigo_tema</mark>, <mark>codigo_editorial</mark>)<ul>
-<li>FK: codigo_tema-&gt;TEMA(codigo_tema)</li>
-<li>FK: codigo_editorial-&gt;EDITORIAL(codigo_editorial)</li>
-</ul>
-</li>
-<li><strong>EJEMPLAR</strong> (<u>numero_registro</u>, <mark>isbn</mark>,<mark>dni</mark>, fecha_prestamo ) <span class="tag-cascade">(borrar en cascada)</span><ul>
-<li>FK: isbn-&gt;LIBRO(isbn) <span class="tag-no-nulo">[no nulo]</span></li>
-<li>FK: dni-&gt;LECTOR(dni)</li>
-</ul>
-</li>
-<li><strong>ESCRIBE</strong> (<u><mark>codigo_autor</mark>, <mark>isbn</mark></u>)<ul>
-<li>FK: codigo_autor-&gt;AUTOR(codigo_autor)</li>
-<li>FK: isbn-&gt;LIBRO(isbn)</li>
-</ul>
-</li>
-<li><strong>LECTOR</strong> (<u>dni</u>)</li>
-<li><strong>HISTORICO</strong> ( <u><mark>numero_registro</mark>, <mark>dni</mark>, fecha_prestamo</u>, fecha_devolucion)<ul>
-<li>FK: numero_registro-&gt;EJEMPLAR(numero_registro)</li>
-<li>FK: dni-&gt;LECTOR(dni)</li>
-</ul>
-</li>
-</ul>
 </details>
 </details>
 <details class="example">
