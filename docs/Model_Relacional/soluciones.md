@@ -78,7 +78,32 @@ hide:
 ??? example "Ejercicio 4"
 
     ??? question "Enunciado"
-        ![alt text](Ej4.jpg){ .grayscale }
+        ![alt text](Ej5.jpg){ .grayscale }
+
+    ??? success "Solución propuesta"
+        - **TEMA** (<u>codigo_tema</u>)
+        - **AUTOR** (<u>codigo_autor</u>)
+        - **EDITORIAL** (<u>codigo_editorial</u>)
+        - **LIBRO** (<u>isbn</u>, <mark>codigo_tema</mark>, <mark>codigo_editorial</mark>)
+            - FK: codigo_tema->TEMA(codigo_tema)
+            - FK: codigo_editorial->EDITORIAL(codigo_editorial)
+        - **EJEMPLAR** (<u>numero_registro</u>, <mark>isbn</mark>,<mark>dni</mark>, fecha_prestamo ) <span class="tag-cascade">(borrar en cascada)</span>
+            - FK: isbn->LIBRO(isbn) <span class="tag-no-nulo">[no nulo]</span>
+            - FK: dni->LECTOR(dni)
+        - **ESCRIBE** (<u><mark>codigo_autor</mark>, <mark>isbn</mark></u>)
+            - FK: codigo_autor->AUTOR(codigo_autor)
+            - FK: isbn->LIBRO(isbn)
+        - **LECTOR** (<u>dni</u>)
+        - **HISTORICO** ( <u><mark>numero_registro</mark>, <mark>dni</mark>, fecha_prestamo</u>, fecha_devolucion)
+            - FK: numero_registro->EJEMPLAR(numero_registro)
+            - FK: dni->LECTOR(dni)
+
+
+??? example "Ejercicio 5"
+
+    
+    ??? question "Enunciado"
+    ![alt text](Ej4.jpg){ .grayscale }
 
     ??? success "Solución propuesta"
         !!! quote "Opción 1"
@@ -111,30 +136,7 @@ hide:
                 - FK: dni->CLIENTE(dni)
             - **PERMISOS** (<u> cod_p</u>,<mark>numero_entidad</mark>, <mark>numero_sucursal</mark>, <mark>numero_cuenta</mark>, <mark>dni</mark>, privilegio)
                 - FK: numero_entidad, numero_sucursal, numero_cuenta->CUENTA CORRIENTE(numero_entidad, numero_sucursal, numero_cuenta) <span class="tag-no-nulo">[no nulo]</span>
-                - FK: dni->CLIENTE(dni)
-
-??? example "Ejercicio 5"
-
-    ??? question "Enunciado"
-        ![alt text](Ej5.jpg){ .grayscale }
-
-    ??? success "Solución propuesta"
-        - **TEMA** (<u>codigo_tema</u>)
-        - **AUTOR** (<u>codigo_autor</u>)
-        - **EDITORIAL** (<u>codigo_editorial</u>)
-        - **LIBRO** (<u>isbn</u>, <mark>codigo_tema</mark>, <mark>codigo_editorial</mark>)
-            - FK: codigo_tema->TEMA(codigo_tema)
-            - FK: codigo_editorial->EDITORIAL(codigo_editorial)
-        - **EJEMPLAR** (<u>numero_registro</u>, <mark>isbn</mark>,<mark>dni</mark>, fecha_prestamo ) <span class="tag-cascade">(borrar en cascada)</span>
-            - FK: isbn->LIBRO(isbn) <span class="tag-no-nulo">[no nulo]</span>
-            - FK: dni->LECTOR(dni)
-        - **ESCRIBE** (<u><mark>codigo_autor</mark>, <mark>isbn</mark></u>)
-            - FK: codigo_autor->AUTOR(codigo_autor)
-            - FK: isbn->LIBRO(isbn)
-        - **LECTOR** (<u>dni</u>)
-        - **HISTORICO** ( <u><mark>numero_registro</mark>, <mark>dni</mark>, fecha_prestamo</u>, fecha_devolucion)
-            - FK: numero_registro->EJEMPLAR(numero_registro)
-            - FK: dni->LECTOR(dni)
+                - FK: dni->CLIENTE(dni)    
 
 ??? example "Ejercicio 6"
 

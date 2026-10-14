@@ -1,6 +1,6 @@
 # 6. Ejercicios
 
-!!! tip "Revisa tu solución"
+??? tip "Revisa tu solución"
 
     Antes de consultar la solución oficial, revisa tu propuesta utilizando el prompt del apartado **[Cómo utilizar la IA para aprender](../IA.md)**.
 
@@ -77,13 +77,14 @@ Recordad que teníamos 3 opciones:
 ## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 4</span></span>
 
 
-![alt text](Ej4.jpg){ .grayscale }
+![alt text](Ej5.jpg){ .grayscale }
 
 
 ## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 5</span></span>
 
 
-![alt text](Ej5.jpg){ .grayscale }
+
+![alt text](Ej4.jpg){ .grayscale }
 
 
 ## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 6</span></span>

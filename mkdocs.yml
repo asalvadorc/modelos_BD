@@ -113,7 +113,8 @@ nav:
     - 2. Estructura del Modelo Relacional: Model_Relacional/2_estructura_del_modelo_relacional.md
     - 3. Transformación del M. E/R al M. Relacional: Model_Relacional/3_transformacion_del_m_er_al_m_relacional.md
     - 4. Restricciones: Model_Relacional/4_restricciones.md
-    - 5. Resumen: Model_Relacional/resumen.md
+    - 5. Ejemplo completo: Model_Relacional/Ejemplo_Empresa.md
+    - 6. Resumen: Model_Relacional/resumen.md
     - Ejercicios: Model_Relacional/5_ejercicios.md
     - Soluciones: Model_Relacional/soluciones.md
   - T3. Normalización:
