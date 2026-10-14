@@ -56,7 +56,7 @@ En nuestro ejemplo, como teníamos 4 entidades, nos saldrán de momento 4 tablas
 
 La clave primaria de la entidad situada en el lado 1 (A) se incorpora a la tabla correspondiente a la entidad situada en el lado N (B) como clave externa, también denominada **clave ajena, clave foránea o foreign key (FK)**. Esta clave referencia la clave primaria de A. En nuestros apuntes, la representamos resaltándola en <mark>amarillo</mark> e indicando su origen.
 
-Si, además, la entidad situada en el lado N participa de forma total en la relación, la clave externa no puede ser nula (es decir, siempre debe tener un valor). En nuestros apuntes, lo indicaremos mediante la etiqueta <span class="tag-no-nulo">[no nulo]</span>.
+Si, además, la entidad situada en el lado N participa de forma total en la relación, la clave externa no puede ser nula (es decir, siempre debe tener un valor). Lo indicaremos mediante la restricción <span class="tag-no-nulo">[no nulo]</span>.
 
 ![alt text](image-5.png)
 
@@ -182,9 +182,9 @@ No existe una única traducción para una relación **1:1**. La decisión depend
 
 Si entre **A** y **B** solo una entidad participa de forma total (por ejemplo, **B**), la traducción recomendada es:
 
-- Añadir una **clave externa** en **B**.
-- Marcarla como **no nula** (siempre que la participación sea total).
-- Marcarla como **única** para mantener el 1:1.
+- Añadir una **clave externa (FK)** en **B**.
+- Marcarla con la restricción <span class="tag-no-nulo">[no nulo]</span>  (siempre que la participación sea total).
+- Marcarla con la restricción <span class="tag-unico">[unico]</span> para mantener el 1:1.
 - Añadir en esa tabla los atributos de la relación.
 
 Ejemplo **dirige** (EMPLEADO - DEPARTAMENTO):
@@ -197,7 +197,9 @@ Todos los departamentos tienen director (no nula) y solo uno (única), pero no t
 !!! quote ""
     - EMPLEADO (<u>dni</u>, nombre, direccion, telefono, sueldo, fecha_n)
     - DEPARTAMENTO (<u>num_d</u>, nom_d, <mark>director</mark>, Fecha)
-        - FK: director->EMPLEADO(dni) <span class="tag-no-nulo">[no nulo]</span> <span class="tag-unico">[unico]</span>
+        - FK: director->EMPLEADO(dni) 
+        <span class="tag-no-nulo">[no nulo]</span> 
+        <span class="tag-unico">[unico]</span>
 
 
 

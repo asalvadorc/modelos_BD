@@ -1097,24 +1097,6 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    2. Estructura del Modelo Relacional
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1131,69 +1113,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#21-componentes-de-una-relacion-tabla" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2.1 Componentes de una Relación (Tabla)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#22-definiciones-clave" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2.2 Definiciones Clave
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#23-representacion-de-una-relacion-tabla" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2.3 Representación de una Relación (Tabla)
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -1760,58 +1679,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#21-componentes-de-una-relacion-tabla" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2.1 Componentes de una Relación (Tabla)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#22-definiciones-clave" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2.2 Definiciones Clave
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#23-representacion-de-una-relacion-tabla" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2.3 Representación de una Relación (Tabla)
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1834,8 +1701,50 @@ hide:
 -->
 <h1 id="2-estructura-del-modelo-relacional">2. Estructura del Modelo Relacional</h1>
 <p>El elemento básico del Modelo Relacional es la <strong>RELACIÓN</strong>, que es una <strong>tabla</strong> bidimensional con características y restricciones específicas.</p>
-<h2 id="_1"><img alt="alt text" src="../image-44.png" /></h2>
-<h2 id="21-componentes-de-una-relacion-tabla">2.1 Componentes de una Relación (Tabla)</h2>
+<p><img alt="alt text" src="../image-44.png" /></p>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Concepto</th>
+<th>Significado</th>
+<th>Ejemplo en la tabla EMPLEADO de arriba</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Esquema/Estructura</strong></td>
+<td>Definición de atributos, dominios y restricciones.</td>
+<td>EMPLEADO(DNI, Nombre, Dirección, Teléfono, Sueldo, Fecha_nac), con sus dominios y restricciones; por ejemplo, elegir DNI como PK.</td>
+</tr>
+<tr>
+<td><strong>Estado de la Relación</strong></td>
+<td>Información contenida en un momento específico.</td>
+<td>Las <strong>7 filas</strong> que aparecen en la tabla, con los datos actuales de esos empleados. Si cambia un sueldo o se añade un empleado, cambia el estado.</td>
+</tr>
+<tr>
+<td><strong>Clave Candidata</strong></td>
+<td>Atributo(s) que identifican unívocamente cada tupla, sin incluir atributos innecesarios.</td>
+<td><strong>DNI</strong>, si se establece que cada empleado tiene un DNI distinto y no nulo. Que los teléfonos sean distintos en estas 7 filas no garantiza que Teléfono sea una clave candidata.</td>
+</tr>
+<tr>
+<td><strong>Clave Principal/Primaria (PK)</strong></td>
+<td>La clave candidata elegida para identificar tuplas.</td>
+<td>Si elegimos <strong>DNI</strong> como PK, el valor <strong>38.876.543</strong> identifica la fila de <strong>Llopis Bernuz, Juame</strong>.</td>
+</tr>
+<tr>
+<td><strong>Valor Nulo</strong></td>
+<td>Ausencia de valor en un atributo.</td>
+<td>En la imagen no hay nulos. Si desconocemos el teléfono de <strong>Garrido Vidal, Rosa</strong>, su atributo <strong>Teléfono</strong> podría contener <strong>NULL</strong>, si se permite.</td>
+</tr>
+<tr>
+<td><strong>Dominio</strong></td>
+<td>Conjunto de valores posibles para cada atributo.</td>
+<td><strong>Fecha_nac</strong> admite fechas válidas, como <strong>09-12-1955</strong>; <strong>Sueldo</strong> admite importes monetarios, como <strong>2.000,00 €</strong>. Los valores mostrados son ejemplos, no todo el dominio.</td>
+</tr>
+</tbody>
+</table>
+<h1 id="21-componentes-de-una-relacion-tabla">2.1 Componentes de una Relación (Tabla)</h1>
 <div class="grid cards">
 <ul>
 <li>
@@ -1854,42 +1763,7 @@ También llamadas campos.</p>
 </li>
 </ul>
 </div>
-<h2 id="22-definiciones-clave">2.2 Definiciones Clave</h2>
-<table>
-<thead>
-<tr>
-<th>Concepto</th>
-<th>Significado</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Esquema/Estructura</strong></td>
-<td>Definición de atributos, dominios y restricciones</td>
-</tr>
-<tr>
-<td><strong>Estado de la Relación</strong></td>
-<td>Información contenida en un momento específico</td>
-</tr>
-<tr>
-<td><strong>Clave Candidata</strong></td>
-<td>Atributo(s) que identifican unívocamente cada tupla</td>
-</tr>
-<tr>
-<td><strong>Clave Principal/Primaria</strong></td>
-<td>La clave candidata elegida para identificar tuplas</td>
-</tr>
-<tr>
-<td><strong>Valor Nulo</strong></td>
-<td>Ausencia de valor en un atributo (ej: sin teléfono)</td>
-</tr>
-<tr>
-<td><strong>Dominio</strong></td>
-<td>Conjunto de valores posibles para cada atributo.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="23-representacion-de-una-relacion-tabla">2.3 Representación de una Relación (Tabla)</h2>
+<h2 id="22-representacion-de-una-relacion-tabla">2.2 Representación de una Relación (Tabla)</h2>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Representación 1: Notación Textual</label><label for="__tabbed_1_2">Representación 2: Diagrama Visual</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1954,6 +1828,46 @@ También llamadas campos.</p>
 </div>
 </div>
 <hr />
+<h2 id="23-restricciones-basicas">2.3 Restricciones básicas</h2>
+<p>Las <strong>restricciones</strong> establecen qué datos se pueden guardar y ayudan a evitar información incorrecta. Forman parte del esquema y deben cumplirse en todos los estados de la tabla.</p>
+<table>
+<thead>
+<tr>
+<th>Restricción</th>
+<th>¿Qué exige?</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Clave primaria (PK)</strong></td>
+<td>Identifica cada fila. Sus valores no pueden repetirse ni ser nulos. Si tiene varios campos, la combinación debe ser única y ninguno puede ser nulo.</td>
+<td>Si elegimos <strong>DNI</strong> como PK de EMPLEADO, no puede haber dos empleados con el mismo DNI ni uno sin DNI.</td>
+</tr>
+<tr>
+<td><strong>Clave ajena (FK)</strong></td>
+<td>Referencia una clave primaria o candidata de otra tabla o de la misma tabla. Todo valor no nulo debe corresponder a una clave existente en la tabla referenciada.</td>
+<td>Si añadimos <strong>departamento</strong> a EMPLEADO como FK hacia DEPARTAMENTO(num_d), no podemos asignar un departamento que no exista.</td>
+</tr>
+<tr>
+<td><strong>No nulo (NOT NULL)</strong></td>
+<td>Obliga a que un atributo tenga un valor.</td>
+<td>Si <strong>Nombre</strong> es no nulo, no podemos guardar un empleado con Nombre = NULL.</td>
+</tr>
+<tr>
+<td><strong>Único (UNIQUE)</strong></td>
+<td>Impide repetir un valor o una combinación de valores. No obliga por sí solo a que exista un valor: para eso se añade no nulo.</td>
+<td>Si añadimos <strong>correo</strong> y lo declaramos único, dos empleados no pueden tener la misma dirección de correo.</td>
+</tr>
+<tr>
+<td><strong>Dominio</strong></td>
+<td>Limita los valores que puede tomar un atributo: tipo de dato, formato o valores permitidos.</td>
+<td><strong>Fecha_nac</strong> debe contener una fecha válida. Si establecemos que <strong>Sueldo</strong> no puede ser negativo, un valor de −500 € no sería válido.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>En la transformación del modelo E/R</strong>, estas reglas nos permitirán conservar sus condiciones: por ejemplo, una FK con <strong>unicidad</strong> limita a uno el número de filas que pueden referenciar la misma clave, y una FK <strong>no nula</strong> obliga a que cada fila tenga una referencia.</p>
+<p>Las veremos con más detalle en el apartado <strong><a href="../4_restricciones/">4. Restricciones</a></strong>.</p>
 
 
 

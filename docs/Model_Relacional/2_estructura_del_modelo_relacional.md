@@ -7,12 +7,7 @@ hide:
 
 El elemento básico del Modelo Relacional es la **RELACIÓN**, que es una **tabla** bidimensional con características y restricciones específicas.
 
-![alt text](image-44.png)
----
-
-## 2.1 Componentes de una Relación (Tabla)
-
-<div class="grid cards" markdown>
+### Componentes
 
 - **Nombre de la relación**
 
@@ -28,22 +23,25 @@ El elemento básico del Modelo Relacional es la **RELACIÓN**, que es una **tabl
     Características de los individuos.
     También llamadas campos.
 
-</div>
 
 
-## 2.2 Definiciones Clave
+![alt text](image-61.png)
 
-| Concepto | Significado |
-|----------|-------------|
-| **Esquema/Estructura** | Definición de atributos, dominios y restricciones |
-| **Estado de la Relación** | Información contenida en un momento específico |
-| **Clave Candidata** | Atributo(s) que identifican unívocamente cada tupla |
-| **Clave Principal/Primaria** | La clave candidata elegida para identificar tuplas |
-| **Valor Nulo** | Ausencia de valor en un atributo (ej: sin teléfono) |
-| **Dominio** | Conjunto de valores posibles para cada atributo.
+---
 
 
-## 2.3 Representación de una Relación (Tabla)
+| Concepto | Significado | Ejemplo en la tabla EMPLEADO de arriba |
+|----------|-------------|----------------------------------------|
+| **Esquema/Estructura** | Definición de atributos, dominios y restricciones. | EMPLEADO(DNI, Nombre, Dirección, Teléfono, Sueldo, Fecha_nac), con sus dominios y restricciones; por ejemplo, elegir DNI como PK. |
+| **Estado de la Relación** | Información contenida en un momento específico. | Las **7 filas** que aparecen en la tabla, con los datos actuales de esos empleados. Si cambia un sueldo o se añade un empleado, cambia el estado. |
+| **Clave Candidata** | Atributo(s) que identifican unívocamente cada tupla, sin incluir atributos innecesarios. | **DNI** o **Teléfono** podrían ser claves candidatas si se garantiza que sus valores son **únicos para cada empleado y no nulos**. En la tabla mostrada, Teléfono no cumple esta condición porque falta el de Rosa. |
+| **Clave Principal/Primaria (PK)** | La clave candidata elegida para identificar tuplas. | Si elegimos **DNI** como PK, el valor **38.876.543** identifica la fila de **Llopis Bernuz, Juame**. |
+| **Valor Nulo** | Ausencia de valor en un atributo. | La celda **Teléfono** de **Garrido Vidal, Rosa** aparece vacía: en este ejemplo representa **NULL**, porque desconocemos su teléfono. No significa que sea cero ni una cadena de texto vacía. |
+| **Dominio** | Conjunto de valores posibles para cada atributo. | **Fecha_nac** admite fechas válidas, como **09-12-1955**; **Sueldo** admite importes monetarios, como **2.000,00 €**. Los valores mostrados son ejemplos, no todo el dominio. |
+
+
+
+## 2.1 Representación de una Relación (Tabla)
 
 === "Representación 1: Notación Textual"
 
@@ -83,3 +81,21 @@ El elemento básico del Modelo Relacional es la **RELACIÓN**, que es una **tabl
     </div>
 
 ---
+
+## 2.2 Restricciones básicas
+
+Al igual que en otros modelos de datos, en el Modelo Relacional existen restricciones, es decir, estructuras u ocurrencias no permitidas.
+
+Las **restricciones** establecen qué datos se pueden guardar y ayudan a evitar información incorrecta. Forman parte del esquema y deben cumplirse en todos los estados de la tabla.
+
+| Restricción | ¿Qué exige? | Ejemplo |
+|-------------|-------------|---------|
+| **Clave primaria (PK)** | Identifica cada fila. Sus valores no pueden repetirse ni ser nulos. Si tiene varios campos, la combinación debe ser única y ninguno puede ser nulo. | Si elegimos **DNI** como PK de EMPLEADO, no puede haber dos empleados con el mismo DNI ni uno sin DNI. |
+| **Clave ajena (FK)** | Referencia una clave primaria o candidata de otra tabla o de la misma tabla. Todo valor no nulo debe corresponder a una clave existente en la tabla referenciada. | Si añadimos **departamento** a EMPLEADO como FK hacia DEPARTAMENTO(num_d), no podemos asignar un departamento que no exista. |
+| **No nulo (NOT NULL)** | Obliga a que un atributo tenga un valor. | Si **Nombre** es no nulo, no podemos guardar un empleado con Nombre = NULL. |
+| **Único (UNIQUE)** | Impide repetir un valor o una combinación de valores. No obliga por sí solo a que exista un valor: para eso se añade no nulo. | Si añadimos **correo** y lo declaramos único, dos empleados no pueden tener la misma dirección de correo. |
+| **Dominio** | Limita los valores que puede tomar un atributo: tipo de dato, formato o valores permitidos. | **Fecha_nac** debe contener una fecha válida. Si establecemos que **Sueldo** no puede ser negativo, un valor de −500 € no sería válido. |
+
+**En la transformación del modelo E/R**, estas reglas nos permitirán conservar sus condiciones: por ejemplo, una FK con **unicidad** limita a uno el número de filas que pueden referenciar la misma clave, y una FK **no nula** obliga a que cada fila tenga una referencia.
+
+Las veremos con más detalle en el apartado **[4. Restricciones](4_restricciones.md)**.
