@@ -2029,7 +2029,7 @@ Si no ves el visor de arriba o prefieres leerlo aparte:
 
 <h2 id="32-relaciones-1n">3.2 Relaciones 1:N</h2>
 <p>La clave primaria de la entidad situada en el lado 1 (A) se incorpora a la tabla correspondiente a la entidad situada en el lado N (B) como clave externa, también denominada <strong>clave ajena, clave foránea o foreign key (FK)</strong>. Esta clave referencia la clave primaria de A. En nuestros apuntes, la representamos resaltándola en <mark>amarillo</mark> e indicando su origen.</p>
-<p>Si, además, la entidad situada en el lado N participa de forma total en la relación, la clave externa no puede ser nula (es decir, siempre debe tener un valor). En nuestros apuntes, lo indicaremos mediante la etiqueta <span class="tag-no-nulo">[no nulo]</span>.</p>
+<p>Si, además, la entidad situada en el lado N participa de forma total en la relación, la clave externa no puede ser nula (es decir, siempre debe tener un valor). Lo indicaremos mediante la restricción <span class="tag-no-nulo">[no nulo]</span>.</p>
 <p><img alt="alt text" src="../image-5.png" /></p>
 <!--
 La siguiente animación intenta explicarlo mejor:
@@ -2154,9 +2154,9 @@ Si además la entidad que participa con grado N lo hace de forma **total** (como
 <h3 id="caso-1-una-entidad-participa-de-forma-total">Caso 1: Una entidad participa de forma total</h3>
 <p>Si entre <strong>A</strong> y <strong>B</strong> solo una entidad participa de forma total (por ejemplo, <strong>B</strong>), la traducción recomendada es:</p>
 <ul>
-<li>Añadir una <strong>clave externa</strong> en <strong>B</strong>.</li>
-<li>Marcarla como <strong>no nula</strong> (siempre que la participación sea total).</li>
-<li>Marcarla como <strong>única</strong> para mantener el 1:1.</li>
+<li>Añadir una <strong>clave externa (FK)</strong> en <strong>B</strong>.</li>
+<li>Marcarla con la restricción <span class="tag-no-nulo">[no nulo]</span>  (siempre que la participación sea total).</li>
+<li>Marcarla con la restricción <span class="tag-unico">[unico]</span> para mantener el 1:1.</li>
 <li>Añadir en esa tabla los atributos de la relación.</li>
 </ul>
 <p>Ejemplo <strong>dirige</strong> (EMPLEADO - DEPARTAMENTO):</p>
@@ -2167,7 +2167,9 @@ Todos los departamentos tienen director (no nula) y solo uno (única), pero no t
 <ul>
 <li>EMPLEADO (<u>dni</u>, nombre, direccion, telefono, sueldo, fecha_n)</li>
 <li>DEPARTAMENTO (<u>num_d</u>, nom_d, <mark>director</mark>, Fecha)<ul>
-<li>FK: director-&gt;EMPLEADO(dni) <span class="tag-no-nulo">[no nulo]</span> <span class="tag-unico">[unico]</span></li>
+<li>FK: director-&gt;EMPLEADO(dni) 
+<span class="tag-no-nulo">[no nulo]</span> 
+<span class="tag-unico">[unico]</span></li>
 </ul>
 </li>
 </ul>
