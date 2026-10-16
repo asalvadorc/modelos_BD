@@ -8,35 +8,38 @@ hide:
 !!! warning "Advertencia"
     Antes de consultar la resolución, asegúrate de haber intentado resolver el ejercicio. Comparar tu propuesta con la solución te ayudará mucho más que leerla directamente.
 
+!!! info "Atributos de los enunciados y de las soluciones"
+    Para simplificar las imágenes y facilitar su lectura, en los diagramas E/R de los enunciados no se han representado todos los atributos. En las soluciones se incluyen algunos atributos descriptivos adicionales para aportar más información al modelo relacional. Ten en cuenta que las tablas no contienen únicamente claves primarias y foráneas, sino también otros datos de interés sobre las entidades y las relaciones. Al resolver los ejercicios, incluye los atributos que aparecen en el diagrama. No tienes que inventar los atributos adicionales que aparecen en la solución, y no se considerará un error que no los hayas incluido.
+    
 ??? example "Ejercicio 1"
 
     ??? question "Enunciado"
         Recordad que teníamos 3 opciones:
 
-        ![alt text](image-35.png){ .grayscale width=400 }
+       ![alt text](image-68.png){ .grayscale width=400 }
 
     ??? success "Solución propuesta"
         !!! quote "Opción 1"
             - **SOCIO** (<u>dni</u>, nombre, direccion, telefono, correo)
             - **VINO** (<u>codi_vi</u>, descripcion, anio_cogida)
-            - **RETIRA** (<u>cod_re</u>, <mark>dni</mark>, <mark>codi_vi</mark>, fecha, cant)
+            - **RETIRA** (<u>cod_retira</u>, <mark>dni</mark>, <mark>codi_vi</mark>, fecha, cant)
                 - FK: dni->SOCIO(dni)
                 - FK: codi_vi->VINO(codi_vi)
 
         !!! quote "Opción 2"
             - **SOCIO** (<u>dni</u>, nombre, direccion, telefono, correo)
             - **VINO** (<u>codi_vi</u>, descripcion, anio_cogida)
-            - **VALE** (<u>num_val</u>, <mark>dni</mark>, <mark>codi_vi</mark>, fecha, cant)
+            - **VALE** (<u>num_vale</u>, <mark>dni</mark>, <mark>codi_vi</mark>, fecha, cant)
                 - FK: dni->SOCIO(dni)
                 - FK: codi_vi->VINO(num_p)
 
         !!! quote "Opción 3"
             - **SOCIO** (<u>dni</u>, nombre, direccion, telefono, correo)
             - **VINO** (<u>codi_vi</u>, descripcion, anio_cogida)
-            - **VALE** (<u>num_val</u>, <mark>dni</mark>,fecha)
+            - **VALE** (<u>num_vale</u>, <mark>dni</mark>,fecha)
                 - FK: dni->SOCIO(dni)
             - **RETIRA** (<u><mark>num_val</mark>, <mark>dni</mark>, cant</u>)
-                - FK: num_val->VALE(num_val)
+                - FK: num_vale->VALE(num_vale)
                 - FK: codi_vi->VINO(num_p)
 
 
@@ -46,15 +49,15 @@ hide:
         ![alt text](Ej2.jpg){ .grayscale }
 
     ??? success "Solución propuesta"
-        - **MUNICIPIO** (<u>codigo_municipio</u>)
-        - **VIVIENDA** (<u>referencia_catastral</u>, <mark>codigo_municipio</mark>)
-            - FK: codigo_municipio->MUNICIPIO(codigo_municipio)
-        - **PERSONA** (<u>codigo_persona</u>, <mark>referencia_catastral</mark>, <mark>codigo_persona_cabeza_familia</mark>, parentesco)
-            - FK: referencia_catastral->VIVIENDA(referencia_catastral)
-            - FK: codigo_persona_cabeza_familia->PERSONA(codigo_persona)
-        - **PROPIEDAD** (<u><mark>codigo_persona</mark>,<mark>referencia_catastral</mark></u>)
-            - FK: codigo_persona->PERSONA(codigo_persona)
-            - FK: referencia_catastral->VIVIENDA(referencia_catastral)
+        - **MUNICIPIO** (<u>cod_m</u>)
+        - **VIVIENDA** (<u>cod_cat</u>, <mark>cod_m</mark>)
+            - FK: cod_m->MUNICIPIO(cod_m)
+        - **PERSONA** (<u>cod_p</u>, <mark>cod_cat</mark>, <mark>cod_per_ref</mark>, parentesco)
+            - FK: cod_cat->VIVIENDA(cod_cat)
+            - FK: cod_per_ref->PERSONA(cod_p)
+        - **PROPIEDAD** (<u><mark>cod_p</mark>,<mark>cod_cat</mark></u>)
+            - FK: cod_p->PERSONA(cod_p)
+            - FK: cod_cat->VIVIENDA(cod_cat)
 
 ??? example "Ejercicio 3"
 
@@ -62,18 +65,18 @@ hide:
         ![alt text](Ej3.jpg){ .grayscale }
 
     ??? success "Solución propuesta"
-        - **ÁREA DE CONOCIMIENTO** (<u>ID_Area</u>)
-        - **FACULTAD** (<u>ID_Facultad</u>)
-        - **DEPARTAMENTO** (<u>ID_Depto</u>, <mark>ID_Area</mark>)
-            - FK: ID_Area->ÁREA DE CONOCIMIENTO(ID_Area) <span class="tag-no-nulo">[no nulo]</span>
-        - **CÁTEDRA** (<u>ID_Catedra</u>, <mark>ID_Depto</mark>, <mark>ID_Facultad</mark>)
-            - FK: ID_Depto->DEPARTAMENTO(ID_Depto)
-            - FK: ID_Facultad->FACULTAD(ID_Facultad) <span class="tag-no-nulo">[no nulo]</span>
-        - **PROFESOR** (<u>ID_Profesor</u>, <mark>ID_Depto</mark>)
-            - FK: ID_Depto->DEPARTAMENTO(ID_Depto) <span class="tag-no-nulo">[no nulo]</span>
-        - **ADSCRITO_A** (<u><mark>ID_Profesor</mark>, <mark>ID_Catedra</mark></u>, fecha)
-            - FK: ID_Profesor->PROFESOR(ID_Profesor)
-            - FK: ID_Catedra->CÁTEDRA(ID_Catedra)
+        - **ÁREA DE CONOCIMIENTO** (<u>cod_a</u>)
+        - **FACULTAD** (<u>cod_fac</u>)
+        - **DEPARTAMENTO** (<u>cod_dept</u>, <mark>cod_a</mark>)
+            - FK: cod_a->ÁREA DE CONOCIMIENTO(cod_a) <span class="tag-no-nulo">[no nulo]</span>
+        - **CÁTEDRA** (<u>cod_cat</u>, <mark>cod_dept</mark>, <mark>cod_fac</mark>)
+            - FK: cod_dept->DEPARTAMENTO(cod_dept)
+            - FK: cod_fac->FACULTAD(cod_fac) <span class="tag-no-nulo">[no nulo]</span>
+        - **PROFESOR** (<u>dni</u>, <mark>cod_dept</mark>)
+            - FK: cod_dept->DEPARTAMENTO(cod_dept) <span class="tag-no-nulo">[no nulo]</span>
+        - **ADSCRITO_A** (<u><mark>dni</mark>, <mark>cod_cat</mark></u>, fecha)
+            - FK: dni->PROFESOR(dni)
+            - FK: cod_cat->CÁTEDRA(cod_cat)
 
 ??? example "Ejercicio 4"
 
@@ -81,21 +84,21 @@ hide:
         ![alt text](Ej5.jpg){ .grayscale }
 
     ??? success "Solución propuesta"
-        - **TEMA** (<u>codigo_tema</u>)
-        - **AUTOR** (<u>codigo_autor</u>)
-        - **EDITORIAL** (<u>codigo_editorial</u>)
-        - **LIBRO** (<u>isbn</u>, <mark>codigo_tema</mark>, <mark>codigo_editorial</mark>)
-            - FK: codigo_tema->TEMA(codigo_tema)
-            - FK: codigo_editorial->EDITORIAL(codigo_editorial)
-        - **EJEMPLAR** (<u>numero_registro</u>, <mark>isbn</mark>,<mark>dni</mark>, fecha_prestamo ) <span class="tag-cascade">(borrar en cascada)</span>
+        - **TEMA** (<u>cod_t</u>)
+        - **AUTOR** (<u>cod_aut</u>)
+        - **EDITORIAL** (<u>cod_ed</u>)
+        - **LIBRO** (<u>isbn</u>, <mark>cod_t</mark>, <mark>cod_ed</mark>)
+            - FK: cod_t->TEMA(cod_t)
+            - FK: cod_ed->EDITORIAL(cod_ed)
+        - **EJEMPLAR** (<u>n_reg</u>, <mark>isbn</mark>,<mark>dni</mark>, fecha_p) <span class="tag-cascade">(borrar en cascada)</span>
             - FK: isbn->LIBRO(isbn) <span class="tag-no-nulo">[no nulo]</span>
             - FK: dni->LECTOR(dni)
-        - **ESCRIBE** (<u><mark>codigo_autor</mark>, <mark>isbn</mark></u>)
-            - FK: codigo_autor->AUTOR(codigo_autor)
+        - **ESCRIBE** (<u><mark>cod_aut</mark>, <mark>isbn</mark></u>)
+            - FK: cod_aut->AUTOR(cod_aut)
             - FK: isbn->LIBRO(isbn)
         - **LECTOR** (<u>dni</u>)
-        - **HISTORICO** ( <u><mark>numero_registro</mark>, <mark>dni</mark>, fecha_prestamo</u>, fecha_devolucion)
-            - FK: numero_registro->EJEMPLAR(numero_registro)
+        - **HISTORICO** ( <u><mark>n_reg</mark>, <mark>dni</mark>, fecha_p</u>, fecha_dev)
+            - FK: n_reg->EJEMPLAR(n_reg)
             - FK: dni->LECTOR(dni)
 
 
@@ -107,35 +110,35 @@ hide:
 
     ??? success "Solución propuesta"
         !!! quote "Opción 1"
-            - **BANCO** (<u>numero_entidad</u>)
-            - **SUCURSAL** (<u><mark>numero_entidad</mark>, numero_sucursal</u>) <span class="tag-cascade">(borrar en cascada)</span>
-                - FK: numero_entidad->BANCO(numero_entidad) <span class="tag-no-nulo">[no nulo]</span>
-            - **CUENTA CORRIENTE** (<u><mark>numero_entidad</mark>, <mark>numero_sucursal</mark></u>, <u>numero_cuenta</u>) <span class="tag-cascade">(borrar en cascada)</span>
-                - FK: numero_entidad, numero_sucursal->SUCURSAL(numero_entidad, numero_sucursal)
-            - **DOMICILIACION** (<u><mark>numero_entidad</mark>, <mark>numero_sucursal</mark>, <mark>numero_cuenta</mark>, numero_domicilio</u>) <span class="tag-cascade">(borrar en cascada)</span>
-                - FK: numero_entidad, numero_sucursal, numero_cuenta->CUENTA CORRIENTE(numero_entidad, numero_sucursal, numero_cuenta)
+            - **BANCO** (<u>cod_ent</u>)
+            - **SUCURSAL** (<u><mark>cod_ent</mark>, cod_suc</u>) <span class="tag-cascade">(borrar en cascada)</span>
+                - FK: cod_ent->BANCO(cod_ent) <span class="tag-no-nulo">[no nulo]</span>
+            - **CUENTA CORRIENTE** (<u><mark>cod_ent</mark>, <mark>cod_suc</mark></u>, <u>cod_cc</u>) <span class="tag-cascade">(borrar en cascada)</span>
+                - FK: cod_ent, cod_suc->SUCURSAL(cod_ent, cod_suc)
+            - **DOMICILIACION** (<u><mark>cod_ent</mark>, <mark>cod_suc</mark>, <mark>cod_cc</mark>, cod_d</u>) <span class="tag-cascade">(borrar en cascada)</span>
+                - FK: cod_ent, cod_suc, cod_cc->CUENTA CORRIENTE(cod_ent, cod_suc, cod_cc)
             - **CLIENTE** (<u>dni</u>)
-            - **PRESTAMO** (<u><mark>numero_entidad</mark>, <mark>numero_sucursal</mark>, numero_prestamo</u>, <mark>dni</mark>) <span class="tag-cascade">(borrar en cascada)</span>
-                - FK: numero_entidad, numero_sucursal->SUCURSAL(numero_entidad, numero_sucursal)
+            - **PRESTAMO** (<u><mark>cod_ent</mark>, <mark>cod_suc</mark>, cod_p</u>, <mark>dni</mark>) <span class="tag-cascade">(borrar en cascada)</span>
+                - FK: cod_ent, cod_suc->SUCURSAL(cod_ent, cod_suc)
                 - FK: dni->CLIENTE(dni)
-            - **PERMISOS** (<u><mark>numero_entidad</mark>, <mark>numero_sucursal</mark>, <mark>numero_cuenta</mark>, <mark>dni</mark></u>, privilegio)
-                - FK: numero_entidad, numero_sucursal, numero_cuenta->CUENTA CORRIENTE(numero_entidad, numero_sucursal, numero_cuenta)
+            - **PERMISOS** (<u><mark>cod_ent</mark>, <mark>cod_suc</mark>, <mark>cod_cc</mark>, <mark>dni</mark></u>, privilegio)
+                - FK: cod_ent, cod_suc, cod_cc->CUENTA CORRIENTE(cod_ent, cod_suc, cod_cc)
                 - FK: dni->CLIENTE(dni)
 
         !!! quote "Opción 2"
-            - **BANCO** (<u>numero_entidad</u>)
-            - **SUCURSAL** (<u><mark>numero_entidad</mark>, numero_sucursal</u>) <span class="tag-cascade">(borrar en cascada)</span>
-                - FK: numero_entidad->BANCO(numero_entidad) <span class="tag-no-nulo">[no nulo]</span>
-            - **CUENTA CORRIENTE** (<u><mark>numero_entidad</mark>, <mark>numero_sucursal</mark></u>, <u>numero_cuenta</u>) <span class="tag-cascade">(borrar en cascada)</span>
-                - FK: numero_entidad, numero_sucursal->SUCURSAL(numero_entidad, numero_sucursal)
-            - **DOMICILIACION** (<u>num_d</u>,<mark>numero_entidad</mark>, <mark>numero_sucursal</mark>, <mark>numero_cuenta</mark>) <span class="tag-cascade">(borrar en cascada)</span>
-                - FK: numero_entidad, numero_sucursal, numero_cuenta->CUENTA CORRIENTE(numero_entidad, numero_sucursal, numero_cuenta) <span class="tag-no-nulo">[no nulo]</span>
+            - **BANCO** (<u>cod_ent</u>)
+            - **SUCURSAL** (<u><mark>cod_ent</mark>, cod_suc</u>) <span class="tag-cascade">(borrar en cascada)</span>
+                - FK: cod_ent->BANCO(cod_ent) <span class="tag-no-nulo">[no nulo]</span>
+            - **CUENTA CORRIENTE** (<u><mark>cod_ent</mark>, <mark>cod_suc</mark></u>, <u>cod_cc</u>) <span class="tag-cascade">(borrar en cascada)</span>
+                - FK: cod_ent, cod_suc->SUCURSAL(cod_ent, cod_suc)
+            - **DOMICILIACION** (<u>num_d</u>,<mark>cod_ent</mark>, <mark>cod_suc</mark>, <mark>cod_cc</mark>) <span class="tag-cascade">(borrar en cascada)</span>
+                - FK: cod_ent, cod_suc, cod_cc->CUENTA CORRIENTE(cod_ent, cod_suc, cod_cc) <span class="tag-no-nulo">[no nulo]</span>
             - **CLIENTE** (<u>dni</u>)
-            - **PRESTAMO** (<u><mark>numero_entidad</mark>, <mark>numero_sucursal</mark>, numero_prestamo</u>, <mark>dni</mark>) <span class="tag-cascade">(borrar en cascada)</span>
-                - FK: numero_entidad, numero_sucursal->SUCURSAL(numero_entidad, numero_sucursal)
+            - **PRESTAMO** (<u><mark>cod_ent</mark>, <mark>cod_suc</mark>, cod_p</u>, <mark>dni</mark>) <span class="tag-cascade">(borrar en cascada)</span>
+                - FK: cod_ent, cod_suc->SUCURSAL(cod_ent, cod_suc)
                 - FK: dni->CLIENTE(dni)
-            - **PERMISOS** (<u> cod_p</u>,<mark>numero_entidad</mark>, <mark>numero_sucursal</mark>, <mark>numero_cuenta</mark>, <mark>dni</mark>, privilegio)
-                - FK: numero_entidad, numero_sucursal, numero_cuenta->CUENTA CORRIENTE(numero_entidad, numero_sucursal, numero_cuenta) <span class="tag-no-nulo">[no nulo]</span>
+            - **PERMISOS** (<u> cod_p</u>,<mark>cod_ent</mark>, <mark>cod_suc</mark>, <mark>cod_cc</mark>, <mark>dni</mark>, privilegio)
+                - FK: cod_ent, cod_suc, cod_cc->CUENTA CORRIENTE(cod_ent, cod_suc, cod_cc) <span class="tag-no-nulo">[no nulo]</span>
                 - FK: dni->CLIENTE(dni)    
 
 ??? example "Ejercicio 6"
@@ -309,7 +312,8 @@ hide:
     ??? question "Enunciado"
         Realizar el esquema relacional correspondiente a un Parque Zoológico que quiere guardar información de las especies que tiene, los empleados (cuidadores y guías), y los distintos itinerarios de visita que ofrece.
 
-        ![alt text](image-3.png){ .grayscale }
+        
+        ![alt text](image-70.png){ .grayscale }
 
     ??? success "Solución propuesta"
         - **EMPLEADO** (<u>dni</u>, nombre, direccion, telefono, fecha_inicio)

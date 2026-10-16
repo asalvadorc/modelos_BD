@@ -60,7 +60,7 @@ Realizar el esquema relacional correspondiente a los ejercicios del Tema Entidad
 
 Recordad que teníamos 3 opciones:
 
-![alt text](image-35.png){ .grayscale width=400 }
+![alt text](image-68.png){ .grayscale width=400 }{ .grayscale width=400 }
 
 
 ## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 2</span></span>
