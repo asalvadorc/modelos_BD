@@ -7,9 +7,8 @@ hide:
 
 El elemento básico del Modelo Relacional es la **RELACIÓN**, que es una **tabla** bidimensional con características y restricciones específicas.
 
-### Componentes
 
-- **Nombre de la relación**
+- **Nombre de la RELACIÓN**
 
     Identificador único de la tabla (ej: EMPLEADO).
     

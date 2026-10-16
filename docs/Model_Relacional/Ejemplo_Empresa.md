@@ -10,7 +10,7 @@ Vamos a ver cómo quedará definitivamente la traducción del ejemplo que estamo
 Sin tener en cuenta la especialización tendremos esta solución:
 
 ???+ "Ejemplo: Empresa"
-    ![Ejemplo: Empresa](image-28.png)
+    ![Ejemplo: Empresa](image-28.png){width=800}
 
 !!! quote ""
     - EMPLEADO (<u>dni</u>, nombre, direccion, telefono, sueldo, fecha_n, <mark>departamento</mark>, <mark>supervisor</mark>)
