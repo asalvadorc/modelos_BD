@@ -1733,11 +1733,11 @@
 <h1 id="soluciones">Soluciones</h1>
 <div class="admonition warning">
 <p class="admonition-title">Advertencia</p>
-<p>Antes de consultar la resolución, asegúrate de haber intentado resolver el ejercicio. Comparar tu propuesta con la solución te ayudará mucho más que leerla directamente.</p>
+<p>Antes de consultar la solución, asegúrate de haber intentado resolver el ejercicio. Comparar tu propuesta con la solución te ayudará mucho más que leerla directamente.</p>
 </div>
 <div class="admonition info">
 <p class="admonition-title">Atributos de los enunciados y de las soluciones</p>
-<p>Para simplificar las imágenes y facilitar su lectura, en los diagramas E/R de los enunciados no se han representado todos los atributos. En las soluciones se incluyen algunos atributos descriptivos adicionales para aportar más información al modelo relacional. Ten en cuenta que las tablas no contienen únicamente claves primarias y foráneas, sino también otros datos de interés sobre las entidades y las relaciones. Al resolver los ejercicios, incluye los atributos que aparecen en el diagrama. No tienes que inventar los atributos adicionales que aparecen en la solución, y no se considerará un error que no los hayas incluido.</p>
+<p>Para simplificar los diagramas E/R, se han omitido algunos atributos descriptivos que sí aparecen en las soluciones. Al resolver los ejercicios, incluye solo los atributos del diagrama: no tienes que añadir los demás y no se penalizará su ausencia.</p>
 </div>
 <details class="example">
 <summary>Ejercicio 1</summary>
@@ -1767,7 +1767,7 @@
 <li><strong>VINO</strong> (<u>codi_vi</u>, descripcion, anio_cogida)</li>
 <li><strong>VALE</strong> (<u>num_vale</u>, <mark>dni</mark>, <mark>codi_vi</mark>, fecha, cant)<ul>
 <li>FK: dni-&gt;SOCIO(dni)</li>
-<li>FK: codi_vi-&gt;VINO(num_p)</li>
+<li>FK: codi_vi-&gt;VINO(codi_vi)</li>
 </ul>
 </li>
 </ul>
@@ -1781,9 +1781,9 @@
 <li>FK: dni-&gt;SOCIO(dni)</li>
 </ul>
 </li>
-<li><strong>RETIRA</strong> (<u><mark>num_val</mark>, <mark>dni</mark>, cant</u>)<ul>
+<li><strong>RETIRA</strong> (<u><mark>num_vale</mark>, <mark>codi_vi</mark></u>, cant)<ul>
 <li>FK: num_vale-&gt;VALE(num_vale)</li>
-<li>FK: codi_vi-&gt;VINO(num_p)</li>
+<li>FK: codi_vi-&gt;VINO(codi_vi)</li>
 </ul>
 </li>
 </ul>
@@ -1861,7 +1861,7 @@
 <li><strong>TEMA</strong> (<u>cod_t</u>)</li>
 <li><strong>AUTOR</strong> (<u>cod_aut</u>)</li>
 <li><strong>EDITORIAL</strong> (<u>cod_ed</u>)</li>
-<li><strong>LIBRO</strong> (<u>isbn</u>, <mark>cod_t</mark>, <mark>cod_ed</mark>)<ul>
+<li><strong>LIBRO</strong> (<u>isbn</u>, <mark>cod_t</mark>, <mark>cod_ed</mark>, fecha_ed, num_ed)<ul>
 <li>FK: cod_t-&gt;TEMA(cod_t)</li>
 <li>FK: cod_ed-&gt;EDITORIAL(cod_ed)</li>
 </ul>
@@ -1889,8 +1889,8 @@
 <summary>Ejercicio 5</summary>
 <details class="question">
 <summary>Enunciado</summary>
-</details>
 <p><img alt="alt text" class="grayscale" src="../Ej4.jpg" /></p>
+</details>
 <details class="success">
 <summary>Solución propuesta</summary>
 <div class="admonition quote">
@@ -1915,7 +1915,7 @@
 <li>FK: dni-&gt;CLIENTE(dni)</li>
 </ul>
 </li>
-<li><strong>PERMISOS</strong> (<u><mark>cod_ent</mark>, <mark>cod_suc</mark>, <mark>cod_cc</mark>, <mark>dni</mark></u>, privilegio)<ul>
+<li><strong>PERMISOS</strong> (<u><mark>cod_ent</mark>, <mark>cod_suc</mark>, <mark>cod_cc</mark>, <mark>dni</mark>, privilegio</u>)<ul>
 <li>FK: cod_ent, cod_suc, cod_cc-&gt;CUENTA CORRIENTE(cod_ent, cod_suc, cod_cc)</li>
 <li>FK: dni-&gt;CLIENTE(dni)</li>
 </ul>
@@ -1946,7 +1946,7 @@
 </li>
 <li><strong>PERMISOS</strong> (<u> cod_p</u>,<mark>cod_ent</mark>, <mark>cod_suc</mark>, <mark>cod_cc</mark>, <mark>dni</mark>, privilegio)<ul>
 <li>FK: cod_ent, cod_suc, cod_cc-&gt;CUENTA CORRIENTE(cod_ent, cod_suc, cod_cc) <span class="tag-no-nulo">[no nulo]</span></li>
-<li>FK: dni-&gt;CLIENTE(dni)    </li>
+<li>FK: dni-&gt;CLIENTE(dni)  <span class="tag-no-nulo">[no nulo]</span></li>
 </ul>
 </li>
 </ul>
@@ -1969,14 +1969,14 @@
 <li>FK: nom_f-&gt;FAMILIA(nom_f) <span class="tag-no-nulo">[no nulo]</span></li>
 </ul>
 </li>
-<li><strong>ESPECIE</strong> (<u>nom_g,<mark>nom_e</mark> </u>) <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li><strong>ESPECIE</strong> (<u><mark>nom_g</mark>,nom_e </u>) <span class="tag-cascade">(borrar en cascada)</span><ul>
 <li>FK: nom_g-&gt;GENERO(nom_g)</li>
 </ul>
 </li>
 <li><strong>PERSONA</strong> (<u>dni</u>)</li>
 <li><strong>COMARCA</strong> (<u>com</u>)</li>
 <li><strong>VIVE</strong> (<u><mark>nom_g</mark>,<mark>nom_e</mark>, <mark>com</mark></u>, nom_comun)<ul>
-<li>FK: nomg,nom_e-&gt;ESPECIE(nomg,nom_e)</li>
+<li>FK: nom_g,nom_e-&gt;ESPECIE(nom_g,nom_e)</li>
 <li>FK: com-&gt;COMARCA(com)</li>
 </ul>
 </li>
@@ -1986,17 +1986,17 @@
 <li>FK: com-&gt;COMARCA(com) <span class="tag-no-nulo">[no nulo]</span></li>
 </ul>
 </li>
-<li><strong>COLECCIONISTA</strong> (<u><mark>dni</mark></u>) <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li><strong>COLECCION</strong> (<u><mark>dni</mark></u>) <span class="tag-cascade">(borrar en cascada)</span><ul>
 <li>FK: dni-&gt;PERSONA(dni)</li>
 </ul>
 </li>
 <li><strong>EJ_COL</strong> (<u><mark>cod_ej</mark>, <mark>nom_g</mark>,<mark>nom_e</mark></u>, <mark>dni</mark>, valor) <span class="tag-cascade">(borrar en cascada)</span><ul>
-<li>FK: cod_ej,nom_g,nom_e-&gt;EJEMPLAR(cod_ej,nomg,nom_e)</li>
+<li>FK: cod_ej,nom_g,nom_e-&gt;EJEMPLAR(cod_ej,nom_g,nom_e)</li>
 <li>FK: dni-&gt;COLECCION(dni) <span class="tag-no-nulo">[no nulo]</span></li>
 </ul>
 </li>
 <li><strong>EJ_OBS</strong> (<u><mark>cod_ej</mark>, <mark>nom_g</mark>,<mark>nom_e</mark></u>, tiempo_obs) <span class="tag-cascade">(borrar en cascada)</span><ul>
-<li>FK: cod_ej,nom_g,nom_e-&gt;EJEMPLAR(cod_ej,nomg,nom_e)</li>
+<li>FK: cod_ej,nom_g,nom_e-&gt;EJEMPLAR(cod_ej,nom_g,nom_e)</li>
 </ul>
 </li>
 </ul>
@@ -2010,14 +2010,14 @@
 <li>FK: nom_f-&gt;FAMILIA(nom_f) <span class="tag-no-nulo">[no nulo]</span></li>
 </ul>
 </li>
-<li><strong>ESPECIE</strong> (<u>nom_g,<mark>nom_e</mark> </u>) <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li><strong>ESPECIE</strong> (<u><mark>nom_g</mark>,nom_e</u>) <span class="tag-cascade">(borrar en cascada)</span><ul>
 <li>FK: nom_g-&gt;GENERO(nom_g)</li>
 </ul>
 </li>
 <li><strong>PERSONA</strong> (<u>dni</u>)</li>
 <li><strong>COMARCA</strong> (<u>com</u>)</li>
 <li><strong>VIVE</strong> (<u><mark>nom_g</mark>,<mark>nom_e</mark>, <mark>com</mark></u>, nom_comun)<ul>
-<li>FK: nomg,nom_e-&gt;ESPECIE(nomg,nom_e)</li>
+<li>FK: nom_g,nom_e-&gt;ESPECIE(nom_g,nom_e)</li>
 <li>FK: com-&gt;COMARCA(com)</li>
 </ul>
 </li>
@@ -2027,12 +2027,12 @@
 <li>FK: com-&gt;COMARCA(com) <span class="tag-no-nulo">[no nulo]</span></li>
 </ul>
 </li>
-<li><strong>COLECCIONISTA</strong> (<u><mark>dni</mark></u>) <span class="tag-cascade">(borrar en cascada)</span><ul>
-<li>FK: cod_ej-&gt;EJEMPLAR(cod_ej)</li>
+<li><strong>COLECCION</strong> (<u><mark>dni</mark></u>) <span class="tag-cascade">(borrar en cascada)</span><ul>
 <li>FK: dni-&gt;PERSONA(dni)<span class="tag-no-nulo">[no nulo]</span></li>
 </ul>
 </li>
 <li><strong>EJ_COL</strong> (<u><mark>cod_ej</mark></u>, <mark>dni</mark>, valor) <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li>FK: cod_ej-&gt;EJEMPLAR(cod_ej)</li>
 <li>FK: dni-&gt;COLECCION(dni) <span class="tag-no-nulo">[no nulo]</span></li>
 </ul>
 </li>
@@ -2041,6 +2041,7 @@
 </ul>
 </li>
 </ul>
+<p><span class="tag-no-nulo">[nota]</span> La especialización de <strong>EJEMPLAR</strong> en <strong>EJ_COL</strong> y <strong>EJ_OBS</strong> es total y disjunta (T,D).    </p>
 </div>
 </details>
 </details>
@@ -2071,7 +2072,10 @@
 </ul>
 </li>
 <li><strong>ESTACIÓN</strong> (<u>codigo_estacion</u>, nombre, telefono)</li>
-<li><strong>TREN</strong> (<u>codigo_tren</u>, tipo)</li>
+<li><strong>TREN</strong> (<u>codigo_tren</u>, <mark>codigo_estacion</mark>, tipo)<ul>
+<li>FK: codigo_estacion-&gt;ESTACIÓN(codigo_estacion)</li>
+</ul>
+</li>
 <li><strong>TEMPORADA</strong> (<u>cod_temporada</u>)</li>
 <li><strong>VIAJE</strong> (<u>codigo_viaje</u>, hora, fecha, <mark>codigo_estacion_origen</mark>, <mark>codigo_estacion_destino</mark>, <mark>codigo_tren</mark>, <mark>cod_temporada</mark>)<ul>
 <li>FK: codigo_estacion_origen-&gt;ESTACIÓN(codigo_estacion)</li>
@@ -2103,7 +2107,10 @@
 </ul>
 </li>
 <li><strong>ESTACIÓN</strong> (<u>codigo_estacion</u>, nombre, telefono)</li>
-<li><strong>TREN</strong> (<u>codigo_tren</u>, tipo)</li>
+<li><strong>TREN</strong> (<u>codigo_tren</u>, <mark>codigo_estacion</mark>, tipo)<ul>
+<li>FK: codigo_estacion-&gt;ESTACIÓN(codigo_estacion)</li>
+</ul>
+</li>
 <li><strong>TEMPORADA</strong> (<u>cod_temporada</u>)</li>
 <li><strong>TRAYECTO</strong> (<u>codigo_trayecto</u>, hora)</li>
 <li><strong>PARADAS</strong> (<u><mark>codigo_estacion</mark>, <mark>codigo_trayecto</mark></u>)<ul>
@@ -2131,7 +2138,7 @@
 <details class="question">
 <summary>Enunciado</summary>
 <p>Realizar el esquema relacional correspondiente a un sistema de información sobre el material informático de una empresa.</p>
-<p><img alt="alt text" class="grayscale" src="../image-2.png" /></p>
+<p><img alt="alt text" class="grayscale" src="../image-71.png" /></p>
 </details>
 <details class="success">
 <summary>Solución propuesta</summary>
@@ -2146,7 +2153,7 @@
 <li>FK: codigo_o-&gt;ORDENADOR(codigo_o) <span class="tag-no-nulo">[no nulo]</span> <span class="tag-unico">[unico]</span></li>
 </ul>
 </li>
-<li><strong>APLICACIÓN</strong> (<u>codigo_a,codigo_o</u>)<ul>
+<li><strong>APLICACIÓN</strong> (<u>codigo_a</u>,<mark>codigo_o</mark>)<ul>
 <li>FK: codigo_o-&gt;ORDENADOR(codigo_o) <span class="tag-no-nulo">[no nulo]</span></li>
 </ul>
 </li>
@@ -2165,10 +2172,10 @@
 <li>FK: codigo_a-&gt;APLICACIÓN(codigo_a)</li>
 </ul>
 </li>
-<li><strong>REGISTRA</strong> (<u>num_reg&gt;</u>, <mark>dni</mark>, <mark>codigo_o</mark>, <mark>codigo_a</mark>, fecha)<ul>
-<li>FK: dni-&gt;EMPLEADO(dni) <span class="tag-no-nulo">[no nulo]</span></li>
+<li><strong>REGISTRA</strong> (<u> <mark>dni</mark>, <mark>codigo_a</mark></u>, <mark>codigo_o</mark>, fecha)<ul>
+<li>FK: dni-&gt;EMPLEADO(dni) </li>
+<li>FK: codigo_a-&gt;APLICACIÓN(codigo_a) </li>
 <li>FK: codigo_o-&gt;ORDENADOR(codigo_o)  <span class="tag-no-nulo">[no nulo]</span></li>
-<li>FK: codigo_a-&gt;APLICACIÓN(codigo_a) <span class="tag-no-nulo">[no nulo]</span></li>
 </ul>
 </li>
 </ul>
@@ -2202,7 +2209,7 @@
 </li>
 <li><strong>SECTOR_VIAJA</strong> (<u><mark>cod_sector</mark>, <mark>cod_viajante</mark></u>)<ul>
 <li>FK: cod_viajante-&gt;VIAJANTE(cod_viajante)</li>
-<li>FK: cod_sector-&gt;SECTOR(cod_procod_sectorducto)</li>
+<li>FK: cod_sector-&gt;SECTOR(cod_sector)</li>
 </ul>
 </li>
 <li><strong>OFRECE</strong> (<u><mark>cod_cliente</mark>, <mark>cod_producto</mark></u>, <mark>cod_viajante</mark>, precio)<ul>
@@ -2227,11 +2234,11 @@
 <ul>
 <li><strong>EMPLEADO</strong> (<u>dni</u>, nombre, direccion, telefono, fecha_inicio)</li>
 <li><strong>GUIA</strong> (<u><mark>dni</mark></u>) <span class="tag-cascade">(borrar en cascada)</span><ul>
-<li>FK: dni-&gt;EMPLEAT(dni)</li>
+<li>FK: dni-&gt;EMPLEADO(dni)</li>
 </ul>
 </li>
 <li><strong>CUIDADOR</strong> (<u><mark>dni</mark></u>) <span class="tag-cascade">(borrar en cascada)</span><ul>
-<li>FK: dni-&gt;EMPLEAT(dni)</li>
+<li>FK: dni-&gt;EMPLEADO(dni)</li>
 </ul>
 </li>
 <li><strong>HABITAT</strong> (<u>cod_h</u>, clima, vegetacion)</li>
@@ -2245,7 +2252,7 @@
 <li>FK: cod_h-&gt;HABITAT(cod_h)</li>
 </ul>
 </li>
-<li><strong>CUIDADOR_ESPECIE</strong> (<u><mark>dni</mark>, <mark>nom_c</mark></u>, data)<ul>
+<li><strong>CUIDADOR_ESPECIE</strong> (<u><mark>dni</mark>, <mark>nom_c</mark></u>, fecha)<ul>
 <li>FK: dni-&gt;CUIDADOR(dni)</li>
 <li>FK: nom_c-&gt;ESPECIE(nom_c)</li>
 </ul>
