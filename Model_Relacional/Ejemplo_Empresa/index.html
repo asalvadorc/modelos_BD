@@ -1740,23 +1740,28 @@
 <div class="admonition quote">
 <ul>
 <li>EMPLEADO (<u>dni</u>, nombre, direccion, telefono, sueldo, fecha_n, <mark>departamento</mark>, <mark>supervisor</mark>)<ul>
+<li>PK: (dni)</li>
 <li>FK: departamento-&gt;DEPARTAMENTO(num_d) <span class="tag-no-nulo">[no nulo]</span></li>
 <li>FK: supervisor-&gt;EMPLEADO(dni)</li>
 </ul>
 </li>
 <li>FAMILIAR (<u><mark>dni_e</mark>, nombre_f</u>, fecha_n, parentesco, ) <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li>PK: (dni_e, nombre_f)</li>
 <li>FK: dni_e-&gt;EMPLEADO(dni)</li>
 </ul>
 </li>
 <li>DEPARTAMENTO (<u>num_d</u>, nombre_d, <mark>director</mark>, fecha)<ul>
+<li>PK: (num_d)</li>
 <li>FK: director-&gt;EMPLEADO(dni) <span class="tag-no-nulo">[no nulo]</span> <span class="tag-unico">[unico]</span></li>
 </ul>
 </li>
 <li>PROYECTO (<u>num_p</u>, nombre_p, <mark>departamento</mark>)<ul>
+<li>PK: (num_p)</li>
 <li>FK: departamento-&gt;DEPARTAMENTO(num_d) <span class="tag-no-nulo">[no nulo]</span></li>
 </ul>
 </li>
 <li>TRABAJA (<u><mark>dni</mark>, <mark>num_p</mark></u>, horas)    <ul>
+<li>PK: (dni, num_p)</li>
 <li>FK: dni-&gt;EMPLEADO(dni)</li>
 <li>FK: num_p-&gt;PROYECTO(num_p)</li>
 </ul>
@@ -1773,31 +1778,38 @@
 <div class="admonition quote">
 <ul>
 <li>EMPLEADO (<u>dni</u>, nombre, direccion, telefono, sueldo, fecha_n, <mark>departamento</mark>, <mark>supervisor</mark>)<ul>
+<li>PK: (dni)</li>
 <li>FK: departamento-&gt;DEPARTAMENTO(num_d) <span class="tag-no-nulo">[no nulo]</span></li>
 <li>FK: supervisor-&gt;EMPLEADO(dni)</li>
 </ul>
 </li>
 <li>JEFE (<u><mark>dni</mark></u>, opinion) <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li>PK: (dni)</li>
 <li>FK: dni-&gt;EMPLEADO(dni)</li>
 </ul>
 </li>
 <li>TRABAJADOR  (<u><mark>dni</mark></u>, horas_extra)  <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li>PK: (dni)</li>
 <li>FK: dni-&gt;EMPLEADO(dni)     </li>
 </ul>
 </li>
 <li>FAMILIAR (<u><mark>dni_e</mark>, nombre_f</u>, fecha_n, parentesco, ) <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li>PK: (dni_e, nombre_f)</li>
 <li>FK: dni_e-&gt;EMPLEADO(dni)</li>
 </ul>
 </li>
 <li>DEPARTAMENTO (<u>num_d</u>, nombre_d, <mark>director</mark>, fecha)<ul>
+<li>PK: (num_d)</li>
 <li>FK: director-&gt;JEFE(dni) <span class="tag-no-nulo">[no nulo]</span> <span class="tag-unico">[unico]</span></li>
 </ul>
 </li>
 <li>PROYECTO (<u>num_p</u>, nombre_p, <mark>departamento</mark>)<ul>
+<li>PK: (num_p)</li>
 <li>FK: departamento-&gt;DEPARTAMENTO(num_d) <span class="tag-no-nulo">[no nulo]</span></li>
 </ul>
 </li>
 <li>TRABAJA (<u><mark>dni</mark>, <mark>num_p</mark></u>, horas)    <ul>
+<li>PK: (dni, num_p)</li>
 <li>FK: dni-&gt;EMPLEADO(dni)</li>
 <li>FK: num_p-&gt;PROYECTO(num_p)</li>
 </ul>

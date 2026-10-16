@@ -2005,10 +2005,22 @@ Si no ves el visor de arriba o prefieres leerlo aparte:
 </div>
 <div class="admonition quote">
 <ul>
-<li>EMPLEADO (<u>dni</u>, nombre, direccion, telefono, sueldo, fecha_n)</li>
-<li>DEPARTAMENTO (<u>num_d</u>)</li>
-<li>PROYECTO (<u>num_p</u>, nombre_p)</li>
-<li>FAMILIAR (<u>nombre</u>, fecha_n, parentesco)</li>
+<li>EMPLEADO (<u>dni</u>, nombre, direccion, telefono, sueldo, fecha_n)<ul>
+<li>PK: (dni)</li>
+</ul>
+</li>
+<li>DEPARTAMENTO (<u>num_d</u>)<ul>
+<li>PK: (num_d)</li>
+</ul>
+</li>
+<li>PROYECTO (<u>num_p</u>, nombre_p)<ul>
+<li>PK: (num_p)</li>
+</ul>
+</li>
+<li>FAMILIAR (<u>nombre</u>, fecha_n, parentesco)<ul>
+<li>PK: (nombre)</li>
+</ul>
+</li>
 </ul>
 </div>
 <!--[](T3_4_1_1.png)-->
@@ -2036,16 +2048,22 @@ Si además la entidad que participa con grado N lo hace de forma **total** (como
 <div class="admonition quote">
 <ul>
 <li>EMPLEADO (<u>dni</u>, nombre, direccion, telefono, sueldo, fecha_n, <mark>departamento</mark>, <mark>supervisor</mark>)<ul>
+<li>PK: (dni)</li>
 <li>FK: departamento-&gt;DEPARTAMENTO(num_d) <span class="tag-no-nulo">[no nulo]</span></li>
 <li>FK: supervisor-&gt;EMPLEADO(dni)</li>
 </ul>
 </li>
-<li>DEPARTAMENTO (<u>num_d</u>, nombre_d)</li>
+<li>DEPARTAMENTO (<u>num_d</u>, nombre_d)<ul>
+<li>PK: (num_d)</li>
+</ul>
+</li>
 <li>PROYECTO (<u>num_p</u>, nombre_p, <mark>departamento</mark>)<ul>
+<li>PK: (num_p)</li>
 <li>FK: departamento-&gt;DEPARTAMENTO(num_d) <span class="tag-no-nulo">[no nulo]</span></li>
 </ul>
 </li>
 <li>FAMILIAR (<u>nombre</u>, fecha_n, parentesco, <mark>dni_e</mark>)<ul>
+<li>PK: (nombre)</li>
 <li>FK: dni_e-&gt;EMPLEADO(dni) <span class="tag-no-nulo">[no nulo]</span></li>
 </ul>
 </li>
@@ -2071,6 +2089,7 @@ Si además la entidad que participa con grado N lo hace de forma **total** (como
 <div class="admonition quote">
 <ul>
 <li>EMPLEADO (<u>dni</u>, nombre, direccion, telefono, sueldo, fecha_n, <mark>supervisor</mark>)<ul>
+<li>PK: (dni)</li>
 <li>FK: supervisor-&gt;EMPLEADO(dni)</li>
 </ul>
 </li>
@@ -2096,6 +2115,7 @@ Si además la entidad que participa con grado N lo hace de forma **total** (como
 <div class="admonition quote">
 <ul>
 <li>TRABAJA (<mark><u>dni, num_p</u></mark>, horas)<ul>
+<li>PK: (dni, num_p)</li>
 <li>FK: dni-&gt;EMPLEADO(dni)</li>
 <li>FK: num_p-&gt;PROYECTO(num_p)</li>
 </ul>
@@ -2114,6 +2134,7 @@ Si además la entidad que participa con grado N lo hace de forma **total** (como
 <div class="admonition quote">
 <ul>
 <li>TRABAJA (<mark><u>dni, num_p</mark>, fecha incio</u>, fecha_fin, horas)<ul>
+<li>PK: (dni, num_p, fecha incio)</li>
 <li>FK: dni-&gt;EMPLEADO(dni)</li>
 <li>FK: num_p-&gt;PROYECTO(num_p)</li>
 </ul>
@@ -2126,8 +2147,12 @@ Si además la entidad que participa con grado N lo hace de forma **total** (como
 <p>Una relación reflexiva también puede ser <strong>N:N</strong>. Por ejemplo, un empleado puede colaborar con varios empleados y, a su vez, colaborar con varios más. Como en cualquier relación N:N, se crea una tabla intermedia; en este caso, sus dos claves externas apuntan a la misma tabla <strong>EMPLEADO</strong>, pero representan roles distintos:</p>
 <div class="admonition quote">
 <ul>
-<li>EMPLEADO (<u>dni</u>, nombre, ...)</li>
+<li>EMPLEADO (<u>dni</u>, nombre, ...)<ul>
+<li>PK: (dni)</li>
+</ul>
+</li>
 <li>COLABORA (<mark><u>dni_empleado, dni_colaborador</u></mark>)<ul>
+<li>PK: (dni_empleado, dni_colaborador)</li>
 <li>FK: dni_empleado-&gt;EMPLEADO(dni)</li>
 <li>FK: dni_colaborador-&gt;EMPLEADO(dni)</li>
 </ul>
@@ -2155,8 +2180,12 @@ Si además la entidad que participa con grado N lo hace de forma **total** (como
 Todos los departamentos tienen director (no nula) y solo uno (única), pero no todos los empleados dirigen un departamento.</p>
 <div class="admonition quote">
 <ul>
-<li>EMPLEADO (<u>dni</u>, nombre, direccion, telefono, sueldo, fecha_n)</li>
+<li>EMPLEADO (<u>dni</u>, nombre, direccion, telefono, sueldo, fecha_n)<ul>
+<li>PK: (dni)</li>
+</ul>
+</li>
 <li>DEPARTAMENTO (<u>num_d</u>, nom_d, <mark>director</mark>, Fecha)<ul>
+<li>PK: (num_d)</li>
 <li>FK: director-&gt;EMPLEADO(dni) 
 <span class="tag-no-nulo">[no nulo]</span> 
 <span class="tag-unico">[unico]</span></li>
@@ -2174,7 +2203,10 @@ Todos los departamentos tienen director (no nula) y solo uno (única), pero no t
 <p><img alt="alt text" src="../image-17.png" /></p>
 <div class="admonition quote">
 <ul>
-<li>PERSONA (<u>dni</u>,....(datos persona)....(datos colección)...)</li>
+<li>PERSONA (<u>dni</u>,....(datos persona)....(datos colección)...)<ul>
+<li>PK: (dni)</li>
+</ul>
+</li>
 </ul>
 </div>
 <h3 id="caso-3-ambas-entidades-participan-de-forma-parcial">Caso 3: Ambas entidades participan de forma parcial</h3>
@@ -2184,9 +2216,16 @@ Todos los departamentos tienen director (no nula) y solo uno (única), pero no t
 <p>Traducción:</p>
 <div class="admonition quote">
 <ul>
-<li>PERSONA (<u>dni</u>, ...(datos persona)...)</li>
-<li>COLECCION (<u>cod_col</u>, ...(datos colección)...)</li>
+<li>PERSONA (<u>dni</u>, ...(datos persona)...)<ul>
+<li>PK: (dni)</li>
+</ul>
+</li>
+<li>COLECCION (<u>cod_col</u>, ...(datos colección)...)<ul>
+<li>PK: (cod_col)</li>
+</ul>
+</li>
 <li>PROPIETARIO (<mark><u>dni, cod_col</u></mark>)<ul>
+<li>PK: (dni, cod_col)</li>
 <li>FK: dni-&gt;PERSONA(dni)</li>
 <li>FK: cod_col-&gt;COLECCION(cod_col)</li>
 </ul>
@@ -2202,6 +2241,7 @@ Todos los departamentos tienen director (no nula) y solo uno (única), pero no t
 <div class="admonition quote">
 <ul>
 <li>EMPLEADO (<u>dni</u>, nombre, <mark>mentor</mark>)<ul>
+<li>PK: (dni)</li>
 <li>FK: mentor-&gt;EMPLEADO(dni) <span class="tag-unico">[unico]</span></li>
 </ul>
 </li>
@@ -2225,8 +2265,12 @@ Todos los departamentos tienen director (no nula) y solo uno (única), pero no t
 <p><img alt="alt text" src="../image-29.png" /></p>
 <div class="admonition quote">
 <ul>
-<li>EMPLEADO (<u>dni</u>, nombre, direccion, telefono, sueldo, fecha_n)</li>
+<li>EMPLEADO (<u>dni</u>, nombre, direccion, telefono, sueldo, fecha_n)<ul>
+<li>PK: (dni)</li>
+</ul>
+</li>
 <li>FAMILIAR (<u><mark>dni_e</mark>, nom_f</u>, fecha_n, parentesco  <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li>PK: (dni_e, nom_f)</li>
 <li>FK: dni_e-&gt;PERSONA(dni)</li>
 </ul>
 </li>
@@ -2271,10 +2315,12 @@ Todos los departamentos tienen director (no nula) y solo uno (única), pero no t
 <div class="admonition quote">
 <ul>
 <li>FAMILIAR (<u><i>dni_e</i>, nom_f</u>, fecha_n, parentesco  <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li>PK: (dni_e, nom_f)</li>
 <li>FK: dni_e-&gt;PERSONA(dni)</li>
 </ul>
 </li>
 <li>CARTAS (<u>id</u>, texto, <mark>dni_e, nom_f</mark>)<ul>
+<li>PK: (id)</li>
 <li>FK: dni_e, nom_f-&gt;FAMILIAR(dni_e, nom_f)</li>
 </ul>
 </li>
@@ -2288,10 +2334,20 @@ Todos los departamentos tienen director (no nula) y solo uno (única), pero no t
 <p>Creamos la tabla COMPRA:</p>
 <div class="admonition quote">
 <ul>
-<li>DEPARTAMENTO (<u>num_d</u>, ....)</li>
-<li>ARTICULO (<u>cod_art</u>, ....)</li>
-<li>PROVEEDOR (<u>cod_pr</u>, ....)</li>
+<li>DEPARTAMENTO (<u>num_d</u>, ....)<ul>
+<li>PK: (num_d)</li>
+</ul>
+</li>
+<li>ARTICULO (<u>cod_art</u>, ....)<ul>
+<li>PK: (cod_art)</li>
+</ul>
+</li>
+<li>PROVEEDOR (<u>cod_pr</u>, ....)<ul>
+<li>PK: (cod_pr)</li>
+</ul>
+</li>
 <li>COMPRA (<u><mark>num_d</mark>, <mark>cod_art</mark>, <mark>cod_pr</mark> </u>) <ul>
+<li>PK: (num_d, cod_art, cod_pr)</li>
 <li>FK: num_d-&gt;DEPARTAMENTO(num_d)</li>
 <li>FK: cod_art-&gt;ARTICULO(cod_art)</li>
 <li>FK: cod_pr-&gt;PROVEEDOR(cod_pr)</li>
@@ -2306,6 +2362,7 @@ Todos los departamentos tienen director (no nula) y solo uno (única), pero no t
 <div class="admonition quote">
 <ul>
 <li>COMPRA (<u><mark>num_d</mark>, <mark>cod_art</mark> </u>, <mark>cod_pr</mark>) <ul>
+<li>PK: (num_d, cod_art)</li>
 <li>FK: num_d-&gt;DEPARTAMENTO(num_d)</li>
 <li>FK: cod_art-&gt;ARTICULO(cod_art)</li>
 <li>FK: cod_pr-&gt;PROVEEDOR(cod_pr) <span class="tag-no-nulo">[no nulo]</span></li>
@@ -2319,6 +2376,7 @@ Todos los departamentos tienen director (no nula) y solo uno (única), pero no t
 <div class="admonition quote">
 <ul>
 <li>COMPRA (<u><mark>num_d</mark>, <mark>cod_art</mark> </u>, <mark>cod_pr</mark>) <ul>
+<li>PK: (num_d, cod_art)</li>
 <li>FK: num_d-&gt;DEPARTAMENTO(num_d)</li>
 <li>FK: cod_art-&gt;ARTICULO(cod_art)</li>
 <li>FK: cod_pr-&gt;PROVEEDOR(cod_pr) <span class="tag-no-nulo">[no nulo]</span> <span class="tag-unico">[única]</span></li>
@@ -2331,10 +2389,20 @@ Todos los departamentos tienen director (no nula) y solo uno (única), pero no t
 <p><img alt="alt text" src="../image-50.png" width="600" /></p>
 <div class="admonition quote">
 <ul>
-<li>DEPARTAMENTO (<u>num_d</u>, ....)</li>
-<li>ARTICULO (<u>cod_art</u>, ....)</li>
-<li>PROVEEDOR (<u>cod_pr</u>, ....)</li>
+<li>DEPARTAMENTO (<u>num_d</u>, ....)<ul>
+<li>PK: (num_d)</li>
+</ul>
+</li>
+<li>ARTICULO (<u>cod_art</u>, ....)<ul>
+<li>PK: (cod_art)</li>
+</ul>
+</li>
+<li>PROVEEDOR (<u>cod_pr</u>, ....)<ul>
+<li>PK: (cod_pr)</li>
+</ul>
+</li>
 <li>COMPRA (<u><mark>num_d</mark>, <mark>cod_art</mark>, <mark>cod_pr</mark>, fecha_c </u>, cantidad) <ul>
+<li>PK: (num_d, cod_art, cod_pr, fecha_c)</li>
 <li>FK: num_d-&gt;DEPARTAMENTO(num_d)</li>
 <li>FK: cod_art-&gt;ARTICULO(cod_art)</li>
 <li>FK: cod_pr-&gt;PROVEEDOR(cod_pr)</li>
@@ -2351,10 +2419,20 @@ Todos los departamentos tienen director (no nula) y solo uno (única), pero no t
 <p>Las claves externas se mantienen y, normalmente, son no nulas:</p>
 <div class="admonition quote">
 <ul>
-<li>DEPARTAMENTO (<u>num_d</u>, ....)</li>
-<li>ARTICULO (<u>cod_art</u>, ....)</li>
-<li>PROVEEDOR (<u>cod_pr</u>, ....)</li>
+<li>DEPARTAMENTO (<u>num_d</u>, ....)<ul>
+<li>PK: (num_d)</li>
+</ul>
+</li>
+<li>ARTICULO (<u>cod_art</u>, ....)<ul>
+<li>PK: (cod_art)</li>
+</ul>
+</li>
+<li>PROVEEDOR (<u>cod_pr</u>, ....)<ul>
+<li>PK: (cod_pr)</li>
+</ul>
+</li>
 <li>COMPRA (<u>id</u>,<mark>num_d</mark>, <mark>cod_art</mark>, <mark>cod_pr</mark>, fecha_c , cantidad) <ul>
+<li>PK: (id)</li>
 <li>FK: num_d-&gt;DEPARTAMENTO(num_d) <span class="tag-no-nulo">[no nulo]</span></li>
 <li>FK: cod_art-&gt;ARTICULO(cod_art) <span class="tag-no-nulo">[no nulo]</span></li>
 <li>FK: cod_pr-&gt;PROVEEDOR(cod_pr) <span class="tag-no-nulo">[no nulo]</span></li>
@@ -2371,12 +2449,17 @@ Si la especialización es solapada, un campo con un único valor no basta: un em
 <p>En el ejemplo:</p>
 <div class="admonition quote">
 <ul>
-<li>EMPLEADO (<u>dni</u>,nombre, direccion, telefono,..., tipo)</li>
+<li>EMPLEADO (<u>dni</u>,nombre, direccion, telefono,..., tipo)<ul>
+<li>PK: (dni)</li>
+</ul>
+</li>
 <li>JEFE (<u><mark>dni</mark></u>, opinion) <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li>PK: (dni)</li>
 <li>FK: dni-&gt;EMPLEADO(dni)</li>
 </ul>
 </li>
 <li>TRABAJADOR (<u><mark>dni</mark></u>, horas_extra) <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li>PK: (dni)</li>
 <li>FK: dni-&gt;EMPLEADO(dni)</li>
 </ul>
 </li>
@@ -2386,15 +2469,24 @@ Si la especialización es solapada, un campo con un único valor no basta: un em
 <p>Los atributos de las subclases pasan a la superclase. También se adaptan las relaciones asociadas a las subclases. En este caso, el campo que identifica el tipo es obligatorio.</p>
 <div class="admonition quote">
 <ul>
-<li>EMPLEADO (<u>dni</u>,nombre, direccion, telefono,... tipo, opinion, horas_extra)</li>
+<li>EMPLEADO (<u>dni</u>,nombre, direccion, telefono,... tipo, opinion, horas_extra)<ul>
+<li>PK: (dni)</li>
+</ul>
+</li>
 </ul>
 </div>
 <h3 id="opcion-3-integrar-el-supertipo-en-los-subtipos">Opción 3: Integrar el supertipo en los subtipos</h3>
 <p>Creamos una tabla por subtipo, incorporando los atributos del supertipo y los específicos de cada subtipo. No se crea una tabla para el supertipo. Sus relaciones se trasladan a las tablas de los subtipos.</p>
 <div class="admonition quote">
 <ul>
-<li>JEFE (<u>dni</u>, nombre, direccion, telefono, ..., opinion)</li>
-<li>TRABAJADOR (<u>dni</u>, nombre, direccion, telefono, ..., horas_extra)</li>
+<li>JEFE (<u>dni</u>, nombre, direccion, telefono, ..., opinion)<ul>
+<li>PK: (dni)</li>
+</ul>
+</li>
+<li>TRABAJADOR (<u>dni</u>, nombre, direccion, telefono, ..., horas_extra)<ul>
+<li>PK: (dni)</li>
+</ul>
+</li>
 </ul>
 </div>
 <h3 id="criterio-practico_1">Criterio práctico</h3>
@@ -2424,6 +2516,7 @@ ya hemos comentado que dará lugar, aparte de las tablas de las entidades, a otr
 
 !!! quote ""
     - TRABAJA (<u><mark>dni</mark>, <mark>num_p</mark></u>, horas)
+        - PK: (dni, num_p)
         - FK: dni->EMPLEADO(dni)
         - FK: num_p->PROYECTO(num_p)
 

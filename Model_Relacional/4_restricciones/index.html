@@ -2036,7 +2036,10 @@
 <p><strong>Representación</strong>:</p>
 <div class="admonition quote">
 <ul>
-<li>EMPLEADO (<u>dni</u>, nombre, direccion, telefono, sueldo, fecha_n)</li>
+<li>EMPLEADO (<u>dni</u>, nombre, direccion, telefono, sueldo, fecha_n)<ul>
+<li>PK: (dni)</li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="admonition tip">
@@ -2054,6 +2057,7 @@
 <p class="admonition-title">Ejemplo: no puede haber dos Empleados con el mismo email</p>
 <ul>
 <li>EMPLEADO (<u>dni</u>, nombre, email)<ul>
+<li>PK: (dni)</li>
 <li>email <span class="tag-unico">[unico]</span></li>
 </ul>
 </li>
@@ -2066,6 +2070,7 @@
 <p class="admonition-title">Ejemplo: el atributo nombre siempre es obligatorio</p>
 <ul>
 <li>EMPLEADO (<u>dni</u>, nombre, direccion, telefono, sueldo, fecha_n)<ul>
+<li>PK: (dni)</li>
 <li>nombre  <span class="tag-no-nulo">[no nulo]</span></li>
 </ul>
 </li>
@@ -2103,6 +2108,7 @@
 <div class="admonition quote">
 <ul>
 <li>TRABAJA (<u><mark>dni</mark>, <mark>num_p</mark></u>, horas)  <ul>
+<li>PK: (dni, num_p)</li>
 <li>FK: dni-&gt;EMPLEADO(dni)  </li>
 <li>FK: num_p-&gt;PROYECTO(num_p)  </li>
 </ul>
