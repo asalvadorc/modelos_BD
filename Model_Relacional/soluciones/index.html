@@ -1735,13 +1735,17 @@
 <p class="admonition-title">Advertencia</p>
 <p>Antes de consultar la resolución, asegúrate de haber intentado resolver el ejercicio. Comparar tu propuesta con la solución te ayudará mucho más que leerla directamente.</p>
 </div>
+<div class="admonition info">
+<p class="admonition-title">Atributos de los enunciados y de las soluciones</p>
+<p>Para simplificar las imágenes y facilitar su lectura, en los diagramas E/R de los enunciados no se han representado todos los atributos. En las soluciones se incluyen algunos atributos descriptivos adicionales para aportar más información al modelo relacional. Ten en cuenta que las tablas no contienen únicamente claves primarias y foráneas, sino también otros datos de interés sobre las entidades y las relaciones. Al resolver los ejercicios, incluye los atributos que aparecen en el diagrama. No tienes que inventar los atributos adicionales que aparecen en la solución, y no se considerará un error que no los hayas incluido.</p>
+</div>
 <details class="example">
 <summary>Ejercicio 1</summary>
 <details class="question">
 <summary>Enunciado</summary>
 <p>Recordad que teníamos 3 opciones:</p>
-<p><img alt="alt text" class="grayscale" src="../image-35.png" width="400" /></p>
 </details>
+<p><img alt="alt text" class="grayscale" src="../image-68.png" width="400" /></p>
 <details class="success">
 <summary>Solución propuesta</summary>
 <div class="admonition quote">
@@ -1749,7 +1753,7 @@
 <ul>
 <li><strong>SOCIO</strong> (<u>dni</u>, nombre, direccion, telefono, correo)</li>
 <li><strong>VINO</strong> (<u>codi_vi</u>, descripcion, anio_cogida)</li>
-<li><strong>RETIRA</strong> (<u>cod_re</u>, <mark>dni</mark>, <mark>codi_vi</mark>, fecha, cant)<ul>
+<li><strong>RETIRA</strong> (<u>cod_retira</u>, <mark>dni</mark>, <mark>codi_vi</mark>, fecha, cant)<ul>
 <li>FK: dni-&gt;SOCIO(dni)</li>
 <li>FK: codi_vi-&gt;VINO(codi_vi)</li>
 </ul>
@@ -1761,7 +1765,7 @@
 <ul>
 <li><strong>SOCIO</strong> (<u>dni</u>, nombre, direccion, telefono, correo)</li>
 <li><strong>VINO</strong> (<u>codi_vi</u>, descripcion, anio_cogida)</li>
-<li><strong>VALE</strong> (<u>num_val</u>, <mark>dni</mark>, <mark>codi_vi</mark>, fecha, cant)<ul>
+<li><strong>VALE</strong> (<u>num_vale</u>, <mark>dni</mark>, <mark>codi_vi</mark>, fecha, cant)<ul>
 <li>FK: dni-&gt;SOCIO(dni)</li>
 <li>FK: codi_vi-&gt;VINO(num_p)</li>
 </ul>
@@ -1773,12 +1777,12 @@
 <ul>
 <li><strong>SOCIO</strong> (<u>dni</u>, nombre, direccion, telefono, correo)</li>
 <li><strong>VINO</strong> (<u>codi_vi</u>, descripcion, anio_cogida)</li>
-<li><strong>VALE</strong> (<u>num_val</u>, <mark>dni</mark>,fecha)<ul>
+<li><strong>VALE</strong> (<u>num_vale</u>, <mark>dni</mark>,fecha)<ul>
 <li>FK: dni-&gt;SOCIO(dni)</li>
 </ul>
 </li>
 <li><strong>RETIRA</strong> (<u><mark>num_val</mark>, <mark>dni</mark>, cant</u>)<ul>
-<li>FK: num_val-&gt;VALE(num_val)</li>
+<li>FK: num_vale-&gt;VALE(num_vale)</li>
 <li>FK: codi_vi-&gt;VINO(num_p)</li>
 </ul>
 </li>
@@ -1795,19 +1799,19 @@
 <details class="success">
 <summary>Solución propuesta</summary>
 <ul>
-<li><strong>MUNICIPIO</strong> (<u>codigo_municipio</u>)</li>
-<li><strong>VIVIENDA</strong> (<u>referencia_catastral</u>, <mark>codigo_municipio</mark>)<ul>
-<li>FK: codigo_municipio-&gt;MUNICIPIO(codigo_municipio)</li>
+<li><strong>MUNICIPIO</strong> (<u>cod_m</u>)</li>
+<li><strong>VIVIENDA</strong> (<u>cod_cat</u>, <mark>cod_m</mark>)<ul>
+<li>FK: cod_m-&gt;MUNICIPIO(cod_m)</li>
 </ul>
 </li>
-<li><strong>PERSONA</strong> (<u>codigo_persona</u>, <mark>referencia_catastral</mark>, <mark>codigo_persona_cabeza_familia</mark>, parentesco)<ul>
-<li>FK: referencia_catastral-&gt;VIVIENDA(referencia_catastral)</li>
-<li>FK: codigo_persona_cabeza_familia-&gt;PERSONA(codigo_persona)</li>
+<li><strong>PERSONA</strong> (<u>cod_p</u>, <mark>cod_cat</mark>, <mark>cod_per_ref</mark>, parentesco)<ul>
+<li>FK: cod_cat-&gt;VIVIENDA(cod_cat)</li>
+<li>FK: cod_per_ref-&gt;PERSONA(cod_p)</li>
 </ul>
 </li>
-<li><strong>PROPIEDAD</strong> (<u><mark>codigo_persona</mark>,<mark>referencia_catastral</mark></u>)<ul>
-<li>FK: codigo_persona-&gt;PERSONA(codigo_persona)</li>
-<li>FK: referencia_catastral-&gt;VIVIENDA(referencia_catastral)</li>
+<li><strong>PROPIEDAD</strong> (<u><mark>cod_p</mark>,<mark>cod_cat</mark></u>)<ul>
+<li>FK: cod_p-&gt;PERSONA(cod_p)</li>
+<li>FK: cod_cat-&gt;VIVIENDA(cod_cat)</li>
 </ul>
 </li>
 </ul>
@@ -1822,24 +1826,24 @@
 <details class="success">
 <summary>Solución propuesta</summary>
 <ul>
-<li><strong>ÁREA DE CONOCIMIENTO</strong> (<u>ID_Area</u>)</li>
-<li><strong>FACULTAD</strong> (<u>ID_Facultad</u>)</li>
-<li><strong>DEPARTAMENTO</strong> (<u>ID_Depto</u>, <mark>ID_Area</mark>)<ul>
-<li>FK: ID_Area-&gt;ÁREA DE CONOCIMIENTO(ID_Area) <span class="tag-no-nulo">[no nulo]</span></li>
+<li><strong>ÁREA DE CONOCIMIENTO</strong> (<u>cod_a</u>)</li>
+<li><strong>FACULTAD</strong> (<u>cod_fac</u>)</li>
+<li><strong>DEPARTAMENTO</strong> (<u>cod_dept</u>, <mark>cod_a</mark>)<ul>
+<li>FK: cod_a-&gt;ÁREA DE CONOCIMIENTO(cod_a) <span class="tag-no-nulo">[no nulo]</span></li>
 </ul>
 </li>
-<li><strong>CÁTEDRA</strong> (<u>ID_Catedra</u>, <mark>ID_Depto</mark>, <mark>ID_Facultad</mark>)<ul>
-<li>FK: ID_Depto-&gt;DEPARTAMENTO(ID_Depto)</li>
-<li>FK: ID_Facultad-&gt;FACULTAD(ID_Facultad) <span class="tag-no-nulo">[no nulo]</span></li>
+<li><strong>CÁTEDRA</strong> (<u>cod_cat</u>, <mark>cod_dept</mark>, <mark>cod_fac</mark>)<ul>
+<li>FK: cod_dept-&gt;DEPARTAMENTO(cod_dept)</li>
+<li>FK: cod_fac-&gt;FACULTAD(cod_fac) <span class="tag-no-nulo">[no nulo]</span></li>
 </ul>
 </li>
-<li><strong>PROFESOR</strong> (<u>ID_Profesor</u>, <mark>ID_Depto</mark>)<ul>
-<li>FK: ID_Depto-&gt;DEPARTAMENTO(ID_Depto) <span class="tag-no-nulo">[no nulo]</span></li>
+<li><strong>PROFESOR</strong> (<u>dni</u>, <mark>cod_dept</mark>)<ul>
+<li>FK: cod_dept-&gt;DEPARTAMENTO(cod_dept) <span class="tag-no-nulo">[no nulo]</span></li>
 </ul>
 </li>
-<li><strong>ADSCRITO_A</strong> (<u><mark>ID_Profesor</mark>, <mark>ID_Catedra</mark></u>, fecha)<ul>
-<li>FK: ID_Profesor-&gt;PROFESOR(ID_Profesor)</li>
-<li>FK: ID_Catedra-&gt;CÁTEDRA(ID_Catedra)</li>
+<li><strong>ADSCRITO_A</strong> (<u><mark>dni</mark>, <mark>cod_cat</mark></u>, fecha)<ul>
+<li>FK: dni-&gt;PROFESOR(dni)</li>
+<li>FK: cod_cat-&gt;CÁTEDRA(cod_cat)</li>
 </ul>
 </li>
 </ul>
@@ -1854,27 +1858,27 @@
 <details class="success">
 <summary>Solución propuesta</summary>
 <ul>
-<li><strong>TEMA</strong> (<u>codigo_tema</u>)</li>
-<li><strong>AUTOR</strong> (<u>codigo_autor</u>)</li>
-<li><strong>EDITORIAL</strong> (<u>codigo_editorial</u>)</li>
-<li><strong>LIBRO</strong> (<u>isbn</u>, <mark>codigo_tema</mark>, <mark>codigo_editorial</mark>)<ul>
-<li>FK: codigo_tema-&gt;TEMA(codigo_tema)</li>
-<li>FK: codigo_editorial-&gt;EDITORIAL(codigo_editorial)</li>
+<li><strong>TEMA</strong> (<u>cod_t</u>)</li>
+<li><strong>AUTOR</strong> (<u>cod_aut</u>)</li>
+<li><strong>EDITORIAL</strong> (<u>cod_ed</u>)</li>
+<li><strong>LIBRO</strong> (<u>isbn</u>, <mark>cod_t</mark>, <mark>cod_ed</mark>)<ul>
+<li>FK: cod_t-&gt;TEMA(cod_t)</li>
+<li>FK: cod_ed-&gt;EDITORIAL(cod_ed)</li>
 </ul>
 </li>
-<li><strong>EJEMPLAR</strong> (<u>numero_registro</u>, <mark>isbn</mark>,<mark>dni</mark>, fecha_prestamo ) <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li><strong>EJEMPLAR</strong> (<u>n_reg</u>, <mark>isbn</mark>,<mark>dni</mark>, fecha_p) <span class="tag-cascade">(borrar en cascada)</span><ul>
 <li>FK: isbn-&gt;LIBRO(isbn) <span class="tag-no-nulo">[no nulo]</span></li>
 <li>FK: dni-&gt;LECTOR(dni)</li>
 </ul>
 </li>
-<li><strong>ESCRIBE</strong> (<u><mark>codigo_autor</mark>, <mark>isbn</mark></u>)<ul>
-<li>FK: codigo_autor-&gt;AUTOR(codigo_autor)</li>
+<li><strong>ESCRIBE</strong> (<u><mark>cod_aut</mark>, <mark>isbn</mark></u>)<ul>
+<li>FK: cod_aut-&gt;AUTOR(cod_aut)</li>
 <li>FK: isbn-&gt;LIBRO(isbn)</li>
 </ul>
 </li>
 <li><strong>LECTOR</strong> (<u>dni</u>)</li>
-<li><strong>HISTORICO</strong> ( <u><mark>numero_registro</mark>, <mark>dni</mark>, fecha_prestamo</u>, fecha_devolucion)<ul>
-<li>FK: numero_registro-&gt;EJEMPLAR(numero_registro)</li>
+<li><strong>HISTORICO</strong> ( <u><mark>n_reg</mark>, <mark>dni</mark>, fecha_p</u>, fecha_dev)<ul>
+<li>FK: n_reg-&gt;EJEMPLAR(n_reg)</li>
 <li>FK: dni-&gt;LECTOR(dni)</li>
 </ul>
 </li>
@@ -1892,27 +1896,27 @@
 <div class="admonition quote">
 <p class="admonition-title">Opción 1</p>
 <ul>
-<li><strong>BANCO</strong> (<u>numero_entidad</u>)</li>
-<li><strong>SUCURSAL</strong> (<u><mark>numero_entidad</mark>, numero_sucursal</u>) <span class="tag-cascade">(borrar en cascada)</span><ul>
-<li>FK: numero_entidad-&gt;BANCO(numero_entidad) <span class="tag-no-nulo">[no nulo]</span></li>
+<li><strong>BANCO</strong> (<u>cod_ent</u>)</li>
+<li><strong>SUCURSAL</strong> (<u><mark>cod_ent</mark>, cod_suc</u>) <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li>FK: cod_ent-&gt;BANCO(cod_ent) <span class="tag-no-nulo">[no nulo]</span></li>
 </ul>
 </li>
-<li><strong>CUENTA CORRIENTE</strong> (<u><mark>numero_entidad</mark>, <mark>numero_sucursal</mark></u>, <u>numero_cuenta</u>) <span class="tag-cascade">(borrar en cascada)</span><ul>
-<li>FK: numero_entidad, numero_sucursal-&gt;SUCURSAL(numero_entidad, numero_sucursal)</li>
+<li><strong>CUENTA CORRIENTE</strong> (<u><mark>cod_ent</mark>, <mark>cod_suc</mark></u>, <u>cod_cc</u>) <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li>FK: cod_ent, cod_suc-&gt;SUCURSAL(cod_ent, cod_suc)</li>
 </ul>
 </li>
-<li><strong>DOMICILIACION</strong> (<u><mark>numero_entidad</mark>, <mark>numero_sucursal</mark>, <mark>numero_cuenta</mark>, numero_domicilio</u>) <span class="tag-cascade">(borrar en cascada)</span><ul>
-<li>FK: numero_entidad, numero_sucursal, numero_cuenta-&gt;CUENTA CORRIENTE(numero_entidad, numero_sucursal, numero_cuenta)</li>
+<li><strong>DOMICILIACION</strong> (<u><mark>cod_ent</mark>, <mark>cod_suc</mark>, <mark>cod_cc</mark>, cod_d</u>) <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li>FK: cod_ent, cod_suc, cod_cc-&gt;CUENTA CORRIENTE(cod_ent, cod_suc, cod_cc)</li>
 </ul>
 </li>
 <li><strong>CLIENTE</strong> (<u>dni</u>)</li>
-<li><strong>PRESTAMO</strong> (<u><mark>numero_entidad</mark>, <mark>numero_sucursal</mark>, numero_prestamo</u>, <mark>dni</mark>) <span class="tag-cascade">(borrar en cascada)</span><ul>
-<li>FK: numero_entidad, numero_sucursal-&gt;SUCURSAL(numero_entidad, numero_sucursal)</li>
+<li><strong>PRESTAMO</strong> (<u><mark>cod_ent</mark>, <mark>cod_suc</mark>, cod_p</u>, <mark>dni</mark>) <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li>FK: cod_ent, cod_suc-&gt;SUCURSAL(cod_ent, cod_suc)</li>
 <li>FK: dni-&gt;CLIENTE(dni)</li>
 </ul>
 </li>
-<li><strong>PERMISOS</strong> (<u><mark>numero_entidad</mark>, <mark>numero_sucursal</mark>, <mark>numero_cuenta</mark>, <mark>dni</mark></u>, privilegio)<ul>
-<li>FK: numero_entidad, numero_sucursal, numero_cuenta-&gt;CUENTA CORRIENTE(numero_entidad, numero_sucursal, numero_cuenta)</li>
+<li><strong>PERMISOS</strong> (<u><mark>cod_ent</mark>, <mark>cod_suc</mark>, <mark>cod_cc</mark>, <mark>dni</mark></u>, privilegio)<ul>
+<li>FK: cod_ent, cod_suc, cod_cc-&gt;CUENTA CORRIENTE(cod_ent, cod_suc, cod_cc)</li>
 <li>FK: dni-&gt;CLIENTE(dni)</li>
 </ul>
 </li>
@@ -1921,27 +1925,27 @@
 <div class="admonition quote">
 <p class="admonition-title">Opción 2</p>
 <ul>
-<li><strong>BANCO</strong> (<u>numero_entidad</u>)</li>
-<li><strong>SUCURSAL</strong> (<u><mark>numero_entidad</mark>, numero_sucursal</u>) <span class="tag-cascade">(borrar en cascada)</span><ul>
-<li>FK: numero_entidad-&gt;BANCO(numero_entidad) <span class="tag-no-nulo">[no nulo]</span></li>
+<li><strong>BANCO</strong> (<u>cod_ent</u>)</li>
+<li><strong>SUCURSAL</strong> (<u><mark>cod_ent</mark>, cod_suc</u>) <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li>FK: cod_ent-&gt;BANCO(cod_ent) <span class="tag-no-nulo">[no nulo]</span></li>
 </ul>
 </li>
-<li><strong>CUENTA CORRIENTE</strong> (<u><mark>numero_entidad</mark>, <mark>numero_sucursal</mark></u>, <u>numero_cuenta</u>) <span class="tag-cascade">(borrar en cascada)</span><ul>
-<li>FK: numero_entidad, numero_sucursal-&gt;SUCURSAL(numero_entidad, numero_sucursal)</li>
+<li><strong>CUENTA CORRIENTE</strong> (<u><mark>cod_ent</mark>, <mark>cod_suc</mark></u>, <u>cod_cc</u>) <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li>FK: cod_ent, cod_suc-&gt;SUCURSAL(cod_ent, cod_suc)</li>
 </ul>
 </li>
-<li><strong>DOMICILIACION</strong> (<u>num_d</u>,<mark>numero_entidad</mark>, <mark>numero_sucursal</mark>, <mark>numero_cuenta</mark>) <span class="tag-cascade">(borrar en cascada)</span><ul>
-<li>FK: numero_entidad, numero_sucursal, numero_cuenta-&gt;CUENTA CORRIENTE(numero_entidad, numero_sucursal, numero_cuenta) <span class="tag-no-nulo">[no nulo]</span></li>
+<li><strong>DOMICILIACION</strong> (<u>num_d</u>,<mark>cod_ent</mark>, <mark>cod_suc</mark>, <mark>cod_cc</mark>) <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li>FK: cod_ent, cod_suc, cod_cc-&gt;CUENTA CORRIENTE(cod_ent, cod_suc, cod_cc) <span class="tag-no-nulo">[no nulo]</span></li>
 </ul>
 </li>
 <li><strong>CLIENTE</strong> (<u>dni</u>)</li>
-<li><strong>PRESTAMO</strong> (<u><mark>numero_entidad</mark>, <mark>numero_sucursal</mark>, numero_prestamo</u>, <mark>dni</mark>) <span class="tag-cascade">(borrar en cascada)</span><ul>
-<li>FK: numero_entidad, numero_sucursal-&gt;SUCURSAL(numero_entidad, numero_sucursal)</li>
+<li><strong>PRESTAMO</strong> (<u><mark>cod_ent</mark>, <mark>cod_suc</mark>, cod_p</u>, <mark>dni</mark>) <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li>FK: cod_ent, cod_suc-&gt;SUCURSAL(cod_ent, cod_suc)</li>
 <li>FK: dni-&gt;CLIENTE(dni)</li>
 </ul>
 </li>
-<li><strong>PERMISOS</strong> (<u> cod_p</u>,<mark>numero_entidad</mark>, <mark>numero_sucursal</mark>, <mark>numero_cuenta</mark>, <mark>dni</mark>, privilegio)<ul>
-<li>FK: numero_entidad, numero_sucursal, numero_cuenta-&gt;CUENTA CORRIENTE(numero_entidad, numero_sucursal, numero_cuenta) <span class="tag-no-nulo">[no nulo]</span></li>
+<li><strong>PERMISOS</strong> (<u> cod_p</u>,<mark>cod_ent</mark>, <mark>cod_suc</mark>, <mark>cod_cc</mark>, <mark>dni</mark>, privilegio)<ul>
+<li>FK: cod_ent, cod_suc, cod_cc-&gt;CUENTA CORRIENTE(cod_ent, cod_suc, cod_cc) <span class="tag-no-nulo">[no nulo]</span></li>
 <li>FK: dni-&gt;CLIENTE(dni)    </li>
 </ul>
 </li>
@@ -2216,7 +2220,7 @@
 <details class="question">
 <summary>Enunciado</summary>
 <p>Realizar el esquema relacional correspondiente a un Parque Zoológico que quiere guardar información de las especies que tiene, los empleados (cuidadores y guías), y los distintos itinerarios de visita que ofrece.</p>
-<p><img alt="alt text" class="grayscale" src="../image-3.png" /></p>
+<p><img alt="alt text" class="grayscale" src="../image-70.png" /></p>
 </details>
 <details class="success">
 <summary>Solución propuesta</summary>
