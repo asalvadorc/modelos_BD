@@ -108,7 +108,7 @@ En la segunda incorporamos los trayectos, y además marcamos todas las estacione
 
 Realizar el esquema relacional correspondiente a un sistema de información sobre el material informático de una empresa.
 
-![alt text](image-2.png){ .grayscale }
+![alt text](image-71.png){ .grayscale }
 
 <!--
 Se desea mantener información sobre el material informático de una empresa.
@@ -193,7 +193,7 @@ El sistema de información ha de ser capaz de responder a consultas como:
 Realizar el esquema relacional correspondiente a un Parque Zoológico que quiere guardar información de las especies que tiene, los empleados (cuidadores y guías), y los distintos itinerarios de visita que ofrece.
 
 
-![alt text](image-3.png){ .grayscale }
+![alt text](image-70.png){ .grayscale }
 
 <!--
 Hacer el esquema E/R y posteriormente pasarlo a relacional correspondiente a un Parque Zoológico que quiere guardar información de las especies que tiene, los empleados (cuidadores y guías), y los distintos itinerarios de visita que ofrece.
