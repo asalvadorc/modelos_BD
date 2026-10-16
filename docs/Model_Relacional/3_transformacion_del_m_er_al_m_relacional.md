@@ -44,9 +44,13 @@ En nuestro ejemplo, como teníamos 4 entidades, nos saldrán de momento 4 tablas
 
 !!! quote ""
     - EMPLEADO (<u>dni</u>, nombre, direccion, telefono, sueldo, fecha_n)
+        - PK: (dni)
     - DEPARTAMENTO (<u>num_d</u>)
+        - PK: (num_d)
     - PROYECTO (<u>num_p</u>, nombre_p)
+        - PK: (num_p)
     - FAMILIAR (<u>nombre</u>, fecha_n, parentesco)
+        - PK: (nombre)
 
 
 <!--[](T3_4_1_1.png)-->
@@ -79,12 +83,16 @@ Las relaciones 1:N de nuestro **ejemplo** se representarían así:
 
 !!! quote ""
     - EMPLEADO (<u>dni</u>, nombre, direccion, telefono, sueldo, fecha_n, <mark>departamento</mark>, <mark>supervisor</mark>)
+        - PK: (dni)
         - FK: departamento->DEPARTAMENTO(num_d) <span class="tag-no-nulo">[no nulo]</span>
         - FK: supervisor->EMPLEADO(dni)
     - DEPARTAMENTO (<u>num_d</u>, nombre_d)
+        - PK: (num_d)
     - PROYECTO (<u>num_p</u>, nombre_p, <mark>departamento</mark>)
+        - PK: (num_p)
         - FK: departamento->DEPARTAMENTO(num_d) <span class="tag-no-nulo">[no nulo]</span>
     - FAMILIAR (<u>nombre</u>, fecha_n, parentesco, <mark>dni_e</mark>)
+        - PK: (nombre)
         - FK: dni_e->EMPLEADO(dni) <span class="tag-no-nulo">[no nulo]</span>
 
 
@@ -105,6 +113,7 @@ Si cada empleado tiene como máximo un supervisor y un supervisor puede supervis
 
 !!! quote ""
     - EMPLEADO (<u>dni</u>, nombre, direccion, telefono, sueldo, fecha_n, <mark>supervisor</mark>)
+        - PK: (dni)
         - FK: supervisor->EMPLEADO(dni)
 
 El atributo `supervisor` contiene el `dni` del empleado que supervisa a esa persona. Puede ser **nulo** cuando el empleado no tiene supervisor (por ejemplo, quien dirige la organización). Un mismo `dni` de supervisor puede aparecer en varias filas, ya que una persona puede supervisar a varios empleados.
@@ -133,6 +142,7 @@ La traducción al modelo relacional queda:
 
 !!! quote ""
     - TRABAJA (<mark><u>dni, num_p</u></mark>, horas)
+        - PK: (dni, num_p)
         - FK: dni->EMPLEADO(dni)
         - FK: num_p->PROYECTO(num_p)
 
@@ -152,6 +162,7 @@ Se añade **fecha_inicio** a la clave principal para diferenciar participaciones
 
 !!! quote ""
     - TRABAJA (<mark><u>dni, num_p</mark>, fecha incio</u>, fecha_fin, horas)
+        - PK: (dni, num_p, fecha incio)
         - FK: dni->EMPLEADO(dni)
         - FK: num_p->PROYECTO(num_p)
 
@@ -166,7 +177,9 @@ Una relación reflexiva también puede ser **N:N**. Por ejemplo, un empleado pue
 
 !!! quote ""
     - EMPLEADO (<u>dni</u>, nombre, ...)
+        - PK: (dni)
     - COLABORA (<mark><u>dni_empleado, dni_colaborador</u></mark>)
+        - PK: (dni_empleado, dni_colaborador)
         - FK: dni_empleado->EMPLEADO(dni)
         - FK: dni_colaborador->EMPLEADO(dni)
 
@@ -199,7 +212,9 @@ Todos los departamentos tienen director (no nula) y solo uno (única), pero no t
 
 !!! quote ""
     - EMPLEADO (<u>dni</u>, nombre, direccion, telefono, sueldo, fecha_n)
+        - PK: (dni)
     - DEPARTAMENTO (<u>num_d</u>, nom_d, <mark>director</mark>, Fecha)
+        - PK: (num_d)
         - FK: director->EMPLEADO(dni) 
         <span class="tag-no-nulo">[no nulo]</span> 
         <span class="tag-unico">[unico]</span>
@@ -219,6 +234,7 @@ Ejemplo:
 
 !!! quote ""
     - PERSONA (<u>dni</u>,....(datos persona)....(datos colección)...)
+        - PK: (dni)
 
 
 ### Caso 3: Ambas entidades participan de forma parcial
@@ -233,8 +249,11 @@ Traducción:
 
 !!! quote ""
     - PERSONA (<u>dni</u>, ...(datos persona)...)
+        - PK: (dni)
     - COLECCION (<u>cod_col</u>, ...(datos colección)...)
+        - PK: (cod_col)
     - PROPIETARIO (<mark><u>dni, cod_col</u></mark>)
+        - PK: (dni, cod_col)
         - FK: dni->PERSONA(dni)
         - FK: cod_col->COLECCION(cod_col)
 
@@ -253,6 +272,7 @@ Se puede representar con una clave externa a la propia tabla **EMPLEADO**. La re
 
 !!! quote ""
     - EMPLEADO (<u>dni</u>, nombre, <mark>mentor</mark>)
+        - PK: (dni)
         - FK: mentor->EMPLEADO(dni) <span class="tag-unico">[unico]</span>
 
 Si la participación exigiera que todos tuvieran mentor, `mentor` sería además <span class="tag-no-nulo">[no nulo]</span>. La decisión de dónde ubicar la clave externa sigue el criterio general del caso 1:1 descrito arriba.
@@ -279,7 +299,9 @@ En el ejemplo:
 
 !!! quote ""
     - EMPLEADO (<u>dni</u>, nombre, direccion, telefono, sueldo, fecha_n)
+        - PK: (dni)
     - FAMILIAR (<u><mark>dni_e</mark>, nom_f</u>, fecha_n, parentesco  <span class="tag-cascade">(borrar en cascada)</span>
+        - PK: (dni_e, nom_f)
         - FK: dni_e->PERSONA(dni)
 
 
@@ -319,8 +341,10 @@ Importante:
 
 !!! quote ""
     - FAMILIAR (<u><i>dni_e</i>, nom_f</u>, fecha_n, parentesco  <span class="tag-cascade">(borrar en cascada)</span>
+        - PK: (dni_e, nom_f)
         - FK: dni_e->PERSONA(dni)
     - CARTAS (<u>id</u>, texto, <mark>dni_e, nom_f</mark>)
+        - PK: (id)
         - FK: dni_e, nom_f->FAMILIAR(dni_e, nom_f)
 
 
@@ -341,9 +365,13 @@ En este caso creamos una tabla. La clave primaria de la nueva tabla estará form
 Creamos la tabla COMPRA:
 !!! quote ""
     - DEPARTAMENTO (<u>num_d</u>, ....)
+        - PK: (num_d)
     - ARTICULO (<u>cod_art</u>, ....)
+        - PK: (cod_art)
     - PROVEEDOR (<u>cod_pr</u>, ....)
+        - PK: (cod_pr)
     - COMPRA (<u><mark>num_d</mark>, <mark>cod_art</mark>, <mark>cod_pr</mark> </u>) 
+        - PK: (num_d, cod_art, cod_pr)
         - FK: num_d->DEPARTAMENTO(num_d)
         - FK: cod_art->ARTICULO(cod_art)
         - FK: cod_pr->PROVEEDOR(cod_pr)
@@ -359,6 +387,7 @@ En este caso creamos una tabla. La clave primaria de la nueva tabla estará form
 La tabla resultante sería:
 !!! quote ""
     - COMPRA (<u><mark>num_d</mark>, <mark>cod_art</mark> </u>, <mark>cod_pr</mark>) 
+        - PK: (num_d, cod_art)
         - FK: num_d->DEPARTAMENTO(num_d)
         - FK: cod_art->ARTICULO(cod_art)
         - FK: cod_pr->PROVEEDOR(cod_pr) <span class="tag-no-nulo">[no nulo]</span>
@@ -375,6 +404,7 @@ Creamos una tabla para la relación con las claves primarias de las tres entidad
 
 !!! quote ""
     - COMPRA (<u><mark>num_d</mark>, <mark>cod_art</mark> </u>, <mark>cod_pr</mark>) 
+        - PK: (num_d, cod_art)
         - FK: num_d->DEPARTAMENTO(num_d)
         - FK: cod_art->ARTICULO(cod_art)
         - FK: cod_pr->PROVEEDOR(cod_pr) <span class="tag-no-nulo">[no nulo]</span> <span class="tag-unico">[única]</span>
@@ -389,9 +419,13 @@ En el ejemplo ternario, con atributos como **fecha de compra** y **cantidad**:
 
 !!! quote ""
     - DEPARTAMENTO (<u>num_d</u>, ....)
+        - PK: (num_d)
     - ARTICULO (<u>cod_art</u>, ....)
+        - PK: (cod_art)
     - PROVEEDOR (<u>cod_pr</u>, ....)
+        - PK: (cod_pr)
     - COMPRA (<u><mark>num_d</mark>, <mark>cod_art</mark>, <mark>cod_pr</mark>, fecha_c </u>, cantidad) 
+        - PK: (num_d, cod_art, cod_pr, fecha_c)
         - FK: num_d->DEPARTAMENTO(num_d)
         - FK: cod_art->ARTICULO(cod_art)
         - FK: cod_pr->PROVEEDOR(cod_pr)
@@ -408,9 +442,13 @@ Las claves externas se mantienen y, normalmente, son no nulas:
 
 !!! quote ""
     - DEPARTAMENTO (<u>num_d</u>, ....)
+        - PK: (num_d)
     - ARTICULO (<u>cod_art</u>, ....)
+        - PK: (cod_art)
     - PROVEEDOR (<u>cod_pr</u>, ....)
+        - PK: (cod_pr)
     - COMPRA (<u>id</u>,<mark>num_d</mark>, <mark>cod_art</mark>, <mark>cod_pr</mark>, fecha_c , cantidad) 
+        - PK: (id)
         - FK: num_d->DEPARTAMENTO(num_d) <span class="tag-no-nulo">[no nulo]</span>
         - FK: cod_art->ARTICULO(cod_art) <span class="tag-no-nulo">[no nulo]</span>
         - FK: cod_pr->PROVEEDOR(cod_pr) <span class="tag-no-nulo">[no nulo]</span>
@@ -431,9 +469,12 @@ En el ejemplo:
 
 !!! quote ""
     - EMPLEADO (<u>dni</u>,nombre, direccion, telefono,..., tipo)
+        - PK: (dni)
     - JEFE (<u><mark>dni</mark></u>, opinion) <span class="tag-cascade">(borrar en cascada)</span>
+        - PK: (dni)
         - FK: dni->EMPLEADO(dni)
     - TRABAJADOR (<u><mark>dni</mark></u>, horas_extra) <span class="tag-cascade">(borrar en cascada)</span>
+        - PK: (dni)
         - FK: dni->EMPLEADO(dni)
 
 
@@ -444,6 +485,7 @@ Los atributos de las subclases pasan a la superclase. También se adaptan las re
 
 !!! quote ""
     - EMPLEADO (<u>dni</u>,nombre, direccion, telefono,... tipo, opinion, horas_extra)
+        - PK: (dni)
 
 
 ### Opción 3: Integrar el supertipo en los subtipos
@@ -452,7 +494,9 @@ Creamos una tabla por subtipo, incorporando los atributos del supertipo y los es
 
 !!! quote ""
     - JEFE (<u>dni</u>, nombre, direccion, telefono, ..., opinion)
+        - PK: (dni)
     - TRABAJADOR (<u>dni</u>, nombre, direccion, telefono, ..., horas_extra)
+        - PK: (dni)
         
 
 
@@ -484,6 +528,7 @@ ya hemos comentado que dará lugar, aparte de las tablas de las entidades, a otr
 
 !!! quote ""
     - TRABAJA (<u><mark>dni</mark>, <mark>num_p</mark></u>, horas)
+        - PK: (dni, num_p)
         - FK: dni->EMPLEADO(dni)
         - FK: num_p->PROYECTO(num_p)
 

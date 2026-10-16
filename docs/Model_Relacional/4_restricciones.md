@@ -62,6 +62,7 @@ Define un atributo (o conjunto) como **identificador único** de cada tupla.
 
 !!! quote ""
     - EMPLEADO (<u>dni</u>, nombre, direccion, telefono, sueldo, fecha_n)
+        - PK: (dni)
 
 !!! tip "Buena Práctica"
     Si no existe una clave natural candidata, crear un campo artificial (ID, código, etc.)
@@ -79,6 +80,7 @@ Asegura que un campo (o conjunto) no se repita, **sin ser clave principal**.
 
 !!! Example "Ejemplo: no puede haber dos Empleados con el mismo email"
     - EMPLEADO (<u>dni</u>, nombre, email)
+        - PK: (dni)
         - email <span class="tag-unico">[unico]</span>
 
 ## 4.2.4 Restricción de Valor No Nulo
@@ -89,6 +91,7 @@ Obliga a que el atributo **siempre tenga un valor**.
 
 !!! Example "Ejemplo: el atributo nombre siempre es obligatorio"
     - EMPLEADO (<u>dni</u>, nombre, direccion, telefono, sueldo, fecha_n)
+        - PK: (dni)
         - nombre  <span class="tag-no-nulo">[no nulo]</span>
 
 
@@ -139,6 +142,7 @@ Además de las tablas de las entidades, se crea una tabla para la relación:
 
 !!!quote ""
     - TRABAJA (<u><mark>dni</mark>, <mark>num_p</mark></u>, horas)  
+        - PK: (dni, num_p)
         - FK: dni->EMPLEADO(dni)  
         - FK: num_p->PROYECTO(num_p)  
 

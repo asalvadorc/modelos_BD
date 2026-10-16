@@ -58,6 +58,7 @@ El elemento básico del Modelo Relacional es la **RELACIÓN**, que es una **tabl
         | Relación |
         |---|
         | EMPLEADO (<u>dni</u>, nombre, direccion, telefono, sueldo, fecha_n)|
+        | PK: (dni) |
 
     </div>
     
