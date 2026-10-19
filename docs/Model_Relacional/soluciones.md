@@ -114,9 +114,9 @@ hide:
             - PK: (isbn)
             - FK: cod_t->TEMA(cod_t)
             - FK: cod_ed->EDITORIAL(cod_ed)
-        - **EJEMPLAR** (<u>n_reg</u>, <mark>isbn</mark>,<mark>dni</mark>, fecha_p) <span class="tag-cascade">(borrar en cascada)</span>
-            - PK: (n_reg)
-            - FK: isbn->LIBRO(isbn) <span class="tag-no-nulo">[no nulo]</span>
+        - **EJEMPLAR** (<u><mark>isbn</mark>, n_reg</u>, <mark>dni</mark>, fecha_p) <span class="tag-cascade">(borrar en cascada)</span>
+            - PK: (isbn, n_reg)
+            - FK: isbn->LIBRO(isbn)
             - FK: dni->LECTOR(dni)
         - **ESCRIBE** (<u><mark>cod_aut</mark>, <mark>isbn</mark></u>)
             - PK: (cod_aut, isbn)
@@ -124,9 +124,9 @@ hide:
             - FK: isbn->LIBRO(isbn)
         - **LECTOR** (<u>dni</u>)
             - PK: (dni)
-        - **HISTORICO** ( <u><mark>n_reg</mark>, <mark>dni</mark>, fecha_p</u>, fecha_dev)
-            - PK: (n_reg, dni, fecha_p)
-            - FK: n_reg->EJEMPLAR(n_reg)
+        - **HISTORICO** ( <u><mark>isbn, n_reg</mark>, <mark>dni</mark>, fecha_p</u>, fecha_dev)
+            - PK: (isbn, n_reg, dni, fecha_p)
+            - FK: isbn, n_reg->EJEMPLAR(isbn, n_reg)
             - FK: dni->LECTOR(dni)
 
 
