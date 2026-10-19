@@ -239,7 +239,7 @@ Ejemplo:
 
 ### Caso 3: Ambas entidades participan de forma parcial
 
-Si en cualquiera de las dos tablas habría demasiados nulos, conviene crear una **tabla intermedia de relación**.
+Se resuelve normalmente colocando la clave primaria de una de las tablas como clave ajena en la otra, añadiendo una restricción UNIQUE para garantizar que no se repita.
 
 Ejemplo:
 
@@ -250,15 +250,12 @@ Traducción:
 !!! quote ""
     - PERSONA (<u>dni</u>, ...(datos persona)...)
         - PK: (dni)
-    - COLECCION (<u>cod_col</u>, ...(datos colección)...)
+    - COLECCION (<u>cod_col</u>, <mark><u>dni, </mark>...(datos colección)...)
         - PK: (cod_col)
     - PROPIETARIO (<mark><u>dni, cod_col</u></mark>)
-        - PK: (dni, cod_col)
-        - FK: dni->PERSONA(dni)
-        - FK: cod_col->COLECCION(cod_col)
-
-
-Si una participación es "casi total", puede seguir siendo más eficiente usar clave externa (caso 1), aceptando algunos nulos.
+        - PK: (cod_col)
+        - FK: dni->PERSONA(dni) span class="tag-unico">[unico]</span>
+        
 
 ### Regla práctica
 
