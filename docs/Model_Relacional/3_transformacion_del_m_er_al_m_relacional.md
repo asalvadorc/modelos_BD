@@ -252,9 +252,8 @@ Traducción:
         - PK: (dni)
     - COLECCION (<u>cod_col</u>, <mark><u>dni, </mark>...(datos colección)...)
         - PK: (cod_col)
-    - PROPIETARIO (<mark><u>dni, cod_col</u></mark>)
-        - PK: (cod_col)
-        - FK: dni->PERSONA(dni) span class="tag-unico">[unico]</span>
+        - FK: dni->PERSONA(dni) <span> class="tag-unico">[unico]</span>
+        
         
 
 ### Regla práctica
