@@ -2210,7 +2210,7 @@ Todos los departamentos tienen director (no nula) y solo uno (única), pero no t
 </ul>
 </div>
 <h3 id="caso-3-ambas-entidades-participan-de-forma-parcial">Caso 3: Ambas entidades participan de forma parcial</h3>
-<p>Si en cualquiera de las dos tablas habría demasiados nulos, conviene crear una <strong>tabla intermedia de relación</strong>.</p>
+<p>Se resuelve normalmente colocando la clave primaria de una de las tablas como clave ajena en la otra, añadiendo una restricción UNIQUE para garantizar que no se repita.</p>
 <p>Ejemplo:</p>
 <p><img alt="alt text" src="../image-18.png" /></p>
 <p>Traducción:</p>
@@ -2220,19 +2220,17 @@ Todos los departamentos tienen director (no nula) y solo uno (única), pero no t
 <li>PK: (dni)</li>
 </ul>
 </li>
-<li>COLECCION (<u>cod_col</u>, ...(datos colección)...)<ul>
+<li>COLECCION (<u>cod_col</u>, <mark><u>dni, </mark>...(datos colección)...)<ul>
 <li>PK: (cod_col)</li>
 </ul>
 </li>
 <li>PROPIETARIO (<mark><u>dni, cod_col</u></mark>)<ul>
-<li>PK: (dni, cod_col)</li>
-<li>FK: dni-&gt;PERSONA(dni)</li>
-<li>FK: cod_col-&gt;COLECCION(cod_col)</li>
+<li>PK: (cod_col)</li>
+<li>FK: dni-&gt;PERSONA(dni) span class="tag-unico"&gt;[unico]</span></li>
 </ul>
 </li>
 </ul>
 </div>
-<p>Si una participación es "casi total", puede seguir siendo más eficiente usar clave externa (caso 1), aceptando algunos nulos.</p>
 <h3 id="regla-practica">Regla práctica</h3>
 <p>En la mayoría de escenarios reales, una relación <strong>1:1</strong> se traduce mejor como <strong>clave externa en la tabla con participación total o casi total</strong>.</p>
 <h3 id="relacion-reflexiva-11-empleados-emparejados-como-mentores">Relación reflexiva 1:1: empleados emparejados como mentores</h3>
