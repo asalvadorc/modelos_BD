@@ -352,7 +352,7 @@ hide:
         - **IMPRESORA** (<u>codigo_i</u>, <mark>codigo_o</mark>)
             - PK: (codigo_i)
             - FK: codigo_o->ORDENADOR(codigo_o) <span class="tag-no-nulo">[no nulo]</span> <span class="tag-unico">[unico]</span>
-        - **APLICACIÓN** (<u>codigo_a</u>,<mark>codigo_o</mark>)
+        - **APLICACION** (<u>codigo_a</u>,<mark>codigo_o</mark>)
             - PK: (codigo_a)
             - FK: codigo_o->ORDENADOR(codigo_o) <span class="tag-no-nulo">[no nulo]</span>
         - **RED_ORDENADOR** (<u><mark>codigo_x</mark></u>, <u><mark>codigo_o</mark></u>)
