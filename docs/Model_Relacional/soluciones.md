@@ -110,7 +110,7 @@ hide:
             - PK: (cod_aut)
         - **EDITORIAL** (<u>cod_ed</u>)
             - PK: (cod_ed)
-        - **LIBRO** (<u>isbn</u>, <mark>cod_t</mark>, <mark>cod_ed</mark>, fecha_ed, num_ed)
+        - **LIBRO** (<u>isbn</u>, <mark>cod_t</mark>, <mark>cod_ed</mark>, fecha_ed)
             - PK: (isbn)
             - FK: cod_t->TEMA(cod_t)
             - FK: cod_ed->EDITORIAL(cod_ed)
