@@ -1914,9 +1914,9 @@
 <li>FK: cod_ed-&gt;EDITORIAL(cod_ed)</li>
 </ul>
 </li>
-<li><strong>EJEMPLAR</strong> (<u>n_reg</u>, <mark>isbn</mark>,<mark>dni</mark>, fecha_p) <span class="tag-cascade">(borrar en cascada)</span><ul>
-<li>PK: (n_reg)</li>
-<li>FK: isbn-&gt;LIBRO(isbn) <span class="tag-no-nulo">[no nulo]</span></li>
+<li><strong>EJEMPLAR</strong> (<u><mark>isbn</mark>, n_reg</u>, <mark>dni</mark>, fecha_p) <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li>PK: (isbn, n_reg)</li>
+<li>FK: isbn-&gt;LIBRO(isbn)</li>
 <li>FK: dni-&gt;LECTOR(dni)</li>
 </ul>
 </li>
@@ -1930,9 +1930,9 @@
 <li>PK: (dni)</li>
 </ul>
 </li>
-<li><strong>HISTORICO</strong> ( <u><mark>n_reg</mark>, <mark>dni</mark>, fecha_p</u>, fecha_dev)<ul>
-<li>PK: (n_reg, dni, fecha_p)</li>
-<li>FK: n_reg-&gt;EJEMPLAR(n_reg)</li>
+<li><strong>HISTORICO</strong> ( <u><mark>isbn, n_reg</mark>, <mark>dni</mark>, fecha_p</u>, fecha_dev)<ul>
+<li>PK: (isbn, n_reg, dni, fecha_p)</li>
+<li>FK: isbn, n_reg-&gt;EJEMPLAR(isbn, n_reg)</li>
 <li>FK: dni-&gt;LECTOR(dni)</li>
 </ul>
 </li>
