@@ -250,7 +250,7 @@ Traducción:
 !!! quote ""
     - PERSONA (<u>dni</u>, ...(datos persona)...)
         - PK: (dni)
-    - COLECCION (<u>cod_col</u>, <mark><u>dni, </mark>...(datos colección)...)
+    - COLECCION (<u>cod_col</u>, <mark>dni, </mark>...(datos colección)...)
         - PK: (cod_col)
         - FK: dni->PERSONA(dni) <span> class="tag-unico">[unico]</span>
         
