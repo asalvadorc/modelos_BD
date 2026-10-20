@@ -2524,66 +2524,6 @@ Si la especialización es solapada, un campo con un único valor no basta: un em
 <p class="admonition-title">📝 Practica ahora</p>
 <p>Con lo visto hasta ahora ya puedes resolver los <strong>ejercicios 6 al 10</strong> de la sección <a href="../5_ejercicios/">Ejercicios</a>.</p>
 </div>
-<h3 id="criterio-practico_1">Criterio práctico</h3>
-<p>Elige la opción que mejor equilibre claridad del modelo, volumen de datos y coste de mantenimiento.</p>
-<!--
-## 3.10 Restricciones externas
-
-
-
-Ya hemos comentado que restricciones externas son restricciones que no se pueden expresar por medio del modelo de datos. Entonces las expresaremos de palabra.
-
-Normalmente, las restricciones externas del Modelo E/R continuarán siéndolo en el Modelo Relacional, porque tampoco se podrán expresar. En nuestro ejemplo teníamos las restricciones externas del Modelo E/R:
-
-> **Rex1**: El jefe de un departamento debe ser miembro de este.
-
-> **Rex2**: Un empleado solo puede trabajar en proyectos coordinados por su departamento.
-
-Esto tampoco se puede expresar con el Modelo Relacional, por lo tanto las mantendremos.
-
-Aparte, se pueden crear más restricciones externas, porque con el Modelo Relacional no se puede expresar todo lo que se podía expresar con el Modelo E/R. Por ejemplo, en la relación:
-
-![alt text](image-24.png)
-
-
-
-ya hemos comentado que dará lugar, aparte de las tablas de las entidades, a otra tabla:
-
-!!! quote ""
-    - TRABAJA (<u><mark>dni</mark>, <mark>num_p</mark></u>, horas)
-        - PK: (dni, num_p)
-        - FK: dni->EMPLEADO(dni)
-        - FK: num_p->PROYECTO(num_p)
-
-
-donde **dni** y **num_p** son claves externas. Pero la entidad proyecto participa de forma total en la relación, es decir, en todo proyecto debe haber un empleado trabajando. ¿Cómo controlamos esto? Pues es una nueva restricción externa que la podríamos formular así:
-
-> **RexR3**: Todo proyecto debe tener como mínimo un empleado trabajando en él.
-
-Las participaciones totales que nos supondrán una restricción externa son:
-
-  * En una relación **1:N**, una participación total de la entidad que participa con grado 1.
-
-
-  * En una relación **M:N**, cualquier participación total (si las dos participan de forma total, entonces habrá dos restricciones externas).
-
-
-  * En una relación **1:1**, depende de la manera de traducirse.
-
-La manera de implementar las restricciones externas será por medio de un TRIGGER, que se active cuando haya una actualización (inserción, modificación o borrado) que afecte a la restricción externa. Por ejemplo, en la restricción **RexR3** los momentos importantes son después de insertar un nuevo proyecto, y antes de eliminar o modificar en la tabla **Trabaja** (por si un proyecto se queda sin gente trabajando en él).
-
-Las acciones a desarrollar podrían ser sacar un aviso, o obligar a insertar como mínimo una tupla en la tabla **Trabaja**, en el caso de la inserción de un nuevo proyecto; en el caso de modificación o eliminación en **Trabaja** podría impedirse esta actualización.
-
-
-
-En nuestro ejemplo tendremos las restricciones externas al Modelo Relacional:
-
-> **RexR1**: El jefe de un departamento debe ser miembro de este.
-
-> **RexR2**: Un empleado solo puede trabajar en proyectos coordinados por su departamento.
-
-> **RexR3**: Todo proyecto debe tener como mínimo un empleado trabajando en él.
--->
 
 
 
