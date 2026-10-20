@@ -236,16 +236,38 @@ Ejemplo:
     - PERSONA (<u>dni</u>,....(datos persona)....(datos colección)...)
         - PK: (dni)
 
+De todas formas, puede que nos interese tener dos tablas (para separar claramente los dos tipos de información). En ese caso, podríamos traducir la relación como en el primer punto, con una clave externa (no nula) en una de las dos tablas, y tendríamos que elegir la tabla que menos se utilice.
+
+!!! quote ""
+    - PERSONA (<u>dni</u>, ...(datos persona)...)
+        - PK: (dni)
+    - COLECCION (<u>cod_col</u>, <mark>dni, </mark>...(datos colección)...)
+        - PK: (cod_col)
+        - FK: dni->PERSONA(dni)  <span class="tag-no-nulo">[no nulo]</span>  <span class="tag-unico">[unico]</span>
+
 
 ### Caso 3: Ambas entidades participan de forma parcial
 
-Se resuelve normalmente colocando la clave primaria de una de las tablas como clave ajena en la otra, añadiendo una restricción UNIQUE para garantizar que no se repita.
 
-Ejemplo:
+Si las dos entidades participan de forma parcial en una relación 1:1, podemos crear una tercera tabla para representar la relación, con las claves externas de las dos entidades y los posibles atributos de la relación. Así evitamos tener muchos valores nulos.
+
+En el ejemplo, podría ocurrir que las colecciones pertenecieran a una persona particular o a una institución (no tienen propietario).
 
 ![alt text](image-18.png)
 
-Traducción:
+
+!!! quote ""
+    - PERSONA (<u>dni</u>, ...(datos persona)...)
+        - PK: (dni)
+    - COLECCION (<u>cod_col</u>, ...(datos colección)...)
+        - PK: (cod_col)
+    - PROPIETARIO (<u><mark>dni, </mark>, <mark>cod_col </mark></u>)    
+        - PK: (dni, cod_col)
+        - FK: dni->PERSONA(dni)
+        - FK: cod_col->COLECCION(cod_col)
+
+
+Pero, como comentábamos al principio, tendremos que aplicar el sentido común, ya que puede que una de las dos entidades participe de forma «casi» total (por ejemplo, casi todas las colecciones pertenecen a una persona). En ese caso, podría ser mejor traducir la relación como en el primer caso, colocando la clave externa en la tabla cuya participación sea «casi» total, ya que tendrá relativamente pocos valores nulos y resultaría más costoso mantener otra tabla. Evidentemente, en este caso la clave externa sí podría admitir valores nulos.
 
 !!! quote ""
     - PERSONA (<u>dni</u>, ...(datos persona)...)
@@ -253,8 +275,13 @@ Traducción:
     - COLECCION (<u>cod_col</u>, <mark>dni, </mark>...(datos colección)...)
         - PK: (cod_col)
         - FK: dni->PERSONA(dni) <span class="tag-unico">[unico]</span>
-        
-        
+
+!!!Tip "En resumen"
+    Una relación **1:1** casi siempre la traduciremos colocando una clave externa en la tabla cuya participación en la relación sea total o casi total (o en aquella que previsiblemente tenga más ocurrencias en la relación).
+
+---
+
+     
 
 ### Regla práctica
 
