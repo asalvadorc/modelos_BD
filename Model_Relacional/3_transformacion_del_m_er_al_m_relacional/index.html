@@ -2209,11 +2209,43 @@ Todos los departamentos tienen director (no nula) y solo uno (única), pero no t
 </li>
 </ul>
 </div>
+<p>De todas formas, puede que nos interese tener dos tablas (para separar claramente los dos tipos de información). En ese caso, podríamos traducir la relación como en el primer punto, con una clave externa (no nula) en una de las dos tablas, y tendríamos que elegir la tabla que menos se utilice.</p>
+<div class="admonition quote">
+<ul>
+<li>PERSONA (<u>dni</u>, ...(datos persona)...)<ul>
+<li>PK: (dni)</li>
+</ul>
+</li>
+<li>COLECCION (<u>cod_col</u>, <mark>dni, </mark>...(datos colección)...)<ul>
+<li>PK: (cod_col)</li>
+<li>FK: dni-&gt;PERSONA(dni)  <span class="tag-no-nulo">[no nulo]</span>  <span class="tag-unico">[unico]</span></li>
+</ul>
+</li>
+</ul>
+</div>
 <h3 id="caso-3-ambas-entidades-participan-de-forma-parcial">Caso 3: Ambas entidades participan de forma parcial</h3>
-<p>Se resuelve normalmente colocando la clave primaria de una de las tablas como clave ajena en la otra, añadiendo una restricción UNIQUE para garantizar que no se repita.</p>
-<p>Ejemplo:</p>
+<p>Si las dos entidades participan de forma parcial en una relación 1:1, podemos crear una tercera tabla para representar la relación, con las claves externas de las dos entidades y los posibles atributos de la relación. Así evitamos tener muchos valores nulos.</p>
+<p>En el ejemplo, podría ocurrir que las colecciones pertenecieran a una persona particular o a una institución (no tienen propietario).</p>
 <p><img alt="alt text" src="../image-18.png" /></p>
-<p>Traducción:</p>
+<div class="admonition quote">
+<ul>
+<li>PERSONA (<u>dni</u>, ...(datos persona)...)<ul>
+<li>PK: (dni)</li>
+</ul>
+</li>
+<li>COLECCION (<u>cod_col</u>, ...(datos colección)...)<ul>
+<li>PK: (cod_col)</li>
+</ul>
+</li>
+<li>PROPIETARIO (<u><mark>dni, </mark>, <mark>cod_col </mark></u>)    <ul>
+<li>PK: (dni, cod_col)</li>
+<li>FK: dni-&gt;PERSONA(dni)</li>
+<li>FK: cod_col-&gt;COLECCION(cod_col)</li>
+</ul>
+</li>
+</ul>
+</div>
+<p>Pero, como comentábamos al principio, tendremos que aplicar el sentido común, ya que puede que una de las dos entidades participe de forma «casi» total (por ejemplo, casi todas las colecciones pertenecen a una persona). En ese caso, podría ser mejor traducir la relación como en el primer caso, colocando la clave externa en la tabla cuya participación sea «casi» total, ya que tendrá relativamente pocos valores nulos y resultaría más costoso mantener otra tabla. Evidentemente, en este caso la clave externa sí podría admitir valores nulos.</p>
 <div class="admonition quote">
 <ul>
 <li>PERSONA (<u>dni</u>, ...(datos persona)...)<ul>
@@ -2227,6 +2259,11 @@ Todos los departamentos tienen director (no nula) y solo uno (única), pero no t
 </li>
 </ul>
 </div>
+<div class="admonition tip">
+<p class="admonition-title">En resumen</p>
+<p>Una relación <strong>1:1</strong> casi siempre la traduciremos colocando una clave externa en la tabla cuya participación en la relación sea total o casi total (o en aquella que previsiblemente tenga más ocurrencias en la relación).</p>
+</div>
+<hr />
 <h3 id="regla-practica">Regla práctica</h3>
 <p>En la mayoría de escenarios reales, una relación <strong>1:1</strong> se traduce mejor como <strong>clave externa en la tabla con participación total o casi total</strong>.</p>
 <h3 id="relacion-reflexiva-11-empleados-emparejados-como-mentores">Relación reflexiva 1:1: empleados emparejados como mentores</h3>
