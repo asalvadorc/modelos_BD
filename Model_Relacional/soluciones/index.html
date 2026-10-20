@@ -2157,6 +2157,74 @@
 <summary>Ejercicio 7</summary>
 <details class="question">
 <summary>Enunciado</summary>
+<p>Realizar el esquema relacional correspondiente a un Parque Zoológico que quiere guardar información de las especies que tiene, los empleados (cuidadores y guías), y los distintos itinerarios de visita que ofrece.</p>
+<p><img alt="alt text" class="grayscale" src="../image-70.png" /></p>
+</details>
+<details class="success">
+<summary>Solución propuesta</summary>
+<ul>
+<li><strong>EMPLEADO</strong> (<u>dni</u>, nombre, direccion, telefono, fecha_inicio)<ul>
+<li>PK: (dni)</li>
+</ul>
+</li>
+<li><strong>GUIA</strong> (<u><mark>dni</mark></u>) <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li>PK: (dni)</li>
+<li>FK: dni-&gt;EMPLEADO(dni)</li>
+</ul>
+</li>
+<li><strong>CUIDADOR</strong> (<u><mark>dni</mark></u>) <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li>PK: (dni)</li>
+<li>FK: dni-&gt;EMPLEADO(dni)</li>
+</ul>
+</li>
+<li><strong>HABITAT</strong> (<u>cod_h</u>, clima, vegetacion)<ul>
+<li>PK: (cod_h)</li>
+</ul>
+</li>
+<li><strong>ZONA</strong> (<u>cod_z</u>, extension)<ul>
+<li>PK: (cod_z)</li>
+</ul>
+</li>
+<li><strong>ESPECIE</strong> (<u>nom_c</u>, nombre, descripcion, <mark>cod_z</mark>)<ul>
+<li>PK: (nom_c)</li>
+<li>FK: cod_z-&gt;ZONA(cod_z) <span class="tag-no-nulo">[no nulo]</span></li>
+</ul>
+</li>
+<li><strong>ESPECIE_HABITAT</strong> (<u><mark>nom_c</mark>, <mark>cod_h</mark></u>)<ul>
+<li>PK: (nom_c, cod_h)</li>
+<li>FK: nom_c-&gt;ESPECIE(nom_c)</li>
+<li>FK: cod_h-&gt;HABITAT(cod_h)</li>
+</ul>
+</li>
+<li><strong>CUIDADOR_ESPECIE</strong> (<u><mark>dni</mark>, <mark>nom_c</mark></u>, fecha)<ul>
+<li>PK: (dni, nom_c)</li>
+<li>FK: dni-&gt;CUIDADOR(dni)</li>
+<li>FK: nom_c-&gt;ESPECIE(nom_c)</li>
+</ul>
+</li>
+<li><strong>ITINERARIO</strong> (<u>cod_i</u>, duracion, longitud, max_visitantes, num_especies)<ul>
+<li>PK: (cod_i)</li>
+</ul>
+</li>
+<li><strong>GUIA_ITINERARIO</strong> (<u><mark>dni</mark>, <mark>cod_i</mark></u>, horas)<ul>
+<li>PK: (dni, cod_i)</li>
+<li>FK: dni-&gt;GUIA(dni)</li>
+<li>FK: cod_i-&gt;ITINERARIO(cod_i)</li>
+</ul>
+</li>
+<li><strong>ITINERARIO_ZONA</strong> (<u><mark>cod_i</mark>, <mark>cod_z</mark></u>)<ul>
+<li>PK: (cod_i, cod_z)</li>
+<li>FK: cod_i-&gt;ITINERARIO(cod_i)</li>
+<li>FK: cod_z-&gt;ZONA(cod_z)</li>
+</ul>
+</li>
+</ul>
+</details>
+</details>
+<details class="example">
+<summary>Ejercicio 8</summary>
+<details class="question">
+<summary>Enunciado</summary>
 <p>Realizar el esquema relacional correspondiente a una empresa de líneas ferroviarias.</p>
 <p>En la de arriba consideramos únicamente los viajes (y no los trayectos). Además, solo marcamos estación de origen y de destino de un viaje.</p>
 <p>En la segunda incorporamos los trayectos, y además marcamos todas las estaciones donde se para en un trayecto.</p>
@@ -2270,7 +2338,7 @@
 </details>
 </details>
 <details class="example">
-<summary>Ejercicio 8</summary>
+<summary>Ejercicio 9</summary>
 <details class="question">
 <summary>Enunciado</summary>
 <p>Realizar el esquema relacional correspondiente a un sistema de información sobre el material informático de una empresa.</p>
@@ -2331,7 +2399,7 @@
 </details>
 </details>
 <details class="example">
-<summary>Ejercicio 9</summary>
+<summary>Ejercicio 10</summary>
 <details class="question">
 <summary>Enunciado</summary>
 <p>Realizar el esquema relacional correspondiente a un sistema de información de una empresa que vende gran variedad de productos. Para la venta de estos productos, dispone de un conjunto de viajantes que realizan visitas a los clientes ofreciendo sus productos.</p>
@@ -2380,74 +2448,6 @@
 <li>FK: cod_cliente-&gt;CLIENTE(cod_cliente)</li>
 <li>FK: cod_producto-&gt;PRODUCTO(cod_producto)</li>
 <li>precio: <span class="tag-no-nulo">[no nulo]</span></li>
-</ul>
-</li>
-</ul>
-</details>
-</details>
-<details class="example">
-<summary>Ejercicio 10</summary>
-<details class="question">
-<summary>Enunciado</summary>
-<p>Realizar el esquema relacional correspondiente a un Parque Zoológico que quiere guardar información de las especies que tiene, los empleados (cuidadores y guías), y los distintos itinerarios de visita que ofrece.</p>
-<p><img alt="alt text" class="grayscale" src="../image-70.png" /></p>
-</details>
-<details class="success">
-<summary>Solución propuesta</summary>
-<ul>
-<li><strong>EMPLEADO</strong> (<u>dni</u>, nombre, direccion, telefono, fecha_inicio)<ul>
-<li>PK: (dni)</li>
-</ul>
-</li>
-<li><strong>GUIA</strong> (<u><mark>dni</mark></u>) <span class="tag-cascade">(borrar en cascada)</span><ul>
-<li>PK: (dni)</li>
-<li>FK: dni-&gt;EMPLEADO(dni)</li>
-</ul>
-</li>
-<li><strong>CUIDADOR</strong> (<u><mark>dni</mark></u>) <span class="tag-cascade">(borrar en cascada)</span><ul>
-<li>PK: (dni)</li>
-<li>FK: dni-&gt;EMPLEADO(dni)</li>
-</ul>
-</li>
-<li><strong>HABITAT</strong> (<u>cod_h</u>, clima, vegetacion)<ul>
-<li>PK: (cod_h)</li>
-</ul>
-</li>
-<li><strong>ZONA</strong> (<u>cod_z</u>, extension)<ul>
-<li>PK: (cod_z)</li>
-</ul>
-</li>
-<li><strong>ESPECIE</strong> (<u>nom_c</u>, nombre, descripcion, <mark>cod_z</mark>)<ul>
-<li>PK: (nom_c)</li>
-<li>FK: cod_z-&gt;ZONA(cod_z) <span class="tag-no-nulo">[no nulo]</span></li>
-</ul>
-</li>
-<li><strong>ESPECIE_HABITAT</strong> (<u><mark>nom_c</mark>, <mark>cod_h</mark></u>)<ul>
-<li>PK: (nom_c, cod_h)</li>
-<li>FK: nom_c-&gt;ESPECIE(nom_c)</li>
-<li>FK: cod_h-&gt;HABITAT(cod_h)</li>
-</ul>
-</li>
-<li><strong>CUIDADOR_ESPECIE</strong> (<u><mark>dni</mark>, <mark>nom_c</mark></u>, fecha)<ul>
-<li>PK: (dni, nom_c)</li>
-<li>FK: dni-&gt;CUIDADOR(dni)</li>
-<li>FK: nom_c-&gt;ESPECIE(nom_c)</li>
-</ul>
-</li>
-<li><strong>ITINERARIO</strong> (<u>cod_i</u>, duracion, longitud, max_visitantes, num_especies)<ul>
-<li>PK: (cod_i)</li>
-</ul>
-</li>
-<li><strong>GUIA_ITINERARIO</strong> (<u><mark>dni</mark>, <mark>cod_i</mark></u>, horas)<ul>
-<li>PK: (dni, cod_i)</li>
-<li>FK: dni-&gt;GUIA(dni)</li>
-<li>FK: cod_i-&gt;ITINERARIO(cod_i)</li>
-</ul>
-</li>
-<li><strong>ITINERARIO_ZONA</strong> (<u><mark>cod_i</mark>, <mark>cod_z</mark></u>)<ul>
-<li>PK: (cod_i, cod_z)</li>
-<li>FK: cod_i-&gt;ITINERARIO(cod_i)</li>
-<li>FK: cod_z-&gt;ZONA(cod_z)</li>
 </ul>
 </li>
 </ul>
