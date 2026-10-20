@@ -515,13 +515,15 @@ Los atributos de las subclases pasan a la superclase. También se adaptan las re
 
 Creamos una tabla por subtipo, incorporando los atributos del supertipo y los específicos de cada subtipo. No se crea una tabla para el supertipo. Sus relaciones se trasladan a las tablas de los subtipos.
 
+
 !!! quote ""
     - JEFE (<u>dni</u>, nombre, direccion, telefono, ..., opinion)
         - PK: (dni)
     - TRABAJADOR (<u>dni</u>, nombre, direccion, telefono, ..., horas_extra)
         - PK: (dni)
         
-
+!!! example "📝 Practica ahora"
+    Con lo visto hasta ahora ya puedes resolver los **ejercicios 6 al 10** de la sección [Ejercicios](5_ejercicios.md).
 
 ### Criterio práctico
 

@@ -95,6 +95,35 @@ Recordad que teníamos 3 opciones:
 
 ## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 7</span></span>
 
+Realizar el esquema relacional correspondiente a un Parque Zoológico que quiere guardar información de las especies que tiene, los empleados (cuidadores y guías), y los distintos itinerarios de visita que ofrece.
+
+
+![alt text](image-70.png){ .grayscale }
+
+<!--
+Hacer el esquema E/R y posteriormente pasarlo a relacional correspondiente a un Parque Zoológico que quiere guardar información de las especies que tiene, los empleados (cuidadores y guías), y los distintos itinerarios de visita que ofrece.
+
+La información está estructurada de la siguiente manera:
+
+  * Especies: de las especies nos interesa saber el nombre, el nombre científico y una descripción general. Se ha de tener en cuenta que una especie puede vivir en diferentes hábitats naturales y que un hábitat puede ser ocupado por diferentes especies. Por otro lado, las especies están en distintas zonas del parque de manera que cada especie está en una zona y en una zona hay unas cuantas especies. 
+
+  * Hábitats: los diferentes hábitats naturales vienen definidos por el nombre, el clima y el tipo de vegetación predominantes. 
+
+  * Zonas: las zonas del parque en las cuales están las distintas especies vienen definidas por el nombre y la extensión que ocupan. 
+
+  * Itinerarios: los itinerarios discurren por distintas zonas del parque. La información de interés para los itinerarios es: código de itinerario, duración del recorrido, longitud del itinerario, el máximo número de visitantes autorizado y el número de distintas especies que visita (que han de ser todas las de las zonas que recorre). Un itinerario recorre distintas zonas del parque y una zona puede ser recorrida por diferentes itinerarios. 
+
+  * Empleados: de todos los empleados querremos saber el nombre, dni, dirección, teléfono y fecha en que empezaron a trabajar en el zoo. Los empleados pueden ser de dos tipos: guías y cuidadores. 
+
+    * Guías: Interesa saber qué guías llevan cada itinerario, teniendo en cuenta que un guía puede llevar unos cuantos itinerarios y que un itinerario puede ser asignado a más de un guía en diferentes horas. Estas horas son un dato de interés. 
+
+    * Cuidadores: se encargan de cuidar las diferentes especies. Un cuidador puede encargarse de unas cuantas especies y una especie puede ser atendida por unos cuantos cuidadores. Nos interesa la fecha en la cual un cuidador se hace cargo de una especie. 
+-->
+
+
+
+## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 8</span></span>
+
 Realizar el esquema relacional correspondiente a una empresa de líneas ferroviarias.
 
 En la de arriba consideramos únicamente los viajes (y no los trayectos). Además, solo marcamos estación de origen y de destino de un viaje.
@@ -104,7 +133,7 @@ En la segunda incorporamos los trayectos, y además marcamos todas las estacione
 ![alt text](image-48.png){ .grayscale }
 
 
-## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 8</span></span>
+## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 9</span></span>
 
 Realizar el esquema relacional correspondiente a un sistema de información sobre el material informático de una empresa.
 
@@ -156,7 +185,7 @@ _**Nota**_
 Observad cómo por un lado debéis guardar los permisos de los empleados sobre las aplicaciones, y por otro los accesos reales hechos por los empleados a las aplicaciones, y en este caso hemos de saber desde qué ordenador y la fecha.
 -->
 
-## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 9</span></span>
+## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 10</span></span>
 
 Realizar el esquema relacional correspondiente a un sistema de información de una empresa que vende gran variedad de productos. Para la venta de estos productos, dispone de un conjunto de viajantes que realizan visitas a los clientes ofreciendo sus productos.
 
@@ -188,29 +217,3 @@ El sistema de información ha de ser capaz de responder a consultas como:
 
 -->
 
-## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 10</span></span>
-
-Realizar el esquema relacional correspondiente a un Parque Zoológico que quiere guardar información de las especies que tiene, los empleados (cuidadores y guías), y los distintos itinerarios de visita que ofrece.
-
-
-![alt text](image-70.png){ .grayscale }
-
-<!--
-Hacer el esquema E/R y posteriormente pasarlo a relacional correspondiente a un Parque Zoológico que quiere guardar información de las especies que tiene, los empleados (cuidadores y guías), y los distintos itinerarios de visita que ofrece.
-
-La información está estructurada de la siguiente manera:
-
-  * Especies: de las especies nos interesa saber el nombre, el nombre científico y una descripción general. Se ha de tener en cuenta que una especie puede vivir en diferentes hábitats naturales y que un hábitat puede ser ocupado por diferentes especies. Por otro lado, las especies están en distintas zonas del parque de manera que cada especie está en una zona y en una zona hay unas cuantas especies. 
-
-  * Hábitats: los diferentes hábitats naturales vienen definidos por el nombre, el clima y el tipo de vegetación predominantes. 
-
-  * Zonas: las zonas del parque en las cuales están las distintas especies vienen definidas por el nombre y la extensión que ocupan. 
-
-  * Itinerarios: los itinerarios discurren por distintas zonas del parque. La información de interés para los itinerarios es: código de itinerario, duración del recorrido, longitud del itinerario, el máximo número de visitantes autorizado y el número de distintas especies que visita (que han de ser todas las de las zonas que recorre). Un itinerario recorre distintas zonas del parque y una zona puede ser recorrida por diferentes itinerarios. 
-
-  * Empleados: de todos los empleados querremos saber el nombre, dni, dirección, teléfono y fecha en que empezaron a trabajar en el zoo. Los empleados pueden ser de dos tipos: guías y cuidadores. 
-
-    * Guías: Interesa saber qué guías llevan cada itinerario, teniendo en cuenta que un guía puede llevar unos cuantos itinerarios y que un itinerario puede ser asignado a más de un guía en diferentes horas. Estas horas son un dato de interés. 
-
-    * Cuidadores: se encargan de cuidar las diferentes especies. Un cuidador puede encargarse de unas cuantas especies y una especie puede ser atendida por unos cuantos cuidadores. Nos interesa la fecha en la cual un cuidador se hace cargo de una especie. 
--->

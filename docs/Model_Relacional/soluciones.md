@@ -259,7 +259,54 @@ hide:
 
              <span class="tag-no-nulo">[nota]</span> La especialización de **EJEMPLAR** en **EJ_COL** y **EJ_OBS** es total y disjunta (T,D).    
 
+
 ??? example "Ejercicio 7"
+
+    ??? question "Enunciado"
+        Realizar el esquema relacional correspondiente a un Parque Zoológico que quiere guardar información de las especies que tiene, los empleados (cuidadores y guías), y los distintos itinerarios de visita que ofrece.
+
+        
+        ![alt text](image-70.png){ .grayscale }
+
+    ??? success "Solución propuesta"
+        - **EMPLEADO** (<u>dni</u>, nombre, direccion, telefono, fecha_inicio)
+            - PK: (dni)
+        - **GUIA** (<u><mark>dni</mark></u>) <span class="tag-cascade">(borrar en cascada)</span>
+            - PK: (dni)
+            - FK: dni->EMPLEADO(dni)
+        - **CUIDADOR** (<u><mark>dni</mark></u>) <span class="tag-cascade">(borrar en cascada)</span>
+            - PK: (dni)
+            - FK: dni->EMPLEADO(dni)
+        - **HABITAT** (<u>cod_h</u>, clima, vegetacion)
+            - PK: (cod_h)
+        - **ZONA** (<u>cod_z</u>, extension)
+            - PK: (cod_z)
+        - **ESPECIE** (<u>nom_c</u>, nombre, descripcion, <mark>cod_z</mark>)
+            - PK: (nom_c)
+            - FK: cod_z->ZONA(cod_z) <span class="tag-no-nulo">[no nulo]</span>
+        - **ESPECIE_HABITAT** (<u><mark>nom_c</mark>, <mark>cod_h</mark></u>)
+            - PK: (nom_c, cod_h)
+            - FK: nom_c->ESPECIE(nom_c)
+            - FK: cod_h->HABITAT(cod_h)
+        - **CUIDADOR_ESPECIE** (<u><mark>dni</mark>, <mark>nom_c</mark></u>, fecha)
+            - PK: (dni, nom_c)
+            - FK: dni->CUIDADOR(dni)
+            - FK: nom_c->ESPECIE(nom_c)
+        - **ITINERARIO** (<u>cod_i</u>, duracion, longitud, max_visitantes, num_especies)
+            - PK: (cod_i)
+        - **GUIA_ITINERARIO** (<u><mark>dni</mark>, <mark>cod_i</mark></u>, horas)
+            - PK: (dni, cod_i)
+            - FK: dni->GUIA(dni)
+            - FK: cod_i->ITINERARIO(cod_i)
+        - **ITINERARIO_ZONA** (<u><mark>cod_i</mark>, <mark>cod_z</mark></u>)
+            - PK: (cod_i, cod_z)
+            - FK: cod_i->ITINERARIO(cod_i)
+            - FK: cod_z->ZONA(cod_z)
+
+
+
+
+??? example "Ejercicio 8"
 
     ??? question "Enunciado"
         Realizar el esquema relacional correspondiente a una empresa de líneas ferroviarias.
@@ -334,7 +381,7 @@ hide:
                 - FK: codigo_trabajador->CONDUCTOR(codigo_trabajador)
                 - FK: codigo_trayecto, fecha->VIAJE(codigo_trayecto, fecha)
 
-??? example "Ejercicio 8"
+??? example "Ejercicio 9"
 
     ??? question "Enunciado"
         Realizar el esquema relacional correspondiente a un sistema de información sobre el material informático de una empresa.
@@ -373,7 +420,7 @@ hide:
             - FK: codigo_a->APLICACIÓN(codigo_a) 
             - FK: codigo_o->ORDENADOR(codigo_o)  <span class="tag-no-nulo">[no nulo]</span>
 
-??? example "Ejercicio 9"
+??? example "Ejercicio 10"
 
     ??? question "Enunciado"
         Realizar el esquema relacional correspondiente a un sistema de información de una empresa que vende gran variedad de productos. Para la venta de estos productos, dispone de un conjunto de viajantes que realizan visitas a los clientes ofreciendo sus productos.
@@ -407,47 +454,4 @@ hide:
             - FK: cod_cliente->CLIENTE(cod_cliente)
             - FK: cod_producto->PRODUCTO(cod_producto)
             - precio: <span class="tag-no-nulo">[no nulo]</span>
-
-??? example "Ejercicio 10"
-
-    ??? question "Enunciado"
-        Realizar el esquema relacional correspondiente a un Parque Zoológico que quiere guardar información de las especies que tiene, los empleados (cuidadores y guías), y los distintos itinerarios de visita que ofrece.
-
-        
-        ![alt text](image-70.png){ .grayscale }
-
-    ??? success "Solución propuesta"
-        - **EMPLEADO** (<u>dni</u>, nombre, direccion, telefono, fecha_inicio)
-            - PK: (dni)
-        - **GUIA** (<u><mark>dni</mark></u>) <span class="tag-cascade">(borrar en cascada)</span>
-            - PK: (dni)
-            - FK: dni->EMPLEADO(dni)
-        - **CUIDADOR** (<u><mark>dni</mark></u>) <span class="tag-cascade">(borrar en cascada)</span>
-            - PK: (dni)
-            - FK: dni->EMPLEADO(dni)
-        - **HABITAT** (<u>cod_h</u>, clima, vegetacion)
-            - PK: (cod_h)
-        - **ZONA** (<u>cod_z</u>, extension)
-            - PK: (cod_z)
-        - **ESPECIE** (<u>nom_c</u>, nombre, descripcion, <mark>cod_z</mark>)
-            - PK: (nom_c)
-            - FK: cod_z->ZONA(cod_z) <span class="tag-no-nulo">[no nulo]</span>
-        - **ESPECIE_HABITAT** (<u><mark>nom_c</mark>, <mark>cod_h</mark></u>)
-            - PK: (nom_c, cod_h)
-            - FK: nom_c->ESPECIE(nom_c)
-            - FK: cod_h->HABITAT(cod_h)
-        - **CUIDADOR_ESPECIE** (<u><mark>dni</mark>, <mark>nom_c</mark></u>, fecha)
-            - PK: (dni, nom_c)
-            - FK: dni->CUIDADOR(dni)
-            - FK: nom_c->ESPECIE(nom_c)
-        - **ITINERARIO** (<u>cod_i</u>, duracion, longitud, max_visitantes, num_especies)
-            - PK: (cod_i)
-        - **GUIA_ITINERARIO** (<u><mark>dni</mark>, <mark>cod_i</mark></u>, horas)
-            - PK: (dni, cod_i)
-            - FK: dni->GUIA(dni)
-            - FK: cod_i->ITINERARIO(cod_i)
-        - **ITINERARIO_ZONA** (<u><mark>cod_i</mark>, <mark>cod_z</mark></u>)
-            - PK: (cod_i, cod_z)
-            - FK: cod_i->ITINERARIO(cod_i)
-            - FK: cod_z->ZONA(cod_z)
 
