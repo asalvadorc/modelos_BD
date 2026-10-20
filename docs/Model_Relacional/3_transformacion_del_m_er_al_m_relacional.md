@@ -339,7 +339,7 @@ En el ejemplo:
 ## 3.6 Resumen de dependencias
 
 === "1:N"
-    ![alt text](image-62.png)
+    ![alt text](image-62.png){width=800}
 === "1:1"
     ![alt text](image-65.png){width=800}
 
