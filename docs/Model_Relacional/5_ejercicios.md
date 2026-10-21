@@ -130,14 +130,14 @@ En la de arriba consideramos únicamente los viajes (y no los trayectos). Ademá
 
 En la segunda incorporamos los trayectos, y además marcamos todas las estaciones donde se para en un trayecto.
 
-![alt text](image-48.png){ .grayscale }
+![alt text](image-78.png){ .grayscale }
 
 
 ## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 9</span></span>
 
 Realizar el esquema relacional correspondiente a un sistema de información sobre el material informático de una empresa.
 
-![alt text](image-71.png){ .grayscale }
+![alt text](image-75.png){ .grayscale }
 
 <!--
 Se desea mantener información sobre el material informático de una empresa.
@@ -190,7 +190,7 @@ Observad cómo por un lado debéis guardar los permisos de los empleados sobre l
 Realizar el esquema relacional correspondiente a un sistema de información de una empresa que vende gran variedad de productos. Para la venta de estos productos, dispone de un conjunto de viajantes que realizan visitas a los clientes ofreciendo sus productos.
 
 
-![alt text](image-52.png){ .grayscale }
+![alt text](image-74.png){ .grayscale }
 
 <!--
 Diseñar el diagrama E-R, y traducirlo después al relacional, de un sistema de información de una empresa que vende gran variedad de productos. Para la venta de estos productos, dispone de un conjunto de viajantes que realizan visitas a los clientes ofreciendo sus productos.

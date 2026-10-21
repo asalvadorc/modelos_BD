@@ -317,7 +317,7 @@ hide:
 
         En la segunda incorporamos los trayectos, y además marcamos todas las estaciones donde se para en un trayecto.
 
-        ![alt text](image-48.png){ .grayscale }
+        ![alt text](image-77.png){ .grayscale }
 
     ??? success "Solución propuesta"
         !!! quote "Opción 1"
@@ -388,7 +388,7 @@ hide:
     ??? question "Enunciado"
         Realizar el esquema relacional correspondiente a un sistema de información sobre el material informático de una empresa.
 
-        ![alt text](image-71.png){ .grayscale }
+        ![alt text](image-76.png){ .grayscale }
 
     ??? success "Solución propuesta"
         - **RED** (<u>codigo-x</u>, <mark>dni</mark>)
@@ -427,7 +427,7 @@ hide:
     ??? question "Enunciado"
         Realizar el esquema relacional correspondiente a un sistema de información de una empresa que vende gran variedad de productos. Para la venta de estos productos, dispone de un conjunto de viajantes que realizan visitas a los clientes ofreciendo sus productos.
 
-        ![alt text](image-52.png){ .grayscale }
+        ![alt text](image-73.png){ .grayscale }
 
     ??? success "Solución propuesta"
         - **SECTOR** (<u>cod-sector</u>)
