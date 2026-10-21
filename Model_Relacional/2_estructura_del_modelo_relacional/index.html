@@ -1850,7 +1850,7 @@ También llamadas campos.</p>
 <tr>
 <td><strong>Esquema/Estructura</strong></td>
 <td>Definición de atributos, dominios y restricciones.</td>
-<td>EMPLEADO(DNI, Nombre, Dirección, Teléfono, Sueldo, Fecha_nac), con sus dominios y restricciones; por ejemplo, elegir DNI como PK.</td>
+<td>EMPLEADO(DNI, Nombre, Dirección, Teléfono, Sueldo, Fecha-nac), con sus dominios y restricciones; por ejemplo, elegir DNI como PK.</td>
 </tr>
 <tr>
 <td><strong>Estado de la Relación</strong></td>
@@ -1875,7 +1875,7 @@ También llamadas campos.</p>
 <tr>
 <td><strong>Dominio</strong></td>
 <td>Conjunto de valores posibles para cada atributo.</td>
-<td><strong>Fecha_nac</strong> admite fechas válidas, como <strong>09-12-1955</strong>; <strong>Sueldo</strong> admite importes monetarios, como <strong>2.000,00 €</strong>. Los valores mostrados son ejemplos, no todo el dominio.</td>
+<td><strong>Fecha-nac</strong> admite fechas válidas, como <strong>09-12-1955</strong>; <strong>Sueldo</strong> admite importes monetarios, como <strong>2.000,00 €</strong>. Los valores mostrados son ejemplos, no todo el dominio.</td>
 </tr>
 </tbody>
 </table>
@@ -1904,7 +1904,7 @@ También llamadas campos.</p>
 </thead>
 <tbody>
 <tr>
-<td>EMPLEADO (<u>dni</u>, nombre, direccion, telefono, sueldo, fecha_n)</td>
+<td>EMPLEADO (<u>dni</u>, nombre, direccion, telefono, sueldo, fecha-n)</td>
 </tr>
 <tr>
 <td>PK: (dni)</td>
@@ -1967,7 +1967,7 @@ También llamadas campos.</p>
 <tr>
 <td><strong>Clave ajena (FK)</strong></td>
 <td>Referencia una clave primaria o candidata de otra tabla o de la misma tabla. Todo valor no nulo debe corresponder a una clave existente en la tabla referenciada.</td>
-<td>Si añadimos <strong>departamento</strong> a EMPLEADO como FK hacia DEPARTAMENTO(num_d), no podemos asignar un departamento que no exista.</td>
+<td>Si añadimos <strong>departamento</strong> a EMPLEADO como FK hacia DEPARTAMENTO(num-d), no podemos asignar un departamento que no exista.</td>
 </tr>
 <tr>
 <td><strong>No nulo (NOT NULL)</strong></td>
@@ -1982,7 +1982,7 @@ También llamadas campos.</p>
 <tr>
 <td><strong>Dominio</strong></td>
 <td>Limita los valores que puede tomar un atributo: tipo de dato, formato o valores permitidos.</td>
-<td><strong>Fecha_nac</strong> debe contener una fecha válida. Si establecemos que <strong>Sueldo</strong> no puede ser negativo, un valor de −500 € no sería válido.</td>
+<td><strong>Fecha-nac</strong> debe contener una fecha válida. Si establecemos que <strong>Sueldo</strong> no puede ser negativo, un valor de −500 € no sería válido.</td>
 </tr>
 </tbody>
 </table>
