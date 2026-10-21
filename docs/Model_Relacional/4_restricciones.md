@@ -61,7 +61,7 @@ Define un atributo (o conjunto) como **identificador único** de cada tupla.
 **Representación**:
 
 !!! quote ""
-    - EMPLEADO (<u>dni</u>, nombre, direccion, telefono, sueldo, fecha_n)
+    - EMPLEADO (<u>dni</u>, nombre, direccion, telefono, sueldo, fecha-n)
         - PK: (dni)
 
 !!! tip "Buena Práctica"
@@ -90,7 +90,7 @@ Obliga a que el atributo **siempre tenga un valor**.
 **Representación**:
 
 !!! Example "Ejemplo: el atributo nombre siempre es obligatorio"
-    - EMPLEADO (<u>dni</u>, nombre, direccion, telefono, sueldo, fecha_n)
+    - EMPLEADO (<u>dni</u>, nombre, direccion, telefono, sueldo, fecha-n)
         - PK: (dni)
         - nombre  <span class="tag-no-nulo">[no nulo]</span>
 
@@ -101,7 +101,7 @@ Garantiza que todo valor no nulo de una clave externa corresponda a un registro 
 
 ![alt text](image-55.png)
 
-Si en **FAMILIAR** existe `dni_empleado` como clave externa hacia `EMPLEADO.dni`, no puede aparecer un `dni_empleado` que no exista en EMPLEADO.
+Si en **FAMILIAR** existe `dni-empleado` como clave externa hacia `EMPLEADO.dni`, no puede aparecer un `dni-empleado` que no exista en EMPLEADO.
 
 !!! example "Ejemplo"
     No es válido insertar en FAMILIAR el DNI `18.754.321` si no existe antes en EMPLEADO.
@@ -141,12 +141,12 @@ Además, pueden aparecer nuevas restricciones externas al transformar el modelo 
 Además de las tablas de las entidades, se crea una tabla para la relación:
 
 !!!quote ""
-    - TRABAJA (<u><mark>dni</mark>, <mark>num_p</mark></u>, horas)  
-        - PK: (dni, num_p)
+    - TRABAJA (<u><mark>dni</mark>, <mark>num-p</mark></u>, horas)  
+        - PK: (dni, num-p)
         - FK: dni->EMPLEADO(dni)  
-        - FK: num_p->PROYECTO(num_p)  
+        - FK: num-p->PROYECTO(num-p)  
 
-En la tabla **TRABAJA**, los atributos **dni** y **num_p** son claves externas y forman conjuntamente la clave primaria. También se incorpora el atributo **horas** de la relación.
+En la tabla **TRABAJA**, los atributos **dni** y **num-p** son claves externas y forman conjuntamente la clave primaria. También se incorpora el atributo **horas** de la relación.
 
 Sin embargo, la entidad **PROYECTO** participa de forma **total**: todo proyecto debe tener al menos un empleado trabajando en él.
 

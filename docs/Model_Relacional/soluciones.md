@@ -22,35 +22,35 @@ hide:
         !!! quote "Opción 1"
             - **SOCIO** (<u>dni</u>, nombre, direccion, telefono, correo)
                 - PK: (dni)
-            - **VINO** (<u>codi_vi</u>, descripcion, anio_cogida)
-                - PK: (codi_vi)
-            - **RETIRA** (<u>cod_retira</u>, <mark>dni</mark>, <mark>codi_vi</mark>, fecha, cant)
-                - PK: (cod_retira)
+            - **VINO** (<u>codi-vi</u>, descripcion, anio-cogida)
+                - PK: (codi-vi)
+            - **RETIRA** (<u>cod-retira</u>, <mark>dni</mark>, <mark>codi-vi</mark>, fecha, cant)
+                - PK: (cod-retira)
                 - FK: dni->SOCIO(dni)
-                - FK: codi_vi->VINO(codi_vi)
+                - FK: codi-vi->VINO(codi-vi)
 
         !!! quote "Opción 2"
             - **SOCIO** (<u>dni</u>, nombre, direccion, telefono, correo)
                 - PK: (dni)
-            - **VINO** (<u>codi_vi</u>, descripcion, anio_cogida)
-                - PK: (codi_vi)
-            - **VALE** (<u>num_vale</u>, <mark>dni</mark>, <mark>codi_vi</mark>, fecha, cant)
-                - PK: (num_vale)
+            - **VINO** (<u>codi-vi</u>, descripcion, anio-cogida)
+                - PK: (codi-vi)
+            - **VALE** (<u>num-vale</u>, <mark>dni</mark>, <mark>codi-vi</mark>, fecha, cant)
+                - PK: (num-vale)
                 - FK: dni->SOCIO(dni)
-                - FK: codi_vi->VINO(codi_vi)
+                - FK: codi-vi->VINO(codi-vi)
 
         !!! quote "Opción 3"
             - **SOCIO** (<u>dni</u>, nombre, direccion, telefono, correo)
                 - PK: (dni)
-            - **VINO** (<u>codi_vi</u>, descripcion, anio_cogida)
-                - PK: (codi_vi)
-            - **VALE** (<u>num_vale</u>, <mark>dni</mark>,fecha)
-                - PK: (num_vale)
+            - **VINO** (<u>codi-vi</u>, descripcion, anio-cogida)
+                - PK: (codi-vi)
+            - **VALE** (<u>num-vale</u>, <mark>dni</mark>,fecha)
+                - PK: (num-vale)
                 - FK: dni->SOCIO(dni)
-            - **RETIRA** (<u><mark>num_vale</mark>, <mark>codi_vi</mark></u>, cant)
-                - PK: (num_vale, codi_vi)
-                - FK: num_vale->VALE(num_vale)
-                - FK: codi_vi->VINO(codi_vi)
+            - **RETIRA** (<u><mark>num-vale</mark>, <mark>codi-vi</mark></u>, cant)
+                - PK: (num-vale, codi-vi)
+                - FK: num-vale->VALE(num-vale)
+                - FK: codi-vi->VINO(codi-vi)
 
 
 ??? example "Ejercicio 2"
@@ -59,19 +59,19 @@ hide:
         ![alt text](Ej2.jpg){ .grayscale }
 
     ??? success "Solución propuesta"
-        - **MUNICIPIO** (<u>cod_m</u>)
-            - PK: (cod_m)
-        - **VIVIENDA** (<u>cod_cat</u>, <mark>cod_m</mark>)
-            - PK: (cod_cat)
-            - FK: cod_m->MUNICIPIO(cod_m)
-        - **PERSONA** (<u>cod_p</u>, <mark>cod_cat</mark>, <mark>cod_per_ref</mark>, parentesco)
-            - PK: (cod_p)
-            - FK: cod_cat->VIVIENDA(cod_cat)
-            - FK: cod_per_ref->PERSONA(cod_p)
-        - **PROPIEDAD** (<u><mark>cod_p</mark>,<mark>cod_cat</mark></u>)
-            - PK: (cod_p, cod_cat)
-            - FK: cod_p->PERSONA(cod_p)
-            - FK: cod_cat->VIVIENDA(cod_cat)
+        - **MUNICIPIO** (<u>cod-m</u>)
+            - PK: (cod-m)
+        - **VIVIENDA** (<u>cod-cat</u>, <mark>cod-m</mark>)
+            - PK: (cod-cat)
+            - FK: cod-m->MUNICIPIO(cod-m)
+        - **PERSONA** (<u>cod-p</u>, <mark>cod-cat</mark>, <mark>cod-per-ref</mark>, parentesco)
+            - PK: (cod-p)
+            - FK: cod-cat->VIVIENDA(cod-cat)
+            - FK: cod-per-ref->PERSONA(cod-p)
+        - **PROPIEDAD** (<u><mark>cod-p</mark>,<mark>cod-cat</mark></u>)
+            - PK: (cod-p, cod-cat)
+            - FK: cod-p->PERSONA(cod-p)
+            - FK: cod-cat->VIVIENDA(cod-cat)
 
 ??? example "Ejercicio 3"
 
@@ -79,24 +79,24 @@ hide:
         ![alt text](Ej3.jpg){ .grayscale }
 
     ??? success "Solución propuesta"
-        - **ÁREA DE CONOCIMIENTO** (<u>cod_a</u>)
-            - PK: (cod_a)
-        - **FACULTAD** (<u>cod_fac</u>)
-            - PK: (cod_fac)
-        - **DEPARTAMENTO** (<u>cod_dept</u>, <mark>cod_a</mark>)
-            - PK: (cod_dept)
-            - FK: cod_a->ÁREA DE CONOCIMIENTO(cod_a) <span class="tag-no-nulo">[no nulo]</span>
-        - **CÁTEDRA** (<u>cod_cat</u>, <mark>cod_dept</mark>, <mark>cod_fac</mark>)
-            - PK: (cod_cat)
-            - FK: cod_dept->DEPARTAMENTO(cod_dept)
-            - FK: cod_fac->FACULTAD(cod_fac) <span class="tag-no-nulo">[no nulo]</span>
-        - **PROFESOR** (<u>dni</u>, <mark>cod_dept</mark>)
+        - **ÁREA DE CONOCIMIENTO** (<u>cod-a</u>)
+            - PK: (cod-a)
+        - **FACULTAD** (<u>cod-fac</u>)
+            - PK: (cod-fac)
+        - **DEPARTAMENTO** (<u>cod-dept</u>, <mark>cod-a</mark>)
+            - PK: (cod-dept)
+            - FK: cod-a->ÁREA DE CONOCIMIENTO(cod-a) <span class="tag-no-nulo">[no nulo]</span>
+        - **CÁTEDRA** (<u>cod-cat</u>, <mark>cod-dept</mark>, <mark>cod-fac</mark>)
+            - PK: (cod-cat)
+            - FK: cod-dept->DEPARTAMENTO(cod-dept)
+            - FK: cod-fac->FACULTAD(cod-fac) <span class="tag-no-nulo">[no nulo]</span>
+        - **PROFESOR** (<u>dni</u>, <mark>cod-dept</mark>)
             - PK: (dni)
-            - FK: cod_dept->DEPARTAMENTO(cod_dept) <span class="tag-no-nulo">[no nulo]</span>
-        - **ADSCRITO_A** (<u><mark>dni</mark>, <mark>cod_cat</mark></u>, fecha)
-            - PK: (dni, cod_cat)
+            - FK: cod-dept->DEPARTAMENTO(cod-dept) <span class="tag-no-nulo">[no nulo]</span>
+        - **ADSCRITO_A** (<u><mark>dni</mark>, <mark>cod-cat</mark></u>, fecha)
+            - PK: (dni, cod-cat)
             - FK: dni->PROFESOR(dni)
-            - FK: cod_cat->CÁTEDRA(cod_cat)
+            - FK: cod-cat->CÁTEDRA(cod-cat)
 
 ??? example "Ejercicio 4"
 
@@ -104,29 +104,29 @@ hide:
         ![alt text](Ej5.jpg){ .grayscale }
 
     ??? success "Solución propuesta"
-        - **TEMA** (<u>cod_t</u>)
-            - PK: (cod_t)
-        - **AUTOR** (<u>cod_aut</u>)
-            - PK: (cod_aut)
-        - **EDITORIAL** (<u>cod_ed</u>)
-            - PK: (cod_ed)
-        - **LIBRO** (<u>isbn</u>, <mark>cod_t</mark>, <mark>cod_ed</mark>, fecha_ed)
+        - **TEMA** (<u>cod-t</u>)
+            - PK: (cod-t)
+        - **AUTOR** (<u>cod-aut</u>)
+            - PK: (cod-aut)
+        - **EDITORIAL** (<u>cod-ed</u>)
+            - PK: (cod-ed)
+        - **LIBRO** (<u>isbn</u>, <mark>cod-t</mark>, <mark>cod-ed</mark>, fecha-ed)
             - PK: (isbn)
-            - FK: cod_t->TEMA(cod_t)
-            - FK: cod_ed->EDITORIAL(cod_ed)
-        - **EJEMPLAR** (<u><mark>isbn</mark>, n_reg</u>, <mark>dni</mark>, fecha_p) <span class="tag-cascade">(borrar en cascada)</span>
-            - PK: (isbn, n_reg)
+            - FK: cod-t->TEMA(cod-t)
+            - FK: cod-ed->EDITORIAL(cod-ed)
+        - **EJEMPLAR** (<u><mark>isbn</mark>, n-reg</u>, <mark>dni</mark>, fecha-p) <span class="tag-cascade">(borrar en cascada)</span>
+            - PK: (isbn, n-reg)
             - FK: isbn->LIBRO(isbn)
             - FK: dni->LECTOR(dni)
-        - **ESCRIBE** (<u><mark>cod_aut</mark>, <mark>isbn</mark></u>)
-            - PK: (cod_aut, isbn)
-            - FK: cod_aut->AUTOR(cod_aut)
+        - **ESCRIBE** (<u><mark>cod-aut</mark>, <mark>isbn</mark></u>)
+            - PK: (cod-aut, isbn)
+            - FK: cod-aut->AUTOR(cod-aut)
             - FK: isbn->LIBRO(isbn)
         - **LECTOR** (<u>dni</u>)
             - PK: (dni)
-        - **HISTORICO** ( <u><mark>isbn, n_reg</mark>, <mark>dni</mark>, fecha_p</u>, fecha_dev)
-            - PK: (isbn, n_reg, dni, fecha_p)
-            - FK: isbn, n_reg->EJEMPLAR(isbn, n_reg)
+        - **HISTORICO** ( <u><mark>isbn, n-reg</mark>, <mark>dni</mark>, fecha-p</u>, fecha-dev)
+            - PK: (isbn, n-reg, dni, fecha-p)
+            - FK: isbn, n-reg->EJEMPLAR(isbn, n-reg)
             - FK: dni->LECTOR(dni)
 
 
@@ -138,49 +138,49 @@ hide:
 
     ??? success "Solución propuesta"
         !!! quote "Opción 1"
-            - **BANCO** (<u>cod_ent</u>)
-                - PK: (cod_ent)
-            - **SUCURSAL** (<u><mark>cod_ent</mark>, cod_suc</u>) <span class="tag-cascade">(borrar en cascada)</span>
-                - PK: (cod_ent, cod_suc)
-                - FK: cod_ent->BANCO(cod_ent) <span class="tag-no-nulo">[no nulo]</span>
-            - **CUENTA CORRIENTE** (<u><mark>cod_ent</mark>, <mark>cod_suc</mark></u>, <u>cod_cc</u>) <span class="tag-cascade">(borrar en cascada)</span>
-                - PK: (cod_ent, cod_suc, cod_cc)
-                - FK: cod_ent, cod_suc->SUCURSAL(cod_ent, cod_suc)
-            - **DOMICILIACION** (<u><mark>cod_ent</mark>, <mark>cod_suc</mark>, <mark>cod_cc</mark>, cod_d</u>) <span class="tag-cascade">(borrar en cascada)</span>
-                - PK: (cod_ent, cod_suc, cod_cc, cod_d)
-                - FK: cod_ent, cod_suc, cod_cc->CUENTA CORRIENTE(cod_ent, cod_suc, cod_cc)
+            - **BANCO** (<u>cod-ent</u>)
+                - PK: (cod-ent)
+            - **SUCURSAL** (<u><mark>cod-ent</mark>, cod-suc</u>) <span class="tag-cascade">(borrar en cascada)</span>
+                - PK: (cod-ent, cod-suc)
+                - FK: cod-ent->BANCO(cod-ent) <span class="tag-no-nulo">[no nulo]</span>
+            - **CUENTA CORRIENTE** (<u><mark>cod-ent</mark>, <mark>cod-suc</mark></u>, <u>cod-cc</u>) <span class="tag-cascade">(borrar en cascada)</span>
+                - PK: (cod-ent, cod-suc, cod-cc)
+                - FK: cod-ent, cod-suc->SUCURSAL(cod-ent, cod-suc)
+            - **DOMICILIACION** (<u><mark>cod-ent</mark>, <mark>cod-suc</mark>, <mark>cod-cc</mark>, cod-d</u>) <span class="tag-cascade">(borrar en cascada)</span>
+                - PK: (cod-ent, cod-suc, cod-cc, cod-d)
+                - FK: cod-ent, cod-suc, cod-cc->CUENTA CORRIENTE(cod-ent, cod-suc, cod-cc)
             - **CLIENTE** (<u>dni</u>)
                 - PK: (dni)
-            - **PRESTAMO** (<u><mark>cod_ent</mark>, <mark>cod_suc</mark>, cod_p</u>, <mark>dni</mark>) <span class="tag-cascade">(borrar en cascada)</span>
-                - PK: (cod_ent, cod_suc, cod_p)
-                - FK: cod_ent, cod_suc->SUCURSAL(cod_ent, cod_suc)
+            - **PRESTAMO** (<u><mark>cod-ent</mark>, <mark>cod-suc</mark>, cod-p</u>, <mark>dni</mark>) <span class="tag-cascade">(borrar en cascada)</span>
+                - PK: (cod-ent, cod-suc, cod-p)
+                - FK: cod-ent, cod-suc->SUCURSAL(cod-ent, cod-suc)
                 - FK: dni->CLIENTE(dni)
-            - **PERMISOS** (<u><mark>cod_ent</mark>, <mark>cod_suc</mark>, <mark>cod_cc</mark>, <mark>dni</mark>, privilegio</u>)
-                - PK: (cod_ent, cod_suc, cod_cc, dni, privilegio)
-                - FK: cod_ent, cod_suc, cod_cc->CUENTA CORRIENTE(cod_ent, cod_suc, cod_cc)
+            - **PERMISOS** (<u><mark>cod-ent</mark>, <mark>cod-suc</mark>, <mark>cod-cc</mark>, <mark>dni</mark>, privilegio</u>)
+                - PK: (cod-ent, cod-suc, cod-cc, dni, privilegio)
+                - FK: cod-ent, cod-suc, cod-cc->CUENTA CORRIENTE(cod-ent, cod-suc, cod-cc)
                 - FK: dni->CLIENTE(dni)
 
         !!! quote "Opción 2"
-            - **BANCO** (<u>cod_ent</u>)
-                - PK: (cod_ent)
-            - **SUCURSAL** (<u><mark>cod_ent</mark>, cod_suc</u>) <span class="tag-cascade">(borrar en cascada)</span>
-                - PK: (cod_ent, cod_suc)
-                - FK: cod_ent->BANCO(cod_ent) <span class="tag-no-nulo">[no nulo]</span>
-            - **CUENTA CORRIENTE** (<u><mark>cod_ent</mark>, <mark>cod_suc</mark></u>, <u>cod_cc</u>) <span class="tag-cascade">(borrar en cascada)</span>
-                - PK: (cod_ent, cod_suc, cod_cc)
-                - FK: cod_ent, cod_suc->SUCURSAL(cod_ent, cod_suc)
-            - **DOMICILIACION** (<u>num_d</u>,<mark>cod_ent</mark>, <mark>cod_suc</mark>, <mark>cod_cc</mark>) <span class="tag-cascade">(borrar en cascada)</span>
-                - PK: (num_d)
-                - FK: cod_ent, cod_suc, cod_cc->CUENTA CORRIENTE(cod_ent, cod_suc, cod_cc) <span class="tag-no-nulo">[no nulo]</span>
+            - **BANCO** (<u>cod-ent</u>)
+                - PK: (cod-ent)
+            - **SUCURSAL** (<u><mark>cod-ent</mark>, cod-suc</u>) <span class="tag-cascade">(borrar en cascada)</span>
+                - PK: (cod-ent, cod-suc)
+                - FK: cod-ent->BANCO(cod-ent) <span class="tag-no-nulo">[no nulo]</span>
+            - **CUENTA CORRIENTE** (<u><mark>cod-ent</mark>, <mark>cod-suc</mark></u>, <u>cod-cc</u>) <span class="tag-cascade">(borrar en cascada)</span>
+                - PK: (cod-ent, cod-suc, cod-cc)
+                - FK: cod-ent, cod-suc->SUCURSAL(cod-ent, cod-suc)
+            - **DOMICILIACION** (<u>num-d</u>,<mark>cod-ent</mark>, <mark>cod-suc</mark>, <mark>cod-cc</mark>) <span class="tag-cascade">(borrar en cascada)</span>
+                - PK: (num-d)
+                - FK: cod-ent, cod-suc, cod-cc->CUENTA CORRIENTE(cod-ent, cod-suc, cod-cc) <span class="tag-no-nulo">[no nulo]</span>
             - **CLIENTE** (<u>dni</u>)
                 - PK: (dni)
-            - **PRESTAMO** (<u><mark>cod_ent</mark>, <mark>cod_suc</mark>, cod_p</u>, <mark>dni</mark>) <span class="tag-cascade">(borrar en cascada)</span>
-                - PK: (cod_ent, cod_suc, cod_p)
-                - FK: cod_ent, cod_suc->SUCURSAL(cod_ent, cod_suc)
+            - **PRESTAMO** (<u><mark>cod-ent</mark>, <mark>cod-suc</mark>, cod-p</u>, <mark>dni</mark>) <span class="tag-cascade">(borrar en cascada)</span>
+                - PK: (cod-ent, cod-suc, cod-p)
+                - FK: cod-ent, cod-suc->SUCURSAL(cod-ent, cod-suc)
                 - FK: dni->CLIENTE(dni)
-            - **PERMISOS** (<u> cod_p</u>,<mark>cod_ent</mark>, <mark>cod_suc</mark>, <mark>cod_cc</mark>, <mark>dni</mark>, privilegio)
-                - PK: (cod_p)
-                - FK: cod_ent, cod_suc, cod_cc->CUENTA CORRIENTE(cod_ent, cod_suc, cod_cc) <span class="tag-no-nulo">[no nulo]</span>
+            - **PERMISOS** (<u> cod-p</u>,<mark>cod-ent</mark>, <mark>cod-suc</mark>, <mark>cod-cc</mark>, <mark>dni</mark>, privilegio)
+                - PK: (cod-p)
+                - FK: cod-ent, cod-suc, cod-cc->CUENTA CORRIENTE(cod-ent, cod-suc, cod-cc) <span class="tag-no-nulo">[no nulo]</span>
                 - FK: dni->CLIENTE(dni)  <span class="tag-no-nulo">[no nulo]</span>
 
 ??? example "Ejercicio 6"
@@ -190,34 +190,34 @@ hide:
 
     ??? success "Solución propuesta"
         !!! quote "Opción 1"
-            - **FAMILIA** (<u>nom_f</u>)
-                - PK: (nom_f)
-            - **GENERO** (<u>nom_g</u>, <mark>nom_f</mark>) <span class="tag-cascade">(borrar en cascada)</span>
-                - PK: (nom_g)
-                - FK: nom_f->FAMILIA(nom_f) <span class="tag-no-nulo">[no nulo]</span>
-            - **ESPECIE** (<u><mark>nom_g</mark>,nom_e </u>) <span class="tag-cascade">(borrar en cascada)</span>
-                - PK: (nom_g, nom_e)
-                - FK: nom_g->GENERO(nom_g)
+            - **FAMILIA** (<u>nom-f</u>)
+                - PK: (nom-f)
+            - **GENERO** (<u>nom-g</u>, <mark>nom-f</mark>) <span class="tag-cascade">(borrar en cascada)</span>
+                - PK: (nom-g)
+                - FK: nom-f->FAMILIA(nom-f) <span class="tag-no-nulo">[no nulo]</span>
+            - **ESPECIE** (<u><mark>nom-g</mark>,nom-e </u>) <span class="tag-cascade">(borrar en cascada)</span>
+                - PK: (nom-g, nom-e)
+                - FK: nom-g->GENERO(nom-g)
             - **PERSONA** (<u>dni</u>)
                 - PK: (dni)
             - **COMARCA** (<u>com</u>)
                 - PK: (com)
-            - **VIVE** (<u><mark>nom_g</mark>,<mark>nom_e</mark>, <mark>com</mark></u>, nom_comun)
-                - PK: (nom_g, nom_e, com)
-                - FK: nom_g,nom_e->ESPECIE(nom_g,nom_e)
+            - **VIVE** (<u><mark>nom-g</mark>,<mark>nom-e</mark>, <mark>com</mark></u>, nom-comun)
+                - PK: (nom-g, nom-e, com)
+                - FK: nom-g,nom-e->ESPECIE(nom-g,nom-e)
                 - FK: com->COMARCA(com)
-            - **EJEMPLAR** (<u><mark>nom_g</mark>,<mark>nom_e</mark>,cod_ej</u>, <mark>dni</mark>, <mark>com</mark>) <span class="tag-cascade">(borrar en cascada)</span>
-                - PK: (nom_g, nom_e, cod_ej)
-                - FK: nom_g,nom_e->ESPECIE(nom_g,nom_e)
+            - **EJEMPLAR** (<u><mark>nom-g</mark>,<mark>nom-e</mark>,cod-ej</u>, <mark>dni</mark>, <mark>com</mark>) <span class="tag-cascade">(borrar en cascada)</span>
+                - PK: (nom-g, nom-e, cod-ej)
+                - FK: nom-g,nom-e->ESPECIE(nom-g,nom-e)
                 - FK: dni->PERSONA(dni) <span class="tag-no-nulo">[no nulo]</span>
                 - FK: com->COMARCA(com) <span class="tag-no-nulo">[no nulo]</span>
-             - **EJ_COL** (<u><mark>nom_g</mark>,<mark>nom_e</mark><mark>cod_ej</mark></u>, <mark>dni</mark>, valor) <span class="tag-cascade">(borrar en cascada)</span>
-                - PK: (nom_g, nom_e, cod_ej)
-                - FK: cod_ej,nom_g,nom_e->EJEMPLAR(cod_ej,nom_g,nom_e)
+             - **EJ_COL** (<u><mark>nom-g</mark>,<mark>nom-e</mark><mark>cod-ej</mark></u>, <mark>dni</mark>, valor) <span class="tag-cascade">(borrar en cascada)</span>
+                - PK: (nom-g, nom-e, cod-ej)
+                - FK: cod-ej,nom-g,nom-e->EJEMPLAR(cod-ej,nom-g,nom-e)
                 - FK: dni->COLECCION(dni) <span class="tag-no-nulo">[no nulo]</span>
-            - **EJ_OBS** (<u><mark>nom_g</mark>,<mark>nom_e</mark>,<mark>cod_ej</mark></u>, tiempo_obs) <span class="tag-cascade">(borrar en cascada)</span>
-                - PK: (nom_g, nom_e,cod_ej)
-                - FK: cod_ej,nom_g,nom_e->EJEMPLAR(cod_ej,nom_g,nom_e)
+            - **EJ_OBS** (<u><mark>nom-g</mark>,<mark>nom-e</mark>,<mark>cod-ej</mark></u>, tiempo-obs) <span class="tag-cascade">(borrar en cascada)</span>
+                - PK: (nom-g, nom-e,cod-ej)
+                - FK: cod-ej,nom-g,nom-e->EJEMPLAR(cod-ej,nom-g,nom-e)
 
               
             - **COLECCION** (<u><mark>dni</mark></u>) <span class="tag-cascade">(borrar en cascada)</span>
@@ -227,35 +227,35 @@ hide:
             <span class="tag-no-nulo">[nota]</span> La especialización de **EJEMPLAR** en **EJ_COL** y **EJ_OBS** es total y disjunta (T,D).   
 
         !!! quote "Opción 2"
-            - **FAMILIA** (<u>nom_f</u>)
-                - PK: (nom_f)
-            - **GENERO** (<u>nom_g</u>, <mark>nom_f</mark>) <span class="tag-cascade">(borrar en cascada)</span>
-                - PK: (nom_g)
-                - FK: nom_f->FAMILIA(nom_f) <span class="tag-no-nulo">[no nulo]</span>
-            - **ESPECIE** (<u><mark>nom_g</mark>,nom_e</u>) <span class="tag-cascade">(borrar en cascada)</span>
-                - PK: (nom_g, nom_e)
-                - FK: nom_g->GENERO(nom_g)
+            - **FAMILIA** (<u>nom-f</u>)
+                - PK: (nom-f)
+            - **GENERO** (<u>nom-g</u>, <mark>nom-f</mark>) <span class="tag-cascade">(borrar en cascada)</span>
+                - PK: (nom-g)
+                - FK: nom-f->FAMILIA(nom-f) <span class="tag-no-nulo">[no nulo]</span>
+            - **ESPECIE** (<u><mark>nom-g</mark>,nom-e</u>) <span class="tag-cascade">(borrar en cascada)</span>
+                - PK: (nom-g, nom-e)
+                - FK: nom-g->GENERO(nom-g)
             - **PERSONA** (<u>dni</u>)
                 - PK: (dni)
             - **COMARCA** (<u>com</u>)
                 - PK: (com)
-            - **VIVE** (<u><mark>nom_g</mark>,<mark>nom_e</mark>, <mark>com</mark></u>, nom_comun)
-                - PK: (nom_g, nom_e, com)
-                - FK: nom_g,nom_e->ESPECIE(nom_g,nom_e)
+            - **VIVE** (<u><mark>nom-g</mark>,<mark>nom-e</mark>, <mark>com</mark></u>, nom-comun)
+                - PK: (nom-g, nom-e, com)
+                - FK: nom-g,nom-e->ESPECIE(nom-g,nom-e)
                 - FK: com->COMARCA(com)
-            - **EJEMPLAR** (<u>cod_ej</u>, <mark>nom_g</mark>,<mark>nom_e</mark>, <mark>dni</mark>, <mark>com</mark>) <span class="tag-cascade">(borrar en cascada)</span>
-                - PK: (cod_ej)
-                - FK: nom_g,nom_e->ESPECIE(nom_g,nom_e) <span class="tag-no-nulo">[no nulo]</span>
+            - **EJEMPLAR** (<u>cod-ej</u>, <mark>nom-g</mark>,<mark>nom-e</mark>, <mark>dni</mark>, <mark>com</mark>) <span class="tag-cascade">(borrar en cascada)</span>
+                - PK: (cod-ej)
+                - FK: nom-g,nom-e->ESPECIE(nom-g,nom-e) <span class="tag-no-nulo">[no nulo]</span>
                 - FK: dni->PERSONA(dni) <span class="tag-no-nulo">[no nulo]</span>
                 - FK: com->COMARCA(com) <span class="tag-no-nulo">[no nulo]</span>
             
-            - **EJ_COL** (<u><mark>cod_ej</mark></u>, <mark>dni</mark>, valor) <span class="tag-cascade">(borrar en cascada)</span>
-                - PK: (cod_ej)
-                - FK: cod_ej->EJEMPLAR(cod_ej)
+            - **EJ_COL** (<u><mark>cod-ej</mark></u>, <mark>dni</mark>, valor) <span class="tag-cascade">(borrar en cascada)</span>
+                - PK: (cod-ej)
+                - FK: cod-ej->EJEMPLAR(cod-ej)
                 - FK: dni->COLECCION(dni) <span class="tag-no-nulo">[no nulo]</span>
-            - **EJ_OBS** (<u><mark>cod_ej</mark></u>, tiempo_obs) <span class="tag-cascade">(borrar en cascada)</span>
-                - PK: (cod_ej)
-                - FK: cod_ej->EJEMPLAR(cod_ej)
+            - **EJ_OBS** (<u><mark>cod-ej</mark></u>, tiempo-obs) <span class="tag-cascade">(borrar en cascada)</span>
+                - PK: (cod-ej)
+                - FK: cod-ej->EJEMPLAR(cod-ej)
 
             - **COLECCION** (<u><mark>dni</mark></u>) <span class="tag-cascade">(borrar en cascada)</span>
                 - PK: (dni)
@@ -273,7 +273,7 @@ hide:
         ![alt text](image-70.png){ .grayscale }
 
     ??? success "Solución propuesta"
-        - **EMPLEADO** (<u>dni</u>, nombre, direccion, telefono, fecha_inicio)
+        - **EMPLEADO** (<u>dni</u>, nombre, direccion, telefono, fecha-inicio)
             - PK: (dni)
         - **GUIA** (<u><mark>dni</mark></u>) <span class="tag-cascade">(borrar en cascada)</span>
             - PK: (dni)
@@ -281,31 +281,31 @@ hide:
         - **CUIDADOR** (<u><mark>dni</mark></u>) <span class="tag-cascade">(borrar en cascada)</span>
             - PK: (dni)
             - FK: dni->EMPLEADO(dni)
-        - **HABITAT** (<u>cod_h</u>, clima, vegetacion)
-            - PK: (cod_h)
-        - **ZONA** (<u>cod_z</u>, extension)
-            - PK: (cod_z)
-        - **ESPECIE** (<u>nom_c</u>, nombre, descripcion, <mark>cod_z</mark>)
-            - PK: (nom_c)
-            - FK: cod_z->ZONA(cod_z) <span class="tag-no-nulo">[no nulo]</span>
-        - **ESPECIE_HABITAT** (<u><mark>nom_c</mark>, <mark>cod_h</mark></u>)
-            - PK: (nom_c, cod_h)
-            - FK: nom_c->ESPECIE(nom_c)
-            - FK: cod_h->HABITAT(cod_h)
-        - **CUIDADOR_ESPECIE** (<u><mark>dni</mark>, <mark>nom_c</mark></u>, fecha)
-            - PK: (dni, nom_c)
+        - **HABITAT** (<u>cod-h</u>, clima, vegetacion)
+            - PK: (cod-h)
+        - **ZONA** (<u>cod-z</u>, extension)
+            - PK: (cod-z)
+        - **ESPECIE** (<u>nom-c</u>, nombre, descripcion, <mark>cod-z</mark>)
+            - PK: (nom-c)
+            - FK: cod-z->ZONA(cod-z) <span class="tag-no-nulo">[no nulo]</span>
+        - **ESPECIE_HABITAT** (<u><mark>nom-c</mark>, <mark>cod-h</mark></u>)
+            - PK: (nom-c, cod-h)
+            - FK: nom-c->ESPECIE(nom-c)
+            - FK: cod-h->HABITAT(cod-h)
+        - **CUIDADOR_ESPECIE** (<u><mark>dni</mark>, <mark>nom-c</mark></u>, fecha)
+            - PK: (dni, nom-c)
             - FK: dni->CUIDADOR(dni)
-            - FK: nom_c->ESPECIE(nom_c)
-        - **ITINERARIO** (<u>cod_i</u>, duracion, longitud, max_visitantes, num_especies)
-            - PK: (cod_i)
-        - **GUIA_ITINERARIO** (<u><mark>dni</mark>, <mark>cod_i</mark></u>, horas)
-            - PK: (dni, cod_i)
+            - FK: nom-c->ESPECIE(nom-c)
+        - **ITINERARIO** (<u>cod-i</u>, duracion, longitud, max-visitantes, num-especies)
+            - PK: (cod-i)
+        - **GUIA_ITINERARIO** (<u><mark>dni</mark>, <mark>cod-i</mark></u>, horas)
+            - PK: (dni, cod-i)
             - FK: dni->GUIA(dni)
-            - FK: cod_i->ITINERARIO(cod_i)
-        - **ITINERARIO_ZONA** (<u><mark>cod_i</mark>, <mark>cod_z</mark></u>)
-            - PK: (cod_i, cod_z)
-            - FK: cod_i->ITINERARIO(cod_i)
-            - FK: cod_z->ZONA(cod_z)
+            - FK: cod-i->ITINERARIO(cod-i)
+        - **ITINERARIO_ZONA** (<u><mark>cod-i</mark>, <mark>cod-z</mark></u>)
+            - PK: (cod-i, cod-z)
+            - FK: cod-i->ITINERARIO(cod-i)
+            - FK: cod-z->ZONA(cod-z)
 
 
 ??? example "Ejercicio 8"
@@ -322,66 +322,66 @@ hide:
     ??? success "Solución propuesta"
         !!! quote "Opción 1"
 
-            - **TRABAJADOR** (<u>codigo_trabajador</u>, <mark>codigo_estacion</mark>)
-                - PK: (codigo_trabajador)
-                - FK: codigo_estacion->ESTACIÓN(codigo_estacion)
-            - **NO CONDUCTOR** (<u><mark>codigo_trabajador</mark></u>) <span class="tag-cascade">(borrar en cascada)</span>
-                - PK: (codigo_trabajador)
-                - FK: codigo_trabajador->TRABAJADOR(codigo_trabajador)
-            - **CONDUCTOR** (<u><mark>codigo_trabajador</mark></u>, horas) <span class="tag-cascade">(borrar en cascada)</span>
-                - PK: (codigo_trabajador)
-                - FK: codigo_trabajador->TRABAJADOR(codigo_trabajador)
-            - **ESTACIÓN** (<u>codigo_estacion</u>, nombre, telefono)
-                - PK: (codigo_estacion)
-            - **TREN** (<u>codigo_tren</u>, <mark>codigo_estacion</mark>, tipo)
-                - PK: (codigo_tren)
-                - FK: codigo_estacion->ESTACIÓN(codigo_estacion)
-            - **TEMPORADA** (<u>cod_temporada</u>)
-                - PK: (cod_temporada)
-            - **VIAJE** (<u>codigo_viaje</u>, hora, fecha, <mark>codigo_estacion_origen</mark>, <mark>codigo_estacion_destino</mark>, <mark>codigo_tren</mark>, <mark>cod_temporada</mark>)
-                - PK: (codigo_viaje)
-                - FK: codigo_estacion_origen->ESTACIÓN(codigo_estacion)
-                - FK: codigo_estacion_destino->ESTACIÓN(codigo_estacion)
-                - FK: codigo_tren->TREN(codigo_tren)
-                - FK: cod_temporada->TEMPORADA(cod_temporada)
-            - **CONDUCTOR_VIAJE** (<u><mark>codigo_trabajador</mark>, <mark>codigo_viaje</mark></u>)
-                - PK: (codigo_trabajador, codigo_viaje)
-                - FK: codigo_trabajador->CONDUCTOR(codigo_trabajador)
-                - FK: codigo_viaje->VIAJE(codigo_viaje)
+            - **TRABAJADOR** (<u>codigo-trabajador</u>, <mark>codigo-estacion</mark>)
+                - PK: (codigo-trabajador)
+                - FK: codigo-estacion->ESTACIÓN(codigo-estacion)
+            - **NO CONDUCTOR** (<u><mark>codigo-trabajador</mark></u>) <span class="tag-cascade">(borrar en cascada)</span>
+                - PK: (codigo-trabajador)
+                - FK: codigo-trabajador->TRABAJADOR(codigo-trabajador)
+            - **CONDUCTOR** (<u><mark>codigo-trabajador</mark></u>, horas) <span class="tag-cascade">(borrar en cascada)</span>
+                - PK: (codigo-trabajador)
+                - FK: codigo-trabajador->TRABAJADOR(codigo-trabajador)
+            - **ESTACIÓN** (<u>codigo-estacion</u>, nombre, telefono)
+                - PK: (codigo-estacion)
+            - **TREN** (<u>codigo-tren</u>, <mark>codigo-estacion</mark>, tipo)
+                - PK: (codigo-tren)
+                - FK: codigo-estacion->ESTACIÓN(codigo-estacion)
+            - **TEMPORADA** (<u>cod-temporada</u>)
+                - PK: (cod-temporada)
+            - **VIAJE** (<u>codigo-viaje</u>, hora, fecha, <mark>codigo-estacion-origen</mark>, <mark>codigo-estacion-destino</mark>, <mark>codigo-tren</mark>, <mark>cod-temporada</mark>)
+                - PK: (codigo-viaje)
+                - FK: codigo-estacion-origen->ESTACIÓN(codigo-estacion)
+                - FK: codigo-estacion-destino->ESTACIÓN(codigo-estacion)
+                - FK: codigo-tren->TREN(codigo-tren)
+                - FK: cod-temporada->TEMPORADA(cod-temporada)
+            - **CONDUCTOR_VIAJE** (<u><mark>codigo-trabajador</mark>, <mark>codigo-viaje</mark></u>)
+                - PK: (codigo-trabajador, codigo-viaje)
+                - FK: codigo-trabajador->CONDUCTOR(codigo-trabajador)
+                - FK: codigo-viaje->VIAJE(codigo-viaje)
 
         !!! quote "Opción 2"
 
-            - **TRABAJADOR** (<u>codigo_trabajador</u>, <mark>codigo_estacion</mark>)
-                - PK: (codigo_trabajador)
-                - FK: codigo_estacion->ESTACIÓN(codigo_estacion)
-            - **NO CONDUCTOR** (<u><mark>codigo_trabajador</mark></u>) <span class="tag-cascade">(borrar en cascada)</span>
-                - PK: (codigo_trabajador)
-                - FK: codigo_trabajador->TRABAJADOR(codigo_trabajador)
-            - **CONDUCTOR** (<u><mark>codigo_trabajador</mark></u>, horas) <span class="tag-cascade">(borrar en cascada)</span>
-                - PK: (codigo_trabajador)
-                - FK: codigo_trabajador->TRABAJADOR(codigo_trabajador)
-            - **ESTACIÓN** (<u>codigo_estacion</u>, nombre, telefono)
-                - PK: (codigo_estacion)
-            - **TREN** (<u>codigo_tren</u>, <mark>codigo_estacion</mark>, tipo)
-                - PK: (codigo_tren)
-                - FK: codigo_estacion->ESTACIÓN(codigo_estacion)
-            - **TEMPORADA** (<u>cod_temporada</u>)
-                - PK: (cod_temporada)
-            - **TRAYECTO** (<u>codigo_trayecto</u>, hora)
-                - PK: (codigo_trayecto)
-            - **PARADAS** (<u><mark>codigo_estacion</mark>, <mark>codigo_trayecto</mark></u>)
-                - PK: (codigo_estacion, codigo_trayecto)
-                - FK: codigo_trayecto->TRAYECTO(codigo_trayecto)
-                - FK: codigo_estacion->ESTACIÓN(codigo_estacion)
-            - **VIAJE** (<u><mark>codigo_trayecto</mark>, fecha</u>, <mark>codigo_tren</mark>, <mark>cod_temporada</mark>) <span class="tag-cascade">(borrar en cascada)</span>
-                - PK: (codigo_trayecto, fecha)
-                - FK: codigo_trayecto->TRAYECTO(codigo_trayecto)
-                - FK: codigo_tren->TREN(codigo_tren)
-                - FK: cod_temporada->TEMPORADA(cod_temporada)
-            - **CONDUCTOR_VIAJE** (<u><mark>codigo_trabajador</mark>, <mark>codigo_trayecto</mark>, <mark>fecha</mark></u>)
-                - PK: (codigo_trabajador, codigo_trayecto, fecha)
-                - FK: codigo_trabajador->CONDUCTOR(codigo_trabajador)
-                - FK: codigo_trayecto, fecha->VIAJE(codigo_trayecto, fecha)
+            - **TRABAJADOR** (<u>codigo-trabajador</u>, <mark>codigo-estacion</mark>)
+                - PK: (codigo-trabajador)
+                - FK: codigo-estacion->ESTACIÓN(codigo-estacion)
+            - **NO CONDUCTOR** (<u><mark>codigo-trabajador</mark></u>) <span class="tag-cascade">(borrar en cascada)</span>
+                - PK: (codigo-trabajador)
+                - FK: codigo-trabajador->TRABAJADOR(codigo-trabajador)
+            - **CONDUCTOR** (<u><mark>codigo-trabajador</mark></u>, horas) <span class="tag-cascade">(borrar en cascada)</span>
+                - PK: (codigo-trabajador)
+                - FK: codigo-trabajador->TRABAJADOR(codigo-trabajador)
+            - **ESTACIÓN** (<u>codigo-estacion</u>, nombre, telefono)
+                - PK: (codigo-estacion)
+            - **TREN** (<u>codigo-tren</u>, <mark>codigo-estacion</mark>, tipo)
+                - PK: (codigo-tren)
+                - FK: codigo-estacion->ESTACIÓN(codigo-estacion)
+            - **TEMPORADA** (<u>cod-temporada</u>)
+                - PK: (cod-temporada)
+            - **TRAYECTO** (<u>codigo-trayecto</u>, hora)
+                - PK: (codigo-trayecto)
+            - **PARADAS** (<u><mark>codigo-estacion</mark>, <mark>codigo-trayecto</mark></u>)
+                - PK: (codigo-estacion, codigo-trayecto)
+                - FK: codigo-trayecto->TRAYECTO(codigo-trayecto)
+                - FK: codigo-estacion->ESTACIÓN(codigo-estacion)
+            - **VIAJE** (<u><mark>codigo-trayecto</mark>, fecha</u>, <mark>codigo-tren</mark>, <mark>cod-temporada</mark>) <span class="tag-cascade">(borrar en cascada)</span>
+                - PK: (codigo-trayecto, fecha)
+                - FK: codigo-trayecto->TRAYECTO(codigo-trayecto)
+                - FK: codigo-tren->TREN(codigo-tren)
+                - FK: cod-temporada->TEMPORADA(cod-temporada)
+            - **CONDUCTOR_VIAJE** (<u><mark>codigo-trabajador</mark>, <mark>codigo-trayecto</mark>, <mark>fecha</mark></u>)
+                - PK: (codigo-trabajador, codigo-trayecto, fecha)
+                - FK: codigo-trabajador->CONDUCTOR(codigo-trabajador)
+                - FK: codigo-trayecto, fecha->VIAJE(codigo-trayecto, fecha)
 
 ??? example "Ejercicio 9"
 
@@ -391,36 +391,36 @@ hide:
         ![alt text](image-71.png){ .grayscale }
 
     ??? success "Solución propuesta"
-        - **RED** (<u>codigo_x</u>, <mark>dni</mark>)
-            - PK: (codigo_x)
+        - **RED** (<u>codigo-x</u>, <mark>dni</mark>)
+            - PK: (codigo-x)
             - FK: dni->EMPLEADO(dni) <span class="tag-no-nulo">[no nulo]</span>
         - **EMPLEADO** (<u>dni</u>, nombre, direccion, telefono)
             - PK: (dni)
-        - **ORDENADOR** (<u>codigo_o</u>)
-            - PK: (codigo_o)
-        - **IMPRESORA** (<u>codigo_i</u>, <mark>codigo_o</mark>)
-            - PK: (codigo_i)
-            - FK: codigo_o->ORDENADOR(codigo_o) <span class="tag-no-nulo">[no nulo]</span> <span class="tag-unico">[unico]</span>
-        - **APLICACION** (<u>codigo_a</u>,<mark>codigo_o</mark>)
-            - PK: (codigo_a)
-            - FK: codigo_o->ORDENADOR(codigo_o) <span class="tag-no-nulo">[no nulo]</span>
-        - **RED_ORDENADOR** (<u><mark>codigo_x</mark></u>, <u><mark>codigo_o</mark></u>)
-            - PK: (codigo_x, codigo_o)
-            - FK: codigo_x->RED(codigo_x)
-            - FK: codigo_o->ORDENADOR(codigo_o)
-        - **EMPLEADO_ORDENADOR** (<u><mark>dni</mark>, <mark>codigo_o</mark></u>)
-            - PK: (dni, codigo_o)
+        - **ORDENADOR** (<u>codigo-o</u>)
+            - PK: (codigo-o)
+        - **IMPRESORA** (<u>codigo-i</u>, <mark>codigo-o</mark>)
+            - PK: (codigo-i)
+            - FK: codigo-o->ORDENADOR(codigo-o) <span class="tag-no-nulo">[no nulo]</span> <span class="tag-unico">[unico]</span>
+        - **APLICACION** (<u>codigo-a</u>,<mark>codigo-o</mark>)
+            - PK: (codigo-a)
+            - FK: codigo-o->ORDENADOR(codigo-o) <span class="tag-no-nulo">[no nulo]</span>
+        - **RED_ORDENADOR** (<u><mark>codigo-x</mark></u>, <u><mark>codigo-o</mark></u>)
+            - PK: (codigo-x, codigo-o)
+            - FK: codigo-x->RED(codigo-x)
+            - FK: codigo-o->ORDENADOR(codigo-o)
+        - **EMPLEADO_ORDENADOR** (<u><mark>dni</mark>, <mark>codigo-o</mark></u>)
+            - PK: (dni, codigo-o)
             - FK: dni->EMPLEADO(dni)
-            - FK: codigo_o->ORDENADOR(codigo_o)
-        - **PERMISO** (<u><mark>dni</mark>, <mark>codigo_a</mark></u>)
-            - PK: (dni, codigo_a)
+            - FK: codigo-o->ORDENADOR(codigo-o)
+        - **PERMISO** (<u><mark>dni</mark>, <mark>codigo-a</mark></u>)
+            - PK: (dni, codigo-a)
             - FK: dni->EMPLEADO(dni)
-            - FK: codigo_a->APLICACIÓN(codigo_a)
-        - **REGISTRA** (<u> <mark>dni</mark>, <mark>codigo_a</mark></u>, <mark>codigo_o</mark>, fecha)
-            - PK: (dni, codigo_a)
+            - FK: codigo-a->APLICACIÓN(codigo-a)
+        - **REGISTRA** (<u> <mark>dni</mark>, <mark>codigo-a</mark></u>, <mark>codigo-o</mark>, fecha)
+            - PK: (dni, codigo-a)
             - FK: dni->EMPLEADO(dni) 
-            - FK: codigo_a->APLICACIÓN(codigo_a) 
-            - FK: codigo_o->ORDENADOR(codigo_o)  <span class="tag-no-nulo">[no nulo]</span>
+            - FK: codigo-a->APLICACIÓN(codigo-a) 
+            - FK: codigo-o->ORDENADOR(codigo-o)  <span class="tag-no-nulo">[no nulo]</span>
 
 ??? example "Ejercicio 10"
 
@@ -430,30 +430,30 @@ hide:
         ![alt text](image-52.png){ .grayscale }
 
     ??? success "Solución propuesta"
-        - **SECTOR** (<u>cod_sector</u>)
-            - PK: (cod_sector)
-        - **CIUDAD** (<u>cod_ciudad</u>, <mark>cod_sector</mark>)
-            - PK: (cod_ciudad)
-            - FK: cod_sector->SECTOR(cod_sector) <span class="tag-no-nulo">[no nulo]</span>
-        - **VIAJANTE** (<u>cod_viajante</u>)
-            - PK: (cod_viajante)
-        - **CLIENTE** (<u>cod_cliente</u>, <mark>cod_ciudad</mark>)
-            - PK: (cod_cliente)
-            - FK: cod_ciudad->CIUDAD(cod_ciudad) <span class="tag-no-nulo">[no nulo]</span>
-        - **PRODUCTO** (<u>cod_producto</u>)
-            - PK: (cod_producto)
-        - **VIAJANTE_PRODUCTO** (<u><mark>cod_viajante</mark>, <mark>cod_producto</mark></u>)
-            - PK: (cod_viajante, cod_producto)
-            - FK: cod_viajante->VIAJANTE(cod_viajante)
-            - FK: cod_producto->PRODUCTO(cod_producto)
-        - **SECTOR_VIAJA** (<u><mark>cod_sector</mark>, <mark>cod_viajante</mark></u>)
-            - PK: (cod_sector, cod_viajante)
-            - FK: cod_viajante->VIAJANTE(cod_viajante)
-            - FK: cod_sector->SECTOR(cod_sector)
-        - **OFRECE** (<u><mark>cod_cliente</mark>, <mark>cod_producto</mark></u>, <mark>cod_viajante</mark>, precio)
-            - PK: (cod_cliente, cod_producto)
-            - FK: cod_viajante->VIAJANTE(cod_viajante) <span class="tag-no-nulo">[no nulo]</span>
-            - FK: cod_cliente->CLIENTE(cod_cliente)
-            - FK: cod_producto->PRODUCTO(cod_producto)
+        - **SECTOR** (<u>cod-sector</u>)
+            - PK: (cod-sector)
+        - **CIUDAD** (<u>cod-ciudad</u>, <mark>cod-sector</mark>)
+            - PK: (cod-ciudad)
+            - FK: cod-sector->SECTOR(cod-sector) <span class="tag-no-nulo">[no nulo]</span>
+        - **VIAJANTE** (<u>cod-viajante</u>)
+            - PK: (cod-viajante)
+        - **CLIENTE** (<u>cod-cliente</u>, <mark>cod-ciudad</mark>)
+            - PK: (cod-cliente)
+            - FK: cod-ciudad->CIUDAD(cod-ciudad) <span class="tag-no-nulo">[no nulo]</span>
+        - **PRODUCTO** (<u>cod-producto</u>)
+            - PK: (cod-producto)
+        - **VIAJANTE_PRODUCTO** (<u><mark>cod-viajante</mark>, <mark>cod-producto</mark></u>)
+            - PK: (cod-viajante, cod-producto)
+            - FK: cod-viajante->VIAJANTE(cod-viajante)
+            - FK: cod-producto->PRODUCTO(cod-producto)
+        - **SECTOR_VIAJA** (<u><mark>cod-sector</mark>, <mark>cod-viajante</mark></u>)
+            - PK: (cod-sector, cod-viajante)
+            - FK: cod-viajante->VIAJANTE(cod-viajante)
+            - FK: cod-sector->SECTOR(cod-sector)
+        - **OFRECE** (<u><mark>cod-cliente</mark>, <mark>cod-producto</mark></u>, <mark>cod-viajante</mark>, precio)
+            - PK: (cod-cliente, cod-producto)
+            - FK: cod-viajante->VIAJANTE(cod-viajante) <span class="tag-no-nulo">[no nulo]</span>
+            - FK: cod-cliente->CLIENTE(cod-cliente)
+            - FK: cod-producto->PRODUCTO(cod-producto)
             - precio: <span class="tag-no-nulo">[no nulo]</span>
 

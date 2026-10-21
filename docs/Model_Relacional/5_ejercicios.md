@@ -25,7 +25,7 @@
     ```text
     EMPLEADO(dni, nombre, departamento)
     PK: dni
-    FK: departamento → DEPARTAMENTO(num_d)
+    FK: departamento → DEPARTAMENTO(num-d)
     Restricciones: departamento no nulo
     ```
 
