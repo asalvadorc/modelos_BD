@@ -206,23 +206,25 @@ hide:
                 - PK: (nom_g, nom_e, com)
                 - FK: nom_g,nom_e->ESPECIE(nom_g,nom_e)
                 - FK: com->COMARCA(com)
-            - **EJEMPLAR** (<u>cod_ej, <mark>nom_g</mark>,<mark>nom_e</mark></u>, <mark>dni</mark>, <mark>com</mark>) <span class="tag-cascade">(borrar en cascada)</span>
-                - PK: (cod_ej, nom_g, nom_e)
+            - **EJEMPLAR** (<u><mark>nom_g</mark>,<mark>nom_e</mark>,cod_ej</u>, <mark>dni</mark>, <mark>com</mark>) <span class="tag-cascade">(borrar en cascada)</span>
+                - PK: (nom_g, nom_e, cod_ej)
                 - FK: nom_g,nom_e->ESPECIE(nom_g,nom_e)
                 - FK: dni->PERSONA(dni) <span class="tag-no-nulo">[no nulo]</span>
                 - FK: com->COMARCA(com) <span class="tag-no-nulo">[no nulo]</span>
+             - **EJ_COL** (<u><mark>nom_g</mark>,<mark>nom_e</mark><mark>cod_ej</mark></u>, <mark>dni</mark>, valor) <span class="tag-cascade">(borrar en cascada)</span>
+                - PK: (nom_g, nom_e, cod_ej)
+                - FK: cod_ej,nom_g,nom_e->EJEMPLAR(cod_ej,nom_g,nom_e)
+                - FK: dni->COLECCION(dni) <span class="tag-no-nulo">[no nulo]</span>
+            - **EJ_OBS** (<u><mark>nom_g</mark>,<mark>nom_e</mark>,<mark>cod_ej</mark></u>, tiempo_obs) <span class="tag-cascade">(borrar en cascada)</span>
+                - PK: (nom_g, nom_e,cod_ej)
+                - FK: cod_ej,nom_g,nom_e->EJEMPLAR(cod_ej,nom_g,nom_e)
+
+              
             - **COLECCION** (<u><mark>dni</mark></u>) <span class="tag-cascade">(borrar en cascada)</span>
                 - PK: (dni)
                 - FK: dni->PERSONA(dni)
-            - **EJ_COL** (<u><mark>cod_ej</mark>, <mark>nom_g</mark>,<mark>nom_e</mark></u>, <mark>dni</mark>, valor) <span class="tag-cascade">(borrar en cascada)</span>
-                - PK: (cod_ej, nom_g, nom_e)
-                - FK: cod_ej,nom_g,nom_e->EJEMPLAR(cod_ej,nom_g,nom_e)
-                - FK: dni->COLECCION(dni) <span class="tag-no-nulo">[no nulo]</span>
-            - **EJ_OBS** (<u><mark>cod_ej</mark>, <mark>nom_g</mark>,<mark>nom_e</mark></u>, tiempo_obs) <span class="tag-cascade">(borrar en cascada)</span>
-                - PK: (cod_ej, nom_g, nom_e)
-                - FK: cod_ej,nom_g,nom_e->EJEMPLAR(cod_ej,nom_g,nom_e)
-
-            <span class="tag-no-nulo">[nota]</span> La especialización de **EJEMPLAR** en **EJ_COL** y **EJ_OBS** es total y disjunta (T,D).
+                      
+            <span class="tag-no-nulo">[nota]</span> La especialización de **EJEMPLAR** en **EJ_COL** y **EJ_OBS** es total y disjunta (T,D).   
 
         !!! quote "Opción 2"
             - **FAMILIA** (<u>nom_f</u>)
@@ -246,9 +248,7 @@ hide:
                 - FK: nom_g,nom_e->ESPECIE(nom_g,nom_e) <span class="tag-no-nulo">[no nulo]</span>
                 - FK: dni->PERSONA(dni) <span class="tag-no-nulo">[no nulo]</span>
                 - FK: com->COMARCA(com) <span class="tag-no-nulo">[no nulo]</span>
-            - **COLECCION** (<u><mark>dni</mark></u>) <span class="tag-cascade">(borrar en cascada)</span>
-                - PK: (dni)
-                - FK: dni->PERSONA(dni)<span class="tag-no-nulo">[no nulo]</span>
+            
             - **EJ_COL** (<u><mark>cod_ej</mark></u>, <mark>dni</mark>, valor) <span class="tag-cascade">(borrar en cascada)</span>
                 - PK: (cod_ej)
                 - FK: cod_ej->EJEMPLAR(cod_ej)
@@ -256,6 +256,10 @@ hide:
             - **EJ_OBS** (<u><mark>cod_ej</mark></u>, tiempo_obs) <span class="tag-cascade">(borrar en cascada)</span>
                 - PK: (cod_ej)
                 - FK: cod_ej->EJEMPLAR(cod_ej)
+
+            - **COLECCION** (<u><mark>dni</mark></u>) <span class="tag-cascade">(borrar en cascada)</span>
+                - PK: (dni)
+                - FK: dni->PERSONA(dni)<span class="tag-no-nulo">[no nulo]</span>    
 
              <span class="tag-no-nulo">[nota]</span> La especialización de **EJEMPLAR** en **EJ_COL** y **EJ_OBS** es total y disjunta (T,D).    
 
@@ -302,8 +306,6 @@ hide:
             - PK: (cod_i, cod_z)
             - FK: cod_i->ITINERARIO(cod_i)
             - FK: cod_z->ZONA(cod_z)
-
-
 
 
 ??? example "Ejercicio 8"
