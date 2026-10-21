@@ -2068,31 +2068,35 @@
 <li>FK: com-&gt;COMARCA(com)</li>
 </ul>
 </li>
-<li><strong>EJEMPLAR</strong> (<u>cod_ej, <mark>nom_g</mark>,<mark>nom_e</mark></u>, <mark>dni</mark>, <mark>com</mark>) <span class="tag-cascade">(borrar en cascada)</span><ul>
-<li>PK: (cod_ej, nom_g, nom_e)</li>
+<li><strong>EJEMPLAR</strong> (<u><mark>nom_g</mark>,<mark>nom_e</mark>,cod_ej</u>, <mark>dni</mark>, <mark>com</mark>) <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li>PK: (nom_g, nom_e, cod_ej)</li>
 <li>FK: nom_g,nom_e-&gt;ESPECIE(nom_g,nom_e)</li>
 <li>FK: dni-&gt;PERSONA(dni) <span class="tag-no-nulo">[no nulo]</span></li>
 <li>FK: com-&gt;COMARCA(com) <span class="tag-no-nulo">[no nulo]</span></li>
 </ul>
 </li>
-<li><strong>COLECCION</strong> (<u><mark>dni</mark></u>) <span class="tag-cascade">(borrar en cascada)</span><ul>
-<li>PK: (dni)</li>
-<li>FK: dni-&gt;PERSONA(dni)</li>
-</ul>
-</li>
-<li><strong>EJ_COL</strong> (<u><mark>cod_ej</mark>, <mark>nom_g</mark>,<mark>nom_e</mark></u>, <mark>dni</mark>, valor) <span class="tag-cascade">(borrar en cascada)</span><ul>
-<li>PK: (cod_ej, nom_g, nom_e)</li>
+<li><strong>EJ_COL</strong> (<u><mark>nom_g</mark>,<mark>nom_e</mark><mark>cod_ej</mark></u>, <mark>dni</mark>, valor) <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li>PK: (nom_g, nom_e, cod_ej)</li>
 <li>FK: cod_ej,nom_g,nom_e-&gt;EJEMPLAR(cod_ej,nom_g,nom_e)</li>
 <li>FK: dni-&gt;COLECCION(dni) <span class="tag-no-nulo">[no nulo]</span></li>
 </ul>
 </li>
-<li><strong>EJ_OBS</strong> (<u><mark>cod_ej</mark>, <mark>nom_g</mark>,<mark>nom_e</mark></u>, tiempo_obs) <span class="tag-cascade">(borrar en cascada)</span><ul>
-<li>PK: (cod_ej, nom_g, nom_e)</li>
+<li>
+<p><strong>EJ_OBS</strong> (<u><mark>nom_g</mark>,<mark>nom_e</mark>,<mark>cod_ej</mark></u>, tiempo_obs) <span class="tag-cascade">(borrar en cascada)</span></p>
+<ul>
+<li>PK: (nom_g, nom_e,cod_ej)</li>
 <li>FK: cod_ej,nom_g,nom_e-&gt;EJEMPLAR(cod_ej,nom_g,nom_e)</li>
 </ul>
 </li>
+<li>
+<p><strong>COLECCION</strong> (<u><mark>dni</mark></u>) <span class="tag-cascade">(borrar en cascada)</span></p>
+<ul>
+<li>PK: (dni)</li>
+<li>FK: dni-&gt;PERSONA(dni)</li>
 </ul>
-<p><span class="tag-no-nulo">[nota]</span> La especialización de <strong>EJEMPLAR</strong> en <strong>EJ_COL</strong> y <strong>EJ_OBS</strong> es total y disjunta (T,D).</p>
+</li>
+</ul>
+<p><span class="tag-no-nulo">[nota]</span> La especialización de <strong>EJEMPLAR</strong> en <strong>EJ_COL</strong> y <strong>EJ_OBS</strong> es total y disjunta (T,D).   </p>
 </div>
 <div class="admonition quote">
 <p class="admonition-title">Opción 2</p>
@@ -2125,27 +2129,35 @@
 <li>FK: com-&gt;COMARCA(com)</li>
 </ul>
 </li>
-<li><strong>EJEMPLAR</strong> (<u>cod_ej</u>, <mark>nom_g</mark>,<mark>nom_e</mark>, <mark>dni</mark>, <mark>com</mark>) <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li>
+<p><strong>EJEMPLAR</strong> (<u>cod_ej</u>, <mark>nom_g</mark>,<mark>nom_e</mark>, <mark>dni</mark>, <mark>com</mark>) <span class="tag-cascade">(borrar en cascada)</span></p>
+<ul>
 <li>PK: (cod_ej)</li>
 <li>FK: nom_g,nom_e-&gt;ESPECIE(nom_g,nom_e) <span class="tag-no-nulo">[no nulo]</span></li>
 <li>FK: dni-&gt;PERSONA(dni) <span class="tag-no-nulo">[no nulo]</span></li>
 <li>FK: com-&gt;COMARCA(com) <span class="tag-no-nulo">[no nulo]</span></li>
 </ul>
 </li>
-<li><strong>COLECCION</strong> (<u><mark>dni</mark></u>) <span class="tag-cascade">(borrar en cascada)</span><ul>
-<li>PK: (dni)</li>
-<li>FK: dni-&gt;PERSONA(dni)<span class="tag-no-nulo">[no nulo]</span></li>
-</ul>
-</li>
-<li><strong>EJ_COL</strong> (<u><mark>cod_ej</mark></u>, <mark>dni</mark>, valor) <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li>
+<p><strong>EJ_COL</strong> (<u><mark>cod_ej</mark></u>, <mark>dni</mark>, valor) <span class="tag-cascade">(borrar en cascada)</span></p>
+<ul>
 <li>PK: (cod_ej)</li>
 <li>FK: cod_ej-&gt;EJEMPLAR(cod_ej)</li>
 <li>FK: dni-&gt;COLECCION(dni) <span class="tag-no-nulo">[no nulo]</span></li>
 </ul>
 </li>
-<li><strong>EJ_OBS</strong> (<u><mark>cod_ej</mark></u>, tiempo_obs) <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li>
+<p><strong>EJ_OBS</strong> (<u><mark>cod_ej</mark></u>, tiempo_obs) <span class="tag-cascade">(borrar en cascada)</span></p>
+<ul>
 <li>PK: (cod_ej)</li>
 <li>FK: cod_ej-&gt;EJEMPLAR(cod_ej)</li>
+</ul>
+</li>
+<li>
+<p><strong>COLECCION</strong> (<u><mark>dni</mark></u>) <span class="tag-cascade">(borrar en cascada)</span></p>
+<ul>
+<li>PK: (dni)</li>
+<li>FK: dni-&gt;PERSONA(dni)<span class="tag-no-nulo">[no nulo]</span>    </li>
 </ul>
 </li>
 </ul>
