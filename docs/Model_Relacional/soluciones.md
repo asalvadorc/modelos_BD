@@ -56,7 +56,7 @@ hide:
 ??? example "Ejercicio 2"
 
     ??? question "Enunciado"
-        ![alt text](Ej2.jpg){ .grayscale }
+        ![alt text](Ej2.png){ .grayscale }
 
     ??? success "Solución propuesta"
         - **MUNICIPIO** (<u>cod-m</u>)
@@ -76,7 +76,7 @@ hide:
 ??? example "Ejercicio 3"
 
     ??? question "Enunciado"
-        ![alt text](Ej3.jpg){ .grayscale }
+        ![alt text](Ej3.png){ .grayscale }
 
     ??? success "Solución propuesta"
         - **ÁREA DE CONOCIMIENTO** (<u>cod-a</u>)
@@ -101,7 +101,7 @@ hide:
 ??? example "Ejercicio 4"
 
     ??? question "Enunciado"
-        ![alt text](Ej5.jpg){ .grayscale }
+        ![alt text](Ej5.png){ .grayscale }
 
     ??? success "Solución propuesta"
         - **TEMA** (<u>cod-t</u>)
@@ -134,7 +134,8 @@ hide:
 
     
     ??? question "Enunciado"
-        ![alt text](Ej4.jpg){ .grayscale }
+        
+        ![alt text](Ej4.png){ .grayscale }
 
     ??? success "Solución propuesta"
         !!! quote "Opción 1"
@@ -186,7 +187,9 @@ hide:
 ??? example "Ejercicio 6"
 
     ??? question "Enunciado"
-        ![alt text](Ej6.jpg){ .grayscale }
+
+        ![alt text](Ej6.png){ .grayscale }
+        
 
     ??? success "Solución propuesta"
         !!! quote "Opción 1"
@@ -270,7 +273,7 @@ hide:
         Realizar el esquema relacional correspondiente a un Parque Zoológico que quiere guardar información de las especies que tiene, los empleados (cuidadores y guías), y los distintos itinerarios de visita que ofrece.
 
         
-        ![alt text](image-70.png){ .grayscale }
+        ![alt text](image-80.png){ .grayscale }
 
     ??? success "Solución propuesta"
         - **EMPLEADO** (<u>dni</u>, nombre, direccion, telefono, fecha-inicio)

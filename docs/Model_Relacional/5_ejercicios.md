@@ -66,31 +66,34 @@ Recordad que teníamos 3 opciones:
 ## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 2</span></span>
 
 
-![alt text](Ej2.jpg){ .grayscale }
+
+![alt text](Ej2.png){ .grayscale }
+
 
 
 ## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 3</span></span>
 
 
-![alt text](Ej3.jpg){ .grayscale }
+
+![alt text](Ej3.png){ .grayscale }
 
 ## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 4</span></span>
 
 
-![alt text](Ej5.jpg){ .grayscale }
 
+![alt text](Ej5.png){ .grayscale }
 
 ## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 5</span></span>
 
 
 
-![alt text](Ej4.jpg){ .grayscale }
+! ![alt text](Ej4.png){ .grayscale }
 
 
 ## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 6</span></span>
 
 
-![alt text](Ej6.jpg){ .grayscale }
+![alt text](Ej6.png){ .grayscale }
 
 
 ## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 7</span></span>
@@ -98,7 +101,7 @@ Recordad que teníamos 3 opciones:
 Realizar el esquema relacional correspondiente a un Parque Zoológico que quiere guardar información de las especies que tiene, los empleados (cuidadores y guías), y los distintos itinerarios de visita que ofrece.
 
 
-![alt text](image-70.png){ .grayscale }
+![alt text](image-79.png){ .grayscale }
 
 <!--
 Hacer el esquema E/R y posteriormente pasarlo a relacional correspondiente a un Parque Zoológico que quiere guardar información de las especies que tiene, los empleados (cuidadores y guías), y los distintos itinerarios de visita que ofrece.
