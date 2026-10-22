@@ -162,6 +162,9 @@ hide:
                 - FK: dni->CLIENTE(dni)
 
         !!! quote "Opción 2"
+
+            <span class="tag-nota">[nota]</span> En **DOMICILIACION** y **PERMISOS** se ha aplicado el **criterio práctico**: como su clave compuesta "natural" tenía demasiados campos (4 y 5, respectivamente), se sustituye por una clave artificial (`num-d` y `cod-p`), manteniendo las claves externas correspondientes.
+         
             - **BANCO** (<u>cod-ent</u>)
                 - PK: (cod-ent)
             - **SUCURSAL** (<u><mark>cod-ent</mark>, cod-suc</u>) <span class="tag-cascade">(borrar en cascada)</span>
@@ -183,6 +186,8 @@ hide:
                 - PK: (cod-p)
                 - FK: cod-ent, cod-suc, cod-cc->CUENTA CORRIENTE(cod-ent, cod-suc, cod-cc) <span class="tag-no-nulo">[no nulo]</span>
                 - FK: dni->CLIENTE(dni)  <span class="tag-no-nulo">[no nulo]</span>
+
+           
 
 ??? example "Ejercicio 6"
 
@@ -227,9 +232,12 @@ hide:
                 - PK: (dni)
                 - FK: dni->PERSONA(dni)
                       
-            <span class="tag-no-nulo">[nota]</span> La especialización de **EJEMPLAR** en **EJ_COL** y **EJ_OBS** es total y disjunta (T,D).   
+            <span class="tag-nota">[nota]</span> La especialización de **EJEMPLAR** en **EJ_COL** y **EJ_OBS** es total y disjunta (T,D).   
 
         !!! quote "Opción 2"
+
+            <span class="tag-nota">[nota]</span> Aquí no se inventa una clave artificial nueva: se simplifica la clave de **EJEMPLAR** a `cod-ej` por considerarlo único por sí mismo (sin necesidad de combinarlo con `nom-g` y `nom-e`), y esa misma clave se reutiliza como PK/FK en **EJ_COL** y **EJ_OBS**.
+
             - **FAMILIA** (<u>nom-f</u>)
                 - PK: (nom-f)
             - **GENERO** (<u>nom-g</u>, <mark>nom-f</mark>) <span class="tag-cascade">(borrar en cascada)</span>
@@ -264,7 +272,9 @@ hide:
                 - PK: (dni)
                 - FK: dni->PERSONA(dni)<span class="tag-no-nulo">[no nulo]</span>    
 
-             <span class="tag-no-nulo">[nota]</span> La especialización de **EJEMPLAR** en **EJ_COL** y **EJ_OBS** es total y disjunta (T,D).    
+             <span class="tag-nota">[nota]</span> La especialización de **EJEMPLAR** en **EJ_COL** y **EJ_OBS** es total y disjunta (T,D).    
+
+            
 
 
 ??? example "Ejercicio 7"
