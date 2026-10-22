@@ -1989,6 +1989,7 @@
 </div>
 <div class="admonition quote">
 <p class="admonition-title">Opción 2</p>
+<p><span class="tag-nota">[nota]</span> En <strong>DOMICILIACION</strong> y <strong>PERMISOS</strong> se ha aplicado el <strong>criterio práctico</strong>: como su clave compuesta "natural" tenía demasiados campos (4 y 5, respectivamente), se sustituye por una clave artificial (<code>num-d</code> y <code>cod-p</code>), manteniendo las claves externas correspondientes.</p>
 <ul>
 <li><strong>BANCO</strong> (<u>cod-ent</u>)<ul>
 <li>PK: (cod-ent)</li>
@@ -2096,10 +2097,11 @@
 </ul>
 </li>
 </ul>
-<p><span class="tag-no-nulo">[nota]</span> La especialización de <strong>EJEMPLAR</strong> en <strong>EJ_COL</strong> y <strong>EJ_OBS</strong> es total y disjunta (T,D).   </p>
+<p><span class="tag-nota">[nota]</span> La especialización de <strong>EJEMPLAR</strong> en <strong>EJ_COL</strong> y <strong>EJ_OBS</strong> es total y disjunta (T,D).   </p>
 </div>
 <div class="admonition quote">
 <p class="admonition-title">Opción 2</p>
+<p><span class="tag-nota">[nota]</span> Aquí no se inventa una clave artificial nueva: se simplifica la clave de <strong>EJEMPLAR</strong> a <code>cod-ej</code> por considerarlo único por sí mismo (sin necesidad de combinarlo con <code>nom-g</code> y <code>nom-e</code>), y esa misma clave se reutiliza como PK/FK en <strong>EJ_COL</strong> y <strong>EJ_OBS</strong>.</p>
 <ul>
 <li><strong>FAMILIA</strong> (<u>nom-f</u>)<ul>
 <li>PK: (nom-f)</li>
@@ -2161,7 +2163,7 @@
 </ul>
 </li>
 </ul>
-<p><span class="tag-no-nulo">[nota]</span> La especialización de <strong>EJEMPLAR</strong> en <strong>EJ_COL</strong> y <strong>EJ_OBS</strong> es total y disjunta (T,D).    </p>
+<p><span class="tag-nota">[nota]</span> La especialización de <strong>EJEMPLAR</strong> en <strong>EJ_COL</strong> y <strong>EJ_OBS</strong> es total y disjunta (T,D).    </p>
 </div>
 </details>
 </details>

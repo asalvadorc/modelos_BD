@@ -573,7 +573,8 @@ body.lightbox-open {
 /* Semantic tags for relational constraints */
 .md-typeset .tag-no-nulo,
 .md-typeset .tag-cascade,
-.md-typeset .tag-unico {
+.md-typeset .tag-unico,
+.md-typeset .tag-nota {
     display: inline-block;
     padding: 0.08rem 0.45rem;
     border-radius: 999px;
@@ -602,6 +603,12 @@ body.lightbox-open {
     border: 1px solid #5bb6e8;
 }
 
+.md-typeset .tag-nota {
+    color: #4a1d7a;
+    background: #ecdfff;
+    border: 1px solid #b38be0;
+}
+
 [data-md-color-scheme="slate"] .md-typeset .tag-no-nulo {
     color: #dcffc0;
     background: rgba(82, 123, 33, 0.34);
@@ -618,6 +625,12 @@ body.lightbox-open {
     color: #caeeff;
     background: rgba(16, 78, 112, 0.42);
     border: 1px solid #6dc8ff;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .tag-nota {
+    color: #e5d4ff;
+    background: rgba(95, 48, 150, 0.38);
+    border: 1px solid #c79bf0;
 }
 
 /* Colored chips for Normalizacion full example steps */
