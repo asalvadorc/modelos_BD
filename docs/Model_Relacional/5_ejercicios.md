@@ -101,7 +101,8 @@ Recordad que teníamos 3 opciones:
 Realizar el esquema relacional correspondiente a un Parque Zoológico que quiere guardar información de las especies que tiene, los empleados (cuidadores y guías), y los distintos itinerarios de visita que ofrece.
 
 
-![alt text](image-79.png){ .grayscale }
+<!--![alt text](image-79.png){ .grayscale }-->
+![alt text](image-57.png){ .grayscale }
 
 <!--
 Hacer el esquema E/R y posteriormente pasarlo a relacional correspondiente a un Parque Zoológico que quiere guardar información de las especies que tiene, los empleados (cuidadores y guías), y los distintos itinerarios de visita que ofrece.
@@ -139,6 +140,41 @@ En la segunda incorporamos los trayectos, y además marcamos todas las estacione
 
 
 ## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 9</span></span>
+
+Realizar el esquema relacional correspondiente a un sistema de información de una empresa que vende gran variedad de productos. Para la venta de estos productos, dispone de un conjunto de viajantes que realizan visitas a los clientes ofreciendo sus productos.
+
+
+![alt text](image-54.png){ .grayscale }
+
+<!--
+Diseñar el diagrama E-R, y traducirlo después al relacional, de un sistema de información de una empresa que vende gran variedad de productos. Para la venta de estos productos, dispone de un conjunto de viajantes que realizan visitas a los clientes ofreciendo sus productos.
+
+La zona geográfica de influencia de la empresa está dividida en sectores no solapados que comprenden unas cuantas ciudades. Un viajante tiene asignados algunos de estos sectores. Esto no significa que tenga asignados los sectores en exclusividad; más de un viajante puede tener asignado el mismo sector.
+
+A un determinado cliente le pueden ofrecer productos distintos viajantes de la empresa, pero nunca el mismo producto.
+
+Un producto puede ser ofrecido por distintos viajantes, pero siempre a clientes distintos. Un viajante no ofrece todos los productos (solo algunos). A un cliente siempre le ofrece un producto el mismo viajante.
+
+Un producto es ofrecido por un viajante a clientes distintos a precios distintos.
+
+El sistema de información ha de ser capaz de responder a consultas como:
+
+  * Qué clientes hay en un sector.
+  * Qué clientes hay en una ciudad.
+  * Qué productos son ofrecidos a un cliente y a qué precio.
+  * Qué clientes tiene asignado cada viajante.
+  * Qué productos se ofrecen en un determinado sector.
+  * Qué ciudades tiene asignadas un viajante (por estar dentro de sus sectores).
+  * Qué ciudades realmente visita un viajante (por tener en ellas clientes a los que les ofrece algún producto).
+
+![](T3_6_2.png)
+
+-->
+
+
+
+
+## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 10</span></span>
 
 Realizar el esquema relacional correspondiente a un sistema de información sobre el material informático de una empresa.
 
@@ -188,37 +224,5 @@ Para una aplicación:
 _**Nota**_
 
 Observad cómo por un lado debéis guardar los permisos de los empleados sobre las aplicaciones, y por otro los accesos reales hechos por los empleados a las aplicaciones, y en este caso hemos de saber desde qué ordenador y la fecha.
--->
-
-## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 10</span></span>
-
-Realizar el esquema relacional correspondiente a un sistema de información de una empresa que vende gran variedad de productos. Para la venta de estos productos, dispone de un conjunto de viajantes que realizan visitas a los clientes ofreciendo sus productos.
-
-
-![alt text](image-54.png){ .grayscale }
-
-<!--
-Diseñar el diagrama E-R, y traducirlo después al relacional, de un sistema de información de una empresa que vende gran variedad de productos. Para la venta de estos productos, dispone de un conjunto de viajantes que realizan visitas a los clientes ofreciendo sus productos.
-
-La zona geográfica de influencia de la empresa está dividida en sectores no solapados que comprenden unas cuantas ciudades. Un viajante tiene asignados algunos de estos sectores. Esto no significa que tenga asignados los sectores en exclusividad; más de un viajante puede tener asignado el mismo sector.
-
-A un determinado cliente le pueden ofrecer productos distintos viajantes de la empresa, pero nunca el mismo producto.
-
-Un producto puede ser ofrecido por distintos viajantes, pero siempre a clientes distintos. Un viajante no ofrece todos los productos (solo algunos). A un cliente siempre le ofrece un producto el mismo viajante.
-
-Un producto es ofrecido por un viajante a clientes distintos a precios distintos.
-
-El sistema de información ha de ser capaz de responder a consultas como:
-
-  * Qué clientes hay en un sector.
-  * Qué clientes hay en una ciudad.
-  * Qué productos son ofrecidos a un cliente y a qué precio.
-  * Qué clientes tiene asignado cada viajante.
-  * Qué productos se ofrecen en un determinado sector.
-  * Qué ciudades tiene asignadas un viajante (por estar dentro de sus sectores).
-  * Qué ciudades realmente visita un viajante (por tener en ellas clientes a los que les ofrece algún producto).
-
-![](T3_6_2.png)
-
 -->
 

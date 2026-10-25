@@ -283,7 +283,8 @@ hide:
         Realizar el esquema relacional correspondiente a un Parque Zoológico que quiere guardar información de las especies que tiene, los empleados (cuidadores y guías), y los distintos itinerarios de visita que ofrece.
 
         
-        ![alt text](image-80.png){ .grayscale }
+        
+        ![alt text](image-57.png){ .grayscale }
 
     ??? success "Solución propuesta"
         - **EMPLEADO** (<u>dni</u>, nombre, direccion, telefono, fecha-inicio)
@@ -390,7 +391,44 @@ hide:
                 - FK: codigo-trayecto, fecha->VIAJE(codigo-trayecto, fecha)
 -->
 
+
+
 ??? example "Ejercicio 9"
+
+    ??? question "Enunciado"
+        Realizar el esquema relacional correspondiente a un sistema de información de una empresa que vende gran variedad de productos. Para la venta de estos productos, dispone de un conjunto de viajantes que realizan visitas a los clientes ofreciendo sus productos.
+
+        ![alt text](image-31.png){ .grayscale }
+
+    ??? success "Solución propuesta"
+        - **SECTOR** (<u>cod-sector</u>)
+            - PK: (cod-sector)
+        - **CIUDAD** (<u>cod-ciudad</u>, <mark>cod-sector</mark>)
+            - PK: (cod-ciudad)
+            - FK: cod-sector->SECTOR(cod-sector) <span class="tag-no-nulo">[no nulo]</span>
+        - **VIAJANTE** (<u>cod-viajante</u>)
+            - PK: (cod-viajante)
+        - **CLIENTE** (<u>cod-cliente</u>, <mark>cod-ciudad</mark>)
+            - PK: (cod-cliente)
+            - FK: cod-ciudad->CIUDAD(cod-ciudad) <span class="tag-no-nulo">[no nulo]</span>
+        - **PRODUCTO** (<u>cod-producto</u>)
+            - PK: (cod-producto)
+        - **VIAJANTE_PRODUCTO** (<u><mark>cod-viajante</mark>, <mark>cod-producto</mark></u>)
+            - PK: (cod-viajante, cod-producto)
+            - FK: cod-viajante->VIAJANTE(cod-viajante)
+            - FK: cod-producto->PRODUCTO(cod-producto)
+        - **SECTOR_VIAJA** (<u><mark>cod-sector</mark>, <mark>cod-viajante</mark></u>)
+            - PK: (cod-sector, cod-viajante)
+            - FK: cod-viajante->VIAJANTE(cod-viajante)
+            - FK: cod-sector->SECTOR(cod-sector)
+        - **OFRECE** (<u><mark>cod-cliente</mark>, <mark>cod-producto</mark></u>, <mark>cod-viajante</mark>, precio)
+            - PK: (cod-cliente, cod-producto)
+            - FK: cod-viajante->VIAJANTE(cod-viajante) <span class="tag-no-nulo">[no nulo]</span>
+            - FK: cod-cliente->CLIENTE(cod-cliente)
+            - FK: cod-producto->PRODUCTO(cod-producto)
+            
+
+??? example "Ejercicio 10"
 
     ??? question "Enunciado"
         Realizar el esquema relacional correspondiente a un sistema de información sobre el material informático de una empresa.
@@ -429,38 +467,14 @@ hide:
             - FK: codigo-a->APLICACIÓN(codigo-a) 
             - FK: codigo-o->ORDENADOR(codigo-o)  <span class="tag-no-nulo">[no nulo]</span>
 
-??? example "Ejercicio 10"
+        !!! note "Nota: alternativa para la relación 1:1 ORDENADOR-IMPRESORA"
+            La relación 1:1 entre ORDENADOR e IMPRESORA también se puede resolver creando una tabla adicional para la relación, en vez de incorporar la clave ajena en IMPRESORA:
 
-    ??? question "Enunciado"
-        Realizar el esquema relacional correspondiente a un sistema de información de una empresa que vende gran variedad de productos. Para la venta de estos productos, dispone de un conjunto de viajantes que realizan visitas a los clientes ofreciendo sus productos.
-
-        ![alt text](image-31.png){ .grayscale }
-
-    ??? success "Solución propuesta"
-        - **SECTOR** (<u>cod-sector</u>)
-            - PK: (cod-sector)
-        - **CIUDAD** (<u>cod-ciudad</u>, <mark>cod-sector</mark>)
-            - PK: (cod-ciudad)
-            - FK: cod-sector->SECTOR(cod-sector) <span class="tag-no-nulo">[no nulo]</span>
-        - **VIAJANTE** (<u>cod-viajante</u>)
-            - PK: (cod-viajante)
-        - **CLIENTE** (<u>cod-cliente</u>, <mark>cod-ciudad</mark>)
-            - PK: (cod-cliente)
-            - FK: cod-ciudad->CIUDAD(cod-ciudad) <span class="tag-no-nulo">[no nulo]</span>
-        - **PRODUCTO** (<u>cod-producto</u>)
-            - PK: (cod-producto)
-        - **VIAJANTE_PRODUCTO** (<u><mark>cod-viajante</mark>, <mark>cod-producto</mark></u>)
-            - PK: (cod-viajante, cod-producto)
-            - FK: cod-viajante->VIAJANTE(cod-viajante)
-            - FK: cod-producto->PRODUCTO(cod-producto)
-        - **SECTOR_VIAJA** (<u><mark>cod-sector</mark>, <mark>cod-viajante</mark></u>)
-            - PK: (cod-sector, cod-viajante)
-            - FK: cod-viajante->VIAJANTE(cod-viajante)
-            - FK: cod-sector->SECTOR(cod-sector)
-        - **OFRECE** (<u><mark>cod-cliente</mark>, <mark>cod-producto</mark></u>, <mark>cod-viajante</mark>, precio)
-            - PK: (cod-cliente, cod-producto)
-            - FK: cod-viajante->VIAJANTE(cod-viajante) <span class="tag-no-nulo">[no nulo]</span>
-            - FK: cod-cliente->CLIENTE(cod-cliente)
-            - FK: cod-producto->PRODUCTO(cod-producto)
-            
-
+            - **ORDENADOR** (<u>codigo-o</u>)
+                - PK: (codigo-o)
+            - **IMPRESORA** (<u>codigo-i</u>)
+                - PK: (codigo-i)
+            - **ORDENADOR_IMPRESORA** (<u><mark>codigo-o</mark>, <mark>codigo-i</mark></u>)
+                - PK: (codigo-o, codigo-i)
+                - FK: codigo-o->ORDENADOR(codigo-o)
+                - FK: codigo-i->IMPRESORA(codigo-i)

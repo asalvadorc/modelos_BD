@@ -95,13 +95,24 @@ Obliga a que el atributo **siempre tenga un valor**.
         - nombre  <span class="tag-no-nulo">[no nulo]</span>
 
 
-## 4.2.5 Integridad Referencial
+## 4.2.5 Restricción de Clave Ajena
 
-Garantiza que todo valor no nulo de una clave externa corresponda a un registro existente en la tabla referenciada.
+Una **clave ajena** (también llamada **clave externa** o **foreign key, FK**) es un atributo (o conjunto de atributos) de una tabla que referencia la clave primaria de otra tabla (o de la misma tabla, en el caso de claves reflexivas).
+
+**Representación**:
+
+!!! quote ""
+    - FAMILIAR (<u>dni-empleado</u>, <u>nom-f</u>, fecha-n)
+        - PK: (dni-empleado, nom-f)
+        - FK: dni-empleado->EMPLEADO(dni)
+
+### Integridad Referencial
+
+La restricción de clave ajena da lugar a la **integridad referencial**: garantiza que todo valor no nulo de una clave ajena corresponda a un registro existente en la tabla referenciada.
 
 ![alt text](image-55.png)
 
-Si en **FAMILIAR** existe `dni-empleado` como clave externa hacia `EMPLEADO.dni`, no puede aparecer un `dni-empleado` que no exista en EMPLEADO.
+Si en **FAMILIAR** existe `dni-empleado` como clave ajena (clave externa) hacia `EMPLEADO.dni`, no puede aparecer un `dni-empleado` que no exista en EMPLEADO.
 
 !!! example "Ejemplo"
     No es válido insertar en FAMILIAR el DNI `18.754.321` si no existe antes en EMPLEADO.
@@ -111,7 +122,7 @@ También puede haber claves externas reflexivas (la misma tabla se referencia a 
 
 ![alt text](image-45.png)
 
-## 4.2.6 Acciones sobre claves ajenas
+### Acciones sobre claves ajenas
 
 Cuando se borra o modifica una clave referenciada, suelen definirse estas acciones:
 
@@ -121,7 +132,7 @@ Cuando se borra o modifica una clave referenciada, suelen definirse estas accion
 
 ---
 
-## 4.2.7 Restricciones Externas
+## 4.2.6 Restricciones Externas
 
 
 Las **restricciones externas** son aquellas que no se pueden expresar directamente mediante el modelo de datos. Por tanto, las describiremos mediante texto.
