@@ -60,7 +60,7 @@ Realizar el esquema relacional correspondiente a los ejercicios del Tema Entidad
 
 Recordad que teníamos 3 opciones:
 
-![alt text](image-68.png){ .grayscale width=400 }{ .grayscale width=400 }
+![alt text](image-68.png){ .grayscale width=400 }
 
 
 ## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 2</span></span>
@@ -128,12 +128,14 @@ La información está estructurada de la siguiente manera:
 ## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 8</span></span>
 
 Realizar el esquema relacional correspondiente a una empresa de líneas ferroviarias.
-
+<!--
 En la de arriba consideramos únicamente los viajes (y no los trayectos). Además, solo marcamos estación de origen y de destino de un viaje.
 
 En la segunda incorporamos los trayectos, y además marcamos todas las estaciones donde se para en un trayecto.
 
 ![alt text](image-78.png){ .grayscale }
+-->
+![alt text](image-19.png){ .grayscale}
 
 
 ## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 9</span></span>
@@ -193,7 +195,7 @@ Observad cómo por un lado debéis guardar los permisos de los empleados sobre l
 Realizar el esquema relacional correspondiente a un sistema de información de una empresa que vende gran variedad de productos. Para la venta de estos productos, dispone de un conjunto de viajantes que realizan visitas a los clientes ofreciendo sus productos.
 
 
-![alt text](image-74.png){ .grayscale }
+![alt text](image-54.png){ .grayscale }
 
 <!--
 Diseñar el diagrama E-R, y traducirlo después al relacional, de un sistema de información de una empresa que vende gran variedad de productos. Para la venta de estos productos, dispone de un conjunto de viajantes que realizan visitas a los clientes ofreciendo sus productos.

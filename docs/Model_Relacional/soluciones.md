@@ -325,43 +325,36 @@ hide:
 
     ??? question "Enunciado"
         Realizar el esquema relacional correspondiente a una empresa de líneas ferroviarias.
+        ![alt text](image-19.png){ .grayscale }
 
-        En la de arriba consideramos únicamente los viajes (y no los trayectos). Además, solo marcamos estación de origen y de destino de un viaje.
-
-        En la segunda incorporamos los trayectos, y además marcamos todas las estaciones donde se para en un trayecto.
-
-        ![alt text](image-77.png){ .grayscale }
-
-    ??? success "Solución propuesta"
-        !!! quote "Opción 1"
-
-            - **TRABAJADOR** (<u>codigo-trabajador</u>, <mark>codigo-estacion</mark>)
-                - PK: (codigo-trabajador)
-                - FK: codigo-estacion->ESTACIÓN(codigo-estacion)
-            - **NO CONDUCTOR** (<u><mark>codigo-trabajador</mark></u>) <span class="tag-cascade">(borrar en cascada)</span>
-                - PK: (codigo-trabajador)
-                - FK: codigo-trabajador->TRABAJADOR(codigo-trabajador)
-            - **CONDUCTOR** (<u><mark>codigo-trabajador</mark></u>, horas) <span class="tag-cascade">(borrar en cascada)</span>
-                - PK: (codigo-trabajador)
-                - FK: codigo-trabajador->TRABAJADOR(codigo-trabajador)
-            - **ESTACIÓN** (<u>codigo-estacion</u>, nombre, telefono)
-                - PK: (codigo-estacion)
-            - **TREN** (<u>codigo-tren</u>, <mark>codigo-estacion</mark>, tipo)
-                - PK: (codigo-tren)
-                - FK: codigo-estacion->ESTACIÓN(codigo-estacion)
-            - **TEMPORADA** (<u>cod-temporada</u>)
-                - PK: (cod-temporada)
-            - **VIAJE** (<u>codigo-viaje</u>, hora, fecha, <mark>codigo-estacion-origen</mark>, <mark>codigo-estacion-destino</mark>, <mark>codigo-tren</mark>, <mark>cod-temporada</mark>)
-                - PK: (codigo-viaje)
-                - FK: codigo-estacion-origen->ESTACIÓN(codigo-estacion)
-                - FK: codigo-estacion-destino->ESTACIÓN(codigo-estacion)
-                - FK: codigo-tren->TREN(codigo-tren)
-                - FK: cod-temporada->TEMPORADA(cod-temporada)
-            - **CONDUCTOR_VIAJE** (<u><mark>codigo-trabajador</mark>, <mark>codigo-viaje</mark></u>)
-                - PK: (codigo-trabajador, codigo-viaje)
-                - FK: codigo-trabajador->CONDUCTOR(codigo-trabajador)
-                - FK: codigo-viaje->VIAJE(codigo-viaje)
-
+    ??? success "Solución propuesta"       
+        - **TRABAJADOR** (<u>codigo-trabajador</u>, <mark>codigo-estacion</mark>)
+            - PK: (codigo-trabajador)
+            - FK: codigo-estacion->ESTACIÓN(codigo-estacion)
+        - **NO CONDUCTOR** (<u><mark>codigo-trabajador</mark></u>) <span class="tag-cascade">(borrar en cascada)</span>
+            - PK: (codigo-trabajador)
+            - FK: codigo-trabajador->TRABAJADOR(codigo-trabajador)
+        - **CONDUCTOR** (<u><mark>codigo-trabajador</mark></u>, horas) <span class="tag-cascade">(borrar en cascada)</span>
+            - PK: (codigo-trabajador)
+            - FK: codigo-trabajador->TRABAJADOR(codigo-trabajador)
+        - **ESTACIÓN** (<u>codigo-estacion</u>, nombre, telefono)
+            - PK: (codigo-estacion)
+        - **TREN** (<u>codigo-tren</u>, <mark>codigo-estacion</mark>, tipo)
+            - PK: (codigo-tren)
+            - FK: codigo-estacion->ESTACIÓN(codigo-estacion)
+        - **TEMPORADA** (<u>cod-temporada</u>)
+            - PK: (cod-temporada)
+        - **VIAJE** (<u>codigo-viaje</u>, hora, fecha, <mark>codigo-estacion-origen</mark>, <mark>codigo-estacion-destino</mark>, <mark>codigo-tren</mark>, <mark>cod-temporada</mark>)
+            - PK: (codigo-viaje)
+            - FK: codigo-estacion-origen->ESTACIÓN(codigo-estacion)
+            - FK: codigo-estacion-destino->ESTACIÓN(codigo-estacion)
+            - FK: codigo-tren->TREN(codigo-tren)
+            - FK: cod-temporada->TEMPORADA(cod-temporada)
+        - **CONDUCTOR_VIAJE** (<u><mark>codigo-trabajador</mark>, <mark>codigo-viaje</mark></u>)
+            - PK: (codigo-trabajador, codigo-viaje)
+            - FK: codigo-trabajador->CONDUCTOR(codigo-trabajador)
+            - FK: codigo-viaje->VIAJE(codigo-viaje)
+<!--
         !!! quote "Opción 2"
 
             - **TRABAJADOR** (<u>codigo-trabajador</u>, <mark>codigo-estacion</mark>)
@@ -395,6 +388,7 @@ hide:
                 - PK: (codigo-trabajador, codigo-trayecto, fecha)
                 - FK: codigo-trabajador->CONDUCTOR(codigo-trabajador)
                 - FK: codigo-trayecto, fecha->VIAJE(codigo-trayecto, fecha)
+-->
 
 ??? example "Ejercicio 9"
 
@@ -413,7 +407,7 @@ hide:
             - PK: (codigo-o)
         - **IMPRESORA** (<u>codigo-i</u>, <mark>codigo-o</mark>)
             - PK: (codigo-i)
-            - FK: codigo-o->ORDENADOR(codigo-o) <span class="tag-no-nulo">[no nulo]</span> <span class="tag-unico">[unico]</span>
+            - FK: codigo-o->ORDENADOR(codigo-o)  <span class="tag-unico">[unico]</span>
         - **APLICACION** (<u>codigo-a</u>,<mark>codigo-o</mark>)
             - PK: (codigo-a)
             - FK: codigo-o->ORDENADOR(codigo-o) <span class="tag-no-nulo">[no nulo]</span>
@@ -440,7 +434,7 @@ hide:
     ??? question "Enunciado"
         Realizar el esquema relacional correspondiente a un sistema de información de una empresa que vende gran variedad de productos. Para la venta de estos productos, dispone de un conjunto de viajantes que realizan visitas a los clientes ofreciendo sus productos.
 
-        ![alt text](image-73.png){ .grayscale }
+        ![alt text](image-31.png){ .grayscale }
 
     ??? success "Solución propuesta"
         - **SECTOR** (<u>cod-sector</u>)
@@ -468,5 +462,5 @@ hide:
             - FK: cod-viajante->VIAJANTE(cod-viajante) <span class="tag-no-nulo">[no nulo]</span>
             - FK: cod-cliente->CLIENTE(cod-cliente)
             - FK: cod-producto->PRODUCTO(cod-producto)
-            - precio: <span class="tag-no-nulo">[no nulo]</span>
+            
 
