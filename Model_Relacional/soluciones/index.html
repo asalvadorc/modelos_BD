@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../img/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
     
     
       
@@ -29,10 +29,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.57a0d79d.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.fb2fffe2.min.css">
       
       
 
@@ -2239,15 +2239,11 @@
 <summary>Ejercicio 8</summary>
 <details class="question">
 <summary>Enunciado</summary>
-<p>Realizar el esquema relacional correspondiente a una empresa de líneas ferroviarias.</p>
-<p>En la de arriba consideramos únicamente los viajes (y no los trayectos). Además, solo marcamos estación de origen y de destino de un viaje.</p>
-<p>En la segunda incorporamos los trayectos, y además marcamos todas las estaciones donde se para en un trayecto.</p>
-<p><img alt="alt text" class="grayscale" src="../image-77.png" /></p>
+<p>Realizar el esquema relacional correspondiente a una empresa de líneas ferroviarias.
+<img alt="alt text" class="grayscale" src="../image-19.png" /></p>
 </details>
 <details class="success">
 <summary>Solución propuesta</summary>
-<div class="admonition quote">
-<p class="admonition-title">Opción 1</p>
 <ul>
 <li><strong>TRABAJADOR</strong> (<u>codigo-trabajador</u>, <mark>codigo-estacion</mark>)<ul>
 <li>PK: (codigo-trabajador)</li>
@@ -2292,65 +2288,44 @@
 </ul>
 </li>
 </ul>
-</div>
-<div class="admonition quote">
-<p class="admonition-title">Opción 2</p>
-<ul>
-<li><strong>TRABAJADOR</strong> (<u>codigo-trabajador</u>, <mark>codigo-estacion</mark>)<ul>
-<li>PK: (codigo-trabajador)</li>
-<li>FK: codigo-estacion-&gt;ESTACIÓN(codigo-estacion)</li>
-</ul>
-</li>
-<li><strong>NO CONDUCTOR</strong> (<u><mark>codigo-trabajador</mark></u>) <span class="tag-cascade">(borrar en cascada)</span><ul>
-<li>PK: (codigo-trabajador)</li>
-<li>FK: codigo-trabajador-&gt;TRABAJADOR(codigo-trabajador)</li>
-</ul>
-</li>
-<li><strong>CONDUCTOR</strong> (<u><mark>codigo-trabajador</mark></u>, horas) <span class="tag-cascade">(borrar en cascada)</span><ul>
-<li>PK: (codigo-trabajador)</li>
-<li>FK: codigo-trabajador-&gt;TRABAJADOR(codigo-trabajador)</li>
-</ul>
-</li>
-<li><strong>ESTACIÓN</strong> (<u>codigo-estacion</u>, nombre, telefono)<ul>
-<li>PK: (codigo-estacion)</li>
-</ul>
-</li>
-<li><strong>TREN</strong> (<u>codigo-tren</u>, <mark>codigo-estacion</mark>, tipo)<ul>
-<li>PK: (codigo-tren)</li>
-<li>FK: codigo-estacion-&gt;ESTACIÓN(codigo-estacion)</li>
-</ul>
-</li>
-<li><strong>TEMPORADA</strong> (<u>cod-temporada</u>)<ul>
-<li>PK: (cod-temporada)</li>
-</ul>
-</li>
-<li><strong>TRAYECTO</strong> (<u>codigo-trayecto</u>, hora)<ul>
-<li>PK: (codigo-trayecto)</li>
-</ul>
-</li>
-<li><strong>PARADAS</strong> (<u><mark>codigo-estacion</mark>, <mark>codigo-trayecto</mark></u>)<ul>
-<li>PK: (codigo-estacion, codigo-trayecto)</li>
-<li>FK: codigo-trayecto-&gt;TRAYECTO(codigo-trayecto)</li>
-<li>FK: codigo-estacion-&gt;ESTACIÓN(codigo-estacion)</li>
-</ul>
-</li>
-<li><strong>VIAJE</strong> (<u><mark>codigo-trayecto</mark>, fecha</u>, <mark>codigo-tren</mark>, <mark>cod-temporada</mark>) <span class="tag-cascade">(borrar en cascada)</span><ul>
-<li>PK: (codigo-trayecto, fecha)</li>
-<li>FK: codigo-trayecto-&gt;TRAYECTO(codigo-trayecto)</li>
-<li>FK: codigo-tren-&gt;TREN(codigo-tren)</li>
-<li>FK: cod-temporada-&gt;TEMPORADA(cod-temporada)</li>
-</ul>
-</li>
-<li><strong>CONDUCTOR_VIAJE</strong> (<u><mark>codigo-trabajador</mark>, <mark>codigo-trayecto</mark>, <mark>fecha</mark></u>)<ul>
-<li>PK: (codigo-trabajador, codigo-trayecto, fecha)</li>
-<li>FK: codigo-trabajador-&gt;CONDUCTOR(codigo-trabajador)</li>
-<li>FK: codigo-trayecto, fecha-&gt;VIAJE(codigo-trayecto, fecha)</li>
-</ul>
-</li>
-</ul>
-</div>
 </details>
 </details>
+<!--
+        !!! quote "Opción 2"
+
+            - **TRABAJADOR** (<u>codigo-trabajador</u>, <mark>codigo-estacion</mark>)
+                - PK: (codigo-trabajador)
+                - FK: codigo-estacion->ESTACIÓN(codigo-estacion)
+            - **NO CONDUCTOR** (<u><mark>codigo-trabajador</mark></u>) <span class="tag-cascade">(borrar en cascada)</span>
+                - PK: (codigo-trabajador)
+                - FK: codigo-trabajador->TRABAJADOR(codigo-trabajador)
+            - **CONDUCTOR** (<u><mark>codigo-trabajador</mark></u>, horas) <span class="tag-cascade">(borrar en cascada)</span>
+                - PK: (codigo-trabajador)
+                - FK: codigo-trabajador->TRABAJADOR(codigo-trabajador)
+            - **ESTACIÓN** (<u>codigo-estacion</u>, nombre, telefono)
+                - PK: (codigo-estacion)
+            - **TREN** (<u>codigo-tren</u>, <mark>codigo-estacion</mark>, tipo)
+                - PK: (codigo-tren)
+                - FK: codigo-estacion->ESTACIÓN(codigo-estacion)
+            - **TEMPORADA** (<u>cod-temporada</u>)
+                - PK: (cod-temporada)
+            - **TRAYECTO** (<u>codigo-trayecto</u>, hora)
+                - PK: (codigo-trayecto)
+            - **PARADAS** (<u><mark>codigo-estacion</mark>, <mark>codigo-trayecto</mark></u>)
+                - PK: (codigo-estacion, codigo-trayecto)
+                - FK: codigo-trayecto->TRAYECTO(codigo-trayecto)
+                - FK: codigo-estacion->ESTACIÓN(codigo-estacion)
+            - **VIAJE** (<u><mark>codigo-trayecto</mark>, fecha</u>, <mark>codigo-tren</mark>, <mark>cod-temporada</mark>) <span class="tag-cascade">(borrar en cascada)</span>
+                - PK: (codigo-trayecto, fecha)
+                - FK: codigo-trayecto->TRAYECTO(codigo-trayecto)
+                - FK: codigo-tren->TREN(codigo-tren)
+                - FK: cod-temporada->TEMPORADA(cod-temporada)
+            - **CONDUCTOR_VIAJE** (<u><mark>codigo-trabajador</mark>, <mark>codigo-trayecto</mark>, <mark>fecha</mark></u>)
+                - PK: (codigo-trabajador, codigo-trayecto, fecha)
+                - FK: codigo-trabajador->CONDUCTOR(codigo-trabajador)
+                - FK: codigo-trayecto, fecha->VIAJE(codigo-trayecto, fecha)
+-->
+
 <details class="example">
 <summary>Ejercicio 9</summary>
 <details class="question">
@@ -2376,7 +2351,7 @@
 </li>
 <li><strong>IMPRESORA</strong> (<u>codigo-i</u>, <mark>codigo-o</mark>)<ul>
 <li>PK: (codigo-i)</li>
-<li>FK: codigo-o-&gt;ORDENADOR(codigo-o) <span class="tag-no-nulo">[no nulo]</span> <span class="tag-unico">[unico]</span></li>
+<li>FK: codigo-o-&gt;ORDENADOR(codigo-o)  <span class="tag-unico">[unico]</span></li>
 </ul>
 </li>
 <li><strong>APLICACION</strong> (<u>codigo-a</u>,<mark>codigo-o</mark>)<ul>
@@ -2417,7 +2392,7 @@
 <details class="question">
 <summary>Enunciado</summary>
 <p>Realizar el esquema relacional correspondiente a un sistema de información de una empresa que vende gran variedad de productos. Para la venta de estos productos, dispone de un conjunto de viajantes que realizan visitas a los clientes ofreciendo sus productos.</p>
-<p><img alt="alt text" class="grayscale" src="../image-73.png" /></p>
+<p><img alt="alt text" class="grayscale" src="../image-31.png" /></p>
 </details>
 <details class="success">
 <summary>Solución propuesta</summary>
@@ -2461,7 +2436,6 @@
 <li>FK: cod-viajante-&gt;VIAJANTE(cod-viajante) <span class="tag-no-nulo">[no nulo]</span></li>
 <li>FK: cod-cliente-&gt;CLIENTE(cod-cliente)</li>
 <li>FK: cod-producto-&gt;PRODUCTO(cod-producto)</li>
-<li>precio: <span class="tag-no-nulo">[no nulo]</span></li>
 </ul>
 </li>
 </ul>
@@ -2578,10 +2552,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["toc.follow", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.instant", "navigation.instant.progress", "navigation.sections", "navigation.expand", "navigation.indexes", "navigation.tracking", "navigation.footer", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.tabs.link", "content.tooltips", "content.action.edit", "content.action.view", "header.autohide"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["toc.follow", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.instant", "navigation.instant.progress", "navigation.sections", "navigation.expand", "navigation.indexes", "navigation.tracking", "navigation.footer", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.tabs.link", "content.tooltips", "content.action.edit", "content.action.view", "header.autohide"], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../assets/javascripts/bundle.c21346df.min.js"></script>
       
         <script src="../../javascripts/lightbox.js"></script>
       
