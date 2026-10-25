@@ -1272,10 +1272,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#425-integridad-referencial" class="md-nav__link">
+  <a href="#425-restriccion-de-clave-ajena" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4.2.5 Integridad Referencial
+        4.2.5 Restricción de Clave Ajena
       
     </span>
   </a>
@@ -1283,21 +1283,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#426-acciones-sobre-claves-ajenas" class="md-nav__link">
+  <a href="#426-restricciones-externas" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4.2.6 Acciones sobre claves ajenas
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#427-restricciones-externas" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4.2.7 Restricciones Externas
+        4.2.6 Restricciones Externas
       
     </span>
   </a>
@@ -1918,10 +1907,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#425-integridad-referencial" class="md-nav__link">
+  <a href="#425-restriccion-de-clave-ajena" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4.2.5 Integridad Referencial
+        4.2.5 Restricción de Clave Ajena
       
     </span>
   </a>
@@ -1929,21 +1918,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#426-acciones-sobre-claves-ajenas" class="md-nav__link">
+  <a href="#426-restricciones-externas" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4.2.6 Acciones sobre claves ajenas
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#427-restricciones-externas" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4.2.7 Restricciones Externas
+        4.2.6 Restricciones Externas
       
     </span>
   </a>
@@ -2076,17 +2054,29 @@
 </li>
 </ul>
 </div>
-<h2 id="425-integridad-referencial">4.2.5 Integridad Referencial</h2>
-<p>Garantiza que todo valor no nulo de una clave externa corresponda a un registro existente en la tabla referenciada.</p>
+<h2 id="425-restriccion-de-clave-ajena">4.2.5 Restricción de Clave Ajena</h2>
+<p>Una <strong>clave ajena</strong> (también llamada <strong>clave externa</strong> o <strong>foreign key, FK</strong>) es un atributo (o conjunto de atributos) de una tabla que referencia la clave primaria de otra tabla (o de la misma tabla, en el caso de claves reflexivas).</p>
+<p><strong>Representación</strong>:</p>
+<div class="admonition quote">
+<ul>
+<li>FAMILIAR (<u>dni-empleado</u>, <u>nom-f</u>, fecha-n)<ul>
+<li>PK: (dni-empleado, nom-f)</li>
+<li>FK: dni-empleado-&gt;EMPLEADO(dni)</li>
+</ul>
+</li>
+</ul>
+</div>
+<h3 id="integridad-referencial">Integridad Referencial</h3>
+<p>La restricción de clave ajena da lugar a la <strong>integridad referencial</strong>: garantiza que todo valor no nulo de una clave ajena corresponda a un registro existente en la tabla referenciada.</p>
 <p><img alt="alt text" src="../image-55.png" /></p>
-<p>Si en <strong>FAMILIAR</strong> existe <code>dni-empleado</code> como clave externa hacia <code>EMPLEADO.dni</code>, no puede aparecer un <code>dni-empleado</code> que no exista en EMPLEADO.</p>
+<p>Si en <strong>FAMILIAR</strong> existe <code>dni-empleado</code> como clave ajena (clave externa) hacia <code>EMPLEADO.dni</code>, no puede aparecer un <code>dni-empleado</code> que no exista en EMPLEADO.</p>
 <div class="admonition example">
 <p class="admonition-title">Ejemplo</p>
 <p>No es válido insertar en FAMILIAR el DNI <code>18.754.321</code> si no existe antes en EMPLEADO.</p>
 </div>
 <p>También puede haber claves externas reflexivas (la misma tabla se referencia a sí misma), por ejemplo el atributo <code>supervisor</code> en EMPLEADO.</p>
 <p><img alt="alt text" src="../image-45.png" /></p>
-<h2 id="426-acciones-sobre-claves-ajenas">4.2.6 Acciones sobre claves ajenas</h2>
+<h3 id="acciones-sobre-claves-ajenas">Acciones sobre claves ajenas</h3>
 <p>Cuando se borra o modifica una clave referenciada, suelen definirse estas acciones:</p>
 <ul>
 <li><strong>NO ACTION</strong>: bloquea la operación si rompe integridad.</li>
@@ -2094,7 +2084,7 @@
 <li><strong>SET NULL / SET DEFAULT</strong>: sustituye el valor de la clave externa por nulo o por defecto.</li>
 </ul>
 <hr />
-<h2 id="427-restricciones-externas">4.2.7 Restricciones Externas</h2>
+<h2 id="426-restricciones-externas">4.2.6 Restricciones Externas</h2>
 <p>Las <strong>restricciones externas</strong> son aquellas que no se pueden expresar directamente mediante el modelo de datos. Por tanto, las describiremos mediante texto.</p>
 <p>Normalmente, las restricciones externas del modelo E/R seguirán siendo externas en el modelo relacional. En nuestro ejemplo teníamos:</p>
 <blockquote>

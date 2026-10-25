@@ -2172,7 +2172,7 @@
 <details class="question">
 <summary>Enunciado</summary>
 <p>Realizar el esquema relacional correspondiente a un Parque Zoológico que quiere guardar información de las especies que tiene, los empleados (cuidadores y guías), y los distintos itinerarios de visita que ofrece.</p>
-<p><img alt="alt text" class="grayscale" src="../image-80.png" /></p>
+<p><img alt="alt text" class="grayscale" src="../image-57.png" /></p>
 </details>
 <details class="success">
 <summary>Solución propuesta</summary>
@@ -2330,6 +2330,60 @@
 <summary>Ejercicio 9</summary>
 <details class="question">
 <summary>Enunciado</summary>
+<p>Realizar el esquema relacional correspondiente a un sistema de información de una empresa que vende gran variedad de productos. Para la venta de estos productos, dispone de un conjunto de viajantes que realizan visitas a los clientes ofreciendo sus productos.</p>
+<p><img alt="alt text" class="grayscale" src="../image-31.png" /></p>
+</details>
+<details class="success">
+<summary>Solución propuesta</summary>
+<ul>
+<li><strong>SECTOR</strong> (<u>cod-sector</u>)<ul>
+<li>PK: (cod-sector)</li>
+</ul>
+</li>
+<li><strong>CIUDAD</strong> (<u>cod-ciudad</u>, <mark>cod-sector</mark>)<ul>
+<li>PK: (cod-ciudad)</li>
+<li>FK: cod-sector-&gt;SECTOR(cod-sector) <span class="tag-no-nulo">[no nulo]</span></li>
+</ul>
+</li>
+<li><strong>VIAJANTE</strong> (<u>cod-viajante</u>)<ul>
+<li>PK: (cod-viajante)</li>
+</ul>
+</li>
+<li><strong>CLIENTE</strong> (<u>cod-cliente</u>, <mark>cod-ciudad</mark>)<ul>
+<li>PK: (cod-cliente)</li>
+<li>FK: cod-ciudad-&gt;CIUDAD(cod-ciudad) <span class="tag-no-nulo">[no nulo]</span></li>
+</ul>
+</li>
+<li><strong>PRODUCTO</strong> (<u>cod-producto</u>)<ul>
+<li>PK: (cod-producto)</li>
+</ul>
+</li>
+<li><strong>VIAJANTE_PRODUCTO</strong> (<u><mark>cod-viajante</mark>, <mark>cod-producto</mark></u>)<ul>
+<li>PK: (cod-viajante, cod-producto)</li>
+<li>FK: cod-viajante-&gt;VIAJANTE(cod-viajante)</li>
+<li>FK: cod-producto-&gt;PRODUCTO(cod-producto)</li>
+</ul>
+</li>
+<li><strong>SECTOR_VIAJA</strong> (<u><mark>cod-sector</mark>, <mark>cod-viajante</mark></u>)<ul>
+<li>PK: (cod-sector, cod-viajante)</li>
+<li>FK: cod-viajante-&gt;VIAJANTE(cod-viajante)</li>
+<li>FK: cod-sector-&gt;SECTOR(cod-sector)</li>
+</ul>
+</li>
+<li><strong>OFRECE</strong> (<u><mark>cod-cliente</mark>, <mark>cod-producto</mark></u>, <mark>cod-viajante</mark>, precio)<ul>
+<li>PK: (cod-cliente, cod-producto)</li>
+<li>FK: cod-viajante-&gt;VIAJANTE(cod-viajante) <span class="tag-no-nulo">[no nulo]</span></li>
+<li>FK: cod-cliente-&gt;CLIENTE(cod-cliente)</li>
+<li>FK: cod-producto-&gt;PRODUCTO(cod-producto)</li>
+</ul>
+</li>
+</ul>
+</details>
+</details>
+<details class="example">
+<summary>Ejercicio 10</summary>
+<details class="question">
+<summary>Enunciado</summary>
 <p>Realizar el esquema relacional correspondiente a un sistema de información sobre el material informático de una empresa.</p>
 <p><img alt="alt text" class="grayscale" src="../image-76.png" /></p>
 </details>
@@ -2385,60 +2439,26 @@
 </ul>
 </li>
 </ul>
-</details>
-</details>
-<details class="example">
-<summary>Ejercicio 10</summary>
-<details class="question">
-<summary>Enunciado</summary>
-<p>Realizar el esquema relacional correspondiente a un sistema de información de una empresa que vende gran variedad de productos. Para la venta de estos productos, dispone de un conjunto de viajantes que realizan visitas a los clientes ofreciendo sus productos.</p>
-<p><img alt="alt text" class="grayscale" src="../image-31.png" /></p>
-</details>
-<details class="success">
-<summary>Solución propuesta</summary>
+<div class="admonition note">
+<p class="admonition-title">Nota: alternativa para la relación 1:1 ORDENADOR-IMPRESORA</p>
+<p>La relación 1:1 entre ORDENADOR e IMPRESORA también se puede resolver creando una tabla adicional para la relación, en vez de incorporar la clave ajena en IMPRESORA:</p>
 <ul>
-<li><strong>SECTOR</strong> (<u>cod-sector</u>)<ul>
-<li>PK: (cod-sector)</li>
+<li><strong>ORDENADOR</strong> (<u>codigo-o</u>)<ul>
+<li>PK: (codigo-o)</li>
 </ul>
 </li>
-<li><strong>CIUDAD</strong> (<u>cod-ciudad</u>, <mark>cod-sector</mark>)<ul>
-<li>PK: (cod-ciudad)</li>
-<li>FK: cod-sector-&gt;SECTOR(cod-sector) <span class="tag-no-nulo">[no nulo]</span></li>
+<li><strong>IMPRESORA</strong> (<u>codigo-i</u>)<ul>
+<li>PK: (codigo-i)</li>
 </ul>
 </li>
-<li><strong>VIAJANTE</strong> (<u>cod-viajante</u>)<ul>
-<li>PK: (cod-viajante)</li>
-</ul>
-</li>
-<li><strong>CLIENTE</strong> (<u>cod-cliente</u>, <mark>cod-ciudad</mark>)<ul>
-<li>PK: (cod-cliente)</li>
-<li>FK: cod-ciudad-&gt;CIUDAD(cod-ciudad) <span class="tag-no-nulo">[no nulo]</span></li>
-</ul>
-</li>
-<li><strong>PRODUCTO</strong> (<u>cod-producto</u>)<ul>
-<li>PK: (cod-producto)</li>
-</ul>
-</li>
-<li><strong>VIAJANTE_PRODUCTO</strong> (<u><mark>cod-viajante</mark>, <mark>cod-producto</mark></u>)<ul>
-<li>PK: (cod-viajante, cod-producto)</li>
-<li>FK: cod-viajante-&gt;VIAJANTE(cod-viajante)</li>
-<li>FK: cod-producto-&gt;PRODUCTO(cod-producto)</li>
-</ul>
-</li>
-<li><strong>SECTOR_VIAJA</strong> (<u><mark>cod-sector</mark>, <mark>cod-viajante</mark></u>)<ul>
-<li>PK: (cod-sector, cod-viajante)</li>
-<li>FK: cod-viajante-&gt;VIAJANTE(cod-viajante)</li>
-<li>FK: cod-sector-&gt;SECTOR(cod-sector)</li>
-</ul>
-</li>
-<li><strong>OFRECE</strong> (<u><mark>cod-cliente</mark>, <mark>cod-producto</mark></u>, <mark>cod-viajante</mark>, precio)<ul>
-<li>PK: (cod-cliente, cod-producto)</li>
-<li>FK: cod-viajante-&gt;VIAJANTE(cod-viajante) <span class="tag-no-nulo">[no nulo]</span></li>
-<li>FK: cod-cliente-&gt;CLIENTE(cod-cliente)</li>
-<li>FK: cod-producto-&gt;PRODUCTO(cod-producto)</li>
+<li><strong>ORDENADOR_IMPRESORA</strong> (<u><mark>codigo-o</mark>, <mark>codigo-i</mark></u>)<ul>
+<li>PK: (codigo-o, codigo-i)</li>
+<li>FK: codigo-o-&gt;ORDENADOR(codigo-o)</li>
+<li>FK: codigo-i-&gt;IMPRESORA(codigo-i)</li>
 </ul>
 </li>
 </ul>
+</div>
 </details>
 </details>
 
