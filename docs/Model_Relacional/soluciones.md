@@ -228,10 +228,12 @@ hide:
                 - FK: cod-ej,nom-g,nom-e->EJEMPLAR(cod-ej,nom-g,nom-e)
 
               
-            - **COLECCION** (<u><mark>dni</mark></u>) <span class="tag-cascade">(borrar en cascada)</span>
+            - **COLECCION** (<u><mark>dni</mark></u>, id-col) <span class="tag-cascade">(borrar en cascada)</span>
                 - PK: (dni)
                 - FK: dni->PERSONA(dni)
                       
+            <span class="tag-nota">[nota]</span> La PK de **COLECCION** es la misma que la de **PERSONA** (dni), ya que se trata de una relación 1:1 de identificación.
+
             <span class="tag-nota">[nota]</span> La especialización de **EJEMPLAR** en **EJ_COL** y **EJ_OBS** es total y disjunta (T,D).   
 
         !!! quote "Opción 2"
@@ -268,9 +270,11 @@ hide:
                 - PK: (cod-ej)
                 - FK: cod-ej->EJEMPLAR(cod-ej)
 
-            - **COLECCION** (<u><mark>dni</mark></u>) <span class="tag-cascade">(borrar en cascada)</span>
+            - **COLECCION** (<u><mark>dni</mark></u>, id-col) <span class="tag-cascade">(borrar en cascada)</span>
                 - PK: (dni)
                 - FK: dni->PERSONA(dni)<span class="tag-no-nulo">[no nulo]</span>    
+
+             <span class="tag-nota">[nota]</span> La PK de **COLECCION** es la misma que la de **PERSONA** (dni), ya que se trata de una relación 1:1 de identificación.
 
              <span class="tag-nota">[nota]</span> La especialización de **EJEMPLAR** en **EJ_COL** y **EJ_OBS** es total y disjunta (T,D).    
 
