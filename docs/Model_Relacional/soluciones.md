@@ -330,7 +330,9 @@ hide:
 
     ??? question "Enunciado"
         Realizar el esquema relacional correspondiente a una empresa de líneas ferroviarias.
-        ![alt text](image-19.png){ .grayscale }
+
+        ![alt text](image-19.png){.grayscale}
+
 
     ??? success "Solución propuesta"       
         - **TRABAJADOR** (<u>codigo-trabajador</u>, <mark>codigo-estacion</mark>)

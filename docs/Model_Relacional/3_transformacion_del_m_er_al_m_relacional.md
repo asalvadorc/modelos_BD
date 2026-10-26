@@ -323,7 +323,7 @@ En el ejemplo:
 !!! quote ""
     - EMPLEADO (<u>dni</u>, nombre, direccion, telefono, sueldo, fecha-n)
         - PK: (dni)
-    - FAMILIAR (<u><mark>dni-e</mark>, nom-f</u>, fecha-n, parentesco  <span class="tag-cascade">(borrar en cascada)</span>
+    - FAMILIAR (<u><mark>dni-e</mark>, nom-f</u>, fecha-n, parentesco)  <span class="tag-cascade">(borrar en cascada)</span>
         - PK: (dni-e, nom-f)
         - FK: dni-e->PERSONA(dni)
 

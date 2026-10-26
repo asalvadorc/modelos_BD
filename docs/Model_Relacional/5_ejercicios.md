@@ -136,7 +136,7 @@ En la segunda incorporamos los trayectos, y además marcamos todas las estacione
 
 ![alt text](image-78.png){ .grayscale }
 -->
-![alt text](image-19.png){ .grayscale}
+![alt text](image-19.png){.grayscale width=800}
 
 
 ## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 9</span></span>
