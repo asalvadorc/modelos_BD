@@ -1976,7 +1976,7 @@
 <li><strong>PRESTAMO</strong> (<u><mark>cod-ent</mark>, <mark>cod-suc</mark>, cod-p</u>, <mark>dni</mark>) <span class="tag-cascade">(borrar en cascada)</span><ul>
 <li>PK: (cod-ent, cod-suc, cod-p)</li>
 <li>FK: cod-ent, cod-suc-&gt;SUCURSAL(cod-ent, cod-suc)</li>
-<li>FK: dni-&gt;CLIENTE(dni)</li>
+<li>FK: dni-&gt;CLIENTE(dni) <span class="tag-no-nulo">[no nulo]</span></li>
 </ul>
 </li>
 <li><strong>PERMISOS</strong> (<u><mark>cod-ent</mark>, <mark>cod-suc</mark>, <mark>cod-cc</mark>, <mark>dni</mark>, privilegio</u>)<ul>
@@ -2017,7 +2017,7 @@
 <li><strong>PRESTAMO</strong> (<u><mark>cod-ent</mark>, <mark>cod-suc</mark>, cod-p</u>, <mark>dni</mark>) <span class="tag-cascade">(borrar en cascada)</span><ul>
 <li>PK: (cod-ent, cod-suc, cod-p)</li>
 <li>FK: cod-ent, cod-suc-&gt;SUCURSAL(cod-ent, cod-suc)</li>
-<li>FK: dni-&gt;CLIENTE(dni)</li>
+<li>FK: dni-&gt;CLIENTE(dni) <span class="tag-no-nulo">[no nulo]</span></li>
 </ul>
 </li>
 <li><strong>PERMISOS</strong> (<u> cod-p</u>,<mark>cod-ent</mark>, <mark>cod-suc</mark>, <mark>cod-cc</mark>, <mark>dni</mark>, privilegio)<ul>
