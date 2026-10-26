@@ -155,7 +155,7 @@ hide:
             - **PRESTAMO** (<u><mark>cod-ent</mark>, <mark>cod-suc</mark>, cod-p</u>, <mark>dni</mark>) <span class="tag-cascade">(borrar en cascada)</span>
                 - PK: (cod-ent, cod-suc, cod-p)
                 - FK: cod-ent, cod-suc->SUCURSAL(cod-ent, cod-suc)
-                - FK: dni->CLIENTE(dni)
+                - FK: dni->CLIENTE(dni) <span class="tag-no-nulo">[no nulo]</span>
             - **PERMISOS** (<u><mark>cod-ent</mark>, <mark>cod-suc</mark>, <mark>cod-cc</mark>, <mark>dni</mark>, privilegio</u>)
                 - PK: (cod-ent, cod-suc, cod-cc, dni, privilegio)
                 - FK: cod-ent, cod-suc, cod-cc->CUENTA CORRIENTE(cod-ent, cod-suc, cod-cc)
@@ -181,7 +181,7 @@ hide:
             - **PRESTAMO** (<u><mark>cod-ent</mark>, <mark>cod-suc</mark>, cod-p</u>, <mark>dni</mark>) <span class="tag-cascade">(borrar en cascada)</span>
                 - PK: (cod-ent, cod-suc, cod-p)
                 - FK: cod-ent, cod-suc->SUCURSAL(cod-ent, cod-suc)
-                - FK: dni->CLIENTE(dni)
+                - FK: dni->CLIENTE(dni) <span class="tag-no-nulo">[no nulo]</span>
             - **PERMISOS** (<u> cod-p</u>,<mark>cod-ent</mark>, <mark>cod-suc</mark>, <mark>cod-cc</mark>, <mark>dni</mark>, privilegio)
                 - PK: (cod-p)
                 - FK: cod-ent, cod-suc, cod-cc->CUENTA CORRIENTE(cod-ent, cod-suc, cod-cc) <span class="tag-no-nulo">[no nulo]</span>
