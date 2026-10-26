@@ -143,7 +143,7 @@ hide:
                 - PK: (cod-ent)
             - **SUCURSAL** (<u><mark>cod-ent</mark>, cod-suc</u>) <span class="tag-cascade">(borrar en cascada)</span>
                 - PK: (cod-ent, cod-suc)
-                - FK: cod-ent->BANCO(cod-ent) <span class="tag-no-nulo">[no nulo]</span>
+                - FK: cod-ent->BANCO(cod-ent)
             - **CUENTA CORRIENTE** (<u><mark>cod-ent</mark>, <mark>cod-suc</mark></u>, <u>cod-cc</u>) <span class="tag-cascade">(borrar en cascada)</span>
                 - PK: (cod-ent, cod-suc, cod-cc)
                 - FK: cod-ent, cod-suc->SUCURSAL(cod-ent, cod-suc)
@@ -169,7 +169,7 @@ hide:
                 - PK: (cod-ent)
             - **SUCURSAL** (<u><mark>cod-ent</mark>, cod-suc</u>) <span class="tag-cascade">(borrar en cascada)</span>
                 - PK: (cod-ent, cod-suc)
-                - FK: cod-ent->BANCO(cod-ent) <span class="tag-no-nulo">[no nulo]</span>
+                - FK: cod-ent->BANCO(cod-ent) 
             - **CUENTA CORRIENTE** (<u><mark>cod-ent</mark>, <mark>cod-suc</mark></u>, <u>cod-cc</u>) <span class="tag-cascade">(borrar en cascada)</span>
                 - PK: (cod-ent, cod-suc, cod-cc)
                 - FK: cod-ent, cod-suc->SUCURSAL(cod-ent, cod-suc)
