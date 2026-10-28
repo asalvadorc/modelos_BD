@@ -2076,7 +2076,7 @@
 <li>FK: com-&gt;COMARCA(com) <span class="tag-no-nulo">[no nulo]</span></li>
 </ul>
 </li>
-<li><strong>EJ_COL</strong> (<u><mark>nom-g</mark>,<mark>nom-e</mark><mark>cod-ej</mark></u>, <mark>dni</mark>, valor) <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li><strong>EJ_COL</strong> (<u><mark>nom-g</mark>,<mark>nom-e</mark><mark>co,d-ej</mark></u>, <mark>dni</mark>, valor) <span class="tag-cascade">(borrar en cascada)</span><ul>
 <li>PK: (nom-g, nom-e, cod-ej)</li>
 <li>FK: cod-ej,nom-g,nom-e-&gt;EJEMPLAR(cod-ej,nom-g,nom-e)</li>
 <li>FK: dni-&gt;COLECCION(dni) <span class="tag-no-nulo">[no nulo]</span></li>
@@ -2102,7 +2102,7 @@
 </div>
 <div class="admonition quote">
 <p class="admonition-title">Opción 2</p>
-<p><span class="tag-nota">[nota]</span> Aquí no se inventa una clave artificial nueva: se simplifica la clave de <strong>EJEMPLAR</strong> a <code>cod-ej</code> por considerarlo único por sí mismo (sin necesidad de combinarlo con <code>nom-g</code> y <code>nom-e</code>), y esa misma clave se reutiliza como PK/FK en <strong>EJ_COL</strong> y <strong>EJ_OBS</strong>.</p>
+<p><span class="tag-nota">[nota]</span> Esta opción se propone para <strong>simplificar la clave primaria de EJEMPLAR y las claves de las tablas que lo referencian</strong>. En la opción 1, la PK es compuesta: <code>(cod-ej, nom-g, nom-e)</code>. En la opción 2, se supone que <strong>cada ejemplar tiene un <code>cod-ej</code> único entre todos los ejemplares, aunque sean de especies distintas</strong>, por lo que la PK queda reducida a <code>(cod-ej)</code>. Así, <strong>EJ_COL</strong> y <strong>EJ_OBS</strong> también utilizan únicamente <code>cod-ej</code> como PK y FK a <strong>EJEMPLAR</strong>. Los atributos <code>nom-g</code> y <code>nom-e</code> se mantienen en <strong>EJEMPLAR</strong> como FK para indicar su especie. Esta simplificación solo es válida si se garantiza esa unicidad global de <code>cod-ej</code>.</p>
 <ul>
 <li><strong>FAMILIA</strong> (<u>nom-f</u>)<ul>
 <li>PK: (nom-f)</li>
