@@ -219,7 +219,7 @@ hide:
                 - FK: nom-g,nom-e->ESPECIE(nom-g,nom-e)
                 - FK: dni->PERSONA(dni) <span class="tag-no-nulo">[no nulo]</span>
                 - FK: com->COMARCA(com) <span class="tag-no-nulo">[no nulo]</span>
-             - **EJ_COL** (<u><mark>nom-g</mark>,<mark>nom-e</mark><mark>co,d-ej</mark></u>, <mark>dni</mark>, valor) <span class="tag-cascade">(borrar en cascada)</span>
+             - **EJ_COL** (<u><mark>nom-g</mark>,<mark>nom-e</mark>,<mark>cod-ej</mark></u>, <mark>dni</mark>, valor) <span class="tag-cascade">(borrar en cascada)</span>
                 - PK: (nom-g, nom-e, cod-ej)
                 - FK: cod-ej,nom-g,nom-e->EJEMPLAR(cod-ej,nom-g,nom-e)
                 - FK: dni->COLECCION(dni) <span class="tag-no-nulo">[no nulo]</span>
