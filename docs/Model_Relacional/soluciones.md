@@ -219,7 +219,7 @@ hide:
                 - FK: nom-g,nom-e->ESPECIE(nom-g,nom-e)
                 - FK: dni->PERSONA(dni) <span class="tag-no-nulo">[no nulo]</span>
                 - FK: com->COMARCA(com) <span class="tag-no-nulo">[no nulo]</span>
-             - **EJ_COL** (<u><mark>nom-g</mark>,<mark>nom-e</mark><mark>cod-ej</mark></u>, <mark>dni</mark>, valor) <span class="tag-cascade">(borrar en cascada)</span>
+             - **EJ_COL** (<u><mark>nom-g</mark>,<mark>nom-e</mark><mark>co,d-ej</mark></u>, <mark>dni</mark>, valor) <span class="tag-cascade">(borrar en cascada)</span>
                 - PK: (nom-g, nom-e, cod-ej)
                 - FK: cod-ej,nom-g,nom-e->EJEMPLAR(cod-ej,nom-g,nom-e)
                 - FK: dni->COLECCION(dni) <span class="tag-no-nulo">[no nulo]</span>
@@ -238,7 +238,7 @@ hide:
 
         !!! quote "Opción 2"
 
-            <span class="tag-nota">[nota]</span> Aquí no se inventa una clave artificial nueva: se simplifica la clave de **EJEMPLAR** a `cod-ej` por considerarlo único por sí mismo (sin necesidad de combinarlo con `nom-g` y `nom-e`), y esa misma clave se reutiliza como PK/FK en **EJ_COL** y **EJ_OBS**.
+            <span class="tag-nota">[nota]</span> Esta opción se propone para **simplificar la clave primaria de EJEMPLAR y las claves de las tablas que lo referencian**. En la opción 1, la PK es compuesta: `(cod-ej, nom-g, nom-e)`. En la opción 2, se supone que **cada ejemplar tiene un `cod-ej` único entre todos los ejemplares, aunque sean de especies distintas**, por lo que la PK queda reducida a `(cod-ej)`. Así, **EJ_COL** y **EJ_OBS** también utilizan únicamente `cod-ej` como PK y FK a **EJEMPLAR**. Los atributos `nom-g` y `nom-e` se mantienen en **EJEMPLAR** como FK para indicar su especie. Esta simplificación solo es válida si se garantiza esa unicidad global de `cod-ej`.
 
             - **FAMILIA** (<u>nom-f</u>)
                 - PK: (nom-f)
