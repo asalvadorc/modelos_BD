@@ -303,7 +303,7 @@ hide:
             - PK: (cod-h)
         - **ZONA** (<u>cod-z</u>, extension)
             - PK: (cod-z)
-        - **ESPECIE** (<u>nom-c</u>, nombre, descripcion, <mark>cod-z</mark>)
+        - **ESPECIE** (<u>nom-c</u>, <mark>cod-z</mark>, nombre, descripcion)
             - PK: (nom-c)
             - FK: cod-z->ZONA(cod-z) <span class="tag-no-nulo">[no nulo]</span>
         - **ESPECIE_HABITAT** (<u><mark>nom-c</mark>, <mark>cod-h</mark></u>)
