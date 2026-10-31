@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="240" viewBox="0 0 920 240" role="img" aria-labelledby="title desc">
+<title id="title">Dependencia transitiva del nombre del departamento</title>
+<desc id="desc">A, DNI, determina E, número de departamento. E determina F, nombre del departamento. Se deduce A determina F.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#2f4fb0"/></marker></defs>
+<rect width="920" height="240" rx="12" fill="white"/>
+<g font-family="Segoe UI,Arial,sans-serif" text-anchor="middle" fill="#172554">
+<rect x="24" y="45" width="224" height="96" rx="12" fill="#e9eff9" stroke="#2f4fb0" stroke-width="3"/>
+<text x="136" y="82" font-size="26" font-weight="700">A · DNI</text><text x="136" y="116" font-size="18">Clave de EMPLEADO</text>
+<rect x="348" y="45" width="224" height="96" rx="12" fill="white" stroke="#172554" stroke-width="2.5"/>
+<text x="460" y="82" font-size="26" font-weight="700">E</text><text x="460" y="116" font-size="18">Núm. departamento</text>
+<rect x="672" y="45" width="224" height="96" rx="12" fill="white" stroke="#172554" stroke-width="2.5"/>
+<text x="784" y="82" font-size="26" font-weight="700">F</text><text x="784" y="116" font-size="18">Nombre departamento</text>
+<g fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"><path d="M248 93H346"/><path d="M572 93H670"/><path d="M136 143V188H784V143" stroke-dasharray="8 6"/></g>
+<text x="460" y="222" font-size="18">A → F se deduce por transitividad a través de E.</text>
+</g></svg>

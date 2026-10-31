@@ -1410,6 +1410,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Primera Forma Normal (1FN)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1426,6 +1444,36 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplo-aplicado-los-telefonos-de-los-empleados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ejemplo aplicado: los teléfonos de los empleados
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1713,6 +1761,25 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplo-aplicado-los-telefonos-de-los-empleados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ejemplo aplicado: los teléfonos de los empleados
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1978,6 +2045,109 @@
 </table>
 <p>En este caso, la tabla queda en 1FN porque cada atributo almacena un único dato elemental.</p>
 </div>
+<h2 id="ejemplo-aplicado-los-telefonos-de-los-empleados">Ejemplo aplicado: los teléfonos de los empleados</h2>
+<p>Retomamos la empresa de los temas de modelo E/R y modelo relacional. Un empleado puede tener varios teléfonos. Para centrarnos en la 1FN, mostramos solo el DNI, el nombre y los teléfonos.</p>
+<h3 id="antes-de-aplicar-la-1fn">Antes de aplicar la 1FN</h3>
+<table>
+<thead>
+<tr>
+<th>DNI</th>
+<th>Nombre empleado</th>
+<th>Teléfonos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>12345678A</td>
+<td>Ana García López</td>
+<td>612345678, 698765432</td>
+</tr>
+<tr>
+<td>87654321B</td>
+<td>Luis Pérez Ruiz</td>
+<td>623456789</td>
+</tr>
+<tr>
+<td>11223344C</td>
+<td>Marta Sánchez Gil</td>
+<td>634567890, 645678901</td>
+</tr>
+</tbody>
+</table>
+<p>La tabla <strong>no está en 1FN</strong>, porque algunas celdas de Teléfonos contienen varios valores. Tampoco lo resolveríamos creando columnas Teléfono1, Teléfono2, etc.: formarían un grupo repetitivo y limitarían el número de teléfonos que podemos guardar.</p>
+<h3 id="aplicar-la-1fn">Aplicar la 1FN</h3>
+<p>Separamos los teléfonos de los datos del empleado. En TELEFONO_EMPLEADO guardamos <strong>una fila por cada teléfono de un empleado</strong>.</p>
+<p><strong>EMPLEADO</strong></p>
+<table>
+<thead>
+<tr>
+<th>DNI</th>
+<th>Nombre empleado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>12345678A</td>
+<td>Ana García López</td>
+</tr>
+<tr>
+<td>87654321B</td>
+<td>Luis Pérez Ruiz</td>
+</tr>
+<tr>
+<td>11223344C</td>
+<td>Marta Sánchez Gil</td>
+</tr>
+</tbody>
+</table>
+<p><strong>TELEFONO_EMPLEADO</strong></p>
+<table>
+<thead>
+<tr>
+<th>DNI</th>
+<th>Teléfono</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>12345678A</td>
+<td>612345678</td>
+</tr>
+<tr>
+<td>12345678A</td>
+<td>698765432</td>
+</tr>
+<tr>
+<td>87654321B</td>
+<td>623456789</td>
+</tr>
+<tr>
+<td>11223344C</td>
+<td>634567890</td>
+</tr>
+<tr>
+<td>11223344C</td>
+<td>645678901</td>
+</tr>
+</tbody>
+</table>
+<p>En el <strong>modelo relacional</strong>:</p>
+<div class="admonition quote">
+<p class="admonition-title">Resultado en 1FN</p>
+<ul>
+<li>EMPLEADO (<u>dni</u>, nombre)<ul>
+<li>PK: dni</li>
+</ul>
+</li>
+<li>TELEFONO_EMPLEADO (<u>dni, telefono</u>)<ul>
+<li>PK: (dni, telefono)</li>
+<li>FK: dni → EMPLEADO(dni)</li>
+</ul>
+</li>
+</ul>
+</div>
+<p>El DNI por sí solo no identifica una fila de TELEFONO_EMPLEADO, porque un empleado puede tener varios teléfonos. Tampoco suponemos que el teléfono sea único entre empleados: por ejemplo, dos empleados podrían compartir un número. Por eso usamos <strong>DNI + Teléfono</strong> como clave principal.</p>
+<p>Ahora cada celda contiene un único valor y ambas tablas están en <strong>1FN</strong>. Podemos añadir nuevos teléfonos como filas, sin añadir columnas ni repetir el nombre del empleado.</p>
 
 
 

@@ -1833,27 +1833,182 @@ Es decir, no pueden existir dependencias parciales respecto a una clave compuest
 <p class="admonition-title">Gráficamente</p>
 <p>Si existe una flecha que sale del interior de la caja que engloba la clave, entonces la tabla no está en 2FN.</p>
 </div>
-<h3 id="ejemplo-aplicado">Ejemplo aplicado</h3>
-<p><strong>Ejemplo</strong>: Tabla con las personas que trabajan en diversas empresas con el sueldo correspondiente, con los atributos: <strong>DNI, NOMBRE, EMPRESA, SUELDO</strong></p>
-<p>Entre los atributos existen las dependencias:</p>
-<p><strong>DNI</strong> →<strong>NOMBRE</strong></p>
-<p><strong>DNI . EMPRESA</strong> →<strong>SUELDO</strong></p>
+<h3 id="ejemplo-aplicado-empleados-departamentos-y-proyectos">Ejemplo aplicado: empleados, departamentos y proyectos</h3>
+<p>Partimos de la tabla <strong>EMPLEADO</strong> del <a href="../3_dependencia_funcional/#ejemplo-empleados-departamentos-y-proyectos">ejemplo del grafo de dependencias funcionales</a>. Conservamos las mismas letras:</p>
+<div class="empleado-table-fit">
+<table>
+<thead>
+<tr>
+<th>A</th>
+<th>B</th>
+<th>C</th>
+<th>D</th>
+<th>E</th>
+<th>F</th>
+<th>G</th>
+<th>H</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DNI</td>
+<td>Núm. proyecto</td>
+<td>Nombre empleado</td>
+<td>Sueldo</td>
+<td>Núm. departamento</td>
+<td>Nombre departamento</td>
+<td>Nombre proyecto</td>
+<td>Horas semanales</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>La clave principal es <strong>A . B (DNI, Núm. proyecto)</strong>. La tabla está en 1FN, pero <strong>no está en 2FN</strong>:</p>
+<ul>
+<li><strong>A . B → H</strong> es total: las horas semanales dependen del empleado y del proyecto juntos.</li>
+<li><strong>A → C | D | E</strong> son dependencias parciales: el nombre, sueldo y departamento del empleado dependen solo del DNI.</li>
+<li><strong>A → F</strong> también es parcial respecto a A . B, aunque se deduce por transitividad de <strong>A → E → F</strong>: el nombre del departamento tampoco necesita el proyecto.</li>
+<li><strong>B → G</strong> es parcial: el nombre del proyecto depende solo de su número.</li>
+</ul>
+<p>Como en el ejemplo anterior, los nombres de departamentos y proyectos son únicos: <strong>E ↔ F</strong> y <strong>B ↔ G</strong>. Por tanto, <strong>A . G</strong> también es clave candidata; las dependencias de los datos del empleado respecto a A son parciales también respecto a esta clave.</p>
 <div class="tables-side-by-side equal-height">
 <div>
-<p><strong>Grafo de dependencias</strong></p>
-<p><img alt="alt text" src="../image-39.png" width="425" /></p>
+<p><strong>Grafo de dependencias inicial</strong></p>
+<p><img alt="Dependencias de la tabla inicial: clave A y B, dependencias parciales desde A y B, y dependencia total hacia H." src="../empleado-dependencias.svg" width="560" /></p>
 </div>
 <div>
-<p><strong>Grafo normalizado</strong></p>
-<p><img alt="alt text" src="../image-38.png" width="300" /></p>
+<p><strong>Grafo en 2FN</strong></p>
+<p><img alt="Descomposición en 2FN: TRABAJA con clave A y B determina H; EMPLEADO con clave A determina C, D y E, y E y F se determinan mutuamente; PROYECTO con clave B determina G y viceversa." src="../empleado-2fn.svg" width="560" /></p>
 </div>
 </div>
-<p>De manera que la representación de las tablas al <strong>modelo relacional</strong> quedaría de la manera siguiente:</p>
+<h4 id="descomposicion-en-tablas">Descomposición en tablas</h4>
+<p>Separamos los datos según el determinante del que dependen:</p>
+<ol>
+<li><strong>TRABAJA (A, B, H)</strong> conserva la clave compuesta y las horas, que dependen de ella por completo.</li>
+<li><strong>EMPLEADO (A, C, D, E, F)</strong> reúne los datos que dependen del DNI, incluido el nombre del departamento a través de E.</li>
+<li><strong>PROYECTO (B, G)</strong> reúne el número y el nombre del proyecto.</li>
+</ol>
+<p>En el <strong>modelo relacional</strong>:</p>
 <div class="admonition quote">
+<p class="admonition-title">Tablas en 2FN</p>
 <ul>
-<li>EMPLEADO (<u>dni, empresa</u> sueldo)</li>
-<li>PERSONA (<u>dni</u>, nombre)</li>
+<li>TRABAJA (<u>dni, num-p</u>, horas)<ul>
+<li>PK: (dni, num-p)</li>
+<li>FK: dni → EMPLEADO(dni)</li>
+<li>FK: num-p → PROYECTO(num-p)</li>
 </ul>
+</li>
+<li>EMPLEADO (<u>dni</u>, nombre, sueldo, num-d, nombre-d)<ul>
+<li>PK: dni</li>
+</ul>
+</li>
+<li>PROYECTO (<u>num-p</u>, nombre-p)<ul>
+<li>PK: num-p</li>
+<li>Clave candidata alternativa: nombre-p (único).</li>
+</ul>
+</li>
+</ul>
+</div>
+<p>Con los mismos datos del ejemplo, obtenemos:</p>
+<p><strong>TRABAJA</strong></p>
+<table>
+<thead>
+<tr>
+<th>DNI (A)</th>
+<th>Núm. proyecto (B)</th>
+<th>Horas semanales (H)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>12345678A</td>
+<td>101</td>
+<td>20</td>
+</tr>
+<tr>
+<td>12345678A</td>
+<td>102</td>
+<td>15</td>
+</tr>
+<tr>
+<td>87654321B</td>
+<td>101</td>
+<td>30</td>
+</tr>
+<tr>
+<td>11223344C</td>
+<td>102</td>
+<td>10</td>
+</tr>
+<tr>
+<td>11223344C</td>
+<td>103</td>
+<td>25</td>
+</tr>
+</tbody>
+</table>
+<p><strong>EMPLEADO</strong></p>
+<table>
+<thead>
+<tr>
+<th>DNI (A)</th>
+<th>Nombre (C)</th>
+<th>Sueldo (D)</th>
+<th>Núm. dpto. (E)</th>
+<th>Nombre dpto. (F)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>12345678A</td>
+<td>Ana García López</td>
+<td>2400</td>
+<td>10</td>
+<td>Informática</td>
+</tr>
+<tr>
+<td>87654321B</td>
+<td>Luis Pérez Ruiz</td>
+<td>2200</td>
+<td>10</td>
+<td>Informática</td>
+</tr>
+<tr>
+<td>11223344C</td>
+<td>Marta Sánchez Gil</td>
+<td>2600</td>
+<td>20</td>
+<td>Administración</td>
+</tr>
+</tbody>
+</table>
+<p><strong>PROYECTO</strong></p>
+<table>
+<thead>
+<tr>
+<th>Núm. proyecto (B)</th>
+<th>Nombre proyecto (G)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>101</td>
+<td>Portal web</td>
+</tr>
+<tr>
+<td>102</td>
+<td>App móvil</td>
+</tr>
+<tr>
+<td>103</td>
+<td>Gestión interna</td>
+</tr>
+</tbody>
+</table>
+<p>Ahora los datos del empleado se guardan una sola vez por DNI y los del proyecto una sola vez por número de proyecto. En TRABAJA solo quedan las horas de cada participación. Podemos reconstruir la tabla inicial uniendo las tres tablas por <strong>dni</strong> y <strong>num-p</strong>, sin perder información.</p>
+<div class="admonition note">
+<p class="admonition-title">2FN todavía permite dependencias transitivas</p>
+<p>En EMPLEADO sigue existiendo <strong>A → E → F</strong> (DNI → Núm. departamento → Nombre departamento). La tabla está en 2FN, porque su clave es simple, pero aún no está en 3FN. Al estudiar la tercera forma normal separaremos los datos del departamento en su propia tabla.</p>
 </div>
 
 

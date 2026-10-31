@@ -1811,16 +1811,23 @@ Supongamos tres subconjuntos distintos de atributos A, B y C que pertenecen a un
 <p>Gráficamente se puede mostrar:</p>
 <p><img alt="alt text" src="../image-12.png" width="200" /></p>
 <p>Por lo tanto, un atributo C es transitivamente dependiente de otro A si se conoce por diferentes vías, una directamente, y otra a partir de otro atributo intermedio B.</p>
-<p>Por ejemplo, consideremos tres atributos que forman parte de la tabla ALUMNOS:</p>
+<h3 id="ejemplo-el-nombre-del-departamento">Ejemplo: el nombre del departamento</h3>
+<p>Retomamos la tabla <strong>EMPLEADO</strong> obtenida al <a href="../4_segunda_forma_normal_2fn/#ejemplo-aplicado-empleados-departamentos-y-proyectos">aplicar la 2FN</a>. Su clave principal es el <strong>DNI</strong> y contiene, entre otros, estos atributos del ejemplo inicial:</p>
 <ul>
-<li>NUMMAT = nº de matrícula.</li>
-<li>GRUPO = Grupo asignado.</li>
-<li>AULAGRUPO = Aula asignada al grupo.  </li>
+<li><strong>A = DNI</strong> del empleado.</li>
+<li><strong>E = Núm. departamento</strong> al que pertenece.</li>
+<li><strong>F = Nombre departamento</strong>.</li>
 </ul>
-<p><strong>NUMMAT</strong> →<strong>GRUPO | AULAGRUPO</strong></p>
-<p><strong>GRUPO</strong> →<strong>AULAGRUPO</strong>  </p>
-<p>El atributo AULAGRUPO es transitivamente dependiente de NUMMAT, ya que se puede conocer por medio del atributo NUMMAT y a través del atributo GRUPO</p>
-<p><img alt="alt text" src="../image-15.png" width="400" /></p>
+<p>Se cumplen las dependencias:</p>
+<p><strong>A → E</strong>: cada empleado pertenece a un único departamento.<br />
+<strong>E → F</strong>: cada número de departamento determina su nombre.<br />
+<strong>Por tanto, A → F</strong>: el DNI determina indirectamente el nombre del departamento.</p>
+<p>La cadena de dependencia transitiva es:</p>
+<p><strong>DNI → Núm. departamento → Nombre departamento (A → E → F)</strong></p>
+<p><img alt="Dependencia transitiva: el DNI determina el número de departamento, y este determina el nombre del departamento." src="../empleado-transitiva.svg" width="700" /></p>
+<p>Por ejemplo, el empleado con DNI <strong>12345678A</strong> pertenece al departamento <strong>10</strong>, cuyo nombre es <strong>Informática</strong>. El nombre del departamento se conoce a través de su número; no es un dato propio del empleado.</p>
+<p>Aunque en el ejemplo los nombres de departamento también son únicos (<strong>F → E</strong>), ni el número ni el nombre del departamento identifican a un empleado: varios empleados pueden pertenecer al mismo departamento.</p>
+<p>Si guardamos el nombre del departamento en cada fila de EMPLEADO, repetimos ese dato para todos sus empleados. Al cambiar el nombre, tendríamos que actualizar varias filas. En la <strong>3FN</strong> separaremos <strong>DEPARTAMENTO (num-d, nombre-d)</strong> y conservaremos en EMPLEADO solo <strong>num-d</strong> como clave externa.</p>
 
 
 

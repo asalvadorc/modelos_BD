@@ -77,6 +77,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#ejemplo-completo-normalizacion-de-la-empresa" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -308,6 +313,8 @@
         <div class="md-main__inner md-grid">
           
             
+              
+                
               
               <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
@@ -1568,6 +1575,8 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -1690,7 +1699,9 @@
             
             
               
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden>
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -1698,6 +1709,8 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
+  
+    
   
   
 </nav>
@@ -1712,35 +1725,468 @@
               <article class="md-content__inner md-typeset">
                 
                   
-
-
-
-  <h1>Ejemplo Completo</h1>
-
-<p><span class="example-chip chip-inicial">1. Ejemplo completo</span></p>
-<!-- ![](T4_3_3_ej.png)-->
-
-<p><img alt="alt text" src="../image-21.png" width="800" /></p>
-<p><span class="example-chip chip-grafo">2. El grafo asociado</span></p>
-<!--![](T4_3_1.png)-->
-<p><img alt="" src="../image-22.png" width="400" /></p>
-<p><span class="example-chip chip-norm">3. Normalización (3FN)</span></p>
-<!--![](T4_6ej.png) -->
-
-<p><img alt="alt text" src="../image-23.png" width="600" /></p>
-<p><span class="example-chip chip-solucion">4. La solución quedaría así</span></p>
-<!--![](T4_Ex_33.png) -->
-
-<p><img alt="alt text" src="../image-25.png" width="800" /></p>
+  
 
 
 
 
+<h1 id="ejemplo-completo-normalizacion-de-la-empresa">Ejemplo completo: normalización de la empresa</h1>
+<p>Seguimos el mismo caso de <strong>empleados, departamentos y proyectos</strong> de los temas de modelo E/R y modelo relacional. Partimos de una tabla que reúne los datos y la descomponemos paso a paso, manteniendo las letras <strong>A–H</strong> utilizadas en los apartados anteriores. Añadimos el atributo <strong>I = Teléfono</strong> para mostrar también el paso a 1FN. En esta ampliación, un empleado puede tener varios teléfonos, independientes de los proyectos en los que trabaja.</p>
+<p><span class="example-chip chip-inicial">1. Tabla inicial y primera forma normal (1FN)</span></p>
+<p>La tabla inicial <strong>EMPLEADO</strong> contiene una fila por cada participación de un empleado en un proyecto. El departamento indicado es el del empleado, que puede ser distinto del que controla el proyecto.</p>
+<h3 id="antes-de-la-1fn">Antes de la 1FN</h3>
+<p>Guardamos inicialmente los teléfonos de cada empleado juntos en una celda:</p>
+<div class="empleado-table-fit">
+<table>
+<thead>
+<tr>
+<th>DNI</th>
+<th>Núm. proyecto</th>
+<th>Nombre empleado</th>
+<th>Sueldo (€)</th>
+<th>Núm. departamento</th>
+<th>Nombre departamento</th>
+<th>Nombre proyecto</th>
+<th>Horas semanales</th>
+<th>Teléfonos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>12345678A</td>
+<td>101</td>
+<td>Ana García López</td>
+<td>2400</td>
+<td>10</td>
+<td>Informática</td>
+<td>Portal web</td>
+<td>20</td>
+<td>612345678, 698765432</td>
+</tr>
+<tr>
+<td>12345678A</td>
+<td>102</td>
+<td>Ana García López</td>
+<td>2400</td>
+<td>10</td>
+<td>Informática</td>
+<td>App móvil</td>
+<td>15</td>
+<td>612345678, 698765432</td>
+</tr>
+<tr>
+<td>87654321B</td>
+<td>101</td>
+<td>Luis Pérez Ruiz</td>
+<td>2200</td>
+<td>10</td>
+<td>Informática</td>
+<td>Portal web</td>
+<td>30</td>
+<td>623456789</td>
+</tr>
+<tr>
+<td>11223344C</td>
+<td>102</td>
+<td>Marta Sánchez Gil</td>
+<td>2600</td>
+<td>20</td>
+<td>Administración</td>
+<td>App móvil</td>
+<td>10</td>
+<td>634567890, 645678901</td>
+</tr>
+<tr>
+<td>11223344C</td>
+<td>103</td>
+<td>Marta Sánchez Gil</td>
+<td>2600</td>
+<td>20</td>
+<td>Administración</td>
+<td>Gestión interna</td>
+<td>25</td>
+<td>634567890, 645678901</td>
+</tr>
+<tr>
+<td><strong>A</strong></td>
+<td><strong>B</strong></td>
+<td><strong>C</strong></td>
+<td><strong>D</strong></td>
+<td><strong>E</strong></td>
+<td><strong>F</strong></td>
+<td><strong>G</strong></td>
+<td><strong>H</strong></td>
+<td><strong>I</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Esta tabla <strong>no está en 1FN</strong>: Teléfonos contiene una lista de valores en algunas celdas. Por ejemplo, Ana tiene dos teléfonos.</p>
+<h3 id="aplicar-la-1fn">Aplicar la 1FN</h3>
+<p>Separamos los teléfonos en <strong>TELEFONO_EMPLEADO (dni, telefono)</strong>, con una fila por cada teléfono de un empleado. Su clave principal es <strong>(dni, telefono)</strong>: el DNI por sí solo no identifica una fila, porque un empleado puede tener varios teléfonos. No suponemos que un teléfono pertenezca a un único empleado.</p>
+<p><strong>TELEFONO_EMPLEADO</strong></p>
+<table>
+<thead>
+<tr>
+<th>DNI (A)</th>
+<th>Teléfono (I)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>12345678A</td>
+<td>612345678</td>
+</tr>
+<tr>
+<td>12345678A</td>
+<td>698765432</td>
+</tr>
+<tr>
+<td>87654321B</td>
+<td>623456789</td>
+</tr>
+<tr>
+<td>11223344C</td>
+<td>634567890</td>
+</tr>
+<tr>
+<td>11223344C</td>
+<td>645678901</td>
+</tr>
+</tbody>
+</table>
+<p>Cada teléfono se guarda una sola vez por empleado, sin repetirlo por cada proyecto. En la tabla de participaciones quedan los ocho atributos originales:</p>
+<p><strong>EMPLEADO en 1FN</strong></p>
+<div class="empleado-table-fit">
+<table>
+<thead>
+<tr>
+<th>DNI</th>
+<th>Núm. proyecto</th>
+<th>Nombre empleado</th>
+<th>Sueldo (€)</th>
+<th>Núm. departamento</th>
+<th>Nombre departamento</th>
+<th>Nombre proyecto</th>
+<th>Horas semanales</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>12345678A</td>
+<td>101</td>
+<td>Ana García López</td>
+<td>2400</td>
+<td>10</td>
+<td>Informática</td>
+<td>Portal web</td>
+<td>20</td>
+</tr>
+<tr>
+<td>12345678A</td>
+<td>102</td>
+<td>Ana García López</td>
+<td>2400</td>
+<td>10</td>
+<td>Informática</td>
+<td>App móvil</td>
+<td>15</td>
+</tr>
+<tr>
+<td>87654321B</td>
+<td>101</td>
+<td>Luis Pérez Ruiz</td>
+<td>2200</td>
+<td>10</td>
+<td>Informática</td>
+<td>Portal web</td>
+<td>30</td>
+</tr>
+<tr>
+<td>11223344C</td>
+<td>102</td>
+<td>Marta Sánchez Gil</td>
+<td>2600</td>
+<td>20</td>
+<td>Administración</td>
+<td>App móvil</td>
+<td>10</td>
+</tr>
+<tr>
+<td>11223344C</td>
+<td>103</td>
+<td>Marta Sánchez Gil</td>
+<td>2600</td>
+<td>20</td>
+<td>Administración</td>
+<td>Gestión interna</td>
+<td>25</td>
+</tr>
+<tr>
+<td><strong>A</strong></td>
+<td><strong>B</strong></td>
+<td><strong>C</strong></td>
+<td><strong>D</strong></td>
+<td><strong>E</strong></td>
+<td><strong>F</strong></td>
+<td><strong>G</strong></td>
+<td><strong>H</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Los atributos son <strong>A = DNI</strong>, <strong>B = Núm. proyecto</strong>, <strong>C = Nombre empleado</strong>, <strong>D = Sueldo</strong>, <strong>E = Núm. departamento</strong>, <strong>F = Nombre departamento</strong>, <strong>G = Nombre proyecto</strong> y <strong>H = Horas semanales</strong>.</p>
+<p>Elegimos <strong>A . B</strong> como clave principal: un empleado puede trabajar en varios proyectos y un proyecto puede tener varios empleados. Ahora ambas tablas están en <strong>1FN</strong>, porque cada celda contiene un único valor y no hay grupos repetidos de columnas.</p>
+<p><span class="example-chip chip-grafo">2. Dependencias funcionales y grafo asociado</span></p>
+<p>Analizamos las dependencias de los atributos A–H de EMPLEADO. TELEFONO_EMPLEADO se conserva por separado durante los pasos siguientes; con las reglas indicadas, ya está en FNBC. Los grafos siguientes muestran la normalización de la tabla de participaciones.</p>
+<p>Las reglas de la empresa establecen estas dependencias:</p>
+<ul>
+<li><strong>A . B → H</strong>: las horas semanales dependen del empleado y del proyecto juntos.</li>
+<li><strong>A → C | D | E</strong>: el DNI determina el nombre, sueldo y departamento del empleado.</li>
+<li><strong>E ↔ F</strong>: el número y el nombre del departamento se determinan mutuamente, porque ambos son únicos.</li>
+<li><strong>B ↔ G</strong>: el número y el nombre del proyecto se determinan mutuamente, porque ambos son únicos.</li>
+</ul>
+<p>También se deduce <strong>A → F</strong>, a través de <strong>A → E → F</strong>. Como G identifica al proyecto, <strong>A . G</strong> es otra clave candidata de la tabla inicial.</p>
+<p><img alt="Grafo inicial: A y B dentro del recuadro de la clave; A determina C, D y E; E y F se determinan mutuamente; B y G se determinan mutuamente; la clave completa determina H." src="../empleado-dependencias.svg" width="760" /></p>
+<p><span class="example-chip chip-norm">3. Segunda forma normal (2FN)</span></p>
+<p>La tabla inicial <strong>no está en 2FN</strong>. C, D y E dependen solo de A; F también depende de A por transitividad. G depende solo de B. Son dependencias parciales respecto a la clave compuesta A . B. Solo las horas H necesitan la clave completa.</p>
+<p>Separamos los atributos según su determinante:</p>
+<table>
+<thead>
+<tr>
+<th>Tabla</th>
+<th>Atributos</th>
+<th>Clave principal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TRABAJA</td>
+<td>A, B, H</td>
+<td>A . B</td>
+</tr>
+<tr>
+<td>EMPLEADO</td>
+<td>A, C, D, E, F</td>
+<td>A</td>
+</tr>
+<tr>
+<td>PROYECTO</td>
+<td>B, G</td>
+<td>B</td>
+</tr>
+<tr>
+<td>TELEFONO_EMPLEADO</td>
+<td>A, I</td>
+<td>A . I</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Descomposición en 2FN: TRABAJA conserva las horas por empleado y proyecto; EMPLEADO reúne los datos que dependen del DNI; PROYECTO reúne número y nombre." src="../empleado-2fn.svg" width="760" /></p>
+<p>Ahora el sueldo y el nombre de un empleado se guardan una sola vez por DNI, y el nombre de un proyecto una sola vez por número de proyecto. <strong>Todavía conservamos el nombre del departamento en EMPLEADO</strong>: la 2FN permite la dependencia transitiva A → E → F.</p>
+<p><span class="example-chip chip-norm">4. Tercera forma normal (3FN)</span></p>
+<p>TRABAJA y PROYECTO ya están en 3FN. EMPLEADO aún no la cumple, porque el nombre del departamento depende del DNI a través de su número:</p>
+<p><strong>A → E → F: DNI → Núm. departamento → Nombre departamento</strong></p>
+<p><img alt="Dependencia transitiva del nombre del departamento a través de su número." src="../empleado-transitiva.svg" width="700" /></p>
+<p>Descomponemos EMPLEADO (A, C, D, E, F) en:</p>
+<ul>
+<li><strong>EMPLEADO (A, C, D, E)</strong>: conserva los datos del empleado y el número de su departamento.</li>
+<li><strong>DEPARTAMENTO (E, F)</strong>: guarda el número y el nombre de cada departamento una sola vez.</li>
+</ul>
+<p>E queda en EMPLEADO como clave externa. Si el departamento 10 cambia de nombre, solo tendremos que modificar una fila de DEPARTAMENTO.</p>
+<p><img alt="Grafo final de las cuatro tablas en 3FN: EMPLEADO, DEPARTAMENTO, PROYECTO y TRABAJA." src="../empresa-3fn.svg" width="760" /></p>
+<p><span class="example-chip chip-solucion">5. Solución: modelo relacional y datos</span></p>
+<div class="admonition quote">
+<p class="admonition-title">Modelo relacional final</p>
+<ul>
+<li>EMPLEADO (<u>dni</u>, nombre, sueldo, num-d)<ul>
+<li>PK: dni</li>
+<li>FK: num-d → DEPARTAMENTO(num-d)</li>
+</ul>
+</li>
+<li>DEPARTAMENTO (<u>num-d</u>, nombre-d)<ul>
+<li>PK: num-d</li>
+<li>Clave candidata alternativa: nombre-d (único).</li>
+</ul>
+</li>
+<li>PROYECTO (<u>num-p</u>, nombre-p)<ul>
+<li>PK: num-p</li>
+<li>Clave candidata alternativa: nombre-p (único).</li>
+</ul>
+</li>
+<li>TELEFONO_EMPLEADO (<u>dni, telefono</u>)<ul>
+<li>PK: (dni, telefono)</li>
+<li>FK: dni → EMPLEADO(dni)</li>
+</ul>
+</li>
+<li>TRABAJA (<u>dni, num-p</u>, horas)<ul>
+<li>PK: (dni, num-p)</li>
+<li>FK: dni → EMPLEADO(dni)</li>
+<li>FK: num-p → PROYECTO(num-p)</li>
+</ul>
+</li>
+</ul>
+</div>
+<p><strong>EMPLEADO</strong></p>
+<table>
+<thead>
+<tr>
+<th>DNI (A)</th>
+<th>Nombre (C)</th>
+<th>Sueldo (D)</th>
+<th>Núm. departamento (E)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>12345678A</td>
+<td>Ana García López</td>
+<td>2400</td>
+<td>10</td>
+</tr>
+<tr>
+<td>87654321B</td>
+<td>Luis Pérez Ruiz</td>
+<td>2200</td>
+<td>10</td>
+</tr>
+<tr>
+<td>11223344C</td>
+<td>Marta Sánchez Gil</td>
+<td>2600</td>
+<td>20</td>
+</tr>
+</tbody>
+</table>
+<p><strong>DEPARTAMENTO</strong></p>
+<table>
+<thead>
+<tr>
+<th>Núm. departamento (E)</th>
+<th>Nombre departamento (F)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10</td>
+<td>Informática</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Administración</td>
+</tr>
+</tbody>
+</table>
+<p><strong>PROYECTO</strong></p>
+<table>
+<thead>
+<tr>
+<th>Núm. proyecto (B)</th>
+<th>Nombre proyecto (G)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>101</td>
+<td>Portal web</td>
+</tr>
+<tr>
+<td>102</td>
+<td>App móvil</td>
+</tr>
+<tr>
+<td>103</td>
+<td>Gestión interna</td>
+</tr>
+</tbody>
+</table>
+<p><strong>TRABAJA</strong></p>
+<table>
+<thead>
+<tr>
+<th>DNI (A)</th>
+<th>Núm. proyecto (B)</th>
+<th>Horas semanales (H)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>12345678A</td>
+<td>101</td>
+<td>20</td>
+</tr>
+<tr>
+<td>12345678A</td>
+<td>102</td>
+<td>15</td>
+</tr>
+<tr>
+<td>87654321B</td>
+<td>101</td>
+<td>30</td>
+</tr>
+<tr>
+<td>11223344C</td>
+<td>102</td>
+<td>10</td>
+</tr>
+<tr>
+<td>11223344C</td>
+<td>103</td>
+<td>25</td>
+</tr>
+</tbody>
+</table>
+<p><strong>TELEFONO_EMPLEADO</strong></p>
+<table>
+<thead>
+<tr>
+<th>DNI (A)</th>
+<th>Teléfono (I)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>12345678A</td>
+<td>612345678</td>
+</tr>
+<tr>
+<td>12345678A</td>
+<td>698765432</td>
+</tr>
+<tr>
+<td>87654321B</td>
+<td>623456789</td>
+</tr>
+<tr>
+<td>11223344C</td>
+<td>634567890</td>
+</tr>
+<tr>
+<td>11223344C</td>
+<td>645678901</td>
+</tr>
+</tbody>
+</table>
+<p>Podemos recuperar los ocho atributos A–H uniendo EMPLEADO con DEPARTAMENTO por <strong>num-d</strong>, con TRABAJA por <strong>dni</strong> y con PROYECTO por <strong>num-p</strong>. Los teléfonos se consultan en TELEFONO_EMPLEADO por <strong>dni</strong>. La descomposición conserva la información y las dependencias del ejemplo.</p>
+<p><span class="example-chip chip-solucion">6. Comprobación de FNBC</span></p>
+<p>Las cinco tablas <strong>también están en FNBC</strong>: en todas sus dependencias funcionales no triviales, el determinante es una superclave. En EMPLEADO es el DNI; en TRABAJA, la pareja DNI y número de proyecto. En DEPARTAMENTO y PROYECTO, tanto el número como el nombre son claves candidatas según las reglas de la empresa.</p>
+<p>En TELEFONO_EMPLEADO no hay dependencias funcionales no triviales con un determinante que no sea superclave: su clave es la pareja <strong>DNI y teléfono</strong>.</p>
+<p><strong>No necesitamos descomponer más las tablas.</strong> En este ejemplo, al alcanzar la 3FN hemos alcanzado también la FNBC.</p>
 
 
 
 
 
+
+
+  
+  
+
+
+
+
+  
 
 
 
@@ -1765,6 +2211,8 @@
         <footer class="md-footer">
   
     
+      
+        
       
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
