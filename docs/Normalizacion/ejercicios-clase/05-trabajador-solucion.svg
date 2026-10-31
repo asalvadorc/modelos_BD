@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1060" height="760" viewBox="0 0 1060 760" role="img" aria-labelledby="title desc">
+<title id="title">Trabajador: solución en 3FN</title>
+<desc id="desc">Tablas normalizadas con claves primarias en recuadros azules, dependencias funcionales mediante flechas y claves externas al pie de cada tabla.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#2f4fb0"/></marker></defs>
+<rect width="1060" height="760" rx="16" fill="white"/>
+<g font-family="Segoe UI,Arial,sans-serif" text-anchor="middle" fill="#172554">
+<text x="530" y="36" font-size="25" font-weight="700">Trabajador · Solución en 3FN</text>
+<text x="530" y="65" font-size="17">Recuadro azul: clave primaria · Flechas: dependencias funcionales</text>
+<rect x="20" y="86" width="1020" height="186" rx="12" fill="#f8faff" stroke="#d8e1f1"/><text x="530" y="114" font-size="22" font-weight="700">PUESTO</text>
+<rect x="44" y="129.0" width="320" height="86" rx="10" fill="#e9eff9" stroke="#2f4fb0" stroke-width="2.5"/>
+<text x="204" y="180.0" font-size="24" font-weight="700">puesto</text>
+<rect x="576" y="134" width="420" height="36" rx="8" fill="white" stroke="#172554" stroke-width="2"/><text x="786" y="159" font-size="21">salario</text><path d="M364 172.0H470V152H574" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="530" y="250" font-size="17">Regla utilizada: cada puesto tiene un salario fijo.</text>
+<rect x="20" y="288" width="1020" height="256" rx="12" fill="#f8faff" stroke="#d8e1f1"/><text x="530" y="316" font-size="22" font-weight="700">TRABAJADOR</text>
+<rect x="44" y="359.0" width="320" height="86" rx="10" fill="#e9eff9" stroke="#2f4fb0" stroke-width="2.5"/>
+<text x="204" y="410.0" font-size="24" font-weight="700">nss</text>
+<rect x="576" y="336" width="420" height="36" rx="8" fill="white" stroke="#172554" stroke-width="2"/><text x="786" y="361" font-size="21">nombre</text><path d="M364 402.0H470V354H574" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="576" y="380" width="420" height="36" rx="8" fill="white" stroke="#172554" stroke-width="2"/><text x="786" y="405" font-size="21">apellidos</text><path d="M364 402.0H470V398H574" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="576" y="424" width="420" height="36" rx="8" fill="white" stroke="#172554" stroke-width="2"/><text x="786" y="449" font-size="21">puesto (FK)</text><path d="M364 402.0H470V442H574" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="530" y="522" font-size="17">FK: puesto → PUESTO(puesto)</text>
+<rect x="20" y="560" width="1020" height="186" rx="12" fill="#f8faff" stroke="#d8e1f1"/><text x="530" y="588" font-size="22" font-weight="700">EMAIL_TRABAJADOR</text>
+<rect x="44" y="603.0" width="320" height="86" rx="10" fill="#e9eff9" stroke="#2f4fb0" stroke-width="2.5"/>
+<text x="204" y="640.0" font-size="24" font-weight="700">nss (FK)</text>
+<text x="204" y="668.0" font-size="24" font-weight="700">email</text>
+<text x="735" y="646.0" font-size="20">Sin atributos adicionales</text>
+<text x="530" y="700" font-size="17">FK: nss → TRABAJADOR(nss)</text>
+<text x="530" y="724" font-size="17">Un trabajador tiene varios emails; un email puede ser compartido.</text>
+</g></svg>

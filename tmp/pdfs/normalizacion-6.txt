@@ -1,0 +1,35 @@
+ 
+Objetivo:   Aplicar  el  proceso  de  normalización  a  la  tabla  PELICULAS  hasta  alcanzar  la  Tercera  Forma  Normal  (3FN) ,  con  el  fin  de  eliminar  redundancias  y  asegurar  la  integridad  referencial  de  los  datos.  
+ 
+Tareas  a  realizar:  
+1.  Determinar  la  clave  primaria  de  la  tabla  original.  2.  Identificar  las  dependencias  funcionales  existentes  entre  los  atributos.  3.  Realizar  las  descomposiciones  necesarias  para  que  las  nuevas  tablas  resultantes  cumplan  con  la  1FN,  2FN  y  3FN.  4.  Presentar  el  esquema  final  de  las  tablas  normalizadas,  indicando  sus  claves  primarias  y  foráneas.   SOLUCION  https://docs.google.com/document/d/1Zb6O3rUlgu9XQJYKJhXOJRW5HOpO197L7i4MFQgenWc/edit?usp=sharing  
+EJERCICIO  5  -   MATRÍCULAS  UNIVERSITARIAS  
+En  una  universidad  se  utiliza  una  única  tabla  para  registrar  la  información  de  los  alumnos  y  los  cursos  en  los  que  se  matriculan.   El  diseño  actual  de  la  base  de  datos  genera  redundancias  y  posibles  errores  de  actualización.  
+A  continuación,  se  muestra  la  tabla  actual  denominada  MATRICULA :  
+ 
+MATRICULA  
+       
+idmatricula  
+nombre  apellido  direccion  telefono  
+curso  codigo  
+carrera  
+100  Juan  Martín  Arias  
+C/  Ongolmo  340,  Concepción  
+78872890  
+base  datos  
+bd1  ingeniería  civil  informática  
+100  Juan  Martín  Arias  
+C/  Ongolmo  340,  Concepción  
+78872890  
+estadística  
+e2  ingeniería  civil  informática  
+100  Juan  Martín  Arias  
+C/  Ongolmo  340,  Concepción  
+78872890  
+analítica  
+a5  ingeniería  civil  informática  
+200  Ana  Rodríguez  Ferrer  
+C/San  Martín  840,  Santiago  
+78342367  
+estadística  
+e2  ingeniería  comercial  

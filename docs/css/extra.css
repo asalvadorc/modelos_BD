@@ -384,8 +384,10 @@ body.lightbox-open {
 }
 
 .lightbox-image {
-    max-width: 100%;
-    max-height: 100%;
+    width: auto;
+    height: auto;
+    max-width: min(92vw, 1200px);
+    max-height: 92vh;
     object-fit: contain;
     border-radius: 8px;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
@@ -1158,3 +1160,66 @@ html {
     }
 }
 
+
+/* Tabla del ejemplo de dependencias: las ocho columnas caben en el contenido. */
+.md-typeset .empleado-table-fit .md-typeset__scrollwrap {
+    margin: 0;
+}
+
+.md-typeset .empleado-table-fit .md-typeset__table {
+    display: block;
+    padding: 0;
+}
+
+.md-typeset .empleado-table-fit table:not([class]) {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    font-size: 13px !important;
+    line-height: 1.4;
+    white-space: normal;
+}
+
+.md-typeset .empleado-table-fit table:not([class]) th,
+.md-typeset .empleado-table-fit table:not([class]) td {
+    min-width: 0;
+    padding: 0.5em 0.35em;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    vertical-align: middle;
+}
+
+.md-typeset .empleado-table-fit th:nth-child(3),
+.md-typeset .empleado-table-fit th:nth-child(6),
+.md-typeset .empleado-table-fit th:nth-child(7) {
+    width: 15%;
+}
+
+.md-typeset .empleado-table-fit th:nth-child(4),
+.md-typeset .empleado-table-fit th:nth-child(8) {
+    width: 9%;
+}
+
+/* Tablas de los ejercicios de normalización: ajuste al ancho de lectura. */
+.md-typeset .normalizacion-exercise-table .md-typeset__table {
+    display: block;
+    padding: 0;
+}
+.md-typeset .normalizacion-exercise-table table:not([class]) {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    min-width: 0;
+    white-space: normal;
+    font-size: 13px !important;
+    line-height: 1.4;
+}
+.md-typeset .normalizacion-exercise-table table:not([class]) th,
+.md-typeset .normalizacion-exercise-table table:not([class]) td {
+    padding: 0.5em 0.35em;
+    min-width: 0;
+    white-space: normal;
+    overflow-wrap: anywhere;
+}

@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="860" viewBox="0 0 960 860" role="img" aria-labelledby="title desc">
+<title id="title">Órdenes de pedido: solución en tercera forma normal</title>
+<desc id="desc">Cuatro tablas: CLIENTE, ORDEN, ARTICULO y DETALLE_ORDEN. Los recuadros azules contienen las claves primarias. Las flechas muestran las dependencias funcionales. Las referencias se indican bajo cada tabla.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#2f4fb0"/></marker></defs>
+<rect width="960" height="860" rx="16" fill="white"/>
+<g font-family="Segoe UI,Arial,sans-serif" text-anchor="middle" fill="#172554">
+<text x="480" y="36" font-size="25" font-weight="700">Órdenes de pedido · Solución en 3FN</text>
+<text x="480" y="65" font-size="17">Recuadro azul: clave primaria · Flechas: dependencias funcionales</text>
+<rect x="20" y="86" width="920" height="176" rx="12" fill="#f8faff" stroke="#d8e1f1"/>
+<text x="480" y="114" font-size="22" font-weight="700">CLIENTE</text>
+<rect x="44" y="133" width="280" height="70" rx="10" fill="#e9eff9" stroke="#2f4fb0" stroke-width="2.5"/>
+<text x="184" y="176" font-size="23" font-weight="700">id_cliente</text>
+<rect x="526" y="134" width="344" height="36" rx="8" fill="white" stroke="#172554" stroke-width="2"/>
+<text x="698" y="159" font-size="20">nom_cliente</text>
+<path d="M324 168H425V152H524" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="526" y="178" width="344" height="36" rx="8" fill="white" stroke="#172554" stroke-width="2"/>
+<text x="698" y="203" font-size="20">estado</text>
+<path d="M324 168H425V196H524" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="480" y="237" font-size="17">La clave id_cliente determina los datos del cliente.</text>
+<rect x="20" y="278" width="920" height="176" rx="12" fill="#f8faff" stroke="#d8e1f1"/>
+<text x="480" y="306" font-size="22" font-weight="700">ORDEN</text>
+<rect x="44" y="325" width="280" height="70" rx="10" fill="#e9eff9" stroke="#2f4fb0" stroke-width="2.5"/>
+<text x="184" y="368" font-size="23" font-weight="700">id_orden</text>
+<rect x="526" y="326" width="344" height="36" rx="8" fill="white" stroke="#172554" stroke-width="2"/>
+<text x="698" y="351" font-size="20">fecha</text>
+<path d="M324 360H425V344H524" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="526" y="370" width="344" height="36" rx="8" fill="white" stroke="#172554" stroke-width="2"/>
+<text x="698" y="395" font-size="20">id_cliente (FK)</text>
+<path d="M324 360H425V388H524" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="480" y="429" font-size="17">FK: id_cliente → CLIENTE(id_cliente)</text>
+<rect x="20" y="470" width="920" height="176" rx="12" fill="#f8faff" stroke="#d8e1f1"/>
+<text x="480" y="498" font-size="22" font-weight="700">ARTICULO</text>
+<rect x="44" y="517" width="280" height="70" rx="10" fill="#e9eff9" stroke="#2f4fb0" stroke-width="2.5"/>
+<text x="184" y="560" font-size="23" font-weight="700">num_art</text>
+<rect x="526" y="518" width="344" height="36" rx="8" fill="white" stroke="#172554" stroke-width="2"/>
+<text x="698" y="543" font-size="20">nom_art</text>
+<path d="M324 552H425V536H524" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="526" y="562" width="344" height="36" rx="8" fill="white" stroke="#172554" stroke-width="2"/>
+<text x="698" y="587" font-size="20">precio</text>
+<path d="M324 552H425V580H524" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="480" y="621" font-size="17">La clave num_art determina los datos del artículo.</text>
+<rect x="20" y="662" width="920" height="176" rx="12" fill="#f8faff" stroke="#d8e1f1"/>
+<text x="480" y="690" font-size="22" font-weight="700">DETALLE_ORDEN</text>
+<rect x="44" y="709" width="280" height="70" rx="10" fill="#e9eff9" stroke="#2f4fb0" stroke-width="2.5"/>
+<text x="184" y="738" font-size="22" font-weight="700">id_orden</text>
+<text x="184" y="765" font-size="22" font-weight="700">num_art</text>
+<rect x="526" y="723" width="344" height="36" rx="8" fill="white" stroke="#172554" stroke-width="2"/>
+<text x="698" y="748" font-size="20">cantidad</text>
+<path d="M324 744H425V741H524" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="480" y="813" font-size="17">FK: id_orden → ORDEN(id_orden) · num_art → ARTICULO(num_art)</text>
+</g></svg>

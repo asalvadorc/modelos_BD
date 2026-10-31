@@ -1,0 +1,43 @@
+ 
+EJERCICIOS  NORMALIZACIÓN  DESDE  GRAFOS  DE  DEPENDENCIAS .................................... 1 EJERCICIO  1  -  GRAFO  DF ......................................................................................................... 1 EJERCICIO  2  -  PEDIDOS ............................................................................................................ 2 EJERCICIO  3  -  ÓRDENES  DE  PEDIDO ..................................................................................... 2 EJERCICIO  4  -  EXPOSICIONES ................................................................................................. 3 EJERCICIOS  DE  NORMALIZACIÓN  DESDE  TABLAS ................................................................... 4 EJERCICIO  4  -  TRABAJADOR ................................................................................................... 4 EJERCICIO  5  -  PELÍCULAS ........................................................................................................ 5 EJERCICIO  5  -   MATRÍCULAS  UNIVERSITARIAS .................................................................... 6 
+ 
+EJERCICIOS  NORMALIZACIÓN  DESDE  GRAFOS  
+DE
+ 
+DEPENDENCIAS
+ 
+Los  grafos  DF  representados  ya  se  encuentran  en  la  1FN.   Únicamente  normalizar  hasta  la  3FN.  
+EJERCICIO  1  -  GRAFO  DF  
+Dado  el  grafo  de  dependencias  funcionales  siguientes.  Expresa  el  resultado  de  la  normalización  
+de
+ 
+las
+ 
+tablas
+ 
+obtenidas
+ 
+en
+ 
+el
+ 
+modelo
+ 
+relacional.
+   
+ 
+Tarea  a  realizar:  1.  Descomponer  la  tabla  en  nuevas  relaciones  que  cumplan  con  la  1FN,  2FN  y  3FN.  2.  Presentar  las  nuevas  tablas  resultantes  con  sus  claves  primarias  y  foráneas  en  el  modelo  
+relacional
+ 
+siguiendo
+ 
+la
+ 
+represención
+ 
+vista
+ 
+en
+ 
+clase.
+ 

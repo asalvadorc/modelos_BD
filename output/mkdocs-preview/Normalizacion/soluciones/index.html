@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../../img/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -27,7 +27,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -994,6 +994,8 @@
       
         
       
+        
+      
     
     
     
@@ -1169,6 +1171,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Model_Relacional/Ejemplo_Empresa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Ejemplo completo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Model_Relacional/resumen/" class="md-nav__link">
         
   
@@ -1176,7 +1206,7 @@
   <span class="md-ellipsis">
     
   
-    5. Resumen
+    6. Resumen
   
 
     
@@ -1700,20 +1730,796 @@
 
 <h1 id="soluciones">Soluciones</h1>
 <div class="admonition warning">
-<p class="admonition-title">Advertencia</p>
-<p>Antes de consultar la resolución, asegúrate de haber intentado resolver cada ejercicio. Comparar tu propuesta con la solución te ayudará más que leerla directamente.</p>
+<p class="admonition-title">Antes de consultar la resolución</p>
+<p>Intenta resolver cada ejercicio y compara después tu propuesta con la solución.</p>
 </div>
 <details class="success">
-<summary>Ver solución propuesta (Ejercicio 1)</summary>
-<p><img alt="alt text" src="../image-51.png" /></p>
+<summary>Ejercicio 1. Grafo de dependencias funcionales</summary>
+<p><img alt="alt text" src="../image-19.png" /></p>
 </details>
 <details class="success">
-<summary>Ver solución propuesta (Ejercicio 2)</summary>
-<p><img alt="alt text" src="../image-52.png" /></p>
+<summary>Ejercicio 2. Pedidos</summary>
+<p>Normaliza la relación del siguiente grafo y expresa el resultado en el modelo relacional.</p>
+<p><img alt="Grafo inicial de pedidos." src="../ejercicios-clase/02-pedidos.png" width="700" /></p>
+<p>El grafo representa las dependencias entre los datos de una única tabla <strong>PEDIDOS</strong>. Antes de normalizarla, todos los campos pertenecen a la tabla que se muestra a continuación.</p>
+<div class="normalizacion-exercise-table" markdown>
+<table>
+<thead>
+<tr>
+<th>IDcliente</th>
+<th>Región</th>
+<th>IDproducto</th>
+<th>IDpedido</th>
+<th>Cantidad</th>
+<th>NombreProducto</th>
+<th>Categoria</th>
+<th>ImpuestoRegion</th>
+<th>FechaPedido</th>
+<th>PrecioUnitario</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Las dependencias representadas son:</p>
+<ul>
+<li><strong>IDcliente + Región + IDproducto → IDpedido, FechaPedido</strong>.</li>
+<li><strong>IDpedido → Cantidad</strong>.</li>
+<li><strong>Región + IDproducto → NombreProducto, ImpuestoRegion</strong>.</li>
+<li><strong>NombreProducto → Categoria</strong>.</li>
+<li><strong>IDproducto → PrecioUnitario</strong>.</li>
+</ul>
+<h3 id="1-primera-forma-normal-1fn">1. Primera forma normal (1FN)</h3>
+<p>La relación ya está en <strong>1FN</strong>: todos sus atributos contienen valores atómicos.</p>
+<h3 id="2-segunda-forma-normal-2fn">2. Segunda forma normal (2FN)</h3>
+<p>Identificamos las dependencias <strong>parciales</strong> respecto a la clave compuesta:</p>
+<ul>
+<li>NombreProducto e ImpuestoRegion dependen solo de <strong>Región + IDproducto</strong>.</li>
+<li>Categoria también depende de esa parte de la clave, a través de NombreProducto.</li>
+<li>PrecioUnitario depende solo de <strong>IDproducto</strong>.</li>
+</ul>
+<p>En cambio, IDpedido y FechaPedido dependen de la clave completa. Cantidad permanece de momento junto a IDpedido, porque se obtiene a través de él.</p>
+<p>Separamos los atributos según sus determinantes:</p>
+<ul>
+<li><strong>PEDIDOS</strong> (<u>IDcliente, Región, IDproducto</u>, IDpedido, FechaPedido, Cantidad).</li>
+<li><strong>PRODUCTO</strong> (<u>Región, IDproducto</u>, NombreProducto, Categoria, ImpuestoRegion).</li>
+<li><strong>PRECIO</strong> (<u>IDproducto</u>, PrecioUnitario).</li>
+</ul>
+<p>Es importante separar PRECIO: dejar PrecioUnitario en PRODUCTO mantendría una dependencia parcial respecto a su clave (Región, IDproducto).</p>
+<h3 id="3-tercera-forma-normal-3fn">3. Tercera forma normal (3FN)</h3>
+<p>Quedan dos dependencias transitivas:</p>
+<ul>
+<li>En PEDIDOS: <strong>IDcliente + Región + IDproducto → IDpedido → Cantidad</strong>.</li>
+<li>En PRODUCTO: <strong>Región + IDproducto → NombreProducto → Categoria</strong>.</li>
+</ul>
+<p>Separamos Cantidad y Categoria en sus propias tablas. Conservamos IDpedido en PEDIDOS y NombreProducto en PRODUCTO como claves externas.</p>
+<p><strong>Modelo relacional final</strong></p>
+<ul>
+<li><strong>CANTIDAD</strong> (<u>IDpedido</u>, Cantidad).<ul>
+<li>PK: IDpedido.</li>
+</ul>
+</li>
+<li><strong>CATEGORIA</strong> (<u>NombreProducto</u>, Categoria).<ul>
+<li>PK: NombreProducto.</li>
+</ul>
+</li>
+<li><strong>PRECIO</strong> (<u>IDproducto</u>, PrecioUnitario).<ul>
+<li>PK: IDproducto.</li>
+</ul>
+</li>
+<li><strong>PRODUCTO</strong> (<u>Región, IDproducto</u>, NombreProducto, ImpuestoRegion).<ul>
+<li>PK: (Región, IDproducto).</li>
+<li>FK: IDproducto → PRECIO(IDproducto).</li>
+<li>FK: NombreProducto → CATEGORIA(NombreProducto).</li>
+</ul>
+</li>
+<li><strong>PEDIDOS</strong> (<u>IDcliente, Región, IDproducto</u>, IDpedido, FechaPedido).<ul>
+<li>PK: (IDcliente, Región, IDproducto).</li>
+<li>FK: (Región, IDproducto) → PRODUCTO(Región, IDproducto).</li>
+<li>FK: IDpedido → CANTIDAD(IDpedido).</li>
+</ul>
+</li>
+</ul>
+<p><strong>Esquema visual de la solución</strong></p>
+<p><img alt="Solución de pedidos en 3FN: cinco tablas, cada una con su clave y sus dependencias. PEDIDOS referencia PRODUCTO y CANTIDAD; PRODUCTO referencia PRECIO y CATEGORIA." src="../ejercicios-clase/02-pedidos-solucion.svg" width="850" /></p>
+<p>Con las dependencias indicadas, todas las tablas cumplen <strong>FNBC</strong>: en todas sus dependencias funcionales no triviales, el determinante es una clave.</p>
 </details>
 <details class="success">
-<summary>Ver solución propuesta (Ejercicio 3)</summary>
-<p><img alt="alt text" src="../image-53.png" /></p>
+<summary>Ejercicio 3. Órdenes de pedido</summary>
+<p><strong>Tabla original de pedidos</strong></p>
+<div class="normalizacion-exercise-table" markdown>
+<table>
+<thead>
+<tr>
+<th><strong>id_orden</strong></th>
+<th><strong>fecha</strong></th>
+<th><strong>id_cliente</strong></th>
+<th><strong>nom_cliente</strong></th>
+<th><strong>estado</strong></th>
+<th><strong>num_art</strong></th>
+<th><strong>nom_art</strong></th>
+<th><strong>cantidad</strong></th>
+<th><strong>precio</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2301</td>
+<td>23/02/11</td>
+<td>101</td>
+<td>Martin</td>
+<td>Caracas</td>
+<td>3786</td>
+<td>Red</td>
+<td>3</td>
+<td>35,00</td>
+</tr>
+<tr>
+<td>2301</td>
+<td>23/02/11</td>
+<td>101</td>
+<td>Martin</td>
+<td>Caracas</td>
+<td>4011</td>
+<td>Raqueta</td>
+<td>6</td>
+<td>65,00</td>
+</tr>
+<tr>
+<td>2301</td>
+<td>23/02/11</td>
+<td>101</td>
+<td>Martin</td>
+<td>Caracas</td>
+<td>9132</td>
+<td>Paq-3</td>
+<td>8</td>
+<td>4,75</td>
+</tr>
+<tr>
+<td>2302</td>
+<td>25/02/11</td>
+<td>107</td>
+<td>Herman</td>
+<td>Coro</td>
+<td>5794</td>
+<td>Paq-6</td>
+<td>4</td>
+<td>5,00</td>
+</tr>
+<tr>
+<td>2303</td>
+<td>27/02/11</td>
+<td>110</td>
+<td>Pedro</td>
+<td>Maracay</td>
+<td>4011</td>
+<td>Raqueta</td>
+<td>2</td>
+<td>65,00</td>
+</tr>
+<tr>
+<td>2303</td>
+<td>27/02/11</td>
+<td>110</td>
+<td>Pedro</td>
+<td>Maracay</td>
+<td>3141</td>
+<td>Funda</td>
+<td>2</td>
+<td>10,00</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>El grafo representa las dependencias funcionales de esta relación.</p>
+<p>Normaliza la relación del siguiente grafo y expresa el resultado en el modelo relacional.</p>
+<p>La clave principal es <strong>(id_orden, num_art)</strong>.</p>
+<p><strong>Grafo inicial</strong></p>
+<p><img alt="Grafo inicial de órdenes de pedido." src="../ejercicios-clase/03-ordenes.png" width="700" /></p>
+<h3 id="1-primera-forma-normal-1fn_1">1. Primera forma normal (1FN)</h3>
+<p>La relación ya está en <strong>1FN</strong>: todos sus atributos contienen valores atómicos.</p>
+<h3 id="2-segunda-forma-normal-2fn_1">2. Segunda forma normal (2FN)</h3>
+<p>Las siguientes dependencias son <strong>parciales</strong>, porque sus determinantes son una parte de la clave compuesta:</p>
+<ul>
+<li><strong>id_orden → fecha, id_cliente</strong>.</li>
+<li><strong>num_art → nom_art, precio</strong>.</li>
+</ul>
+<p>La dependencia <strong>id_orden + num_art → cantidad</strong> es <strong>total</strong>: necesitamos conocer tanto la orden como el artículo para determinar la cantidad.</p>
+<p>Separamos los atributos según su determinante:</p>
+<ul>
+<li><strong>ORDEN</strong> (<u>id_orden</u>, fecha, id_cliente, nom_cliente, estado).</li>
+<li><strong>ARTICULO</strong> (<u>num_art</u>, nom_art, precio).</li>
+<li><strong>DETALLE_ORDEN</strong> (<u>id_orden, num_art</u>, cantidad).</li>
+</ul>
+<p>Los datos del cliente permanecen de momento en ORDEN, porque dependen de id_orden a través de id_cliente. La 2FN todavía permite esta dependencia transitiva.</p>
+<h3 id="3-tercera-forma-normal-3fn_1">3. Tercera forma normal (3FN)</h3>
+<p>En ORDEN existe una dependencia transitiva:</p>
+<p><strong>id_orden → id_cliente → nom_cliente, estado</strong>.</p>
+<p>Separamos los datos del cliente en una nueva tabla y conservamos id_cliente en ORDEN como clave externa.</p>
+<p><strong>Modelo relacional final</strong></p>
+<ul>
+<li><strong>CLIENTE</strong> (<u>id_cliente</u>, nom_cliente, estado).<ul>
+<li>PK: id_cliente.</li>
+</ul>
+</li>
+<li><strong>ORDEN</strong> (<u>id_orden</u>, fecha, id_cliente).<ul>
+<li>PK: id_orden.</li>
+<li>FK: id_cliente → CLIENTE(id_cliente).</li>
+</ul>
+</li>
+<li><strong>ARTICULO</strong> (<u>num_art</u>, nom_art, precio).<ul>
+<li>PK: num_art.</li>
+</ul>
+</li>
+<li><strong>DETALLE_ORDEN</strong> (<u>id_orden, num_art</u>, cantidad).<ul>
+<li>PK: (id_orden, num_art).</li>
+<li>FK: id_orden → ORDEN(id_orden).</li>
+<li>FK: num_art → ARTICULO(num_art).</li>
+</ul>
+</li>
+</ul>
+<p><strong>Esquema visual de la solución</strong></p>
+<p><img alt="Esquema normalizado: CLIENTE con clave id_cliente; ORDEN con clave id_orden y referencia al cliente; ARTICULO con clave num_art; DETALLE_ORDEN con clave id_orden y num_art y referencias a ORDEN y ARTICULO. Cada clave determina los atributos de su tabla." src="../ejercicios-clase/03-ordenes-solucion.svg" width="850" /></p>
+<p>La cantidad queda en DETALLE_ORDEN porque depende de la combinación de orden y artículo. El precio queda en ARTICULO, tal como establece la dependencia num_art → precio del grafo.</p>
+<p>Con las dependencias indicadas, las cuatro tablas también cumplen <strong>FNBC</strong>: en todas sus dependencias funcionales no triviales, el determinante es una clave.</p>
+</details>
+<details class="success">
+<summary>Ejercicio 4. Exposiciones</summary>
+<p><strong>Tabla original ORDENES</strong></p>
+<div class="normalizacion-exercise-table" markdown>
+<table>
+<thead>
+<tr>
+<th>codexp</th>
+<th>codgal</th>
+<th>nomgal</th>
+<th>dirgal</th>
+<th>cpgal</th>
+<th>ciugal</th>
+<th>fecha</th>
+<th>codobr</th>
+<th>nomobr</th>
+<th>tip</th>
+<th>dim</th>
+<th>codaut</th>
+<th>nomaut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ART024</td>
+<td>ART</td>
+<td>ARTACTUAL</td>
+<td>C/ Enmig, 54</td>
+<td>12001</td>
+<td>Castelló</td>
+<td>Del 1-12-2012 al 15-12-2012</td>
+<td>GO-068</td>
+<td>Bodegón</td>
+<td>Óleo</td>
+<td>60x40</td>
+<td>GM</td>
+<td>Gregori Mifsud</td>
+</tr>
+<tr>
+<td>ART024</td>
+<td>ART</td>
+<td>ARTACTUAL</td>
+<td>C/ Enmig, 54</td>
+<td>12001</td>
+<td>Castelló</td>
+<td>Del 1-12-2012 al 15-12-2012</td>
+<td>GO-069</td>
+<td>Bodegón</td>
+<td>Óleo</td>
+<td>50x30</td>
+<td>GM</td>
+<td>Gregori Mifsud</td>
+</tr>
+<tr>
+<td>ART024</td>
+<td>ART</td>
+<td>ARTACTUAL</td>
+<td>C/ Enmig, 54</td>
+<td>12001</td>
+<td>Castelló</td>
+<td>Del 1-12-2012 al 15-12-2012</td>
+<td>GO-070</td>
+<td>Paisaje lunar</td>
+<td>Óleo</td>
+<td>100x50</td>
+<td>GM</td>
+<td>Gregori Mifsud</td>
+</tr>
+<tr>
+<td>ART024</td>
+<td>ART</td>
+<td>ARTACTUAL</td>
+<td>C/ Enmig, 54</td>
+<td>12001</td>
+<td>Castelló</td>
+<td>Del 1-12-2012 al 15-12-2012</td>
+<td>RA-250</td>
+<td>Estampa antigua</td>
+<td>Aquarela</td>
+<td>40x30</td>
+<td>RB</td>
+<td>Ramon Bernat</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Partimos de la relación:</p>
+<p><strong>ORDENES</strong> (<u>codexp, codobr</u>, codgal, nomgal, dirgal, cpgal, ciugal, fecha, nomobr, tip, dim, codaut, nomaut).</p>
+<p>La clave principal es <strong>(codexp, codobr)</strong>: una exposición puede incluir varias obras y una obra puede participar en distintas exposiciones.</p>
+<p><strong>Grafo inicial</strong></p>
+<p><img alt="Grafo inicial de exposiciones, galerías, obras y autores." src="../ejercicios-clase/04-exposiciones-grafo.png" width="700" /></p>
+<p>Las dependencias establecidas por el enunciado son:</p>
+<ul>
+<li><strong>codexp → fecha, codgal</strong>.</li>
+<li><strong>codgal → nomgal, dirgal, cpgal, ciugal</strong>.</li>
+<li><strong>codobr → nomobr, tip, dim, codaut</strong>.</li>
+<li><strong>codaut → nomaut</strong>.</li>
+</ul>
+<h3 id="1-primera-forma-normal-1fn_2">1. Primera forma normal (1FN)</h3>
+<p>Partimos de la relación en <strong>1FN</strong>, tal como indica el enunciado de los ejercicios desde grafos. Tratamos fecha como el período de la exposición y dim como la dimensión de la obra, sin descomponerlos en este ejercicio.</p>
+<h3 id="2-segunda-forma-normal-2fn_2">2. Segunda forma normal (2FN)</h3>
+<p>La tabla no está en 2FN: sus atributos descriptivos dependen solo de una parte de la clave compuesta.</p>
+<ul>
+<li><strong>codexp → fecha, codgal</strong>: la fecha y la galería dependen solo de la exposición. Los datos de la galería también se obtienen a partir de codexp, a través de codgal.</li>
+<li><strong>codobr → nomobr, tip, dim, codaut</strong>: los datos de la obra dependen solo de su código. El nombre del autor también se obtiene a partir de codobr, a través de codaut.</li>
+</ul>
+<p>Separamos los datos según su determinante:</p>
+<ul>
+<li><strong>EXPOSICION</strong> (<u>codexp</u>, fecha, codgal, nomgal, dirgal, cpgal, ciugal).</li>
+<li><strong>OBRA</strong> (<u>codobr</u>, nomobr, tip, dim, codaut, nomaut).</li>
+<li><strong>PARTICIPA</strong> (<u>codexp, codobr</u>).</li>
+</ul>
+<p>PARTICIPA conserva la asociación entre exposición y obra. <strong>Es necesaria aunque no tenga atributos adicionales</strong>: si la elimináramos, perderíamos la información sobre qué obras se exponen en cada exposición.</p>
+<h3 id="3-tercera-forma-normal-3fn_2">3. Tercera forma normal (3FN)</h3>
+<p>Quedan dos dependencias transitivas:</p>
+<ul>
+<li>En EXPOSICION: <strong>codexp → codgal → nomgal, dirgal, cpgal, ciugal</strong>.</li>
+<li>En OBRA: <strong>codobr → codaut → nomaut</strong>.</li>
+</ul>
+<p>Separamos los datos de la galería y del autor en dos tablas nuevas. Conservamos codgal en EXPOSICION y codaut en OBRA como claves externas.</p>
+<p><strong>Modelo relacional final</strong></p>
+<ul>
+<li><strong>GALERIA</strong> (<u>codgal</u>, nomgal, dirgal, cpgal, ciugal).<ul>
+<li>PK: codgal.</li>
+</ul>
+</li>
+<li><strong>EXPOSICION</strong> (<u>codexp</u>, fecha, codgal).<ul>
+<li>PK: codexp.</li>
+<li>FK: codgal → GALERIA(codgal).</li>
+</ul>
+</li>
+<li><strong>AUTOR</strong> (<u>codaut</u>, nomaut).<ul>
+<li>PK: codaut.</li>
+</ul>
+</li>
+<li><strong>OBRA</strong> (<u>codobr</u>, nomobr, tip, dim, codaut).<ul>
+<li>PK: codobr.</li>
+<li>FK: codaut → AUTOR(codaut).</li>
+</ul>
+</li>
+<li><strong>PARTICIPA</strong> (<u>codexp, codobr</u>).<ul>
+<li>PK: (codexp, codobr).</li>
+<li>FK: codexp → EXPOSICION(codexp).</li>
+<li>FK: codobr → OBRA(codobr).</li>
+</ul>
+</li>
+</ul>
+<p><strong>Esquema visual de la solución</strong></p>
+<p><img alt="Solución en 3FN: GALERIA, EXPOSICION, AUTOR, OBRA y PARTICIPA, con sus claves y dependencias. EXPOSICION referencia GALERIA; OBRA referencia AUTOR; PARTICIPA referencia EXPOSICION y OBRA." src="../ejercicios-clase/04-exposiciones-solucion.svg" width="850" /></p>
+<p>Ahora los datos de cada galería se guardan una sola vez, los del autor una sola vez y las participaciones se registran mediante parejas de códigos. Con las dependencias indicadas, las cinco tablas cumplen <strong>3FN y FNBC</strong>.</p>
+<p>No añadimos <strong>cpgal → ciugal</strong>, porque el enunciado no establece esa dependencia. La descomposición se basa en las reglas dadas, no únicamente en las coincidencias de las cuatro filas de muestra.</p>
+</details>
+<details class="success">
+<summary>Ejercicio 5. Trabajador</summary>
+<p><strong>Tabla original TRABAJADOR</strong></p>
+<div class="normalizacion-exercise-table" markdown>
+<table>
+<thead>
+<tr>
+<th>nss</th>
+<th>nombre</th>
+<th>apellidos</th>
+<th>puesto</th>
+<th>salario</th>
+<th>emails</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>111</td>
+<td>Juan</td>
+<td>Pérez Arias</td>
+<td>Jefe de Área</td>
+<td>3000</td>
+<td>juanp@ecn.es; jefe2@ecn.es</td>
+</tr>
+<tr>
+<td>222</td>
+<td>José</td>
+<td>Sánchez Ramos</td>
+<td>Administrativo</td>
+<td>1500</td>
+<td>juanp@ecn.es; jefe2@ecn.es</td>
+</tr>
+<tr>
+<td>333</td>
+<td>Ana</td>
+<td>Díaz Ruiz</td>
+<td>Administrativo</td>
+<td>1500</td>
+<td>adiaz@ecn.es; ana32@gmail.com</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>La clave que identifica a cada trabajador es <strong>nss</strong>. El atributo emails es multivaluado: todavía no tenemos una relación en 1FN.</p>
+<p><strong>Dependencias y reglas utilizadas</strong></p>
+<ul>
+<li><strong>nss → nombre, apellidos, puesto, salario</strong>.</li>
+<li>Para desarrollar la descomposición hasta 3FN, <strong>suponemos que cada puesto tiene un salario fijo</strong>: <strong>puesto → salario</strong>. Esta regla debe confirmarse con la empresa; no basta con observar los salarios de la muestra.</li>
+<li>Un trabajador puede tener varios emails y un email puede ser compartido por distintos trabajadores, como ocurre en los datos.</li>
+</ul>
+<h3 id="1-primera-forma-normal-1fn_3">1. Primera forma normal (1FN)</h3>
+<p>Separamos el atributo multivaluado en una tabla con <strong>una fila por cada email de un trabajador</strong>:</p>
+<ul>
+<li><strong>TRABAJADOR</strong> (<u>nss</u>, nombre, apellidos, puesto, salario).</li>
+<li><strong>EMAIL_TRABAJADOR</strong> (<u>nss, email</u>).</li>
+</ul>
+<p><strong>EMAIL_TRABAJADOR en 1FN</strong></p>
+<table>
+<thead>
+<tr>
+<th>nss</th>
+<th>email</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>111</td>
+<td>juanp@ecn.es</td>
+</tr>
+<tr>
+<td>111</td>
+<td>jefe2@ecn.es</td>
+</tr>
+<tr>
+<td>222</td>
+<td>juanp@ecn.es</td>
+</tr>
+<tr>
+<td>222</td>
+<td>jefe2@ecn.es</td>
+</tr>
+<tr>
+<td>333</td>
+<td>adiaz@ecn.es</td>
+</tr>
+<tr>
+<td>333</td>
+<td>ana32@gmail.com</td>
+</tr>
+</tbody>
+</table>
+<p>La clave de EMAIL_TRABAJADOR es <strong>(nss, email)</strong>. Ni nss ni email identifican una fila por separado. Ahora cada celda contiene un único valor.</p>
+<h3 id="2-segunda-forma-normal-2fn_3">2. Segunda forma normal (2FN)</h3>
+<p>Las dos tablas ya están en <strong>2FN</strong>:</p>
+<ul>
+<li>TRABAJADOR tiene una clave simple, nss; no hay dependencias parciales.</li>
+<li>EMAIL_TRABAJADOR solo contiene los atributos de su clave compuesta, sin atributos no clave.</li>
+</ul>
+<p>No es necesario descomponer ninguna tabla en este paso.</p>
+<h3 id="3-tercera-forma-normal-3fn_3">3. Tercera forma normal (3FN)</h3>
+<p>Con la regla del salario fijo por puesto, en TRABAJADOR existe la dependencia transitiva:</p>
+<p><strong>nss → puesto → salario</strong>.</p>
+<p>Separamos los salarios por puesto y conservamos puesto en TRABAJADOR como clave externa.</p>
+<p><strong>Modelo relacional final</strong></p>
+<ul>
+<li><strong>PUESTO</strong> (<u>puesto</u>, salario).<ul>
+<li>PK: puesto.</li>
+</ul>
+</li>
+<li><strong>TRABAJADOR</strong> (<u>nss</u>, nombre, apellidos, puesto).<ul>
+<li>PK: nss.</li>
+<li>FK: puesto → PUESTO(puesto).</li>
+</ul>
+</li>
+<li><strong>EMAIL_TRABAJADOR</strong> (<u>nss, email</u>).<ul>
+<li>PK: (nss, email).</li>
+<li>FK: nss → TRABAJADOR(nss).</li>
+</ul>
+</li>
+</ul>
+<p><strong>Esquema visual de la solución</strong></p>
+<p><img alt="Trabajador en 3FN: PUESTO determina salario; TRABAJADOR con clave nss determina nombre, apellidos y puesto; EMAIL_TRABAJADOR asocia trabajadores y emails con clave compuesta." src="../ejercicios-clase/05-trabajador-solucion.svg" width="850" /></p>
+<p>Ahora los salarios se guardan una sola vez por puesto y los emails se registran sin repetir el resto de los datos del trabajador. Con las reglas utilizadas, las tres tablas cumplen <strong>3FN y FNBC</strong>.</p>
+<p>Si cada trabajador pudiera tener un salario diferente dentro del mismo puesto, <strong>puesto → salario no se cumpliría</strong>: salario permanecería en TRABAJADOR y no crearíamos PUESTO para esta descomposición.</p>
+</details>
+<details class="success">
+<summary>Ejercicio 6. Películas</summary>
+<p><strong>Tabla original PELICULA</strong></p>
+<div class="normalizacion-exercise-table" markdown>
+<table>
+<thead>
+<tr>
+<th>titulo</th>
+<th>anyo</th>
+<th>duracion</th>
+<th>tipo</th>
+<th>estudio</th>
+<th>ciudadestudio</th>
+<th>actor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Star Wars</td>
+<td>1977</td>
+<td>124</td>
+<td>Color</td>
+<td>Fox</td>
+<td>Hollywood</td>
+<td>Carrie Fisher</td>
+</tr>
+<tr>
+<td>Star Wars</td>
+<td>1977</td>
+<td>124</td>
+<td>Color</td>
+<td>Fox</td>
+<td>Hollywood</td>
+<td>Mark Hamill</td>
+</tr>
+<tr>
+<td>Star Wars</td>
+<td>1977</td>
+<td>124</td>
+<td>Color</td>
+<td>Fox</td>
+<td>Hollywood</td>
+<td>Harrison Ford</td>
+</tr>
+<tr>
+<td>Mighty Ducks</td>
+<td>1991</td>
+<td>104</td>
+<td>Color</td>
+<td>Disney</td>
+<td>Buena Vista</td>
+<td>Emilio Estevez</td>
+</tr>
+<tr>
+<td>Ben Hur</td>
+<td>1959</td>
+<td>212</td>
+<td>Color</td>
+<td>MGM</td>
+<td>Hollywood</td>
+<td>Charlton Heston</td>
+</tr>
+<tr>
+<td>Ben Hur</td>
+<td>1959</td>
+<td>212</td>
+<td>Color</td>
+<td>MGM</td>
+<td>Hollywood</td>
+<td>Martha Scott</td>
+</tr>
+<tr>
+<td>El retorno del Jedi</td>
+<td>1983</td>
+<td>124</td>
+<td>Color</td>
+<td>Fox</td>
+<td>Hollywood</td>
+<td>Carrie Fisher</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Dependencias y claves candidatas</strong></p>
+<ul>
+<li><strong>titulo + anyo → duracion, tipo, estudio</strong>: título y año identifican una versión de la película.</li>
+<li><strong>estudio → ciudadestudio</strong>: cada estudio está ubicado en una sola ciudad.</li>
+<li><strong>titulo + actor → anyo</strong>: según la regla del enunciado, un actor no participa en dos versiones de un mismo título.</li>
+</ul>
+<p>Por tanto, <strong>(titulo, actor)</strong> identifica una fila de la relación original: determina el año y, a través de título y año, el resto de los datos. Es la <strong>clave candidata que elegimos como primaria</strong>.</p>
+<p><strong>(titulo, anyo, actor)</strong> también identifica la fila, pero es una <strong>superclave no mínima</strong>, porque anyo se puede deducir de titulo y actor. Título y año solos no identifican la participación: una película puede tener varios actores.</p>
+<h3 id="1-primera-forma-normal-1fn_4">1. Primera forma normal (1FN)</h3>
+<p>La tabla ya está en <strong>1FN</strong>: cada fila contiene un único actor y cada celda un único valor. Que una película aparezca en varias filas no incumple la 1FN.</p>
+<h3 id="2-segunda-forma-normal-2fn_4">2. Segunda forma normal (2FN)</h3>
+<p>Con la clave mínima <strong>(titulo, actor)</strong>, la tabla ya está en <strong>2FN</strong>. Ninguno de los atributos no clave depende solo de titulo ni solo de actor según las reglas dadas.</p>
+<p>No debemos presentar titulo + anyo como una parte de esa clave: anyo no pertenece a la clave candidata elegida. La separación de los datos de la película se justifica en el paso siguiente.</p>
+<h3 id="3-tercera-forma-normal-3fn_4">3. Tercera forma normal (3FN)</h3>
+<p>La relación no está en 3FN:</p>
+<ul>
+<li><strong>titulo + anyo → duracion, tipo, estudio</strong>: titulo + anyo no es superclave de la relación original, porque no identifica al actor, y los atributos de la derecha no son primarios.</li>
+<li><strong>estudio → ciudadestudio</strong>: estudio tampoco es superclave de la relación original y ciudadestudio no es un atributo primario.</li>
+</ul>
+<p>Separamos los datos de cada versión de la película, los del estudio y las participaciones de los actores. En PELICULA, la dependencia <strong>titulo + anyo → estudio → ciudadestudio</strong> se elimina llevando la ciudad a ESTUDIO.</p>
+<p><strong>Modelo relacional final</strong></p>
+<ul>
+<li><strong>ESTUDIO</strong> (<u>estudio</u>, ciudadestudio).<ul>
+<li>PK: estudio.</li>
+</ul>
+</li>
+<li><strong>PELICULA</strong> (<u>titulo, anyo</u>, duracion, tipo, estudio).<ul>
+<li>PK: (titulo, anyo).</li>
+<li>FK: estudio → ESTUDIO(estudio).</li>
+</ul>
+</li>
+<li><strong>REPARTO</strong> (<u>titulo, actor</u>, anyo).<ul>
+<li>PK: (titulo, actor).</li>
+<li>FK: (titulo, anyo) → PELICULA(titulo, anyo).</li>
+</ul>
+</li>
+</ul>
+<p>La clave externa de REPARTO incluye anyo aunque este no forme parte de su clave primaria. Conservamos así tanto la película concreta en la que participa el actor como la regla que impide repetir actor en versiones de un mismo título.</p>
+<p><strong>Esquema visual de la solución</strong></p>
+<p><img alt="Películas en 3FN: ESTUDIO determina ciudadestudio; PELICULA con clave titulo y anyo determina duracion, tipo y estudio; REPARTO con clave titulo y actor determina anyo y referencia a PELICULA." src="../ejercicios-clase/06-peliculas-solucion.svg" width="850" /></p>
+<p>El estudio y su ciudad se guardan una sola vez, los datos de cada película una sola vez por título y año y sus actores en REPARTO. Con las dependencias del enunciado, las tres tablas también cumplen <strong>FNBC</strong>.</p>
+</details>
+<details class="success">
+<summary>Ejercicio 7. Matrículas universitarias</summary>
+<p><strong>Tabla original MATRICULA</strong></p>
+<div class="normalizacion-exercise-table" markdown>
+<table>
+<thead>
+<tr>
+<th>idmatricula</th>
+<th>nombre</th>
+<th>apellido</th>
+<th>direccion</th>
+<th>telefono</th>
+<th>curso</th>
+<th>codigo</th>
+<th>carrera</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>100</td>
+<td>Juan</td>
+<td>Martín Arias</td>
+<td>C/ Ongolmo 340, Concepción</td>
+<td>78872890</td>
+<td>base datos</td>
+<td>bd1</td>
+<td>ingeniería civil informática</td>
+</tr>
+<tr>
+<td>100</td>
+<td>Juan</td>
+<td>Martín Arias</td>
+<td>C/ Ongolmo 340, Concepción</td>
+<td>78872890</td>
+<td>estadística</td>
+<td>e2</td>
+<td>ingeniería civil informática</td>
+</tr>
+<tr>
+<td>100</td>
+<td>Juan</td>
+<td>Martín Arias</td>
+<td>C/ Ongolmo 340, Concepción</td>
+<td>78872890</td>
+<td>analítica</td>
+<td>a5</td>
+<td>ingeniería civil informática</td>
+</tr>
+<tr>
+<td>200</td>
+<td>Ana</td>
+<td>Rodríguez Ferrer</td>
+<td>C/San Martín 840, Santiago</td>
+<td>78342367</td>
+<td>estadística</td>
+<td>e2</td>
+<td>ingeniería comercial</td>
+</tr>
+<tr>
+<td>200</td>
+<td>Ana</td>
+<td>Rodríguez Ferrer</td>
+<td>C/San Martín 840, Santiago</td>
+<td>78342367</td>
+<td>analítica</td>
+<td>a5</td>
+<td>ingeniería comercial</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Interpretación y dependencias funcionales</strong></p>
+<p>Tal como indica el enunciado, <strong>idmatricula identifica al alumno</strong> y <strong>codigo identifica al curso</strong>. Suponemos que cada alumno tiene una dirección, un teléfono y una carrera. No suponemos que el nombre del curso sea único.</p>
+<ul>
+<li><strong>idmatricula → nombre, apellido, direccion, telefono, carrera</strong>.</li>
+<li><strong>codigo → curso</strong>.</li>
+<li>Clave principal de la relación original: <strong>(idmatricula, codigo)</strong>.</li>
+</ul>
+<p>Ni idmatricula ni codigo identifican una fila por separado: un alumno se matricula en varios cursos y un curso puede tener varios alumnos.</p>
+<h3 id="1-primera-forma-normal-1fn_5">1. Primera forma normal (1FN)</h3>
+<p>Para tratar por separado la dirección y la localidad, descomponemos el atributo direccion, tal como pide el ejercicio:</p>
+<table>
+<thead>
+<tr>
+<th>idmatricula</th>
+<th>direccion</th>
+<th>localidad</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>100</td>
+<td>C/ Ongolmo 340</td>
+<td>Concepción</td>
+</tr>
+<tr>
+<td>200</td>
+<td>C/San Martín 840</td>
+<td>Santiago</td>
+</tr>
+</tbody>
+</table>
+<p>Esta tabla muestra cómo se separa el campo; todavía no es la descomposición completa de la relación. Sustituimos direccion por <strong>direccion y localidad</strong> en cada fila original:</p>
+<p><strong>MATRICULA</strong> (<u>idmatricula, codigo</u>, nombre, apellido, direccion, localidad, telefono, curso, carrera).</p>
+<p>Cada fila ya contiene un solo curso. Repetir los datos de un alumno en filas distintas <strong>no es, por sí mismo, una infracción de la 1FN</strong>; las dependencias parciales de esos datos se eliminan en 2FN.</p>
+<h3 id="2-segunda-forma-normal-2fn_5">2. Segunda forma normal (2FN)</h3>
+<p>Existen dependencias parciales respecto a (idmatricula, codigo):</p>
+<ul>
+<li>Los datos del alumno dependen solo de <strong>idmatricula</strong>, incluida localidad tras separar la dirección.</li>
+<li>El nombre del curso depende solo de <strong>codigo</strong>.</li>
+</ul>
+<p>Separamos los atributos según su determinante y conservamos la relación de matrícula:</p>
+<ul>
+<li><strong>ALUMNO</strong> (<u>idmatricula</u>, nombre, apellido, direccion, localidad, telefono, carrera).</li>
+<li><strong>CURSO</strong> (<u>codigo</u>, curso).</li>
+<li><strong>MATRICULA</strong> (<u>idmatricula, codigo</u>).</li>
+</ul>
+<p>MATRICULA es necesaria aunque no tenga atributos adicionales: guarda qué cursos ha elegido cada alumno.</p>
+<h3 id="3-tercera-forma-normal-3fn_5">3. Tercera forma normal (3FN)</h3>
+<p>Con las reglas indicadas, no quedan dependencias transitivas entre atributos no clave. Las tres tablas obtenidas en 2FN <strong>ya están en 3FN</strong>: no hace falta otra descomposición.</p>
+<p>No separamos carrera en una tabla propia, porque el enunciado no aporta otros atributos ni dependencias que lo exijan. Tampoco suponemos que direccion determine localidad: una misma dirección escrita puede existir en distintas localidades.</p>
+<p><strong>Modelo relacional final</strong></p>
+<ul>
+<li><strong>ALUMNO</strong> (<u>idmatricula</u>, nombre, apellido, direccion, localidad, telefono, carrera).<ul>
+<li>PK: idmatricula.</li>
+</ul>
+</li>
+<li><strong>CURSO</strong> (<u>codigo</u>, curso).<ul>
+<li>PK: codigo.</li>
+</ul>
+</li>
+<li><strong>MATRICULA</strong> (<u>idmatricula, codigo</u>).<ul>
+<li>PK: (idmatricula, codigo).</li>
+<li>FK: idmatricula → ALUMNO(idmatricula).</li>
+<li>FK: codigo → CURSO(codigo).</li>
+</ul>
+</li>
+</ul>
+<p><strong>Esquema visual de la solución</strong></p>
+<p><img alt="Matrículas en 3FN: ALUMNO con clave idmatricula determina sus seis atributos; CURSO con clave codigo determina curso; MATRICULA registra la asociación con clave idmatricula y codigo." src="../ejercicios-clase/07-matriculas-solucion.svg" width="850" /></p>
+<p>La unión de las tres tablas por idmatricula y codigo recupera las cinco matrículas originales, con dirección y localidad separadas. Con las reglas utilizadas, las tablas también cumplen <strong>FNBC</strong>.</p>
 </details>
 
 
@@ -1813,7 +2619,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["toc.follow", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.instant", "navigation.instant.progress", "navigation.sections", "navigation.expand", "navigation.indexes", "navigation.tracking", "navigation.footer", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.tabs.link", "content.tooltips", "content.action.edit", "content.action.view", "header.autohide"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="../../javascripts/lightbox.js"></script>
       

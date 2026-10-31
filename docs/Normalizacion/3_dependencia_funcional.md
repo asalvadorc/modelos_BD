@@ -34,10 +34,10 @@
 
 ### Dependencia sobre Conjunto de Atributos
 
-!!! example "DNI . EMPRESA → SUELDO"
-    Un empleado tiene múltiples sueldos (uno por empresa).
-    Solo DNI + EMPRESA juntos determinan SUELDO único.
-    DNI solo NO determina SUELDO.
+!!! example "DNI . NÚM. PROYECTO → HORAS"
+    Un empleado puede trabajar en varios proyectos, con unas horas semanales en cada uno.
+    Solo DNI + NÚM. PROYECTO juntos determinan las HORAS de esa participación.
+    DNI solo NO determina las HORAS, ni tampoco el número de proyecto por separado.
 
 ---
 
@@ -77,18 +77,18 @@ Una dependencia funcional es total cuando un atributo depende de todos los atrib
 
 !!! warning "Dependencia Parcial (NO deseable)"
 
-    **DNI . EMPRESA → NOMBRE**
+    **DNI . NÚM. PROYECTO → NOMBRE**
     
-    NOMBRE solo depende de DNI, no de EMPRESA.
+    NOMBRE solo depende de DNI; no necesita el NÚM. PROYECTO.
     Esta es una **dependencia parcial** (unos atributos son irrelevantes).
 
 ### Ejemplo de Dependencia Total
 
 !!! success "Dependencia Funcional Total (deseable)"
-    **DNI . EMPRESA → SUELDO**
+    **DNI . NÚM. PROYECTO → HORAS**
     
-    SUELDO requiere tanto DNI como EMPRESA.
-    Sin EMPRESA, no se puede determinar SUELDO.
+    Las HORAS semanales requieren tanto el DNI como el NÚM. PROYECTO.
+    Sin conocer el empleado y el proyecto juntos, no se pueden determinar las HORAS de esa participación.
 
 ---
 
@@ -129,17 +129,36 @@ El grafo permite visualizar:
 - Qué dependencias son parciales o totales
 - La cohesión de los datos
 
-### Ejemplo
+### Ejemplo: empleados, departamentos y proyectos
 
-![](image-1.png)
+Retomamos la empresa del [modelo E/R](../Model_E-R/2_ejemplo.md) y del [modelo relacional](../Model_Relacional/3_transformacion_del_m_er_al_m_relacional.md). Para estudiar sus dependencias, reunimos en una tabla **EMPLEADO** los datos del empleado, el departamento al que pertenece y los proyectos en los que trabaja.
 
-Esta tabla refleja un conjunto de pedidos y cumple con las dependencias funcionales especificadas:
+Cada fila representa la participación de un empleado en un proyecto. Un empleado puede participar en varios proyectos y cada participación tiene sus propias horas semanales. El departamento indicado es **el del empleado**; no tiene por qué ser el departamento que controla el proyecto.
 
-* A,B,C→M,S: La combinación del **ID Cliente, Región e ID Producto** determina de manera única el **ID Pedido y la Fecha de Pedido**. 
-* M→N: Cada **ID de Pedido** tiene una cantidad asociada (**Cantidad**). 
-* B,C→O,R: La combinación de **Región e ID Producto** determina de manera única el **Nombre del Producto y el Precio Unitario** (puede variar según la región). 
-* O→P: El **Nombre del Producto** determina su **Categoría**. 
-* C→Q: El **ID de Producto** determina el **Impuesto por Región**, ya que depende del tipo de producto. 
+**EMPLEADO**
+
+<div class="empleado-table-fit" markdown>
+
+| DNI | Núm. proyecto | Nombre empleado | Sueldo (€) | Núm. departamento | Nombre departamento | Nombre proyecto | Horas semanales |
+|-----|---------------|-----------------|------------|-------------------|---------------------|-----------------|-----------------|
+| 12345678A | 101 | Ana García López | 2400 | 10 | Informática | Portal web | 20 |
+| 12345678A | 102 | Ana García López | 2400 | 10 | Informática | App móvil | 15 |
+| 87654321B | 101 | Luis Pérez Ruiz | 2200 | 10 | Informática | Portal web | 30 |
+| 11223344C | 102 | Marta Sánchez Gil | 2600 | 20 | Administración | App móvil | 10 |
+| 11223344C | 103 | Marta Sánchez Gil | 2600 | 20 | Administración | Gestión interna | 25 |
+| **A** | **B** | **C** | **D** | **E** | **F** | **G** | **H** |
+
+</div>
+
+Las letras de la última fila identifican los atributos, en orden alfabético, para simplificar la notación del grafo.
+
+Elegimos **A . B (DNI, Núm. proyecto)** como clave principal. Las dependencias se deducen de las reglas de la empresa, no solo de los valores de estas filas:
+
+* **A . B → H**: la combinación de **DNI y número de proyecto** determina las **horas semanales**. Es una dependencia total: ni el empleado ni el proyecto por separado determinan las horas de una participación.
+* **A → C | D | E**: el **DNI** determina el **nombre, sueldo y departamento del empleado**. Son dependencias parciales respecto a la clave compuesta A . B.
+* **E → F**: el **número de departamento** determina su **nombre**. Por tanto, A → E → F es una dependencia transitiva.
+* **B → G**: el **número de proyecto** determina su **nombre**. Es otra dependencia parcial respecto a A . B.
+* Como en el ejemplo de empresa los nombres de departamentos y proyectos son únicos, también se cumplen **F → E** y **G → B**. Se representan con flechas bidireccionales. Por ello, **A . G** también es una clave candidata.
 
 <div class="tables-side-by-side" markdown>
 
@@ -147,12 +166,13 @@ Esta tabla refleja un conjunto de pedidos y cumple con las dependencias funciona
 
 **Dependencias**
 
-**A . B . C** →**M | S**  
-**M** →**N**  
-**B . C** →**O | R**  
-**O** →**P**  
-**C** →**Q**  
-**(clave = A . B . C)**
+**A . B** → **H**  
+**A** → **C | D | E**  
+**E** ↔ **F**  
+**B** ↔ **G**  
+**(clave principal = A . B)**
+
+La clave principal determina todos los atributos. El grafo destaca las dependencias que permiten analizar la normalización, sin dibujar todas las que se deducen de ellas.
 
 </div>
 
@@ -160,7 +180,7 @@ Esta tabla refleja un conjunto de pedidos y cumple con las dependencias funciona
 
 **Grafo asociado**
 
-![Grafo asociado](image-4.png){ width=400 }
+![Grafo de EMPLEADO: A y B forman la clave; A determina C, D y E; E y F se determinan mutuamente; B y G se determinan mutuamente; A y B juntos determinan H.](empleado-dependencias.svg){ width=560 }
 
 </div>
 

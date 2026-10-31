@@ -25,21 +25,28 @@ Gráficamente se puede mostrar:
 
 Por lo tanto, un atributo C es transitivamente dependiente de otro A si se conoce por diferentes vías, una directamente, y otra a partir de otro atributo intermedio B.
 
-Por ejemplo, consideremos tres atributos que forman parte de la tabla ALUMNOS:
+### Ejemplo: el nombre del departamento
 
-* NUMMAT = nº de matrícula.
-* GRUPO = Grupo asignado.
-* AULAGRUPO = Aula asignada al grupo.  
+Retomamos la tabla **EMPLEADO** obtenida al [aplicar la 2FN](4_segunda_forma_normal_2fn.md#ejemplo-aplicado-empleados-departamentos-y-proyectos). Su clave principal es el **DNI** y contiene, entre otros, estos atributos del ejemplo inicial:
 
+* **A = DNI** del empleado.
+* **E = Núm. departamento** al que pertenece.
+* **F = Nombre departamento**.
 
-**NUMMAT** →**GRUPO | AULAGRUPO**
+Se cumplen las dependencias:
 
-**GRUPO** →**AULAGRUPO**  
+**A → E**: cada empleado pertenece a un único departamento.  
+**E → F**: cada número de departamento determina su nombre.  
+**Por tanto, A → F**: el DNI determina indirectamente el nombre del departamento.
 
-  
-El atributo AULAGRUPO es transitivamente dependiente de NUMMAT, ya que se puede conocer por medio del atributo NUMMAT y a través del atributo GRUPO
+La cadena de dependencia transitiva es:
 
-![alt text](image-15.png){width=400}
+**DNI → Núm. departamento → Nombre departamento (A → E → F)**
 
+![Dependencia transitiva: el DNI determina el número de departamento, y este determina el nombre del departamento.](empleado-transitiva.svg){ width=700 }
 
+Por ejemplo, el empleado con DNI **12345678A** pertenece al departamento **10**, cuyo nombre es **Informática**. El nombre del departamento se conoce a través de su número; no es un dato propio del empleado.
 
+Aunque en el ejemplo los nombres de departamento también son únicos (**F → E**), ni el número ni el nombre del departamento identifican a un empleado: varios empleados pueden pertenecer al mismo departamento.
+
+Si guardamos el nombre del departamento en cada fila de EMPLEADO, repetimos ese dato para todos sus empleados. Al cambiar el nombre, tendríamos que actualizar varias filas. En la **3FN** separaremos **DEPARTAMENTO (num-d, nombre-d)** y conservaremos en EMPLEADO solo **num-d** como clave externa.

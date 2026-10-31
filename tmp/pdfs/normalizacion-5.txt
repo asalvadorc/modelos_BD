@@ -1,0 +1,15 @@
+Tareas  a  realizar:  1.  Análisis  de  la  tabla.  Determinar  la  clave  primaria  de  la  tabla  TRABAJADOR.  2.  Identiﬁcar  las  dependencias  funcionales  existentes  entre  los  atributos.  Para  ello  es  conveniente  elaborar  el  grafo  de  dependencias  funcionales.  3.  Descomponer  la  tabla  en  nuevas  relaciones  que  cumplan  con  la  1FN,  2FN  y  3FN.  4.  Presentar  las  nuevas  tablas  resultantes  con  sus  claves  primarias  y  foráneas  en  el  modelo  relacional  siguiendo  la  represención  vista  en  clase.   SOLUCION  https://docs.google.com/document/d/1rxi4ZGdFH4h2OGz2W_zv73ELt5LkAkzMy5UEyR9GCmw/edit?usp=sharing  NO  CUMPLE  LA  1FN  POR  TENER  UN  CAMPO  MULTIVALÚADO  (emails)   
+EJERCICIO  5  -  PELÍCULAS  
+Se  dispone  de  la  siguiente  tabla  denominada  PELÍCULAS ,  que  contiene  información  sobre  distintas  películas,  sus  estudios  y  los  actores  que  participan  en  ellas:  
+PELICULA  
+titulo  anyo  duracion  tipo  estudio  ciudadestudio  actor  
+Star  Wars  1977  124  Color  Fox  Hollywood  Carrie  Fisher  
+Star  Wars  1977  124  Color  Fox  Hollywood  Mark  Hamill  
+Star  Wars  1977  124  Color  Fox  Hollywood  Harrison  Ford  
+Mighty  Ducks  1991  104  Color  Disney  Buena  Vista  Emilio  Estevez  
+Ben  Hur  1959  212  Color  MGM  Hollywood  Charlton  Heston  
+Ben  Hur  1959  212  Color  MGM  Hollywood  Martha  Scott  
+El  retorno  del  Jedi  
+1983  124  Color  Fox  Hollywood  Carrie  Fisher  
+Se  conocen  las  siguientes  consideraciones  del  dominio  del  problema :  
+●  De  un  mismo  título  pueden  existir  diferentes  versiones  en  distintos  años ,  pero  nunca  con  los  mismos  actores.  ●  Un  actor  puede  haber  participado  en  varias  películas  durante  un  mismo  año .  ●  Un  estudio  cinematográfico  no  puede  estar  ubicado  en  más  de  una  ciudad .  ●  Un  actor  puede  trabajar  con  distintos  estudios  a  lo  largo  de  su  carrera.  

@@ -92,56 +92,76 @@ Para normalizar una tabla que no esté en tercera forma normal, es decir, que te
 Se hará una descomposición por cada dependencia transitiva que haya que afecte a campos distintos.
 
 
-**<u>Ejemplo</u>**
+## Ejemplo aplicado: empleados, departamentos y proyectos
 
-<div class="case-card" markdown>
+Continuamos el [ejemplo del apartado 3.3](3_dependencia_funcional.md#ejemplo-empleados-departamentos-y-proyectos), que ya hemos descompuesto en [segunda forma normal](4_segunda_forma_normal_2fn.md#ejemplo-aplicado-empleados-departamentos-y-proyectos):
 
-Para el ejemplo de los atributos NUMMAT, GRUPO y AULAGRUPO tenemos el siguiente grafo:
+* **TRABAJA (A, B, H)**: DNI, Núm. proyecto, Horas semanales. Clave principal: **A . B**.
+* **EMPLEADO (A, C, D, E, F)**: DNI, Nombre empleado, Sueldo, Núm. departamento, Nombre departamento. Clave principal: **A**.
+* **PROYECTO (B, G)**: Núm. proyecto, Nombre proyecto. Clave principal: **B**; G es clave candidata porque el nombre del proyecto es único.
 
-![alt text](image-47.png){width=650}
+### Identificar la dependencia transitiva
 
-Una vez descompuesta la tabla, según el algoritmo anterior, tendremos dos tablas, que si sen encuentran en 3FN:
+TRABAJA y PROYECTO ya están en 3FN. En EMPLEADO, en cambio, tenemos:
 
-![alt text](image-46.png){width=700}
+**A → C | D | E**  
+**E → F**  
+**Por tanto, A → E → F**
 
+Es decir: **DNI → Núm. departamento → Nombre departamento**. El nombre del departamento depende de un atributo que no es clave de EMPLEADO. Ni E ni F identifican a un empleado, ya que varios empleados pueden pertenecer al mismo departamento.
 
+![El DNI determina el número de departamento y este determina el nombre del departamento.](empleado-transitiva.svg){ width=700 }
 
-De manera que la representación de las tablas al **modelo relacional** quedaría de la siguiente manera:
+**EMPLEADO no está en 3FN**: el nombre del departamento se repite en las filas de sus empleados. Si el departamento 10 cambia de nombre, habría que modificar tanto la fila de Ana como la de Luis.
 
-!!! quote ""
-    - ALUMNOS (<u>nummat</u>, grupo)
-    - GRUPOS (<u>grupo</u>, aulagrupo)
+### Separar los datos del departamento
 
-</div>
-****
+Descomponemos EMPLEADO en dos tablas:
 
-**Ejemplo del apartado 3.3**
+1. **EMPLEADO (A, C, D, E)** conserva el DNI, el nombre, el sueldo y el número de departamento del empleado.
+2. **DEPARTAMENTO (E, F)** guarda una sola vez el número y el nombre de cada departamento. Elegimos E como clave principal; F también es clave candidata, porque el nombre del departamento es único.
 
-A continuación, se presenta un ejemplo completo que ilustra cómo identificar las dependencias transitivas y normalizar una tabla a la Tercera Forma Normal.
+El atributo **E (num-d)** permanece en EMPLEADO como clave externa hacia DEPARTAMENTO. Así podemos consultar el nombre del departamento sin repetirlo en cada empleado.
 
-<div class="tables-side-by-side equal-height" markdown>
+**Grafo resultante en 3FN**
 
-<div markdown>
+![Tablas en 3FN: EMPLEADO con clave A determina C, D y E; DEPARTAMENTO relaciona E y F como claves candidatas; PROYECTO relaciona B y G como claves candidatas; TRABAJA con clave A y B determina H.](empresa-3fn.svg){ width=760 }
 
+### Modelo relacional en 3FN
 
-![alt text](image-20.png){width=650}
+!!! quote "Resultado completo"
+    - EMPLEADO (<u>dni</u>, nombre, sueldo, num-d)
+        - PK: dni
+        - FK: num-d → DEPARTAMENTO(num-d)
+    - DEPARTAMENTO (<u>num-d</u>, nombre-d)
+        - PK: num-d
+        - Clave candidata alternativa: nombre-d (único).
+    - PROYECTO (<u>num-p</u>, nombre-p)
+        - PK: num-p
+        - Clave candidata alternativa: nombre-p (único).
+    - TRABAJA (<u>dni, num-p</u>, horas)
+        - PK: (dni, num-p)
+        - FK: dni → EMPLEADO(dni)
+        - FK: num-p → PROYECTO(num-p)
 
+Con los datos del ejemplo, las dos tablas que resultan de este paso son:
 
-</div>
+**EMPLEADO**
 
-<div markdown>
+| DNI (A) | Nombre (C) | Sueldo (D) | Núm. departamento (E) |
+|---------|------------|------------|-----------------------|
+| 12345678A | Ana García López | 2400 | 10 |
+| 87654321B | Luis Pérez Ruiz | 2200 | 10 |
+| 11223344C | Marta Sánchez Gil | 2600 | 20 |
 
-**Grafo de dependencias**
+**DEPARTAMENTO**
 
-![alt text](image-42.png){width=650}
+| Núm. departamento (E) | Nombre departamento (F) |
+|-----------------------|-------------------------|
+| 10 | Informática |
+| 20 | Administración |
 
+TRABAJA y PROYECTO conservan las filas obtenidas en 2FN. Ahora basta con cambiar una sola fila de DEPARTAMENTO para actualizar su nombre. Podemos reconstruir la información anterior uniendo EMPLEADO y DEPARTAMENTO por **num-d**, sin perder datos.
 
-</div>
-
-</div>
-
-La solución quedaría así:
-
-![alt text](image-24.png){width=600}
-
-![alt text](image-28.png){width=800}
+!!! success "De la tabla inicial a la 3FN"
+    En **2FN** separamos los datos del empleado y del proyecto de las horas de participación, eliminando las dependencias parciales. En **3FN** separamos el nombre del departamento de los datos del empleado, eliminando la dependencia transitiva **A → E → F** dentro de EMPLEADO.

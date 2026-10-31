@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../img/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -29,7 +29,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -996,6 +996,8 @@
       
         
       
+        
+      
     
     
     
@@ -1274,28 +1276,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#310-restricciones-externas" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3.10 Restricciones externas
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#311-ejemplo" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3.11 Ejemplo
-      
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1340,6 +1320,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../Ejemplo_Empresa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Ejemplo completo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../resumen/" class="md-nav__link">
         
   
@@ -1347,7 +1355,7 @@
   <span class="md-ellipsis">
     
   
-    5. Resumen
+    6. Resumen
   
 
     
@@ -1942,28 +1950,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#310-restricciones-externas" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3.10 Restricciones externas
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#311-ejemplo" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3.11 Ejemplo
-      
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -2019,10 +2005,22 @@ Si no ves el visor de arriba o prefieres leerlo aparte:
 </div>
 <div class="admonition quote">
 <ul>
-<li>EMPLEADO (<u>dni</u>, nombre, direccion, telefono, sueldo, fecha_n)</li>
-<li>DEPARTAMENTO (<u>num_d</u>)</li>
-<li>PROYECTO (<u>num_p</u>, nombre_p)</li>
-<li>FAMILIAR (<u>nombre</u>, fecha_n, parentesco)</li>
+<li>EMPLEADO (<u>dni</u>, nombre, direccion, telefono, sueldo, fecha-n)<ul>
+<li>PK: (dni)</li>
+</ul>
+</li>
+<li>DEPARTAMENTO (<u>num-d</u>)<ul>
+<li>PK: (num-d)</li>
+</ul>
+</li>
+<li>PROYECTO (<u>num-p</u>, nombre-p)<ul>
+<li>PK: (num-p)</li>
+</ul>
+</li>
+<li>FAMILIAR (<u>nombre</u>, fecha-n, parentesco)<ul>
+<li>PK: (nombre)</li>
+</ul>
+</li>
 </ul>
 </div>
 <!--[](T3_4_1_1.png)-->
@@ -2049,18 +2047,24 @@ Si además la entidad que participa con grado N lo hace de forma **total** (como
 </details>
 <div class="admonition quote">
 <ul>
-<li>EMPLEADO (<u>dni</u>, nombre, direccion, telefono, sueldo, fecha_n, <mark>departamento</mark>, <mark>supervisor</mark>)<ul>
-<li>FK: departamento-&gt;DEPARTAMENTO(num_d) <span class="tag-no-nulo">[no nulo]</span></li>
+<li>EMPLEADO (<u>dni</u>, nombre, direccion, telefono, sueldo, fecha-n, <mark>departamento</mark>, <mark>supervisor</mark>)<ul>
+<li>PK: (dni)</li>
+<li>FK: departamento-&gt;DEPARTAMENTO(num-d) <span class="tag-no-nulo">[no nulo]</span></li>
 <li>FK: supervisor-&gt;EMPLEADO(dni)</li>
 </ul>
 </li>
-<li>DEPARTAMENTO (<u>num_d</u>, nombre_d)</li>
-<li>PROYECTO (<u>num_p</u>, nombre_p, <mark>departamento</mark>)<ul>
-<li>FK: departamento-&gt;DEPARTAMENTO(num_d) <span class="tag-no-nulo">[no nulo]</span></li>
+<li>DEPARTAMENTO (<u>num-d</u>, nombre-d)<ul>
+<li>PK: (num-d)</li>
 </ul>
 </li>
-<li>FAMILIAR (<u>nombre</u>, fecha_n, parentesco, <mark>dni_e</mark>)<ul>
-<li>FK: dni_e-&gt;EMPLEADO(dni) <span class="tag-no-nulo">[no nulo]</span></li>
+<li>PROYECTO (<u>num-p</u>, nombre-p, <mark>departamento</mark>)<ul>
+<li>PK: (num-p)</li>
+<li>FK: departamento-&gt;DEPARTAMENTO(num-d) <span class="tag-no-nulo">[no nulo]</span></li>
+</ul>
+</li>
+<li>FAMILIAR (<u>nombre</u>, fecha-n, parentesco, <mark>dni-e</mark>)<ul>
+<li>PK: (nombre)</li>
+<li>FK: dni-e-&gt;EMPLEADO(dni) <span class="tag-no-nulo">[no nulo]</span></li>
 </ul>
 </li>
 </ul>
@@ -2076,7 +2080,7 @@ Si además la entidad que participa con grado N lo hace de forma **total** (como
 <p>Por la relación <strong><em>Supervisa</em></strong> incluiremos el atributo <strong>supervisor</strong> a <strong>Empleado</strong> (es reflexiva), pero este sí que puede ser nulo. Aunque parezca extraño, un campo puede ser clave externa que apunta a la clave principal de la misma tabla.</p>
 </li>
 <li>
-<p>Por la relación <strong><em>Tiene</em></strong> entre empleado y familiar, incluiremos en <strong>FAMILIAR</strong> el atributo <strong>dni_e</strong>, pero como Familiar es débil la veremos mejor un poco más adelante.</p>
+<p>Por la relación <strong><em>Tiene</em></strong> entre empleado y familiar, incluiremos en <strong>FAMILIAR</strong> el atributo <strong>dni-e</strong>, pero como Familiar es débil la veremos mejor un poco más adelante.</p>
 </li>
 </ul>
 <h3 id="relacion-reflexiva-empleado-y-supervisor">Relación reflexiva: empleado y supervisor</h3>
@@ -2084,7 +2088,8 @@ Si además la entidad que participa con grado N lo hace de forma **total** (como
 <p>Si cada empleado tiene como máximo un supervisor y un supervisor puede supervisar a varios empleados, la relación es <strong>1:N</strong>. Aplicamos la misma regla de transformación que para cualquier relación 1:N: incorporamos la clave primaria del lado 1 como clave externa en la tabla del lado N. Como ambos lados corresponden a la misma entidad, la clave externa queda en <strong>EMPLEADO</strong> y referencia esa misma tabla:</p>
 <div class="admonition quote">
 <ul>
-<li>EMPLEADO (<u>dni</u>, nombre, direccion, telefono, sueldo, fecha_n, <mark>supervisor</mark>)<ul>
+<li>EMPLEADO (<u>dni</u>, nombre, direccion, telefono, sueldo, fecha-n, <mark>supervisor</mark>)<ul>
+<li>PK: (dni)</li>
 <li>FK: supervisor-&gt;EMPLEADO(dni)</li>
 </ul>
 </li>
@@ -2109,46 +2114,56 @@ Si además la entidad que participa con grado N lo hace de forma **total** (como
 <p>La traducción al modelo relacional queda:</p>
 <div class="admonition quote">
 <ul>
-<li>TRABAJA (<mark><u>dni, num_p</u></mark>, horas)<ul>
+<li>TRABAJA (<mark><u>dni, num-p</u></mark>, horas)<ul>
+<li>PK: (dni, num-p)</li>
 <li>FK: dni-&gt;EMPLEADO(dni)</li>
-<li>FK: num_p-&gt;PROYECTO(num_p)</li>
+<li>FK: num-p-&gt;PROYECTO(num-p)</li>
 </ul>
 </li>
 </ul>
 </div>
 <h3 id="cuando-no-basta-con-la-clave-compuesta">¿Cuándo no basta con la clave compuesta?</h3>
-<p>Pregunta clave: <strong>¿puede repetirse la combinación <code>(dni, num_p)</code> en diferentes momentos?</strong></p>
+<p>Pregunta clave: <strong>¿puede repetirse la combinación <code>(dni, num-p)</code> en diferentes momentos?</strong></p>
 <ul>
-<li>Si <strong>no</strong> puede repetirse, la clave compuesta <code>(dni, num_p)</code> es suficiente.</li>
+<li>Si <strong>no</strong> puede repetirse, la clave compuesta <code>(dni, num-p)</code> es suficiente.</li>
 <li>Si <strong>sí</strong> puede repetirse (caso histórico), hay que añadir otro atributo a la clave principal.</li>
 </ul>
 <p>En el ejemplo histórico:</p>
 <p><img alt="alt text" src="../image-14.png" /></p>
-<p>Se añade <strong>fecha_inicio</strong> a la clave principal para diferenciar participaciones distintas del mismo empleado en el mismo proyecto:</p>
+<p>Se añade <strong>fecha-inicio</strong> a la clave principal para diferenciar participaciones distintas del mismo empleado en el mismo proyecto:</p>
 <div class="admonition quote">
 <ul>
-<li>TRABAJA (<mark><u>dni, num_p</mark>, fecha incio</u>, fecha_fin, horas)<ul>
+<li>TRABAJA (<mark><u>dni, num-p</mark>, fecha incio</u>, fecha-fin, horas)<ul>
+<li>PK: (dni, num-p, fecha incio)</li>
 <li>FK: dni-&gt;EMPLEADO(dni)</li>
-<li>FK: num_p-&gt;PROYECTO(num_p)</li>
+<li>FK: num-p-&gt;PROYECTO(num-p)</li>
 </ul>
 </li>
 </ul>
 </div>
 <h3 id="criterio-practico">Criterio práctico</h3>
-<p>Evita claves principales excesivamente largas. Como regla práctica, si la clave principal empieza a tener demasiados campos (por ejemplo, 4 o más), conviene usar una clave artificial (como <code>id_trabaja</code>) y mantener las claves externas igualmente.</p>
+<p>Evita claves principales excesivamente largas. Como regla práctica, si la clave principal empieza a tener demasiados campos (por ejemplo, 4 o más), conviene usar una clave artificial (como <code>id-trabaja</code>) y mantener las claves externas igualmente.</p>
 <h3 id="relacion-reflexiva-nn-empleados-que-colaboran">Relación reflexiva N:N: empleados que colaboran</h3>
 <p>Una relación reflexiva también puede ser <strong>N:N</strong>. Por ejemplo, un empleado puede colaborar con varios empleados y, a su vez, colaborar con varios más. Como en cualquier relación N:N, se crea una tabla intermedia; en este caso, sus dos claves externas apuntan a la misma tabla <strong>EMPLEADO</strong>, pero representan roles distintos:</p>
 <div class="admonition quote">
 <ul>
-<li>EMPLEADO (<u>dni</u>, nombre, ...)</li>
-<li>COLABORA (<mark><u>dni_empleado, dni_colaborador</u></mark>)<ul>
-<li>FK: dni_empleado-&gt;EMPLEADO(dni)</li>
-<li>FK: dni_colaborador-&gt;EMPLEADO(dni)</li>
+<li>EMPLEADO (<u>dni</u>, nombre, ...)<ul>
+<li>PK: (dni)</li>
+</ul>
+</li>
+<li>COLABORA (<mark><u>dni-empleado, dni-colaborador</u></mark>)<ul>
+<li>PK: (dni-empleado, dni-colaborador)</li>
+<li>FK: dni-empleado-&gt;EMPLEADO(dni)</li>
+<li>FK: dni-colaborador-&gt;EMPLEADO(dni)</li>
 </ul>
 </li>
 </ul>
 </div>
-<p>La clave primaria compuesta impide registrar dos veces la misma pareja en el mismo orden. Si la colaboración no tiene dirección (A colabora con B equivale a B colabora con A), también hay que evitar registrar ambas combinaciones <code>(A, B)</code> y <code>(B, A)</code>, mediante una regla adicional de implementación.</p>
+<p>La clave primaria compuesta evita repetir la pareja (A, B), pero permite guardar también (B, A), porque las considera distintas. Si la colaboración es mutua, ambas representan la misma colaboración. Para evitar duplicarla, podemos acordar que se guarde siempre primero el DNI menor. En temas posteriores veremos cómo hacer que la base de datos compruebe esta regla.</p>
+<div class="admonition example">
+<p class="admonition-title">📝 Practica ahora</p>
+<p>Con lo visto hasta ahora ya puedes resolver los <strong>ejercicios 1, 2 y 3</strong> de la sección <a href="../5_ejercicios/">Ejercicios</a>.</p>
+</div>
 <h2 id="34-relaciones-11">3.4 Relaciones 1:1</h2>
 <p>No existe una única traducción para una relación <strong>1:1</strong>. La decisión depende de la participación (<strong>total</strong> o <strong>parcial</strong>) y del criterio práctico de diseño.</p>
 <h3 id="caso-1-una-entidad-participa-de-forma-total">Caso 1: Una entidad participa de forma total</h3>
@@ -2165,8 +2180,12 @@ Si además la entidad que participa con grado N lo hace de forma **total** (como
 Todos los departamentos tienen director (no nula) y solo uno (única), pero no todos los empleados dirigen un departamento.</p>
 <div class="admonition quote">
 <ul>
-<li>EMPLEADO (<u>dni</u>, nombre, direccion, telefono, sueldo, fecha_n)</li>
-<li>DEPARTAMENTO (<u>num_d</u>, nom_d, <mark>director</mark>, Fecha)<ul>
+<li>EMPLEADO (<u>dni</u>, nombre, direccion, telefono, sueldo, fecha-n)<ul>
+<li>PK: (dni)</li>
+</ul>
+</li>
+<li>DEPARTAMENTO (<u>num-d</u>, nom-d, <mark>director</mark>, Fecha)<ul>
+<li>PK: (num-d)</li>
 <li>FK: director-&gt;EMPLEADO(dni) 
 <span class="tag-no-nulo">[no nulo]</span> 
 <span class="tag-unico">[unico]</span></li>
@@ -2184,26 +2203,67 @@ Todos los departamentos tienen director (no nula) y solo uno (única), pero no t
 <p><img alt="alt text" src="../image-17.png" /></p>
 <div class="admonition quote">
 <ul>
-<li>PERSONA (<u>dni</u>,....(datos persona)....(datos colección)...)</li>
-</ul>
-</div>
-<h3 id="caso-3-ambas-entidades-participan-de-forma-parcial">Caso 3: Ambas entidades participan de forma parcial</h3>
-<p>Si en cualquiera de las dos tablas habría demasiados nulos, conviene crear una <strong>tabla intermedia de relación</strong>.</p>
-<p>Ejemplo:</p>
-<p><img alt="alt text" src="../image-18.png" /></p>
-<p>Traducción:</p>
-<div class="admonition quote">
-<ul>
-<li>PERSONA (<u>dni</u>, ...(datos persona)...)</li>
-<li>COLECCION (<u>cod_col</u>, ...(datos colección)...)</li>
-<li>PROPIETARIO (<mark><u>dni, cod_col</u></mark>)<ul>
-<li>FK: dni-&gt;PERSONA(dni)</li>
-<li>FK: cod_col-&gt;COLECCION(cod_col)</li>
+<li>PERSONA (<u>dni</u>,....(datos persona)....(datos colección)...)<ul>
+<li>PK: (dni)</li>
 </ul>
 </li>
 </ul>
 </div>
-<p>Si una participación es "casi total", puede seguir siendo más eficiente usar clave externa (caso 1), aceptando algunos nulos.</p>
+<p>De todas formas, puede que nos interese tener dos tablas (para separar claramente los dos tipos de información). En ese caso, podríamos traducir la relación como en el primer punto, con una clave externa (no nula) en una de las dos tablas, y tendríamos que elegir la tabla que menos se utilice.</p>
+<div class="admonition quote">
+<ul>
+<li>PERSONA (<u>dni</u>, ...(datos persona)...)<ul>
+<li>PK: (dni)</li>
+</ul>
+</li>
+<li>COLECCION (<u>cod-col</u>, <mark>dni, </mark>...(datos colección)...)<ul>
+<li>PK: (cod-col)</li>
+<li>FK: dni-&gt;PERSONA(dni)  <span class="tag-no-nulo">[no nulo]</span>  <span class="tag-unico">[unico]</span></li>
+</ul>
+</li>
+</ul>
+</div>
+<h3 id="caso-3-ambas-entidades-participan-de-forma-parcial">Caso 3: Ambas entidades participan de forma parcial</h3>
+<p>Si las dos entidades participan de forma parcial en una relación 1:1, podemos crear una tercera tabla para representar la relación, con las claves externas de las dos entidades y los posibles atributos de la relación. Así evitamos tener muchos valores nulos.</p>
+<p>En el ejemplo, podría ocurrir que las colecciones pertenecieran a una persona particular o a una institución (no tienen propietario).</p>
+<p><img alt="alt text" src="../image-18.png" /></p>
+<div class="admonition quote">
+<ul>
+<li>PERSONA (<u>dni</u>, ...(datos persona)...)<ul>
+<li>PK: (dni)</li>
+</ul>
+</li>
+<li>COLECCION (<u>cod-col</u>, ...(datos colección)...)<ul>
+<li>PK: (cod-col)</li>
+</ul>
+</li>
+<li>PROPIETARIO (<u><mark>dni, </mark>, <mark>cod-col </mark></u>)    <ul>
+<li>PK: (dni, cod-col)</li>
+<li>FK: dni-&gt;PERSONA(dni)</li>
+<li>FK: cod-col-&gt;COLECCION(cod-col)</li>
+</ul>
+</li>
+</ul>
+</div>
+<p>Pero, como comentábamos al principio, tendremos que aplicar el sentido común, ya que puede que una de las dos entidades participe de forma «casi» total (por ejemplo, casi todas las colecciones pertenecen a una persona). En ese caso, podría ser mejor traducir la relación como en el primer caso, colocando la clave externa en la tabla cuya participación sea «casi» total, ya que tendrá relativamente pocos valores nulos y resultaría más costoso mantener otra tabla. Evidentemente, en este caso la clave externa sí podría admitir valores nulos.</p>
+<div class="admonition quote">
+<ul>
+<li>PERSONA (<u>dni</u>, ...(datos persona)...)<ul>
+<li>PK: (dni)</li>
+</ul>
+</li>
+<li>COLECCION (<u>cod-col</u>, <mark>dni, </mark>...(datos colección)...)<ul>
+<li>PK: (cod-col)</li>
+<li>FK: dni-&gt;PERSONA(dni) <span class="tag-unico">[unico]</span></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">En resumen</p>
+<p>Una relación <strong>1:1</strong> casi siempre la traduciremos colocando una clave externa en la tabla cuya participación en la relación sea total o casi total (o en aquella que previsiblemente tenga más ocurrencias en la relación).</p>
+</div>
+<hr />
 <h3 id="regla-practica">Regla práctica</h3>
 <p>En la mayoría de escenarios reales, una relación <strong>1:1</strong> se traduce mejor como <strong>clave externa en la tabla con participación total o casi total</strong>.</p>
 <h3 id="relacion-reflexiva-11-empleados-emparejados-como-mentores">Relación reflexiva 1:1: empleados emparejados como mentores</h3>
@@ -2212,6 +2272,7 @@ Todos los departamentos tienen director (no nula) y solo uno (única), pero no t
 <div class="admonition quote">
 <ul>
 <li>EMPLEADO (<u>dni</u>, nombre, <mark>mentor</mark>)<ul>
+<li>PK: (dni)</li>
 <li>FK: mentor-&gt;EMPLEADO(dni) <span class="tag-unico">[unico]</span></li>
 </ul>
 </li>
@@ -2235,9 +2296,13 @@ Todos los departamentos tienen director (no nula) y solo uno (única), pero no t
 <p><img alt="alt text" src="../image-29.png" /></p>
 <div class="admonition quote">
 <ul>
-<li>EMPLEADO (<u>dni</u>, nombre, direccion, telefono, sueldo, fecha_n)</li>
-<li>FAMILIAR (<u><mark>dni_e</mark>, nom_f</u>, fecha_n, parentesco  <span class="tag-cascade">(borrar en cascada)</span><ul>
-<li>FK: dni_e-&gt;PERSONA(dni)</li>
+<li>EMPLEADO (<u>dni</u>, nombre, direccion, telefono, sueldo, fecha-n)<ul>
+<li>PK: (dni)</li>
+</ul>
+</li>
+<li>FAMILIAR (<u><mark>dni-e</mark>, nom-f</u>, fecha-n, parentesco)  <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li>PK: (dni-e, nom-f)</li>
+<li>FK: dni-e-&gt;PERSONA(dni)</li>
 </ul>
 </li>
 </ul>
@@ -2250,8 +2315,24 @@ Todos los departamentos tienen director (no nula) y solo uno (única), pero no t
     <img alt="alt text" src="../image-36.png" /></li>
 </ul>
 </div>
+<div class="admonition example">
+<p class="admonition-title">📝 Practica ahora</p>
+<p>Con lo visto hasta ahora ya puedes resolver los <strong>ejercicios 4 y 5</strong> de la sección <a href="../5_ejercicios/">Ejercicios</a>.</p>
+</div>
 <h2 id="36-resumen-de-dependencias">3.6 Resumen de dependencias</h2>
-<p><img alt="alt text" src="../image-60.png" />   </p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">1:N</label><label for="__tabbed_1_2">1:1</label><label for="__tabbed_1_3">N:M</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><img alt="alt text" src="../image-62.png" width="800" /></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="alt text" src="../image-65.png" width="800" /></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="alt text" src="../image-67.png" width="800" /></p>
+</div>
+</div>
+</div>
 <h2 id="37-claves-externas-compuestas">3.7 Claves externas compuestas</h2>
 <p>Una duda frecuente aparece cuando la tabla referenciada tiene clave principal de varios campos.</p>
 <p>Ejemplo: la tabla <strong>FAMILIAR</strong> tiene clave principal compuesta. Si otra tabla depende de ella (por ejemplo, cartas/comunicaciones), la relación en el modelo E/R podría ser:</p>
@@ -2264,12 +2345,14 @@ Todos los departamentos tienen director (no nula) y solo uno (única), pero no t
 </ul>
 <div class="admonition quote">
 <ul>
-<li>FAMILIAR (<u><i>dni_e</i>, nom_f</u>, fecha_n, parentesco  <span class="tag-cascade">(borrar en cascada)</span><ul>
-<li>FK: dni_e-&gt;PERSONA(dni)</li>
+<li>FAMILIAR (<u><i>dni-e</i>, nom-f</u>, fecha-n, parentesco  <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li>PK: (dni-e, nom-f)</li>
+<li>FK: dni-e-&gt;PERSONA(dni)</li>
 </ul>
 </li>
-<li>CARTAS (<u>id</u>, texto, <mark>dni_e, nom_f</mark>)<ul>
-<li>FK: dni_e, nom_f-&gt;FAMILIAR(dni_e, nom_f)</li>
+<li>CARTAS (<u>id</u>, texto, <mark>dni-e, nom-f</mark>)<ul>
+<li>PK: (id)</li>
+<li>FK: dni-e, nom-f-&gt;FAMILIAR(dni-e, nom-f)</li>
 </ul>
 </li>
 </ul>
@@ -2282,13 +2365,23 @@ Todos los departamentos tienen director (no nula) y solo uno (única), pero no t
 <p>Creamos la tabla COMPRA:</p>
 <div class="admonition quote">
 <ul>
-<li>DEPARTAMENTO (<u>num_d</u>, ....)</li>
-<li>ARTICULO (<u>cod_art</u>, ....)</li>
-<li>PROVEEDOR (<u>cod_pr</u>, ....)</li>
-<li>COMPRA (<u><mark>num_d</mark>, <mark>cod_art</mark>, <mark>cod_pr</mark> </u>) <ul>
-<li>FK: num_d-&gt;DEPARTAMENTO(num_d)</li>
-<li>FK: cod_art-&gt;ARTICULO(cod_art)</li>
-<li>FK: cod_pr-&gt;PROVEEDOR(cod_pr)</li>
+<li>DEPARTAMENTO (<u>num-d</u>, ....)<ul>
+<li>PK: (num-d)</li>
+</ul>
+</li>
+<li>ARTICULO (<u>cod-art</u>, ....)<ul>
+<li>PK: (cod-art)</li>
+</ul>
+</li>
+<li>PROVEEDOR (<u>cod-pr</u>, ....)<ul>
+<li>PK: (cod-pr)</li>
+</ul>
+</li>
+<li>COMPRA (<u><mark>num-d</mark>, <mark>cod-art</mark>, <mark>cod-pr</mark> </u>) <ul>
+<li>PK: (num-d, cod-art, cod-pr)</li>
+<li>FK: num-d-&gt;DEPARTAMENTO(num-d)</li>
+<li>FK: cod-art-&gt;ARTICULO(cod-art)</li>
+<li>FK: cod-pr-&gt;PROVEEDOR(cod-pr)</li>
 </ul>
 </li>
 </ul>
@@ -2299,10 +2392,11 @@ Todos los departamentos tienen director (no nula) y solo uno (única), pero no t
 <p>La tabla resultante sería:</p>
 <div class="admonition quote">
 <ul>
-<li>COMPRA (<u><mark>num_d</mark>, <mark>cod_art</mark> </u>, <mark>cod_pr</mark>) <ul>
-<li>FK: num_d-&gt;DEPARTAMENTO(num_d)</li>
-<li>FK: cod_art-&gt;ARTICULO(cod_art)</li>
-<li>FK: cod_pr-&gt;PROVEEDOR(cod_pr) <span class="tag-no-nulo">[no nulo]</span></li>
+<li>COMPRA (<u><mark>num-d</mark>, <mark>cod-art</mark> </u>, <mark>cod-pr</mark>) <ul>
+<li>PK: (num-d, cod-art)</li>
+<li>FK: num-d-&gt;DEPARTAMENTO(num-d)</li>
+<li>FK: cod-art-&gt;ARTICULO(cod-art)</li>
+<li>FK: cod-pr-&gt;PROVEEDOR(cod-pr) <span class="tag-no-nulo">[no nulo]</span></li>
 </ul>
 </li>
 </ul>
@@ -2312,10 +2406,11 @@ Todos los departamentos tienen director (no nula) y solo uno (única), pero no t
 <p><img alt="alt text" src="../image-49.png" width="600" /></p>
 <div class="admonition quote">
 <ul>
-<li>COMPRA (<u><mark>num_d</mark>, <mark>cod_art</mark> </u>, <mark>cod_pr</mark>) <ul>
-<li>FK: num_d-&gt;DEPARTAMENTO(num_d)</li>
-<li>FK: cod_art-&gt;ARTICULO(cod_art)</li>
-<li>FK: cod_pr-&gt;PROVEEDOR(cod_pr) <span class="tag-no-nulo">[no nulo]</span> <span class="tag-unico">[única]</span></li>
+<li>COMPRA (<u><mark>num-d</mark>, <mark>cod-art</mark> </u>, <mark>cod-pr</mark>) <ul>
+<li>PK: (num-d, cod-art)</li>
+<li>FK: num-d-&gt;DEPARTAMENTO(num-d)</li>
+<li>FK: cod-art-&gt;ARTICULO(cod-art)</li>
+<li>FK: cod-pr-&gt;PROVEEDOR(cod-pr) <span class="tag-no-nulo">[no nulo]</span> <span class="tag-unico">[única]</span></li>
 </ul>
 </li>
 </ul>
@@ -2325,13 +2420,23 @@ Todos los departamentos tienen director (no nula) y solo uno (única), pero no t
 <p><img alt="alt text" src="../image-50.png" width="600" /></p>
 <div class="admonition quote">
 <ul>
-<li>DEPARTAMENTO (<u>num_d</u>, ....)</li>
-<li>ARTICULO (<u>cod_art</u>, ....)</li>
-<li>PROVEEDOR (<u>cod_pr</u>, ....)</li>
-<li>COMPRA (<u><mark>num_d</mark>, <mark>cod_art</mark>, <mark>cod_pr</mark>, fecha_c </u>, cantidad) <ul>
-<li>FK: num_d-&gt;DEPARTAMENTO(num_d)</li>
-<li>FK: cod_art-&gt;ARTICULO(cod_art)</li>
-<li>FK: cod_pr-&gt;PROVEEDOR(cod_pr)</li>
+<li>DEPARTAMENTO (<u>num-d</u>, ....)<ul>
+<li>PK: (num-d)</li>
+</ul>
+</li>
+<li>ARTICULO (<u>cod-art</u>, ....)<ul>
+<li>PK: (cod-art)</li>
+</ul>
+</li>
+<li>PROVEEDOR (<u>cod-pr</u>, ....)<ul>
+<li>PK: (cod-pr)</li>
+</ul>
+</li>
+<li>COMPRA (<u><mark>num-d</mark>, <mark>cod-art</mark>, <mark>cod-pr</mark>, fecha-c </u>, cantidad) <ul>
+<li>PK: (num-d, cod-art, cod-pr, fecha-c)</li>
+<li>FK: num-d-&gt;DEPARTAMENTO(num-d)</li>
+<li>FK: cod-art-&gt;ARTICULO(cod-art)</li>
+<li>FK: cod-pr-&gt;PROVEEDOR(cod-pr)</li>
 </ul>
 </li>
 </ul>
@@ -2345,13 +2450,23 @@ Todos los departamentos tienen director (no nula) y solo uno (única), pero no t
 <p>Las claves externas se mantienen y, normalmente, son no nulas:</p>
 <div class="admonition quote">
 <ul>
-<li>DEPARTAMENTO (<u>num_d</u>, ....)</li>
-<li>ARTICULO (<u>cod_art</u>, ....)</li>
-<li>PROVEEDOR (<u>cod_pr</u>, ....)</li>
-<li>COMPRA (<u>id</u>,<mark>num_d</mark>, <mark>cod_art</mark>, <mark>cod_pr</mark>, fecha_c , cantidad) <ul>
-<li>FK: num_d-&gt;DEPARTAMENTO(num_d) <span class="tag-no-nulo">[no nulo]</span></li>
-<li>FK: cod_art-&gt;ARTICULO(cod_art) <span class="tag-no-nulo">[no nulo]</span></li>
-<li>FK: cod_pr-&gt;PROVEEDOR(cod_pr) <span class="tag-no-nulo">[no nulo]</span></li>
+<li>DEPARTAMENTO (<u>num-d</u>, ....)<ul>
+<li>PK: (num-d)</li>
+</ul>
+</li>
+<li>ARTICULO (<u>cod-art</u>, ....)<ul>
+<li>PK: (cod-art)</li>
+</ul>
+</li>
+<li>PROVEEDOR (<u>cod-pr</u>, ....)<ul>
+<li>PK: (cod-pr)</li>
+</ul>
+</li>
+<li>COMPRA (<u>id</u>,<mark>num-d</mark>, <mark>cod-art</mark>, <mark>cod-pr</mark>, fecha-c , cantidad) <ul>
+<li>PK: (id)</li>
+<li>FK: num-d-&gt;DEPARTAMENTO(num-d) <span class="tag-no-nulo">[no nulo]</span></li>
+<li>FK: cod-art-&gt;ARTICULO(cod-art) <span class="tag-no-nulo">[no nulo]</span></li>
+<li>FK: cod-pr-&gt;PROVEEDOR(cod-pr) <span class="tag-no-nulo">[no nulo]</span></li>
 </ul>
 </li>
 </ul>
@@ -2360,16 +2475,22 @@ Todos los departamentos tienen director (no nula) y solo uno (única), pero no t
 <p>Las especializaciones no tienen una única traducción óptima. La solución teórica puede ser correcta, pero en la práctica puede generar demasiadas tablas y mayor mantenimiento.</p>
 <p><img alt="alt text" src="../image-25.png" /></p>
 <h3 id="opcion-1-mantener-superclase-y-subclases">Opción 1: Mantener superclase y subclases</h3>
-<p>Cada subtipo se transforma en una tabla que incorpora la clave primaria del supertipo y sus atributos específicos. Esta clave actúa también como clave ajena hacia la tabla del supertipo y, en nuestros apuntes, la definimos con actualización y borrado en cascada.</p>
+<p>Cada subtipo se transforma en una tabla que incorpora la clave primaria del supertipo y sus atributos específicos. Esta clave actúa también como clave ajena hacia la tabla del supertipo y, en nuestros apuntes, la definimos con actualización y borrado en cascada.  Opcionalmente, podemos añadir en la tabla del supertipo un campo <strong>tipo</strong> que indique el subtipo al que pertenece cada registro.
+Si la especialización es solapada, un campo con un único valor no basta: un empleado podría pertenecer a varios subtipos.</p>
 <p>En el ejemplo:</p>
 <div class="admonition quote">
 <ul>
-<li>EMPLEADO (<u>dni</u>,nombre, direccion, telefono,..., tipo)</li>
+<li>EMPLEADO (<u>dni</u>,nombre, direccion, telefono,..., tipo)<ul>
+<li>PK: (dni)</li>
+</ul>
+</li>
 <li>JEFE (<u><mark>dni</mark></u>, opinion) <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li>PK: (dni)</li>
 <li>FK: dni-&gt;EMPLEADO(dni)</li>
 </ul>
 </li>
-<li>TRABAJADOR (<u><mark>dni</mark></u>, horas_extra) <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li>TRABAJADOR (<u><mark>dni</mark></u>, horas-extra) <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li>PK: (dni)</li>
 <li>FK: dni-&gt;EMPLEADO(dni)</li>
 </ul>
 </li>
@@ -2379,139 +2500,30 @@ Todos los departamentos tienen director (no nula) y solo uno (única), pero no t
 <p>Los atributos de las subclases pasan a la superclase. También se adaptan las relaciones asociadas a las subclases. En este caso, el campo que identifica el tipo es obligatorio.</p>
 <div class="admonition quote">
 <ul>
-<li>EMPLEADO (<u>dni</u>,nombre, direccion, telefono,... tipo, opinion, horas_extra)</li>
+<li>EMPLEADO (<u>dni</u>,nombre, direccion, telefono,... tipo, opinion, horas-extra)<ul>
+<li>PK: (dni)</li>
+</ul>
+</li>
 </ul>
 </div>
 <h3 id="opcion-3-integrar-el-supertipo-en-los-subtipos">Opción 3: Integrar el supertipo en los subtipos</h3>
 <p>Creamos una tabla por subtipo, incorporando los atributos del supertipo y los específicos de cada subtipo. No se crea una tabla para el supertipo. Sus relaciones se trasladan a las tablas de los subtipos.</p>
 <div class="admonition quote">
 <ul>
-<li>JEFE (<u>dni</u>, nombre, direccion, telefono, ..., opinion)</li>
-<li>TRABAJADOR (<u>dni</u>, nombre, direccion, telefono, ..., horas_extra)</li>
+<li>JEFE (<u>dni</u>, nombre, direccion, telefono, ..., opinion)<ul>
+<li>PK: (dni)</li>
 </ul>
-</div>
-<h3 id="criterio-practico_1">Criterio práctico</h3>
-<p>Elige la opción que mejor equilibre claridad del modelo, volumen de datos y coste de mantenimiento.</p>
-<h2 id="310-restricciones-externas">3.10 Restricciones externas</h2>
-<p>Ya hemos comentado que restricciones externas son restricciones que no se pueden expresar por medio del modelo de datos. Entonces las expresaremos de palabra.</p>
-<p>Normalmente, las restricciones externas del Modelo E/R continuarán siéndolo en el Modelo Relacional, porque tampoco se podrán expresar. En nuestro ejemplo teníamos las restricciones externas del Modelo E/R:</p>
-<blockquote>
-<p><strong>Rex1</strong>: El jefe de un departamento debe ser miembro de este.</p>
-<p><strong>Rex2</strong>: Un empleado solo puede trabajar en proyectos coordinados por su departamento.</p>
-</blockquote>
-<p>Esto tampoco se puede expresar con el Modelo Relacional, por lo tanto las mantendremos.</p>
-<p>Aparte, se pueden crear más restricciones externas, porque con el Modelo Relacional no se puede expresar todo lo que se podía expresar con el Modelo E/R. Por ejemplo, en la relación:</p>
-<p><img alt="alt text" src="../image-24.png" /></p>
-<p>ya hemos comentado que dará lugar, aparte de las tablas de las entidades, a otra tabla:</p>
-<div class="admonition quote">
-<ul>
-<li>TRABAJA (<u><mark>dni</mark>, <mark>num_p</mark></u>, horas)<ul>
-<li>FK: dni-&gt;EMPLEADO(dni)</li>
-<li>FK: num_p-&gt;PROYECTO(num_p)</li>
+</li>
+<li>TRABAJADOR (<u>dni</u>, nombre, direccion, telefono, ..., horas-extra)<ul>
+<li>PK: (dni)</li>
 </ul>
 </li>
 </ul>
 </div>
-<p>donde <strong>dni</strong> y <strong>num_p</strong> son claves externas. Pero la entidad proyecto participa de forma total en la relación, es decir, en todo proyecto debe haber un empleado trabajando. ¿Cómo controlamos esto? Pues es una nueva restricción externa que la podríamos formular así:</p>
-<blockquote>
-<p><strong>RexR3</strong>: Todo proyecto debe tener como mínimo un empleado trabajando en él.</p>
-</blockquote>
-<p>Las participaciones totales que nos supondrán una restricción externa son:</p>
-<ul>
-<li>
-<p>En una relación <strong>1:N</strong>, una participación total de la entidad que participa con grado 1.</p>
-</li>
-<li>
-<p>En una relación <strong>M:N</strong>, cualquier participación total (si las dos participan de forma total, entonces habrá dos restricciones externas).</p>
-</li>
-<li>
-<p>En una relación <strong>1:1</strong>, depende de la manera de traducirse.</p>
-</li>
-</ul>
-<p>La manera de implementar las restricciones externas será por medio de un TRIGGER, que se active cuando haya una actualización (inserción, modificación o borrado) que afecte a la restricción externa. Por ejemplo, en la restricción <strong>RexR3</strong> los momentos importantes son después de insertar un nuevo proyecto, y antes de eliminar o modificar en la tabla <strong>Trabaja</strong> (por si un proyecto se queda sin gente trabajando en él).</p>
-<p>Las acciones a desarrollar podrían ser sacar un aviso, o obligar a insertar como mínimo una tupla en la tabla <strong>Trabaja</strong>, en el caso de la inserción de un nuevo proyecto; en el caso de modificación o eliminación en <strong>Trabaja</strong> podría impedirse esta actualización.</p>
-<p>En nuestro ejemplo tendremos las restricciones externas al Modelo Relacional:</p>
-<blockquote>
-<p><strong>RexR1</strong>: El jefe de un departamento debe ser miembro de este.</p>
-<p><strong>RexR2</strong>: Un empleado solo puede trabajar en proyectos coordinados por su departamento.</p>
-<p><strong>RexR3</strong>: Todo proyecto debe tener como mínimo un empleado trabajando en él.</p>
-</blockquote>
-<h2 id="311-ejemplo">3.11 Ejemplo</h2>
-<p>Vamos a ver cómo quedará definitivamente la traducción del ejemplo que estamos arrastrando desde el Tema 2. Daremos 2 versiones, teniendo en cuenta o no la especialización de que el trabajador puede ser jefe o trabajador normal.</p>
-<p>Sin tener en cuenta la especialización tendremos esta solución:</p>
-<details open="open">
-<summary>Ejemplo: Empresa</summary>
-<p><img alt="Ejemplo: Empresa" src="../image-28.png" /></p>
-</details>
-<div class="admonition quote">
-<ul>
-<li>EMPLEADO (<u>dni</u>, nombre, direccion, telefono, sueldo, fecha_n, <mark>departamento</mark>, <mark>supervisor</mark>)<ul>
-<li>FK: departamento-&gt;DEPARTAMENTO(num_d) <span class="tag-no-nulo">[no nulo]</span></li>
-<li>FK: supervisor-&gt;EMPLEADO(dni)</li>
-</ul>
-</li>
-<li>FAMILIAR (<u><mark>dni_e</mark>, nombre_f</u>, fecha_n, parentesco, ) <span class="tag-cascade">(borrar en cascada)</span><ul>
-<li>FK: dni_e-&gt;EMPLEADO(dni)</li>
-</ul>
-</li>
-<li>DEPARTAMENTO (<u>num_d</u>, nombre_d, <mark>director</mark>, fecha)<ul>
-<li>FK: director-&gt;EMPLEADO(dni) <span class="tag-no-nulo">[no nulo]</span> <span class="tag-unico">[unico]</span></li>
-</ul>
-</li>
-<li>PROYECTO (<u>num_p</u>, nombre_p, <mark>departamento</mark>)<ul>
-<li>FK: departamento-&gt;DEPARTAMENTO(num_d) <span class="tag-no-nulo">[no nulo]</span></li>
-</ul>
-</li>
-<li>TRABAJA (<u><mark>dni</mark>, <mark>num_p</mark></u>, horas)    <ul>
-<li>FK: dni-&gt;EMPLEADO(dni)</li>
-<li>FK: num_p-&gt;PROYECTO(num_p)</li>
-</ul>
-</li>
-</ul>
+<div class="admonition example">
+<p class="admonition-title">📝 Practica ahora</p>
+<p>Con lo visto hasta ahora ya puedes resolver los <strong>ejercicios 6 al 10</strong> de la sección <a href="../5_ejercicios/">Ejercicios</a>.</p>
 </div>
-<p>Y esta sería la forma alternativa de representarlo:</p>
-<p><img alt="alt text" src="../image-40.png" width="600" /></p>
-<p>Y teniendo en cuenta la especialización:</p>
-<details open="open">
-<summary>Ejemplo con especialización: Empresa</summary>
-<p><img alt="Ejemplo: Empresa" src="../image-30.png" /></p>
-</details>
-<div class="admonition quote">
-<ul>
-<li>EMPLEADO (<u>dni</u>, nombre, direccion, telefono, sueldo, fecha_n, <mark>departamento</mark>, <mark>supervisor</mark>)<ul>
-<li>FK: departamento-&gt;DEPARTAMENTO(num_d) <span class="tag-no-nulo">[no nulo]</span></li>
-<li>FK: supervisor-&gt;EMPLEADO(dni)</li>
-</ul>
-</li>
-<li>JEFE (<u><mark>dni</mark></u>, opinion) <span class="tag-cascade">(borrar en cascada)</span><ul>
-<li>FK: dni-&gt;EMPLEADO(dni)</li>
-</ul>
-</li>
-<li>TRABAJADOR  (<u><mark>dni</mark></u>, horas_extra)  <span class="tag-cascade">(borrar en cascada)</span><ul>
-<li>FK: dni-&gt;EMPLEADO(dni)     </li>
-</ul>
-</li>
-<li>FAMILIAR (<u><mark>dni_e</mark>, nombre_f</u>, fecha_n, parentesco, ) <span class="tag-cascade">(borrar en cascada)</span><ul>
-<li>FK: dni_e-&gt;EMPLEADO(dni)</li>
-</ul>
-</li>
-<li>DEPARTAMENTO (<u>num_d</u>, nombre_d, <mark>director</mark>, fecha)<ul>
-<li>FK: director-&gt;JEFE(dni) <span class="tag-no-nulo">[no nulo]</span> <span class="tag-unico">[unico]</span></li>
-</ul>
-</li>
-<li>PROYECTO (<u>num_p</u>, nombre_p, <mark>departamento</mark>)<ul>
-<li>FK: departamento-&gt;DEPARTAMENTO(num_d) <span class="tag-no-nulo">[no nulo]</span></li>
-</ul>
-</li>
-<li>TRABAJA (<u><mark>dni</mark>, <mark>num_p</mark></u>, horas)    <ul>
-<li>FK: dni-&gt;EMPLEADO(dni)</li>
-<li>FK: num_p-&gt;PROYECTO(num_p)</li>
-</ul>
-</li>
-</ul>
-</div>
-<p>Y aquí tendríamos la representación alternativa:</p>
-<p><img alt="alt text" src="../image-41.png" width="600" /></p>
 
 
 
@@ -2619,7 +2631,7 @@ Todos los departamentos tienen director (no nula) y solo uno (única), pero no t
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["toc.follow", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.instant", "navigation.instant.progress", "navigation.sections", "navigation.expand", "navigation.indexes", "navigation.tracking", "navigation.footer", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.tabs.link", "content.tooltips", "content.action.edit", "content.action.view", "header.autohide"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="../../javascripts/lightbox.js"></script>
       

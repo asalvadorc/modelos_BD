@@ -1,0 +1,23 @@
+ Tarea  a  realizar:  1.  Descomponer  la  tabla  en  nuevas  relaciones  que  cumplan  con  la  1FN,  2FN  y  3FN.  2.  Presentar  las  nuevas  tablas  resultantes  con  sus  claves  primarias  y  foráneas  en  el  modelo  relacional  siguiendo  la  represención  vista  en  clase.   SOLUCION  https://docs.google.com/document/d/1WmkbIgPGxSKbeqV714wbYEqKNaB1WOa2/edit?usp=sharing&ouid=108329299813415213898&rtpof=true&sd=true  
+EJERCICIO  4  -  EXPOSICIONES  
+ La  tabla  ORDENES  posee  la  información  siguiente:   
+ORDENES  
+codexp  codgal  nomgal  dirgal  cpgal  ciugal  fecha  codobra  nomobra  tip  dim  codaut  
+nomaut  
+ART024  ART  ARTACTUAL  C/  Enmig,  54  12001  Castelló  
+Del  1-12-2012  al  15-12-2012  GO-068  Bodegón  Óleo  60x40  GM  
+Gregori  Mifsud  
+ART024  ART  ARTACTUAL  C/  Enmig,  54  12001  Castelló  
+Del  1-12-2012  al  15-12-2012  GO-069  Bodegón  Óleo  50x30  GM  
+Gregori  Mifsud  
+ART024  ART  ARTACTUAL  C/  Enmig,  54  12001  Castelló  
+Del  1-12-2012  al  15-12-2012  GO-070  Paisaje  lunar  Óleo  
+100x50  GM  
+Gregori  Mifsud  
+ART024  ART  ARTACTUAL  C/  Enmig,  54  12001  Castelló  
+Del  1-12-2012  al  15-12-2012  RA-250  
+Estampa  antigua  
+Aquarela  40x30  RB  
+Ramon  Bernat  
+ 
+Dónde  se  obtiene  el  GRAFO  DEPENDENCIAS  FUNCIONALES  SIGUIENTE:  ●  CODEXP  ───►  FECHA,  CODGAL  ●  CODGAL  ───►  NOMGAL,  DIRGAL,  CPGAL,  CIUGAL  ●  CODOBR  ───►NOMOBR,  TIP,  DIM,  CODAUT  ●  CODAUT  ───►  NOMAUT  ●  CODEXP  +  CODOBR  ───►  (no  hay  atributos  dependientes,  pero  ambos  atributos  representa  la  relación  de  participación  en  la  exposición)  

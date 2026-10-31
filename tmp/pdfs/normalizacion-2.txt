@@ -1,0 +1,36 @@
+ SOLUCION  https://drive.google.com/file/d/1amreqFK_Al0LDhGasbhnmWtm8tYIKsoD/view?usp=drive_link  
+EJERCICIO  2  -  PEDIDOS  
+Dado  el  grafo  de  dependencias  funcionales  siguientes.  Expresa  el  resultado  de  la  normalización  
+de
+ 
+las
+ 
+tablas
+ 
+obtenidas
+   
+  Tarea  a  realizar:  1.  Descomponer  la  tabla  en  nuevas  relaciones  que  cumplan  con  la  1FN,  2FN  y  3FN.  2.  Presentar  las  nuevas  tablas  resultantes  con  sus  claves  primarias  y  foráneas  en  el  modelo  
+relacional
+ 
+siguiendo
+ 
+la
+ 
+represención
+ 
+vista
+ 
+en
+ 
+clase.
+  SOLUCION  https://drive.google.com/file/d/11ZGFMdHx5b7tgjR2ggvW9zOtw04XBvVi/view?usp=sharing 
+EJERCICIO  3  -  ÓRDENES  DE  PEDIDO  
+Dado  el  grafo  de  dependencias  funcionales  siguientes.  Expresa  el  resultado  de  la  normalización  
+de
+ 
+las
+ 
+tablas
+ 
+obtenidas
+ 

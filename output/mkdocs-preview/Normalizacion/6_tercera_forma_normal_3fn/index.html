@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../img/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -29,7 +29,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -996,6 +996,8 @@
       
         
       
+        
+      
     
     
     
@@ -1171,6 +1173,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Model_Relacional/Ejemplo_Empresa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Ejemplo completo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Model_Relacional/resumen/" class="md-nav__link">
         
   
@@ -1178,7 +1208,7 @@
   <span class="md-ellipsis">
     
   
-    5. Resumen
+    6. Resumen
   
 
     
@@ -1553,6 +1583,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#ejemplo-aplicado-empleados-departamentos-y-proyectos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ejemplo aplicado: empleados, departamentos y proyectos
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1748,6 +1789,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#ejemplo-aplicado-empleados-departamentos-y-proyectos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ejemplo aplicado: empleados, departamentos y proyectos
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1817,35 +1869,113 @@ Se dice que una tabla está en Tercera Forma Normal (3FN) cuando se cumplen dos 
 </div>
 </div>
 <p>Se hará una descomposición por cada dependencia transitiva que haya que afecte a campos distintos.</p>
-<p><strong><u>Ejemplo</u></strong></p>
-<div class="case-card">
-<p>Para el ejemplo de los atributos NUMMAT, GRUPO y AULAGRUPO tenemos el siguiente grafo:</p>
-<p><img alt="alt text" src="../image-47.png" width="650" /></p>
-<p>Una vez descompuesta la tabla, según el algoritmo anterior, tendremos dos tablas, que si sen encuentran en 3FN:</p>
-<p><img alt="alt text" src="../image-46.png" width="700" /></p>
-<p>De manera que la representación de las tablas al <strong>modelo relacional</strong> quedaría de la siguiente manera:</p>
-<div class="admonition quote">
+<h2 id="ejemplo-aplicado-empleados-departamentos-y-proyectos">Ejemplo aplicado: empleados, departamentos y proyectos</h2>
+<p>Continuamos el <a href="../3_dependencia_funcional/#ejemplo-empleados-departamentos-y-proyectos">ejemplo del apartado 3.3</a>, que ya hemos descompuesto en <a href="../4_segunda_forma_normal_2fn/#ejemplo-aplicado-empleados-departamentos-y-proyectos">segunda forma normal</a>:</p>
 <ul>
-<li>ALUMNOS (<u>nummat</u>, grupo)</li>
-<li>GRUPOS (<u>grupo</u>, aulagrupo)</li>
+<li><strong>TRABAJA (A, B, H)</strong>: DNI, Núm. proyecto, Horas semanales. Clave principal: <strong>A . B</strong>.</li>
+<li><strong>EMPLEADO (A, C, D, E, F)</strong>: DNI, Nombre empleado, Sueldo, Núm. departamento, Nombre departamento. Clave principal: <strong>A</strong>.</li>
+<li><strong>PROYECTO (B, G)</strong>: Núm. proyecto, Nombre proyecto. Clave principal: <strong>B</strong>; G es clave candidata porque el nombre del proyecto es único.</li>
+</ul>
+<h3 id="identificar-la-dependencia-transitiva">Identificar la dependencia transitiva</h3>
+<p>TRABAJA y PROYECTO ya están en 3FN. En EMPLEADO, en cambio, tenemos:</p>
+<p><strong>A → C | D | E</strong><br />
+<strong>E → F</strong><br />
+<strong>Por tanto, A → E → F</strong></p>
+<p>Es decir: <strong>DNI → Núm. departamento → Nombre departamento</strong>. El nombre del departamento depende de un atributo que no es clave de EMPLEADO. Ni E ni F identifican a un empleado, ya que varios empleados pueden pertenecer al mismo departamento.</p>
+<p><img alt="El DNI determina el número de departamento y este determina el nombre del departamento." src="../empleado-transitiva.svg" width="700" /></p>
+<p><strong>EMPLEADO no está en 3FN</strong>: el nombre del departamento se repite en las filas de sus empleados. Si el departamento 10 cambia de nombre, habría que modificar tanto la fila de Ana como la de Luis.</p>
+<h3 id="separar-los-datos-del-departamento">Separar los datos del departamento</h3>
+<p>Descomponemos EMPLEADO en dos tablas:</p>
+<ol>
+<li><strong>EMPLEADO (A, C, D, E)</strong> conserva el DNI, el nombre, el sueldo y el número de departamento del empleado.</li>
+<li><strong>DEPARTAMENTO (E, F)</strong> guarda una sola vez el número y el nombre de cada departamento. Elegimos E como clave principal; F también es clave candidata, porque el nombre del departamento es único.</li>
+</ol>
+<p>El atributo <strong>E (num-d)</strong> permanece en EMPLEADO como clave externa hacia DEPARTAMENTO. Así podemos consultar el nombre del departamento sin repetirlo en cada empleado.</p>
+<p><strong>Grafo resultante en 3FN</strong></p>
+<p><img alt="Tablas en 3FN: EMPLEADO con clave A determina C, D y E; DEPARTAMENTO relaciona E y F como claves candidatas; PROYECTO relaciona B y G como claves candidatas; TRABAJA con clave A y B determina H." src="../empresa-3fn.svg" width="760" /></p>
+<h3 id="modelo-relacional-en-3fn">Modelo relacional en 3FN</h3>
+<div class="admonition quote">
+<p class="admonition-title">Resultado completo</p>
+<ul>
+<li>EMPLEADO (<u>dni</u>, nombre, sueldo, num-d)<ul>
+<li>PK: dni</li>
+<li>FK: num-d → DEPARTAMENTO(num-d)</li>
+</ul>
+</li>
+<li>DEPARTAMENTO (<u>num-d</u>, nombre-d)<ul>
+<li>PK: num-d</li>
+<li>Clave candidata alternativa: nombre-d (único).</li>
+</ul>
+</li>
+<li>PROYECTO (<u>num-p</u>, nombre-p)<ul>
+<li>PK: num-p</li>
+<li>Clave candidata alternativa: nombre-p (único).</li>
+</ul>
+</li>
+<li>TRABAJA (<u>dni, num-p</u>, horas)<ul>
+<li>PK: (dni, num-p)</li>
+<li>FK: dni → EMPLEADO(dni)</li>
+<li>FK: num-p → PROYECTO(num-p)</li>
+</ul>
+</li>
 </ul>
 </div>
+<p>Con los datos del ejemplo, las dos tablas que resultan de este paso son:</p>
+<p><strong>EMPLEADO</strong></p>
+<table>
+<thead>
+<tr>
+<th>DNI (A)</th>
+<th>Nombre (C)</th>
+<th>Sueldo (D)</th>
+<th>Núm. departamento (E)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>12345678A</td>
+<td>Ana García López</td>
+<td>2400</td>
+<td>10</td>
+</tr>
+<tr>
+<td>87654321B</td>
+<td>Luis Pérez Ruiz</td>
+<td>2200</td>
+<td>10</td>
+</tr>
+<tr>
+<td>11223344C</td>
+<td>Marta Sánchez Gil</td>
+<td>2600</td>
+<td>20</td>
+</tr>
+</tbody>
+</table>
+<p><strong>DEPARTAMENTO</strong></p>
+<table>
+<thead>
+<tr>
+<th>Núm. departamento (E)</th>
+<th>Nombre departamento (F)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10</td>
+<td>Informática</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Administración</td>
+</tr>
+</tbody>
+</table>
+<p>TRABAJA y PROYECTO conservan las filas obtenidas en 2FN. Ahora basta con cambiar una sola fila de DEPARTAMENTO para actualizar su nombre. Podemos reconstruir la información anterior uniendo EMPLEADO y DEPARTAMENTO por <strong>num-d</strong>, sin perder datos.</p>
+<div class="admonition success">
+<p class="admonition-title">De la tabla inicial a la 3FN</p>
+<p>En <strong>2FN</strong> separamos los datos del empleado y del proyecto de las horas de participación, eliminando las dependencias parciales. En <strong>3FN</strong> separamos el nombre del departamento de los datos del empleado, eliminando la dependencia transitiva <strong>A → E → F</strong> dentro de EMPLEADO.</p>
 </div>
-<hr />
-<p><strong>Ejemplo del apartado 3.3</strong></p>
-<p>A continuación, se presenta un ejemplo completo que ilustra cómo identificar las dependencias transitivas y normalizar una tabla a la Tercera Forma Normal.</p>
-<div class="tables-side-by-side equal-height">
-<div>
-<p><img alt="alt text" src="../image-20.png" width="650" /></p>
-</div>
-<div>
-<p><strong>Grafo de dependencias</strong></p>
-<p><img alt="alt text" src="../image-42.png" width="650" /></p>
-</div>
-</div>
-<p>La solución quedaría así:</p>
-<p><img alt="alt text" src="../image-24.png" width="600" /></p>
-<p><img alt="alt text" src="../image-28.png" width="800" /></p>
 
 
 
@@ -1960,7 +2090,7 @@ Se dice que una tabla está en Tercera Forma Normal (3FN) cuando se cumplen dos 
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["toc.follow", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.instant", "navigation.instant.progress", "navigation.sections", "navigation.expand", "navigation.indexes", "navigation.tracking", "navigation.footer", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.tabs.link", "content.tooltips", "content.action.edit", "content.action.view", "header.autohide"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="../../javascripts/lightbox.js"></script>
       

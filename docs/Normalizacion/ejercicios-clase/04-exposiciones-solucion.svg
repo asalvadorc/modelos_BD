@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1060" height="1320" viewBox="0 0 1060 1320" role="img" aria-labelledby="title desc">
+<title id="title">Exposiciones: solución en tercera forma normal</title>
+<desc id="desc">Cinco tablas con sus claves primarias y dependencias: GALERIA, EXPOSICION, AUTOR, OBRA y PARTICIPA. PARTICIPA solo contiene las dos claves externas que identifican la participación.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#2f4fb0"/></marker></defs>
+<rect width="1060" height="1320" rx="16" fill="white"/>
+<g font-family="Segoe UI,Arial,sans-serif" text-anchor="middle" fill="#172554">
+<text x="530" y="36" font-size="25" font-weight="700">Exposiciones · Solución en 3FN</text>
+<text x="530" y="65" font-size="17">Recuadro azul: clave primaria · Flechas: dependencias funcionales</text>
+<rect x="20" y="86" width="1020" height="266" rx="12" fill="#f8faff" stroke="#d8e1f1"/>
+<text x="530" y="114" font-size="22" font-weight="700">GALERIA</text>
+<rect x="44" y="179.0" width="320" height="86" rx="10" fill="#e9eff9" stroke="#2f4fb0" stroke-width="2.5"/>
+<text x="204" y="230.0" font-size="24" font-weight="700">codgal</text>
+<rect x="576" y="134" width="420" height="36" rx="8" fill="white" stroke="#172554" stroke-width="2"/>
+<text x="786" y="159" font-size="21">nomgal</text>
+<path d="M364 222.0H470V152H574" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="576" y="178" width="420" height="36" rx="8" fill="white" stroke="#172554" stroke-width="2"/>
+<text x="786" y="203" font-size="21">dirgal</text>
+<path d="M364 222.0H470V196H574" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="576" y="222" width="420" height="36" rx="8" fill="white" stroke="#172554" stroke-width="2"/>
+<text x="786" y="247" font-size="21">cpgal</text>
+<path d="M364 222.0H470V240H574" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="576" y="266" width="420" height="36" rx="8" fill="white" stroke="#172554" stroke-width="2"/>
+<text x="786" y="291" font-size="21">ciugal</text>
+<path d="M364 222.0H470V284H574" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="530" y="330" font-size="17">Cada galería se identifica por codgal.</text>
+<rect x="20" y="368" width="1020" height="194" rx="12" fill="#f8faff" stroke="#d8e1f1"/>
+<text x="530" y="396" font-size="22" font-weight="700">EXPOSICION</text>
+<rect x="44" y="417.0" width="320" height="86" rx="10" fill="#e9eff9" stroke="#2f4fb0" stroke-width="2.5"/>
+<text x="204" y="468.0" font-size="24" font-weight="700">codexp</text>
+<rect x="576" y="416" width="420" height="36" rx="8" fill="white" stroke="#172554" stroke-width="2"/>
+<text x="786" y="441" font-size="21">fecha</text>
+<path d="M364 460.0H470V434H574" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="576" y="460" width="420" height="36" rx="8" fill="white" stroke="#172554" stroke-width="2"/>
+<text x="786" y="485" font-size="21">codgal (FK)</text>
+<path d="M364 460.0H470V478H574" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="530" y="540" font-size="17">FK: codgal → GALERIA(codgal)</text>
+<rect x="20" y="578" width="1020" height="178" rx="12" fill="#f8faff" stroke="#d8e1f1"/>
+<text x="530" y="606" font-size="22" font-weight="700">AUTOR</text>
+<rect x="44" y="621.0" width="320" height="86" rx="10" fill="#e9eff9" stroke="#2f4fb0" stroke-width="2.5"/>
+<text x="204" y="672.0" font-size="24" font-weight="700">codaut</text>
+<rect x="576" y="626" width="420" height="36" rx="8" fill="white" stroke="#172554" stroke-width="2"/>
+<text x="786" y="651" font-size="21">nomaut</text>
+<path d="M364 664.0H470V644H574" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="530" y="734" font-size="17">Cada autor se identifica por codaut.</text>
+<rect x="20" y="772" width="1020" height="266" rx="12" fill="#f8faff" stroke="#d8e1f1"/>
+<text x="530" y="800" font-size="22" font-weight="700">OBRA</text>
+<rect x="44" y="865.0" width="320" height="86" rx="10" fill="#e9eff9" stroke="#2f4fb0" stroke-width="2.5"/>
+<text x="204" y="916.0" font-size="24" font-weight="700">codobr</text>
+<rect x="576" y="820" width="420" height="36" rx="8" fill="white" stroke="#172554" stroke-width="2"/>
+<text x="786" y="845" font-size="21">nomobr</text>
+<path d="M364 908.0H470V838H574" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="576" y="864" width="420" height="36" rx="8" fill="white" stroke="#172554" stroke-width="2"/>
+<text x="786" y="889" font-size="21">tip</text>
+<path d="M364 908.0H470V882H574" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="576" y="908" width="420" height="36" rx="8" fill="white" stroke="#172554" stroke-width="2"/>
+<text x="786" y="933" font-size="21">dim</text>
+<path d="M364 908.0H470V926H574" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="576" y="952" width="420" height="36" rx="8" fill="white" stroke="#172554" stroke-width="2"/>
+<text x="786" y="977" font-size="21">codaut (FK)</text>
+<path d="M364 908.0H470V970H574" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="530" y="1016" font-size="17">FK: codaut → AUTOR(codaut)</text>
+<rect x="20" y="1054" width="1020" height="238" rx="12" fill="#f8faff" stroke="#d8e1f1"/>
+<text x="530" y="1082" font-size="22" font-weight="700">PARTICIPA</text>
+<rect x="44" y="1097.0" width="320" height="86" rx="10" fill="#e9eff9" stroke="#2f4fb0" stroke-width="2.5"/>
+<text x="204" y="1134.0" font-size="24" font-weight="700">codexp (FK)</text>
+<text x="204" y="1162.0" font-size="24" font-weight="700">codobr (FK)</text>
+<text x="735" y="1140.0" font-size="20">Asociación exposición–obra</text>
+<text x="735" y="1170.0" font-size="18">Sin atributos adicionales</text>
+<text x="530" y="1246" font-size="17">FK: codexp → EXPOSICION(codexp)</text>
+<text x="530" y="1270" font-size="17">FK: codobr → OBRA(codobr)</text>
+</g></svg>

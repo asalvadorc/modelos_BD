@@ -1,0 +1,10 @@
+ En  representación  gráfica  SERÍA:   
+  Tarea  a  realizar:  1.  Descomponer  la  tabla  en  nuevas  relaciones  que  cumplan  con  la  1FN,  2FN  y  3FN.  2.  Presentar  las  nuevas  tablas  resultantes  con  sus  claves  primarias  y  foráneas  en  el  modelo  relacional  siguiendo  la  represención  vista  en  clase.  
+EJERCICIOS  DE  NORMALIZACIÓN  DESDE  TABLAS  
+EJERCICIO  4  -  TRABAJADOR  
+Se  dispone  de  la  siguiente  tabla  no  normalizada  que  almacena  información  sobre  los  trabajadores  de  una  empresa:   TRABAJADOR  
+nss  nombre  apellidos  puesto  salario  emails  
+111  Juan   Pérez  Arias  Jefe  de  Área  3000  juanp@ecn.es;  jefe2@ecn.es  
+222  José   Sánchez  Ramos   
+Administrativo  1500  juanp@ecn.es;  jefe2@ecn.es  
+333  Ana   Díaz  Ruiz  Administrativo  1500  adiaz@ecn.es;  ana32@gmail.com   Objetivo :   Aplicar  el  proceso  de  normalización  hasta  alcanzar  la  Tercera  Forma  Normal  (3FN),  eliminando  redundancias  y  garantizando  la  integridad  de  los  datos.   

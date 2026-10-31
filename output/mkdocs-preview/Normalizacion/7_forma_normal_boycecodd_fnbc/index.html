@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../img/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -29,7 +29,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -996,6 +996,8 @@
       
         
       
+        
+      
     
     
     
@@ -1171,6 +1173,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Model_Relacional/Ejemplo_Empresa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Ejemplo completo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Model_Relacional/resumen/" class="md-nav__link">
         
   
@@ -1178,7 +1208,7 @@
   <span class="md-ellipsis">
     
   
-    5. Resumen
+    6. Resumen
   
 
     
@@ -1797,8 +1827,13 @@ Una tabla está en <b>FNBC</b> cuando todas las dependencias funcionales tienen 
 <div class="admonition quote">
 <ul>
 <li>GUIA-DIRECCIÓN(<u>dirección, codpos</u>)</li>
-<li>GUIA-CODPOST(<u>codpost&lt;/u, ciudad)</li>
+<li>GUIA-CODPOST(<u>codpost</u>, ciudad)</li>
 </ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nuestro ejemplo de empresa ya está en FNBC</p>
+<p>Las cuatro tablas obtenidas al <a href="../6_tercera_forma_normal_3fn/#modelo-relacional-en-3fn">aplicar la 3FN</a> —<strong>EMPLEADO, DEPARTAMENTO, PROYECTO y TRABAJA</strong>— también cumplen la FNBC: en todas sus dependencias funcionales no triviales, el determinante es una superclave.</p>
+<p>En EMPLEADO, el DNI determina los demás atributos; en TRABAJA, lo hace la pareja DNI y número de proyecto. En DEPARTAMENTO y PROYECTO, tanto el número como el nombre son claves candidatas, porque sus nombres son únicos según las reglas del ejemplo. Por tanto, <strong>no es necesario descomponer más las tablas</strong>: el paso a 3FN ya nos ha dejado este ejemplo en FNBC.</p>
 </div>
 
 
@@ -1914,7 +1949,7 @@ Una tabla está en <b>FNBC</b> cuando todas las dependencias funcionales tienen 
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["toc.follow", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.instant", "navigation.instant.progress", "navigation.sections", "navigation.expand", "navigation.indexes", "navigation.tracking", "navigation.footer", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.tabs.link", "content.tooltips", "content.action.edit", "content.action.view", "header.autohide"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="../../javascripts/lightbox.js"></script>
       

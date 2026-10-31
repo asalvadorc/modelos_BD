@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../img/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -29,7 +29,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -994,6 +994,8 @@
       
         
       
+        
+      
     
     
     
@@ -1169,6 +1171,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Model_Relacional/Ejemplo_Empresa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Ejemplo completo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Model_Relacional/resumen/" class="md-nav__link">
         
   
@@ -1176,7 +1206,7 @@
   <span class="md-ellipsis">
     
   
-    5. Resumen
+    6. Resumen
   
 
     
@@ -1880,10 +1910,10 @@ Cada DNI tiene un único NOMBRE y viceversa.</p>
 </div>
 <h3 id="dependencia-sobre-conjunto-de-atributos">Dependencia sobre Conjunto de Atributos</h3>
 <div class="admonition example">
-<p class="admonition-title">DNI . EMPRESA → SUELDO</p>
-<p>Un empleado tiene múltiples sueldos (uno por empresa).
-Solo DNI + EMPRESA juntos determinan SUELDO único.
-DNI solo NO determina SUELDO.</p>
+<p class="admonition-title">DNI . NÚM. PROYECTO → HORAS</p>
+<p>Un empleado puede trabajar en varios proyectos, con unas horas semanales en cada uno.
+Solo DNI + NÚM. PROYECTO juntos determinan las HORAS de esa participación.
+DNI solo NO determina las HORAS, ni tampoco el número de proyecto por separado.</p>
 </div>
 <hr />
 <h2 id="notacion">Notación</h2>
@@ -1918,16 +1948,16 @@ Una dependencia funcional es total cuando un atributo depende de todos los atrib
 <h3 id="ejemplo-de-dependencia-parcial">Ejemplo de Dependencia Parcial</h3>
 <div class="admonition warning">
 <p class="admonition-title">Dependencia Parcial (NO deseable)</p>
-<p><strong>DNI . EMPRESA → NOMBRE</strong></p>
-<p>NOMBRE solo depende de DNI, no de EMPRESA.
+<p><strong>DNI . NÚM. PROYECTO → NOMBRE</strong></p>
+<p>NOMBRE solo depende de DNI; no necesita el NÚM. PROYECTO.
 Esta es una <strong>dependencia parcial</strong> (unos atributos son irrelevantes).</p>
 </div>
 <h3 id="ejemplo-de-dependencia-total">Ejemplo de Dependencia Total</h3>
 <div class="admonition success">
 <p class="admonition-title">Dependencia Funcional Total (deseable)</p>
-<p><strong>DNI . EMPRESA → SUELDO</strong></p>
-<p>SUELDO requiere tanto DNI como EMPRESA.
-Sin EMPRESA, no se puede determinar SUELDO.</p>
+<p><strong>DNI . NÚM. PROYECTO → HORAS</strong></p>
+<p>Las HORAS semanales requieren tanto el DNI como el NÚM. PROYECTO.
+Sin conocer el empleado y el proyecto juntos, no se pueden determinar las HORAS de esa participación.</p>
 </div>
 <hr />
 <h2 id="33-grafo-de-dependencias-funcionales">3.3 Grafo de Dependencias Funcionales</h2>
@@ -1974,29 +2004,110 @@ Sin EMPRESA, no se puede determinar SUELDO.</p>
 <li>Qué dependencias son parciales o totales</li>
 <li>La cohesión de los datos</li>
 </ul>
-<h3 id="ejemplo">Ejemplo</h3>
-<p><img alt="" src="../image-1.png" /></p>
-<p>Esta tabla refleja un conjunto de pedidos y cumple con las dependencias funcionales especificadas:</p>
+<h3 id="ejemplo-empleados-departamentos-y-proyectos">Ejemplo: empleados, departamentos y proyectos</h3>
+<p>Retomamos la empresa del <a href="../../Model_E-R/2_ejemplo/">modelo E/R</a> y del <a href="../../Model_Relacional/3_transformacion_del_m_er_al_m_relacional/">modelo relacional</a>. Para estudiar sus dependencias, reunimos en una tabla <strong>EMPLEADO</strong> los datos del empleado, el departamento al que pertenece y los proyectos en los que trabaja.</p>
+<p>Cada fila representa la participación de un empleado en un proyecto. Un empleado puede participar en varios proyectos y cada participación tiene sus propias horas semanales. El departamento indicado es <strong>el del empleado</strong>; no tiene por qué ser el departamento que controla el proyecto.</p>
+<p><strong>EMPLEADO</strong></p>
+<div class="empleado-table-fit">
+<table>
+<thead>
+<tr>
+<th>DNI</th>
+<th>Núm. proyecto</th>
+<th>Nombre empleado</th>
+<th>Sueldo (€)</th>
+<th>Núm. departamento</th>
+<th>Nombre departamento</th>
+<th>Nombre proyecto</th>
+<th>Horas semanales</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>12345678A</td>
+<td>101</td>
+<td>Ana García López</td>
+<td>2400</td>
+<td>10</td>
+<td>Informática</td>
+<td>Portal web</td>
+<td>20</td>
+</tr>
+<tr>
+<td>12345678A</td>
+<td>102</td>
+<td>Ana García López</td>
+<td>2400</td>
+<td>10</td>
+<td>Informática</td>
+<td>App móvil</td>
+<td>15</td>
+</tr>
+<tr>
+<td>87654321B</td>
+<td>101</td>
+<td>Luis Pérez Ruiz</td>
+<td>2200</td>
+<td>10</td>
+<td>Informática</td>
+<td>Portal web</td>
+<td>30</td>
+</tr>
+<tr>
+<td>11223344C</td>
+<td>102</td>
+<td>Marta Sánchez Gil</td>
+<td>2600</td>
+<td>20</td>
+<td>Administración</td>
+<td>App móvil</td>
+<td>10</td>
+</tr>
+<tr>
+<td>11223344C</td>
+<td>103</td>
+<td>Marta Sánchez Gil</td>
+<td>2600</td>
+<td>20</td>
+<td>Administración</td>
+<td>Gestión interna</td>
+<td>25</td>
+</tr>
+<tr>
+<td><strong>A</strong></td>
+<td><strong>B</strong></td>
+<td><strong>C</strong></td>
+<td><strong>D</strong></td>
+<td><strong>E</strong></td>
+<td><strong>F</strong></td>
+<td><strong>G</strong></td>
+<td><strong>H</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Las letras de la última fila identifican los atributos, en orden alfabético, para simplificar la notación del grafo.</p>
+<p>Elegimos <strong>A . B (DNI, Núm. proyecto)</strong> como clave principal. Las dependencias se deducen de las reglas de la empresa, no solo de los valores de estas filas:</p>
 <ul>
-<li>A,B,C→M,S: La combinación del <strong>ID Cliente, Región e ID Producto</strong> determina de manera única el <strong>ID Pedido y la Fecha de Pedido</strong>. </li>
-<li>M→N: Cada <strong>ID de Pedido</strong> tiene una cantidad asociada (<strong>Cantidad</strong>). </li>
-<li>B,C→O,R: La combinación de <strong>Región e ID Producto</strong> determina de manera única el <strong>Nombre del Producto y el Precio Unitario</strong> (puede variar según la región). </li>
-<li>O→P: El <strong>Nombre del Producto</strong> determina su <strong>Categoría</strong>. </li>
-<li>C→Q: El <strong>ID de Producto</strong> determina el <strong>Impuesto por Región</strong>, ya que depende del tipo de producto. </li>
+<li><strong>A . B → H</strong>: la combinación de <strong>DNI y número de proyecto</strong> determina las <strong>horas semanales</strong>. Es una dependencia total: ni el empleado ni el proyecto por separado determinan las horas de una participación.</li>
+<li><strong>A → C | D | E</strong>: el <strong>DNI</strong> determina el <strong>nombre, sueldo y departamento del empleado</strong>. Son dependencias parciales respecto a la clave compuesta A . B.</li>
+<li><strong>E → F</strong>: el <strong>número de departamento</strong> determina su <strong>nombre</strong>. Por tanto, A → E → F es una dependencia transitiva.</li>
+<li><strong>B → G</strong>: el <strong>número de proyecto</strong> determina su <strong>nombre</strong>. Es otra dependencia parcial respecto a A . B.</li>
+<li>Como en el ejemplo de empresa los nombres de departamentos y proyectos son únicos, también se cumplen <strong>F → E</strong> y <strong>G → B</strong>. Se representan con flechas bidireccionales. Por ello, <strong>A . G</strong> también es una clave candidata.</li>
 </ul>
 <div class="tables-side-by-side">
 <div>
 <p><strong>Dependencias</strong></p>
-<p><strong>A . B . C</strong> →<strong>M | S</strong><br />
-<strong>M</strong> →<strong>N</strong><br />
-<strong>B . C</strong> →<strong>O | R</strong><br />
-<strong>O</strong> →<strong>P</strong><br />
-<strong>C</strong> →<strong>Q</strong><br />
-<strong>(clave = A . B . C)</strong></p>
+<p><strong>A . B</strong> → <strong>H</strong><br />
+<strong>A</strong> → <strong>C | D | E</strong><br />
+<strong>E</strong> ↔ <strong>F</strong><br />
+<strong>B</strong> ↔ <strong>G</strong><br />
+<strong>(clave principal = A . B)</strong></p>
+<p>La clave principal determina todos los atributos. El grafo destaca las dependencias que permiten analizar la normalización, sin dibujar todas las que se deducen de ellas.</p>
 </div>
 <div>
 <p><strong>Grafo asociado</strong></p>
-<p><img alt="Grafo asociado" src="../image-4.png" width="400" /></p>
+<p><img alt="Grafo de EMPLEADO: A y B forman la clave; A determina C, D y E; E y F se determinan mutuamente; B y G se determinan mutuamente; A y B juntos determinan H." src="../empleado-dependencias.svg" width="560" /></p>
 </div>
 </div>
 
@@ -2106,7 +2217,7 @@ Sin EMPRESA, no se puede determinar SUELDO.</p>
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["toc.follow", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.instant", "navigation.instant.progress", "navigation.sections", "navigation.expand", "navigation.indexes", "navigation.tracking", "navigation.footer", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.tabs.link", "content.tooltips", "content.action.edit", "content.action.view", "header.autohide"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="../../javascripts/lightbox.js"></script>
       

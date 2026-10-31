@@ -132,8 +132,51 @@ En este caso, la tabla queda en 1FN porque cada atributo almacena un único dato
 
 </div>
 
+## Ejemplo aplicado: los teléfonos de los empleados
 
+Retomamos la empresa de los temas de modelo E/R y modelo relacional. Un empleado puede tener varios teléfonos. Para centrarnos en la 1FN, mostramos solo el DNI, el nombre y los teléfonos.
 
+### Antes de aplicar la 1FN
 
+| DNI | Nombre empleado | Teléfonos |
+|-----|-----------------|-----------|
+| 12345678A | Ana García López | 612345678, 698765432 |
+| 87654321B | Luis Pérez Ruiz | 623456789 |
+| 11223344C | Marta Sánchez Gil | 634567890, 645678901 |
 
+La tabla **no está en 1FN**, porque algunas celdas de Teléfonos contienen varios valores. Tampoco lo resolveríamos creando columnas Teléfono1, Teléfono2, etc.: formarían un grupo repetitivo y limitarían el número de teléfonos que podemos guardar.
 
+### Aplicar la 1FN
+
+Separamos los teléfonos de los datos del empleado. En TELEFONO_EMPLEADO guardamos **una fila por cada teléfono de un empleado**.
+
+**EMPLEADO**
+
+| DNI | Nombre empleado |
+|-----|-----------------|
+| 12345678A | Ana García López |
+| 87654321B | Luis Pérez Ruiz |
+| 11223344C | Marta Sánchez Gil |
+
+**TELEFONO_EMPLEADO**
+
+| DNI | Teléfono |
+|-----|----------|
+| 12345678A | 612345678 |
+| 12345678A | 698765432 |
+| 87654321B | 623456789 |
+| 11223344C | 634567890 |
+| 11223344C | 645678901 |
+
+En el **modelo relacional**:
+
+!!! quote "Resultado en 1FN"
+    - EMPLEADO (<u>dni</u>, nombre)
+        - PK: dni
+    - TELEFONO_EMPLEADO (<u>dni, telefono</u>)
+        - PK: (dni, telefono)
+        - FK: dni → EMPLEADO(dni)
+
+El DNI por sí solo no identifica una fila de TELEFONO_EMPLEADO, porque un empleado puede tener varios teléfonos. Tampoco suponemos que el teléfono sea único entre empleados: por ejemplo, dos empleados podrían compartir un número. Por eso usamos **DNI + Teléfono** como clave principal.
+
+Ahora cada celda contiene un único valor y ambas tablas están en **1FN**. Podemos añadir nuevos teléfonos como filas, sin añadir columnas ni repetir el nombre del empleado.

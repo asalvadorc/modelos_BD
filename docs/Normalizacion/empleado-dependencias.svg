@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="470" viewBox="0 0 820 470" role="img" aria-labelledby="title desc">
+<title id="title">Dependencias funcionales de EMPLEADO</title>
+<desc id="desc">A y B aparecen una sola vez dentro del recuadro de la clave principal. Del recuadro completo sale la dependencia hacia H. De A salen flechas hacia C, D y E; de B sale una flecha bidireccional hacia G. E y F se determinan mutuamente.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2f4fb0"/></marker></defs>
+<rect width="820" height="470" rx="12" fill="white"/>
+<g font-family="Segoe UI,Arial,sans-serif" text-anchor="middle" fill="#172554">
+<text x="410" y="32" font-size="21" font-weight="700">EMPLEADO · Dependencias funcionales</text>
+<rect x="22" y="66" width="252" height="360" rx="18" fill="#e9eff9" stroke="#2f4fb0" stroke-width="3"/>
+<text x="148" y="101" font-size="20" font-weight="700">Clave principal</text>
+<text x="148" y="222" font-size="28" font-weight="700">A</text>
+<text x="148" y="249" font-size="16">DNI</text>
+<text x="148" y="383" font-size="28" font-weight="700">B</text>
+<text x="148" y="410" font-size="16">Núm. proyecto</text>
+<rect x="368" y="78" width="210" height="74" rx="9" fill="white" stroke="#172554" stroke-width="2.5"/>
+<text x="473" y="107" font-size="23" font-weight="700">H</text><text x="473" y="132" font-size="16">Horas semanales</text>
+<rect x="368" y="174" width="160" height="42" rx="9" fill="white" stroke="#172554" stroke-width="2.5"/>
+<text x="396" y="202" font-size="23" font-weight="700">C</text><text x="469" y="201" font-size="16">Nombre</text>
+<rect x="368" y="226" width="160" height="42" rx="9" fill="white" stroke="#172554" stroke-width="2.5"/>
+<text x="396" y="254" font-size="23" font-weight="700">D</text><text x="469" y="253" font-size="16">Sueldo</text>
+<rect x="368" y="286" width="160" height="58" rx="9" fill="white" stroke="#172554" stroke-width="2.5"/>
+<text x="448" y="312" font-size="23" font-weight="700">E</text><text x="448" y="335" font-size="16">Núm. dpto.</text>
+<rect x="626" y="286" width="174" height="58" rx="9" fill="white" stroke="#172554" stroke-width="2.5"/>
+<text x="713" y="312" font-size="23" font-weight="700">F</text><text x="713" y="335" font-size="16">Nombre dpto.</text>
+<rect x="368" y="356" width="210" height="66" rx="9" fill="white" stroke="#172554" stroke-width="2.5"/>
+<text x="473" y="385" font-size="23" font-weight="700">G</text><text x="473" y="410" font-size="16">Nombre proyecto</text>
+<g fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)">
+<path d="M274 115H366"/>
+<path d="M163 212H306V195H366"/>
+<path d="M306 212V247H366"/>
+<path d="M306 247V315H366"/>
+<path d="M530 315H624" marker-start="url(#arrow)"/>
+<path d="M164 376H310V389H366" marker-start="url(#arrow)"/>
+</g>
+<text x="410" y="456" font-size="15">Del recuadro: clave completa. De un atributo: dependencia parcial.</text>
+</g></svg>

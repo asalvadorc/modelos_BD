@@ -1,0 +1,11 @@
+200  Ana  Rodríguez  Ferrer  
+C/San  Martín  840,  Santiago  
+78342367  
+analítica  
+a5  ingeniería  comercial   
+Tareas  a  realizar  
+1.  Analiza  la  tabla  original.   a)  Indica  qué  problemas  de  diseño  observas  (redundancias,  valores  repetidos,  dependencias,  etc.).   b)  Identiﬁca  las  dependencias  funcionales  existentes  entre  los  atributo  2.  Determina  la  clave  primaria  de  la  tabla  original  y  justiﬁca  tu  elección.  3.  Aplica  el  proceso  de  normalización  paso  a  paso  hasta  alcanzar  la  Tercera  Forma  Normal  (3FN)  4.  Indica  el  nombre  de  las  nuevas  tablas  resultantes,  sus  atributos  y  las  claves  primarias  (PK)  y  foráneas  (FK).  
+SOLUCIÓN  
+https://docs.google.com/document/d/1Zb6O3rUlgu9XQJYKJhXOJRW5HOpO197L7i4MFQgenWc/edit?usp=sharing 
+NO  CUMPLE  LA  1FN  POR  TENER  CAMPO  direccion  (COMPUESTO,  DIVIDIR  EN  DIRECCION  Y  LOCALIDAD)  Y   GRUPOS  REPETITIVOS.  
+ 

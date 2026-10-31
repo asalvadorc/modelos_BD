@@ -98,6 +98,9 @@ De manera que la representación de las tablas al **modelo relacional** quedarí
 
 !!! quote ""
     - GUIA-DIRECCIÓN(<u>dirección, codpos</u>)
-    - GUIA-CODPOST(<u>codpost</u, ciudad)
+    - GUIA-CODPOST(<u>codpost</u>, ciudad)
 
+!!! note "Nuestro ejemplo de empresa ya está en FNBC"
+    Las cuatro tablas obtenidas al [aplicar la 3FN](6_tercera_forma_normal_3fn.md#modelo-relacional-en-3fn) —**EMPLEADO, DEPARTAMENTO, PROYECTO y TRABAJA**— también cumplen la FNBC: en todas sus dependencias funcionales no triviales, el determinante es una superclave.
 
+    En EMPLEADO, el DNI determina los demás atributos; en TRABAJA, lo hace la pareja DNI y número de proyecto. En DEPARTAMENTO y PROYECTO, tanto el número como el nombre son claves candidatas, porque sus nombres son únicos según las reglas del ejemplo. Por tanto, **no es necesario descomponer más las tablas**: el paso a 3FN ya nos ha dejado este ejemplo en FNBC.

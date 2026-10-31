@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Resumen
 
 ![](image-27.png)
