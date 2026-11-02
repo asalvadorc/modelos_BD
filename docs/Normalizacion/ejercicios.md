@@ -71,30 +71,21 @@ Las relaciones representadas por los grafos ya se encuentran en **1FN**. Normali
 
 ## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 4</span></span>
 
-La tabla ORDENES contiene información sobre las exposiciones, las galerías, las obras expuestas y sus autores.
+La tabla EXPOSICIONES contiene información sobre las exposiciones, las galerías, las obras expuestas y sus autores.  Normaliza paso a paso hasta 3FN.
 
-<div class="normalizacion-exercise-table" markdown>
+<div class="normalizacion-exercise-table exposiciones-table" markdown>
 
 | codexp | codgal | nomgal | dirgal | cpgal | ciugal | fecha | codobr | nomobr | tip | dim | codaut | nomaut |
 |--------|--------|--------|--------|-------|--------|-------|--------|--------|-----|-----|--------|--------|
-| ART024 | ART | ARTACTUAL | C/ Enmig, 54 | 12001 | Castelló | Del 1-12-2012 al 15-12-2012 | GO-068 | Bodegón | Óleo | 60x40 | GM | Gregori Mifsud |
-| ART024 | ART | ARTACTUAL | C/ Enmig, 54 | 12001 | Castelló | Del 1-12-2012 al 15-12-2012 | GO-069 | Bodegón | Óleo | 50x30 | GM | Gregori Mifsud |
-| ART024 | ART | ARTACTUAL | C/ Enmig, 54 | 12001 | Castelló | Del 1-12-2012 al 15-12-2012 | GO-070 | Paisaje lunar | Óleo | 100x50 | GM | Gregori Mifsud |
-| ART024 | ART | ARTACTUAL | C/ Enmig, 54 | 12001 | Castelló | Del 1-12-2012 al 15-12-2012 | RA-250 | Estampa antigua | Aquarela | 40x30 | RB | Ramon Bernat |
+| ART024 | ART | ARTACTUAL | C/ Enmig, 54 | 12001 | Castelló | Del 1-12-2012<br>al 15-12-2012 | GO-068 | Bodegón | Óleo | 60x40 | GM | Gregori<br>Mifsud |
+| ART024 | ART | ARTACTUAL | C/ Enmig, 54 | 12001 | Castelló | Del 1-12-2012<br>al 15-12-2012 | GO-069 | Bodegón | Óleo | 50x30 | GM | Gregori<br>Mifsud |
+| ART024 | ART | ARTACTUAL | C/ Enmig, 54 | 12001 | Castelló | Del 1-12-2012<br>al 15-12-2012 | GO-070 | Paisaje lunar | Óleo | 100x50 | GM | Gregori<br>Mifsud |
+| ART024 | ART | ARTACTUAL | C/ Enmig, 54 | 12001 | Castelló | Del 1-12-2012<br>al 15-12-2012 | RA-250 | Estampa antigua | Aquarela | 40x30 | RB | Ramon<br>Bernat |
 
 </div>
 
-Se conocen las siguientes dependencias funcionales:
+La clave principal es (codexp, codobr): una exposición puede incluir varias obras y una obra puede participar en distintas exposiciones.
 
-* **codexp → fecha, codgal**.
-* **codgal → nomgal, dirgal, cpgal, ciugal**.
-* **codobr → nomobr, tip, dim, codaut**.
-* **codaut → nomaut**.
-* La pareja **codexp + codobr** identifica la participación de una obra en una exposición, aunque no tiene otros atributos propios.
-
-![Grafo de dependencias de exposiciones.](ejercicios-clase/04-exposiciones-grafo.png){ width=700 }
-
-Descompón la tabla hasta 3FN y presenta el modelo relacional con sus PK y FK. Utiliza las dependencias indicadas en el enunciado.
 
 
 ## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 5</span></span>

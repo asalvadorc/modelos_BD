@@ -173,16 +173,16 @@ hide:
 
 ??? success "Ejercicio 4. Exposiciones"
 
-    **Tabla original ORDENES**
+    **Tabla original EXPOSICIONES**
 
-    <div class="normalizacion-exercise-table" markdown>
+    <div class="normalizacion-exercise-table exposiciones-table" markdown>
 
     | codexp | codgal | nomgal | dirgal | cpgal | ciugal | fecha | codobr | nomobr | tip | dim | codaut | nomaut |
     |--------|--------|--------|--------|-------|--------|-------|--------|--------|-----|-----|--------|--------|
-    | ART024 | ART | ARTACTUAL | C/ Enmig, 54 | 12001 | Castelló | Del 1-12-2012 al 15-12-2012 | GO-068 | Bodegón | Óleo | 60x40 | GM | Gregori Mifsud |
-    | ART024 | ART | ARTACTUAL | C/ Enmig, 54 | 12001 | Castelló | Del 1-12-2012 al 15-12-2012 | GO-069 | Bodegón | Óleo | 50x30 | GM | Gregori Mifsud |
-    | ART024 | ART | ARTACTUAL | C/ Enmig, 54 | 12001 | Castelló | Del 1-12-2012 al 15-12-2012 | GO-070 | Paisaje lunar | Óleo | 100x50 | GM | Gregori Mifsud |
-    | ART024 | ART | ARTACTUAL | C/ Enmig, 54 | 12001 | Castelló | Del 1-12-2012 al 15-12-2012 | RA-250 | Estampa antigua | Aquarela | 40x30 | RB | Ramon Bernat |
+    | ART024 | ART | ARTACTUAL | C/ Enmig, 54 | 12001 | Castelló | Del 1-12-2012<br>al 15-12-2012 | GO-068 | Bodegón | Óleo | 60x40 | GM | Gregori<br>Mifsud |
+    | ART024 | ART | ARTACTUAL | C/ Enmig, 54 | 12001 | Castelló | Del 1-12-2012<br>al 15-12-2012 | GO-069 | Bodegón | Óleo | 50x30 | GM | Gregori<br>Mifsud |
+    | ART024 | ART | ARTACTUAL | C/ Enmig, 54 | 12001 | Castelló | Del 1-12-2012<br>al 15-12-2012 | GO-070 | Paisaje lunar | Óleo | 100x50 | GM | Gregori<br>Mifsud |
+    | ART024 | ART | ARTACTUAL | C/ Enmig, 54 | 12001 | Castelló | Del 1-12-2012<br>al 15-12-2012 | RA-250 | Estampa antigua | Aquarela | 40x30 | RB | Ramon<br>Bernat |
 
     </div>
 
@@ -192,31 +192,45 @@ hide:
 
     La clave principal es **(codexp, codobr)**: una exposición puede incluir varias obras y una obra puede participar en distintas exposiciones.
 
-    **Grafo inicial**
+    Para cumplir la **Primera Forma Normal (1FN)**, hemos separado el campo compuesto **fecha** en dos atributos: **fecha_inicio** y **fecha_fin**. Así, el valor «Del 1-12-2012 al 15-12-2012» pasa a almacenarse como **01/12/2012** y **15/12/2012**, cada uno en su propia columna. El siguiente grafo ya incorpora esta separación.
 
-    ![Grafo inicial de exposiciones, galerías, obras y autores.](ejercicios-clase/04-exposiciones-grafo.png){ width=700 }
+    **Grafo tras separar las fechas (1FN)**
 
-    Las dependencias establecidas por el enunciado son:
+    ![Grafo de exposiciones con fecha_inicio y fecha_fin separados.](ejercicios-clase/04-exposiciones-grafo.svg){ width=700 }
 
-    - **codexp → fecha, codgal**.
+    Las dependencias representadas, con las fechas ya separadas, son:
+
+    - **codexp → fecha_inicio, fecha_fin, codgal**.
     - **codgal → nomgal, dirgal, cpgal, ciugal**.
     - **codobr → nomobr, tip, dim, codaut**.
     - **codaut → nomaut**.
 
     ### 1. Primera forma normal (1FN)
 
-    Partimos de la relación en **1FN**, tal como indica el enunciado de los ejercicios desde grafos. Tratamos fecha como el período de la exposición y dim como la dimensión de la obra, sin descomponerlos en este ejercicio.
+    El campo **fecha** combina dos datos que queremos consultar por separado: el inicio y el fin de la exposición. Antes de continuar, lo descomponemos en **fecha_inicio** y **fecha_fin**:
+
+    | Valor original de fecha | fecha_inicio | fecha_fin |
+    |-------------------------|--------------|-----------|
+    | Del 1-12-2012 al 15-12-2012 | 01/12/2012 | 15/12/2012 |
+
+    Sustituimos fecha por estos dos campos en las cuatro filas originales. **No creamos otra tabla ni duplicamos filas**: se trata de separar un atributo compuesto dentro de la misma relación. Para este ejercicio conservamos dim como un único dato de dimensión.
+
+    La relación en 1FN queda así:
+
+    **ORDENES** (<u>codexp, codobr</u>, codgal, nomgal, dirgal, cpgal, ciugal, fecha_inicio, fecha_fin, nomobr, tip, dim, codaut, nomaut).
+
+    La dependencia del grafo se actualiza a **codexp → fecha_inicio, fecha_fin, codgal**. La clave principal no cambia.
 
     ### 2. Segunda forma normal (2FN)
 
     La tabla no está en 2FN: sus atributos descriptivos dependen solo de una parte de la clave compuesta.
 
-    - **codexp → fecha, codgal**: la fecha y la galería dependen solo de la exposición. Los datos de la galería también se obtienen a partir de codexp, a través de codgal.
+    - **codexp → fecha_inicio, fecha_fin, codgal**: las fechas y la galería dependen solo de la exposición. Los datos de la galería también se obtienen a partir de codexp, a través de codgal.
     - **codobr → nomobr, tip, dim, codaut**: los datos de la obra dependen solo de su código. El nombre del autor también se obtiene a partir de codobr, a través de codaut.
 
     Separamos los datos según su determinante:
 
-    - **EXPOSICION** (<u>codexp</u>, fecha, codgal, nomgal, dirgal, cpgal, ciugal).
+    - **EXPOSICION** (<u>codexp</u>, fecha_inicio, fecha_fin, codgal, nomgal, dirgal, cpgal, ciugal).
     - **OBRA** (<u>codobr</u>, nomobr, tip, dim, codaut, nomaut).
     - **PARTICIPA** (<u>codexp, codobr</u>).
 
@@ -235,7 +249,7 @@ hide:
 
     - **GALERIA** (<u>codgal</u>, nomgal, dirgal, cpgal, ciugal).
         - PK: codgal.
-    - **EXPOSICION** (<u>codexp</u>, fecha, codgal).
+    - **EXPOSICION** (<u>codexp</u>, fecha_inicio, fecha_fin, codgal).
         - PK: codexp.
         - FK: codgal → GALERIA(codgal).
     - **AUTOR** (<u>codaut</u>, nomaut).
