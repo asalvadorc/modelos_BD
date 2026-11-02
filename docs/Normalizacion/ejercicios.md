@@ -77,10 +77,10 @@ La tabla EXPOSICIONES contiene información sobre las exposiciones, las galería
 
 | codexp | codgal | nomgal | dirgal | cpgal | ciugal | fecha | codobr | nomobr | tip | dim | codaut | nomaut |
 |--------|--------|--------|--------|-------|--------|-------|--------|--------|-----|-----|--------|--------|
-| ART024 | ART | ARTACTUAL | C/ Enmig, 54 | 12001 | Castelló | Del 1-12-2012<br>al 15-12-2012 | GO-068 | Bodegón | Óleo | 60x40 | GM | Gregori<br>Mifsud |
-| ART024 | ART | ARTACTUAL | C/ Enmig, 54 | 12001 | Castelló | Del 1-12-2012<br>al 15-12-2012 | GO-069 | Bodegón | Óleo | 50x30 | GM | Gregori<br>Mifsud |
-| ART024 | ART | ARTACTUAL | C/ Enmig, 54 | 12001 | Castelló | Del 1-12-2012<br>al 15-12-2012 | GO-070 | Paisaje lunar | Óleo | 100x50 | GM | Gregori<br>Mifsud |
-| ART024 | ART | ARTACTUAL | C/ Enmig, 54 | 12001 | Castelló | Del 1-12-2012<br>al 15-12-2012 | RA-250 | Estampa antigua | Aquarela | 40x30 | RB | Ramon<br>Bernat |
+| ART024 | ART | ARTACTUAL | C/ Enmig, 54 | 12001 | Castelló | Del 1-12-2012<br>al 15-12-2012 | GO-068 | Bodegón | Óleo | 60x40 | GM | Gregori Mifsud |
+| ART024 | ART | ARTACTUAL | C/ Enmig, 54 | 12001 | Castelló | Del 1-12-2012<br>al 15-12-2012 | GO-069 | Bodegón | Óleo | 50x30 | GM | Gregori Mifsud |
+| ART024 | ART | ARTACTUAL | C/ Enmig, 54 | 12001 | Castelló | Del 1-12-2012<br>al 15-12-2012 | GO-070 | Paisaje lunar | Óleo | 100x50 | GM | Gregori Mifsud |
+| ART024 | ART | ARTACTUAL | C/ Enmig, 54 | 12001 | Castelló | Del 1-12-2012<br>al 15-12-2012 | RA-250 | Estampa antigua | Aquarela | 40x30 | RB | Ramon Bernat |
 
 </div>
 
