@@ -179,10 +179,3 @@ E queda en EMPLEADO como clave externa. Si el departamento 10 cambia de nombre, 
 
 Podemos recuperar los ocho atributos A–H uniendo EMPLEADO con DEPARTAMENTO por **num-d**, con TRABAJA por **dni** y con PROYECTO por **num-p**. Los teléfonos se consultan en TELEFONO_EMPLEADO por **dni**. La descomposición conserva la información y las dependencias del ejemplo.
 
-<span class="example-chip chip-solucion">6. Comprobación de FNBC</span>
-
-Las cinco tablas **también están en FNBC**: en todas sus dependencias funcionales no triviales, el determinante es una superclave. En EMPLEADO es el DNI; en TRABAJA, la pareja DNI y número de proyecto. En DEPARTAMENTO y PROYECTO, tanto el número como el nombre son claves candidatas según las reglas de la empresa.
-
-En TELEFONO_EMPLEADO no hay dependencias funcionales no triviales con un determinante que no sea superclave: su clave es la pareja **DNI y teléfono**.
-
-**No necesitamos descomponer más las tablas.** En este ejemplo, al alcanzar la 3FN hemos alcanzado también la FNBC.
