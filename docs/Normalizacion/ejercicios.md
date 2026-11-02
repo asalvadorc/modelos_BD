@@ -73,6 +73,8 @@ Las relaciones representadas por los grafos ya se encuentran en **1FN**. Normali
 
 La tabla EXPOSICIONES contiene información sobre las exposiciones, las galerías, las obras expuestas y sus autores.  Normaliza paso a paso hasta 3FN.
 
+<button type="button" class="table-zoom-button">⛶ Ver tabla completa</button>
+
 <div class="normalizacion-exercise-table exposiciones-table" markdown>
 
 | codexp | codgal | nomgal | dirgal | cpgal | ciugal | fecha | codobr | nomobr | tip | dim | codaut | nomaut |

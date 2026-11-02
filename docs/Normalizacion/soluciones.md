@@ -175,6 +175,8 @@ hide:
 
     **Tabla original EXPOSICIONES**
 
+    <button type="button" class="table-zoom-button">⛶ Ver tabla completa</button>
+
     <div class="normalizacion-exercise-table exposiciones-table" markdown>
 
     | codexp | codgal | nomgal | dirgal | cpgal | ciugal | fecha | codobr | nomobr | tip | dim | codaut | nomaut |
@@ -344,7 +346,7 @@ hide:
 
     ![Trabajador en 3FN: PUESTO determina salario; TRABAJADOR con clave nss determina nombre, apellidos y puesto; EMAIL_TRABAJADOR asocia trabajadores y emails con clave compuesta.](ejercicios-clase/05-trabajador-solucion.svg){ width=850 }
 
-    Ahora los salarios se guardan una sola vez por puesto y los emails se registran sin repetir el resto de los datos del trabajador. Con las reglas utilizadas, las tres tablas cumplen **3FN y FNBC**.
+    Ahora los salarios se guardan una sola vez por puesto y los emails se registran sin repetir el resto de los datos del trabajador. Con las reglas utilizadas, las tres tablas cumplen **3FN**.
 
     Si cada trabajador pudiera tener un salario diferente dentro del mismo puesto, **puesto → salario no se cumpliría**: salario permanecería en TRABAJADOR y no crearíamos PUESTO para esta descomposición.
 
@@ -412,7 +414,7 @@ hide:
 
     ![Películas en 3FN: ESTUDIO determina ciudadestudio; PELICULA con clave titulo y anyo determina duracion, tipo y estudio; REPARTO con clave titulo y actor determina anyo y referencia a PELICULA.](ejercicios-clase/06-peliculas-solucion.svg){ width=850 }
 
-    El estudio y su ciudad se guardan una sola vez, los datos de cada película una sola vez por título y año y sus actores en REPARTO. Con las dependencias del enunciado, las tres tablas también cumplen **FNBC**.
+    El estudio y su ciudad se guardan una sola vez, los datos de cada película una sola vez por título y año y sus actores en REPARTO. 
 
 ??? success "Ejercicio 7. Matrículas universitarias"
 
@@ -491,5 +493,5 @@ hide:
 
     ![Matrículas en 3FN: ALUMNO con clave idmatricula determina sus seis atributos; CURSO con clave codigo determina curso; MATRICULA registra la asociación con clave idmatricula y codigo.](ejercicios-clase/07-matriculas-solucion.svg){ width=850 }
 
-    La unión de las tres tablas por idmatricula y codigo recupera las cinco matrículas originales, con dirección y localidad separadas. Con las reglas utilizadas, las tablas también cumplen **FNBC**.
+    La unión de las tres tablas por idmatricula y codigo recupera las cinco matrículas originales, con dirección y localidad separadas. 
 
