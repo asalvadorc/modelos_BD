@@ -2425,11 +2425,12 @@
 </li>
 <li><strong>ORDENADOR_IMPRESORA</strong> (<u><mark>codigo-o</mark>, <mark>codigo-i</mark></u>)<ul>
 <li>PK: (codigo-o, codigo-i)</li>
-<li>FK: codigo-o-&gt;ORDENADOR(codigo-o)</li>
-<li>FK: codigo-i-&gt;IMPRESORA(codigo-i)</li>
+<li>FK: codigo-o-&gt;ORDENADOR(codigo-o) <span class="tag-unico">[unico]</span></li>
+<li>FK: codigo-i-&gt;IMPRESORA(codigo-i) <span class="tag-unico">[unico]</span></li>
 </ul>
 </li>
 </ul>
+<p><strong>Restricciones de unicidad para mantener el 1:1:</strong> cada <strong>codigo-o</strong> y cada <strong>codigo-i</strong> solo pueden aparecer una vez en ORDENADOR_IMPRESORA, por separado. Se expresan mediante <code>UNIQUE (codigo-o)</code> y <code>UNIQUE (codigo-i)</code>, y el gestor de la base de datos las garantiza. Así, un ordenador puede tener como máximo una impresora y una impresora puede estar conectada como máximo a un ordenador. La clave primaria compuesta solo impide repetir la misma pareja; sin estas restricciones de unicidad, la tabla permitiría una relación M:N.</p>
 </div>
 </details>
 </details>
