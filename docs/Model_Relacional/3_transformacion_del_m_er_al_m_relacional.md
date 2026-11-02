@@ -208,7 +208,7 @@ Ejemplo **dirige** (EMPLEADO - DEPARTAMENTO):
 ![alt text](image-16.png)
 
 La opción elegida es colocar la clave externa en **DEPARTAMENTO**:  
-Todos los departamentos tienen director (no nula) y solo uno (única), pero no todos los empleados dirigen un departamento.
+Todos los departamentos tienen director: la FK y `[no nulo]` garantizan esa participación total. La restricción `[unico]` impide que un empleado dirija más de un departamento. No todos los empleados tienen que dirigir uno.
 
 !!! quote ""
     - EMPLEADO (<u>dni</u>, nombre, direccion, telefono, sueldo, fecha-n)
@@ -221,12 +221,15 @@ Todos los departamentos tienen director (no nula) y solo uno (única), pero no t
 
 
 
+!!! note "Participación total garantizada por la FK"
+    En esta opción **no hace falta una restricción externa adicional**: la FK con `[no nulo]` garantiza que cada fila de la entidad con participación total esté relacionada con una fila existente de la otra entidad. `[unico]` garantiza el máximo 1:1.
+
 ### Caso 2: Ambas entidades participan de forma total
 
 Se puede:
 
 - Fusionar todo en una sola tabla (entidades + relación + atributos), o
-- Mantener dos tablas y aplicar el caso 1 (clave externa en una de ellas).
+- Mantener dos tablas y aplicar el caso 1 (FK no nula y única en una de ellas), **añadiendo una restricción externa para la participación total de la entidad referenciada**.
 
 Ejemplo:
 
@@ -245,6 +248,15 @@ De todas formas, puede que nos interese tener dos tablas (para separar clarament
         - PK: (cod-col)
         - FK: dni->PERSONA(dni)  <span class="tag-no-nulo">[no nulo]</span>  <span class="tag-unico">[unico]</span>
 
+    REx:  toda PERSONA debe aparecer en COLECCION como propietaria    
+
+
+!!! warning "Restricción externa si conservamos dos tablas"
+    En el ejemplo anterior, la FK `COLECCION.dni` con `[no nulo]` y `[unico]` garantiza que cada colección pertenezca a una única persona y que una persona no tenga más de una colección. **No garantiza que todas las personas tengan una colección**.
+
+    Debemos añadir la **restricción externa: toda PERSONA debe aparecer en COLECCION como propietaria**. Es decir, cada `PERSONA.dni` debe ser referenciado por una fila de COLECCION. Esta obligación no queda garantizada solo con las PK, FK, `NOT NULL` y `UNIQUE` indicadas.
+
+    Si fusionamos ambas entidades en una sola tabla, no hace falta esta restricción adicional de correspondencia entre tablas.
 
 ### Caso 3: Ambas entidades participan de forma parcial
 
@@ -263,8 +275,8 @@ En el ejemplo, podría ocurrir que las colecciones pertenecieran a una persona p
         - PK: (cod-col)
     - PROPIETARIO (<u><mark>dni, </mark>, <mark>cod-col </mark></u>)    
         - PK: (dni, cod-col)
-        - FK: dni->PERSONA(dni)
-        - FK: cod-col->COLECCION(cod-col)
+        - FK: dni->PERSONA(dni) <span class="tag-unico">[unico]</span>
+        - FK: cod-col->COLECCION(cod-col) <span class="tag-unico">[unico]</span>
 
 
 Pero, como comentábamos al principio, tendremos que aplicar el sentido común, ya que puede que una de las dos entidades participe de forma «casi» total (por ejemplo, casi todas las colecciones pertenecen a una persona). En ese caso, podría ser mejor traducir la relación como en el primer caso, colocando la clave externa en la tabla cuya participación sea «casi» total, ya que tendrá relativamente pocos valores nulos y resultaría más costoso mantener otra tabla. Evidentemente, en este caso la clave externa sí podría admitir valores nulos.
@@ -275,6 +287,11 @@ Pero, como comentábamos al principio, tendremos que aplicar el sentido común, 
     - COLECCION (<u>cod-col</u>, <mark>dni, </mark>...(datos colección)...)
         - PK: (cod-col)
         - FK: dni->PERSONA(dni) <span class="tag-unico">[unico]</span>
+
+!!! note "Participación parcial y tabla intermedia"
+    Como ambas participaciones son parciales, **no necesitamos restricciones externas de participación total**: puede haber personas y colecciones que no aparezcan en PROPIETARIO. Los `[unico]` de cada FK, por separado, mantienen el máximo 1:1.
+
+    Si utilizamos una tabla intermedia en una relación 1:1 con participación total, sí debemos añadir **una restricción externa por cada entidad con participación total**: todas sus filas deben aparecer en la tabla intermedia. Por ejemplo, si toda PERSONA debe tener colección, cada `PERSONA.dni` debe aparecer en PROPIETARIO. Si toda COLECCION debe tener propietario, cada `COLECCION.cod-col` también debe aparecer en PROPIETARIO.
 
 !!!Tip "En resumen"
     Una relación **1:1** casi siempre la traduciremos colocando una clave externa en la tabla cuya participación en la relación sea total o casi total (o en aquella que previsiblemente tenga más ocurrencias en la relación).

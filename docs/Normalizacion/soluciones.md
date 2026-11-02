@@ -268,7 +268,7 @@ hide:
 
     ![Solución en 3FN: GALERIA, EXPOSICION, AUTOR, OBRA y PARTICIPA, con sus claves y dependencias. EXPOSICION referencia GALERIA; OBRA referencia AUTOR; PARTICIPA referencia EXPOSICION y OBRA.](ejercicios-clase/04-exposiciones-solucion.svg){ width=850 }
 
-    Ahora los datos de cada galería se guardan una sola vez, los del autor una sola vez y las participaciones se registran mediante parejas de códigos. Con las dependencias indicadas, las cinco tablas cumplen **3FN y FNBC**.
+    Ahora los datos de cada galería se guardan una sola vez, los del autor una sola vez y las participaciones se registran mediante parejas de códigos. Con las dependencias indicadas, las cinco tablas cumplen **3FN**.
 
     No añadimos **cpgal → ciugal**, porque el enunciado no establece esa dependencia. La descomposición se basa en las reglas dadas, no únicamente en las coincidencias de las cuatro filas de muestra.
 

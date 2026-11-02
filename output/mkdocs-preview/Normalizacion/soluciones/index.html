@@ -2118,7 +2118,7 @@
 </ul>
 <p><strong>Esquema visual de la solución</strong></p>
 <p><img alt="Solución en 3FN: GALERIA, EXPOSICION, AUTOR, OBRA y PARTICIPA, con sus claves y dependencias. EXPOSICION referencia GALERIA; OBRA referencia AUTOR; PARTICIPA referencia EXPOSICION y OBRA." src="../ejercicios-clase/04-exposiciones-solucion.svg" width="850" /></p>
-<p>Ahora los datos de cada galería se guardan una sola vez, los del autor una sola vez y las participaciones se registran mediante parejas de códigos. Con las dependencias indicadas, las cinco tablas cumplen <strong>3FN y FNBC</strong>.</p>
+<p>Ahora los datos de cada galería se guardan una sola vez, los del autor una sola vez y las participaciones se registran mediante parejas de códigos. Con las dependencias indicadas, las cinco tablas cumplen <strong>3FN</strong>.</p>
 <p>No añadimos <strong>cpgal → ciugal</strong>, porque el enunciado no establece esa dependencia. La descomposición se basa en las reglas dadas, no únicamente en las coincidencias de las cuatro filas de muestra.</p>
 </details>
 <details class="success">
@@ -2243,7 +2243,7 @@
 </ul>
 <p><strong>Esquema visual de la solución</strong></p>
 <p><img alt="Trabajador en 3FN: PUESTO determina salario; TRABAJADOR con clave nss determina nombre, apellidos y puesto; EMAIL_TRABAJADOR asocia trabajadores y emails con clave compuesta." src="../ejercicios-clase/05-trabajador-solucion.svg" width="850" /></p>
-<p>Ahora los salarios se guardan una sola vez por puesto y los emails se registran sin repetir el resto de los datos del trabajador. Con las reglas utilizadas, las tres tablas cumplen <strong>3FN y FNBC</strong>.</p>
+<p>Ahora los salarios se guardan una sola vez por puesto y los emails se registran sin repetir el resto de los datos del trabajador. Con las reglas utilizadas, las tres tablas cumplen <strong>3FN</strong>.</p>
 <p>Si cada trabajador pudiera tener un salario diferente dentro del mismo puesto, <strong>puesto → salario no se cumpliría</strong>: salario permanecería en TRABAJADOR y no crearíamos PUESTO para esta descomposición.</p>
 </details>
 <details class="success">
@@ -2369,7 +2369,7 @@
 <p>La clave externa de REPARTO incluye anyo aunque este no forme parte de su clave primaria. Conservamos así tanto la película concreta en la que participa el actor como la regla que impide repetir actor en versiones de un mismo título.</p>
 <p><strong>Esquema visual de la solución</strong></p>
 <p><img alt="Películas en 3FN: ESTUDIO determina ciudadestudio; PELICULA con clave titulo y anyo determina duracion, tipo y estudio; REPARTO con clave titulo y actor determina anyo y referencia a PELICULA." src="../ejercicios-clase/06-peliculas-solucion.svg" width="850" /></p>
-<p>El estudio y su ciudad se guardan una sola vez, los datos de cada película una sola vez por título y año y sus actores en REPARTO. Con las dependencias del enunciado, las tres tablas también cumplen <strong>FNBC</strong>.</p>
+<p>El estudio y su ciudad se guardan una sola vez, los datos de cada película una sola vez por título y año y sus actores en REPARTO. </p>
 </details>
 <details class="success">
 <summary>Ejercicio 7. Matrículas universitarias</summary>
@@ -2511,7 +2511,7 @@
 </ul>
 <p><strong>Esquema visual de la solución</strong></p>
 <p><img alt="Matrículas en 3FN: ALUMNO con clave idmatricula determina sus seis atributos; CURSO con clave codigo determina curso; MATRICULA registra la asociación con clave idmatricula y codigo." src="../ejercicios-clase/07-matriculas-solucion.svg" width="850" /></p>
-<p>La unión de las tres tablas por idmatricula y codigo recupera las cinco matrículas originales, con dirección y localidad separadas. Con las reglas utilizadas, las tablas también cumplen <strong>FNBC</strong>.</p>
+<p>La unión de las tres tablas por idmatricula y codigo recupera las cinco matrículas originales, con dirección y localidad separadas. </p>
 </details>
 
 
