@@ -1249,3 +1249,80 @@ html {
 .md-typeset .exposiciones-table table:not([class]) td + td {
     border-left: 1px solid var(--md-default-fg-color--light);
 }
+
+/* Vista completa de la tabla sin cortar columnas. */
+.table-zoom-button {
+    display: inline-block;
+    margin: 0.5rem 0;
+    padding: 0.45rem 0.7rem;
+    border: 1px solid var(--md-primary-fg-color);
+    border-radius: 6px;
+    color: var(--md-primary-fg-color);
+    background: var(--md-default-bg-color);
+    cursor: zoom-in;
+    font: inherit;
+}
+body.table-zoom-open { overflow: hidden; }
+.table-zoom-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 2147483647;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.82);
+}
+.table-zoom-overlay.is-open { display: flex; }
+.table-zoom-dialog {
+    position: relative;
+    max-width: 96vw;
+    max-height: 94vh;
+    padding: 3rem 16px 16px;
+    border-radius: 10px;
+    background: var(--md-default-bg-color);
+    color: var(--md-default-fg-color);
+    overflow: hidden;
+}
+.table-zoom-close {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    cursor: pointer;
+    color: inherit;
+    font: inherit;
+}
+.table-zoom-frame { position: relative; }
+.md-typeset .table-zoom-frame table:not([class]) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 0;
+    margin: 0;
+    transform-origin: top left;
+}
+
+.md-typeset .table-zoom-frame table:not([class]) {
+    display: table;
+    table-layout: auto;
+    width: max-content;
+    max-width: none;
+    font-size: 15px !important;
+}
+.md-typeset .table-zoom-frame table:not([class]) th,
+.md-typeset .table-zoom-frame table:not([class]) td {
+    padding: 0.55em 0.5em;
+    white-space: nowrap;
+    overflow-wrap: normal;
+    border: 1px solid var(--md-default-fg-color--light);
+}
+
+/* Alinear las tablas de las soluciones con el texto del desplegable. */
+.md-typeset details.success .md-typeset__scrollwrap {
+    margin-left: 0;
+    margin-right: 0;
+}
+.md-typeset details.success .md-typeset__table {
+    padding-left: 0;
+    padding-right: 0;
+}
