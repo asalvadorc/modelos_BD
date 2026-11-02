@@ -1314,8 +1314,6 @@
       
         
       
-        
-      
     
     
     
@@ -1519,34 +1517,6 @@
     
   
     6. Tercera Forma Normal (3FN)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../7_forma_normal_boycecodd_fnbc/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    7. Forma Normal Boyce-Codd (FNBC)
   
 
     
@@ -2069,8 +2039,8 @@ FK: dni → EMPLEADO(dni)
 </table>
 </div>
 <h2 id="ejercicio-4"><span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 4</span></span></h2>
-<p>La tabla ORDENES contiene información sobre las exposiciones, las galerías, las obras expuestas y sus autores.</p>
-<div class="normalizacion-exercise-table">
+<p>La tabla EXPOSICIONES contiene información sobre las exposiciones, las galerías, las obras expuestas y sus autores.  Normaliza paso a paso hasta 3FN.</p>
+<div class="normalizacion-exercise-table exposiciones-table">
 <table>
 <thead>
 <tr>
@@ -2097,13 +2067,13 @@ FK: dni → EMPLEADO(dni)
 <td>C/ Enmig, 54</td>
 <td>12001</td>
 <td>Castelló</td>
-<td>Del 1-12-2012 al 15-12-2012</td>
+<td>Del 1-12-2012<br>al 15-12-2012</td>
 <td>GO-068</td>
 <td>Bodegón</td>
 <td>Óleo</td>
 <td>60x40</td>
 <td>GM</td>
-<td>Gregori Mifsud</td>
+<td>Gregori<br>Mifsud</td>
 </tr>
 <tr>
 <td>ART024</td>
@@ -2112,13 +2082,13 @@ FK: dni → EMPLEADO(dni)
 <td>C/ Enmig, 54</td>
 <td>12001</td>
 <td>Castelló</td>
-<td>Del 1-12-2012 al 15-12-2012</td>
+<td>Del 1-12-2012<br>al 15-12-2012</td>
 <td>GO-069</td>
 <td>Bodegón</td>
 <td>Óleo</td>
 <td>50x30</td>
 <td>GM</td>
-<td>Gregori Mifsud</td>
+<td>Gregori<br>Mifsud</td>
 </tr>
 <tr>
 <td>ART024</td>
@@ -2127,13 +2097,13 @@ FK: dni → EMPLEADO(dni)
 <td>C/ Enmig, 54</td>
 <td>12001</td>
 <td>Castelló</td>
-<td>Del 1-12-2012 al 15-12-2012</td>
+<td>Del 1-12-2012<br>al 15-12-2012</td>
 <td>GO-070</td>
 <td>Paisaje lunar</td>
 <td>Óleo</td>
 <td>100x50</td>
 <td>GM</td>
-<td>Gregori Mifsud</td>
+<td>Gregori<br>Mifsud</td>
 </tr>
 <tr>
 <td>ART024</td>
@@ -2142,27 +2112,18 @@ FK: dni → EMPLEADO(dni)
 <td>C/ Enmig, 54</td>
 <td>12001</td>
 <td>Castelló</td>
-<td>Del 1-12-2012 al 15-12-2012</td>
+<td>Del 1-12-2012<br>al 15-12-2012</td>
 <td>RA-250</td>
 <td>Estampa antigua</td>
 <td>Aquarela</td>
 <td>40x30</td>
 <td>RB</td>
-<td>Ramon Bernat</td>
+<td>Ramon<br>Bernat</td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>Se conocen las siguientes dependencias funcionales:</p>
-<ul>
-<li><strong>codexp → fecha, codgal</strong>.</li>
-<li><strong>codgal → nomgal, dirgal, cpgal, ciugal</strong>.</li>
-<li><strong>codobr → nomobr, tip, dim, codaut</strong>.</li>
-<li><strong>codaut → nomaut</strong>.</li>
-<li>La pareja <strong>codexp + codobr</strong> identifica la participación de una obra en una exposición, aunque no tiene otros atributos propios.</li>
-</ul>
-<p><img alt="Grafo de dependencias de exposiciones." src="../ejercicios-clase/04-exposiciones-grafo.png" width="700" /></p>
-<p>Descompón la tabla hasta 3FN y presenta el modelo relacional con sus PK y FK. Utiliza las dependencias indicadas en el enunciado.</p>
+<p>La clave principal es (codexp, codobr): una exposición puede incluir varias obras y una obra puede participar en distintas exposiciones.</p>
 <h2 id="ejercicio-5"><span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 5</span></span></h2>
 <p>Se dispone de la siguiente tabla no normalizada, que almacena información sobre los trabajadores de una empresa:</p>
 <div class="normalizacion-exercise-table">

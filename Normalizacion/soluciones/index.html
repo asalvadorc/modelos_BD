@@ -1314,8 +1314,6 @@
       
         
       
-        
-      
     
     
     
@@ -1519,34 +1517,6 @@
     
   
     6. Tercera Forma Normal (3FN)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../7_forma_normal_boycecodd_fnbc/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    7. Forma Normal Boyce-Codd (FNBC)
   
 
     
@@ -1979,8 +1949,8 @@
 </details>
 <details class="success">
 <summary>Ejercicio 4. Exposiciones</summary>
-<p><strong>Tabla original ORDENES</strong></p>
-<div class="normalizacion-exercise-table" markdown>
+<p><strong>Tabla original EXPOSICIONES</strong></p>
+<div class="normalizacion-exercise-table exposiciones-table" markdown>
 <table>
 <thead>
 <tr>
@@ -2007,13 +1977,13 @@
 <td>C/ Enmig, 54</td>
 <td>12001</td>
 <td>Castelló</td>
-<td>Del 1-12-2012 al 15-12-2012</td>
+<td>Del 1-12-2012<br>al 15-12-2012</td>
 <td>GO-068</td>
 <td>Bodegón</td>
 <td>Óleo</td>
 <td>60x40</td>
 <td>GM</td>
-<td>Gregori Mifsud</td>
+<td>Gregori<br>Mifsud</td>
 </tr>
 <tr>
 <td>ART024</td>
@@ -2022,13 +1992,13 @@
 <td>C/ Enmig, 54</td>
 <td>12001</td>
 <td>Castelló</td>
-<td>Del 1-12-2012 al 15-12-2012</td>
+<td>Del 1-12-2012<br>al 15-12-2012</td>
 <td>GO-069</td>
 <td>Bodegón</td>
 <td>Óleo</td>
 <td>50x30</td>
 <td>GM</td>
-<td>Gregori Mifsud</td>
+<td>Gregori<br>Mifsud</td>
 </tr>
 <tr>
 <td>ART024</td>
@@ -2037,13 +2007,13 @@
 <td>C/ Enmig, 54</td>
 <td>12001</td>
 <td>Castelló</td>
-<td>Del 1-12-2012 al 15-12-2012</td>
+<td>Del 1-12-2012<br>al 15-12-2012</td>
 <td>GO-070</td>
 <td>Paisaje lunar</td>
 <td>Óleo</td>
 <td>100x50</td>
 <td>GM</td>
-<td>Gregori Mifsud</td>
+<td>Gregori<br>Mifsud</td>
 </tr>
 <tr>
 <td>ART024</td>
@@ -2052,13 +2022,13 @@
 <td>C/ Enmig, 54</td>
 <td>12001</td>
 <td>Castelló</td>
-<td>Del 1-12-2012 al 15-12-2012</td>
+<td>Del 1-12-2012<br>al 15-12-2012</td>
 <td>RA-250</td>
 <td>Estampa antigua</td>
 <td>Aquarela</td>
 <td>40x30</td>
 <td>RB</td>
-<td>Ramon Bernat</td>
+<td>Ramon<br>Bernat</td>
 </tr>
 </tbody>
 </table>
@@ -2066,26 +2036,47 @@
 <p>Partimos de la relación:</p>
 <p><strong>ORDENES</strong> (<u>codexp, codobr</u>, codgal, nomgal, dirgal, cpgal, ciugal, fecha, nomobr, tip, dim, codaut, nomaut).</p>
 <p>La clave principal es <strong>(codexp, codobr)</strong>: una exposición puede incluir varias obras y una obra puede participar en distintas exposiciones.</p>
-<p><strong>Grafo inicial</strong></p>
-<p><img alt="Grafo inicial de exposiciones, galerías, obras y autores." src="../ejercicios-clase/04-exposiciones-grafo.png" width="700" /></p>
-<p>Las dependencias establecidas por el enunciado son:</p>
+<p>Para cumplir la <strong>Primera Forma Normal (1FN)</strong>, hemos separado el campo compuesto <strong>fecha</strong> en dos atributos: <strong>fecha_inicio</strong> y <strong>fecha_fin</strong>. Así, el valor «Del 1-12-2012 al 15-12-2012» pasa a almacenarse como <strong>01/12/2012</strong> y <strong>15/12/2012</strong>, cada uno en su propia columna. El siguiente grafo ya incorpora esta separación.</p>
+<p><strong>Grafo tras separar las fechas (1FN)</strong></p>
+<p><img alt="Grafo de exposiciones con fecha_inicio y fecha_fin separados." src="../ejercicios-clase/04-exposiciones-grafo.svg" width="700" /></p>
+<p>Las dependencias representadas, con las fechas ya separadas, son:</p>
 <ul>
-<li><strong>codexp → fecha, codgal</strong>.</li>
+<li><strong>codexp → fecha_inicio, fecha_fin, codgal</strong>.</li>
 <li><strong>codgal → nomgal, dirgal, cpgal, ciugal</strong>.</li>
 <li><strong>codobr → nomobr, tip, dim, codaut</strong>.</li>
 <li><strong>codaut → nomaut</strong>.</li>
 </ul>
 <h3 id="1-primera-forma-normal-1fn_2">1. Primera forma normal (1FN)</h3>
-<p>Partimos de la relación en <strong>1FN</strong>, tal como indica el enunciado de los ejercicios desde grafos. Tratamos fecha como el período de la exposición y dim como la dimensión de la obra, sin descomponerlos en este ejercicio.</p>
+<p>El campo <strong>fecha</strong> combina dos datos que queremos consultar por separado: el inicio y el fin de la exposición. Antes de continuar, lo descomponemos en <strong>fecha_inicio</strong> y <strong>fecha_fin</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Valor original de fecha</th>
+<th>fecha_inicio</th>
+<th>fecha_fin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Del 1-12-2012 al 15-12-2012</td>
+<td>01/12/2012</td>
+<td>15/12/2012</td>
+</tr>
+</tbody>
+</table>
+<p>Sustituimos fecha por estos dos campos en las cuatro filas originales. <strong>No creamos otra tabla ni duplicamos filas</strong>: se trata de separar un atributo compuesto dentro de la misma relación. Para este ejercicio conservamos dim como un único dato de dimensión.</p>
+<p>La relación en 1FN queda así:</p>
+<p><strong>ORDENES</strong> (<u>codexp, codobr</u>, codgal, nomgal, dirgal, cpgal, ciugal, fecha_inicio, fecha_fin, nomobr, tip, dim, codaut, nomaut).</p>
+<p>La dependencia del grafo se actualiza a <strong>codexp → fecha_inicio, fecha_fin, codgal</strong>. La clave principal no cambia.</p>
 <h3 id="2-segunda-forma-normal-2fn_2">2. Segunda forma normal (2FN)</h3>
 <p>La tabla no está en 2FN: sus atributos descriptivos dependen solo de una parte de la clave compuesta.</p>
 <ul>
-<li><strong>codexp → fecha, codgal</strong>: la fecha y la galería dependen solo de la exposición. Los datos de la galería también se obtienen a partir de codexp, a través de codgal.</li>
+<li><strong>codexp → fecha_inicio, fecha_fin, codgal</strong>: las fechas y la galería dependen solo de la exposición. Los datos de la galería también se obtienen a partir de codexp, a través de codgal.</li>
 <li><strong>codobr → nomobr, tip, dim, codaut</strong>: los datos de la obra dependen solo de su código. El nombre del autor también se obtiene a partir de codobr, a través de codaut.</li>
 </ul>
 <p>Separamos los datos según su determinante:</p>
 <ul>
-<li><strong>EXPOSICION</strong> (<u>codexp</u>, fecha, codgal, nomgal, dirgal, cpgal, ciugal).</li>
+<li><strong>EXPOSICION</strong> (<u>codexp</u>, fecha_inicio, fecha_fin, codgal, nomgal, dirgal, cpgal, ciugal).</li>
 <li><strong>OBRA</strong> (<u>codobr</u>, nomobr, tip, dim, codaut, nomaut).</li>
 <li><strong>PARTICIPA</strong> (<u>codexp, codobr</u>).</li>
 </ul>
@@ -2103,7 +2094,7 @@
 <li>PK: codgal.</li>
 </ul>
 </li>
-<li><strong>EXPOSICION</strong> (<u>codexp</u>, fecha, codgal).<ul>
+<li><strong>EXPOSICION</strong> (<u>codexp</u>, fecha_inicio, fecha_fin, codgal).<ul>
 <li>PK: codexp.</li>
 <li>FK: codgal → GALERIA(codgal).</li>
 </ul>

@@ -1316,8 +1316,6 @@
       
         
       
-        
-      
     
     
     
@@ -1599,34 +1597,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../7_forma_normal_boycecodd_fnbc/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    7. Forma Normal Boyce-Codd (FNBC)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../Ejemplo_completo/" class="md-nav__link">
         
   
@@ -1798,7 +1768,7 @@
 
 
 <h1 id="5-dependencia-funcional-transitiva">5. Dependencia Funcional Transitiva</h1>
-<p>La dependencia funcional transitiva se aplica para analizar las tablas en tercera forma normal (3FN). Consiste básicamente en considerar que <strong>un atributo no primario solo debe conocerse a través de la clave principal o claves secundarias</strong> (atributos que, aunque no son claves principales, sirven para identificar de manera única una fila en algunos contextos específicos). En otro caso, estará produciendo redundancia de información con las anomalías típicas que lleva consigo.</p>
+<p>La dependencia funcional transitiva se aplica para analizar las tablas en tercera forma normal (3FN). Consiste básicamente en considerar que <strong>un atributo no primario solo debe conocerse a través de la clave principal o claves candidatas</strong> (atributos que, aunque no son claves principales, sirven para identificar de manera única una fila en algunos contextos específicos). En otro caso, estará produciendo redundancia de información con las anomalías típicas que lleva consigo.</p>
 <p>En términos simples, esta dependencia ocurre cuando un atributo no clave (o no primario) depende <strong>indirectamente</strong> de la clave principal mediante otro atributo.</p>
 <div class="definition-box">
 <div class="box-title">Dependencia transitiva:</b> (A→B→C)</div> Si A→B y B→C, entonces decimos que C depende de forma transitiva de A.

@@ -1314,8 +1314,6 @@
       
         
       
-        
-      
     
     
     
@@ -1641,34 +1639,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../7_forma_normal_boycecodd_fnbc/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    7. Forma Normal Boyce-Codd (FNBC)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../Ejemplo_completo/" class="md-nav__link">
         
   
@@ -1963,41 +1933,43 @@ Sin conocer el empleado y el proyecto juntos, no se pueden determinar las HORAS 
 <h2 id="33-grafo-de-dependencias-funcionales">3.3 Grafo de Dependencias Funcionales</h2>
 <p>Es una representación visual que muestra gráficamente las relaciones entre atributos.</p>
 <h3 id="estructura-del-grafo">Estructura del Grafo</h3>
-<div class="tables-side-by-side">
-<div>
-<p><strong>Estructura del grafo</strong></p>
+<p>El siguiente esquema muestra cómo leer cada parte de un grafo. <strong>La clave principal es A . B . O</strong>: los tres atributos aparecen una sola vez dentro del recuadro exterior.</p>
+<p><img alt="Estructura de un grafo: el recuadro continuo contiene la clave A, B y O; el discontinuo agrupa B y O como parte de la clave; del recuadro completo salen las dependencias hacia M y S, de A hacia Q, de O hacia C, del grupo B y O hacia R, y de M hacia N y P." src="../image-3.svg" width="1100" /></p>
 <table>
 <thead>
 <tr>
 <th>Elemento</th>
-<th>Representación</th>
+<th>Cómo se interpreta en el esquema</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Clave Principal</strong></td>
-<td>Recuadro con línea continua</td>
+<td><strong>Recuadro exterior con línea continua</strong></td>
+<td>Engloba todos los atributos de la clave principal: <strong>A . B . O</strong>.</td>
 </tr>
 <tr>
-<td><strong>Atributos clave</strong></td>
-<td>Dentro del recuadro</td>
+<td><strong>Recuadro interior con línea discontinua</strong></td>
+<td>Agrupa una parte de la clave: <strong>B . O</strong>. No representa otra tabla ni una clave candidata.</td>
 </tr>
 <tr>
-<td><strong>Otros atributos</strong></td>
-<td>Fuera del recuadro</td>
+<td><strong>Flecha que sale del recuadro exterior</strong></td>
+<td>Depende de la clave completa: <strong>A . B . O → M</strong> y <strong>A . B . O → S</strong>.</td>
 </tr>
 <tr>
-<td><strong>Dependencias secundarias</strong></td>
-<td>Recuadro con línea discontinua</td>
+<td><strong>Flecha que sale de un atributo interior</strong></td>
+<td>Depende solo de ese atributo: <strong>A → Q</strong> y <strong>O → C</strong>. Son dependencias parciales respecto a la clave completa.</td>
+</tr>
+<tr>
+<td><strong>Flecha que sale del recuadro interior</strong></td>
+<td>Depende de ese subconjunto: <strong>B . O → R</strong>. También es una dependencia parcial.</td>
+</tr>
+<tr>
+<td><strong>Flecha entre atributos exteriores</strong></td>
+<td>Representa otra dependencia funcional: <strong>M → N</strong> y <strong>M → P</strong>. Permite reconocer las cadenas transitivas <strong>A . B . O → M → N, P</strong>.</td>
 </tr>
 </tbody>
 </table>
-</div>
-<div>
-<p><strong>Representación visual</strong></p>
-<p><img alt="Estructura del grafo de dependencias" src="../image-3.svg" width="400" /></p>
-</div>
-</div>
+<p>La <strong>posición de salida de cada flecha</strong> indica su determinante. Los atributos situados fuera del recuadro exterior no forman parte de la clave principal representada.</p>
 <p>El grafo permite visualizar:  </p>
 <ul>
 <li>Qué atributos se determinan mutuamente</li>
