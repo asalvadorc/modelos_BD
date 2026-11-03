@@ -101,7 +101,7 @@ Es una representación visual que muestra gráficamente las relaciones entre atr
 El siguiente esquema muestra cómo leer cada parte de un grafo. **La clave principal es A . B . O**: los tres atributos aparecen una sola vez dentro del recuadro exterior.
 
 ![Estructura de un grafo: el recuadro continuo contiene la clave A, B y O; el discontinuo agrupa B y O como parte de la clave; del recuadro completo salen las dependencias hacia M y S, de A hacia Q, de O hacia C, del grupo B y O hacia R, y de M hacia N y P.](image-3.svg){ width=1100 }
-
+<!--
 | Elemento | Cómo se interpreta en el esquema |
 |----------|---------------------------------|
 | **Recuadro exterior con línea continua** | Engloba todos los atributos de la clave principal: **A . B . O**. |
@@ -110,6 +110,8 @@ El siguiente esquema muestra cómo leer cada parte de un grafo. **La clave princ
 | **Flecha que sale de un atributo interior** | Depende solo de ese atributo: **A → Q** y **O → C**. Son dependencias parciales respecto a la clave completa. |
 | **Flecha que sale del recuadro interior** | Depende de ese subconjunto: **B . O → R**. También es una dependencia parcial. |
 | **Flecha entre atributos exteriores** | Representa otra dependencia funcional: **M → N** y **M → P**. Permite reconocer las cadenas transitivas **A . B . O → M → N, P**. |
+
+-->
 
 La **posición de salida de cada flecha** indica su determinante. Los atributos situados fuera del recuadro exterior no forman parte de la clave principal representada.
 

@@ -314,6 +314,10 @@ hide:
 
     La clave de EMAIL_TRABAJADOR es **(nss, email)**. Ni nss ni email identifican una fila por separado. Ahora cada celda contiene un único valor.
 
+    **Grafo de dependencias tras aplicar 1FN**
+
+    ![Grafo en 1FN: nss determina nombre, apellidos y puesto; puesto determina salario. EMAIL_TRABAJADOR tiene clave nss y email y no tiene atributos adicionales.](ejercicios-clase/05-trabajador-1fn.svg){ width=850 }
+
     ### 2. Segunda forma normal (2FN)
 
     Las dos tablas ya están en **2FN**:
@@ -368,34 +372,40 @@ hide:
 
     </div>
 
-    **Dependencias y claves candidatas**
+    **Dependencias y clave principal**
 
     - **titulo + anyo → duracion, tipo, estudio**: título y año identifican una versión de la película.
     - **estudio → ciudadestudio**: cada estudio está ubicado en una sola ciudad.
-    - **titulo + actor → anyo**: según la regla del enunciado, un actor no participa en dos versiones de un mismo título.
+    - Un actor puede participar en varias versiones del mismo título y una película puede tener varios actores.
 
-    Por tanto, **(titulo, actor)** identifica una fila de la relación original: determina el año y, a través de título y año, el resto de los datos. Es la **clave candidata que elegimos como primaria**.
-
-    **(titulo, anyo, actor)** también identifica la fila, pero es una **superclave no mínima**, porque anyo se puede deducir de titulo y actor. Título y año solos no identifican la participación: una película puede tener varios actores.
+    La clave principal de la tabla original es **(titulo, anyo, actor)**. Los tres campos son necesarios: título y año no distinguen a los actores de una película; título y actor no distinguen las versiones en las que participa; año y actor no distinguen las películas de ese año.
 
     ### 1. Primera forma normal (1FN)
 
     La tabla ya está en **1FN**: cada fila contiene un único actor y cada celda un único valor. Que una película aparezca en varias filas no incumple la 1FN.
 
+    **Grafo de dependencias tras aplicar 1FN**
+
+    ![Grafo en 1FN: la clave principal contiene titulo, anyo y actor. El subconjunto titulo y anyo determina duracion, tipo y estudio; estudio determina ciudadestudio.](ejercicios-clase/06-peliculas-1fn.svg){ width=850 }
+
     ### 2. Segunda forma normal (2FN)
 
-    Con la clave mínima **(titulo, actor)**, la tabla ya está en **2FN**. Ninguno de los atributos no clave depende solo de titulo ni solo de actor según las reglas dadas.
+    La tabla **no está en 2FN**: duracion, tipo y estudio dependen solo de **titulo + anyo**, una parte de la clave principal. ciudadestudio también depende de esa parte, a través de estudio.
 
-    No debemos presentar titulo + anyo como una parte de esa clave: anyo no pertenece a la clave candidata elegida. La separación de los datos de la película se justifica en el paso siguiente.
+    Separamos los datos de la película de las participaciones de los actores:
+
+    - **PELICULA** (<u>titulo, anyo</u>, duracion, tipo, estudio, ciudadestudio).
+    - **REPARTO** (<u>titulo, anyo, actor</u>).
+
+    REPARTO conserva qué actores participan en cada versión. No tiene atributos adicionales y ya está en 3FN. En PELICULA aún queda una dependencia transitiva.
 
     ### 3. Tercera forma normal (3FN)
 
-    La relación no está en 3FN:
+    En PELICULA tenemos la cadena:
 
-    - **titulo + anyo → duracion, tipo, estudio**: titulo + anyo no es superclave de la relación original, porque no identifica al actor, y los atributos de la derecha no son primarios.
-    - **estudio → ciudadestudio**: estudio tampoco es superclave de la relación original y ciudadestudio no es un atributo primario.
+    **titulo + anyo → estudio → ciudadestudio**.
 
-    Separamos los datos de cada versión de la película, los del estudio y las participaciones de los actores. En PELICULA, la dependencia **titulo + anyo → estudio → ciudadestudio** se elimina llevando la ciudad a ESTUDIO.
+    Separamos la ciudad del estudio en ESTUDIO y conservamos estudio en PELICULA como clave externa.
 
     **Modelo relacional final**
 
@@ -404,17 +414,17 @@ hide:
     - **PELICULA** (<u>titulo, anyo</u>, duracion, tipo, estudio).
         - PK: (titulo, anyo).
         - FK: estudio → ESTUDIO(estudio).
-    - **REPARTO** (<u>titulo, actor</u>, anyo).
-        - PK: (titulo, actor).
+    - **REPARTO** (<u>titulo, anyo, actor</u>).
+        - PK: (titulo, anyo, actor).
         - FK: (titulo, anyo) → PELICULA(titulo, anyo).
 
-    La clave externa de REPARTO incluye anyo aunque este no forme parte de su clave primaria. Conservamos así tanto la película concreta en la que participa el actor como la regla que impide repetir actor en versiones de un mismo título.
+    La clave compuesta de REPARTO permite registrar varios actores en una película y también al mismo actor en distintas versiones del mismo título.
 
     **Esquema visual de la solución**
 
-    ![Películas en 3FN: ESTUDIO determina ciudadestudio; PELICULA con clave titulo y anyo determina duracion, tipo y estudio; REPARTO con clave titulo y actor determina anyo y referencia a PELICULA.](ejercicios-clase/06-peliculas-solucion.svg){ width=850 }
+    ![Películas en 3FN: ESTUDIO determina ciudadestudio; PELICULA con clave titulo y anyo determina duracion, tipo y estudio; REPARTO tiene clave titulo, anyo y actor, sin atributos adicionales, y referencia a PELICULA.](ejercicios-clase/06-peliculas-solucion.svg){ width=850 }
 
-    El estudio y su ciudad se guardan una sola vez, los datos de cada película una sola vez por título y año y sus actores en REPARTO. 
+    El estudio y su ciudad se guardan una sola vez, los datos de cada película una sola vez por título y año y sus actores en REPARTO.
 
 ??? success "Ejercicio 7. Matrículas universitarias"
 
@@ -456,6 +466,10 @@ hide:
     **MATRICULA** (<u>idmatricula, codigo</u>, nombre, apellido, direccion, localidad, telefono, curso, carrera).
 
     Cada fila ya contiene un solo curso. Repetir los datos de un alumno en filas distintas **no es, por sí mismo, una infracción de la 1FN**; las dependencias parciales de esos datos se eliminan en 2FN.
+
+    **Grafo de dependencias tras aplicar 1FN**
+
+    ![Grafo en 1FN: la clave compuesta contiene idmatricula y codigo; idmatricula determina los datos del alumno, con direccion y localidad separados, y codigo determina curso.](ejercicios-clase/07-matriculas-1fn.svg){ width=850 }
 
     ### 2. Segunda forma normal (2FN)
 

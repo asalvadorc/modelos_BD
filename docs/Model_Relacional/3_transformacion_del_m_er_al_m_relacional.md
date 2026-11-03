@@ -325,7 +325,7 @@ Una entidad débil depende de una entidad principal para existir y participa de 
 
 Además, en nuestros apuntes aplicaremos las siguientes reglas:
 
-- Dependencia en **existencia**: la entidad débil se indica con <span class="tag-cascade">(borrar en cascada)</span>.
+- Dependencia en **existencia**: indicamos <span class="tag-cascade">(borrar en cascada)</span> **junto a la FK de la entidad débil que referencia a su entidad principal**. Al borrar una fila de la entidad principal, se borran las filas dependientes que la referencian; no ocurre a la inversa.
 
     ![alt text](image-37.png)
 
@@ -340,9 +340,9 @@ En el ejemplo:
 !!! quote ""
     - EMPLEADO (<u>dni</u>, nombre, direccion, telefono, sueldo, fecha-n)
         - PK: (dni)
-    - FAMILIAR (<u><mark>dni-e</mark>, nom-f</u>, fecha-n, parentesco)  <span class="tag-cascade">(borrar en cascada)</span>
+    - FAMILIAR (<u><mark>dni-e</mark>, nom-f</u>, fecha-n, parentesco)
         - PK: (dni-e, nom-f)
-        - FK: dni-e->PERSONA(dni)
+        - FK: dni-e->EMPLEADO(dni) <span class="tag-cascade">(borrar en cascada)</span>
 
 
 !!!Note "Nota práctica"
@@ -380,9 +380,9 @@ Importante:
 - Es **una única clave externa compuesta**.
 
 !!! quote ""
-    - FAMILIAR (<u><i>dni-e</i>, nom-f</u>, fecha-n, parentesco  <span class="tag-cascade">(borrar en cascada)</span>
+    - FAMILIAR (<u><i>dni-e</i>, nom-f</u>, fecha-n, parentesco)
         - PK: (dni-e, nom-f)
-        - FK: dni-e->PERSONA(dni)
+        - FK: dni-e->EMPLEADO(dni) <span class="tag-cascade">(borrar en cascada)</span>
     - CARTAS (<u>id</u>, texto, <mark>dni-e, nom-f</mark>)
         - PK: (id)
         - FK: dni-e, nom-f->FAMILIAR(dni-e, nom-f)
@@ -510,12 +510,12 @@ En el ejemplo:
 !!! quote ""
     - EMPLEADO (<u>dni</u>,nombre, direccion, telefono,..., tipo)
         - PK: (dni)
-    - JEFE (<u><mark>dni</mark></u>, opinion) <span class="tag-cascade">(borrar en cascada)</span>
+    - JEFE (<u><mark>dni</mark></u>, opinion)
         - PK: (dni)
-        - FK: dni->EMPLEADO(dni)
-    - TRABAJADOR (<u><mark>dni</mark></u>, horas-extra) <span class="tag-cascade">(borrar en cascada)</span>
+        - FK: dni->EMPLEADO(dni) <span class="tag-cascade">(borrar en cascada)</span>
+    - TRABAJADOR (<u><mark>dni</mark></u>, horas-extra)
         - PK: (dni)
-        - FK: dni->EMPLEADO(dni)
+        - FK: dni->EMPLEADO(dni) <span class="tag-cascade">(borrar en cascada)</span>
 
 
 

@@ -2196,6 +2196,7 @@ Todos los departamentos tienen director: la FK y <code>[no nulo]</code> garantiz
 </ul>
 </li>
 </ul>
+<p>REx:  toda PERSONA debe aparecer en COLECCION como propietaria    </p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Restricción externa si conservamos dos tablas</p>
@@ -2269,7 +2270,7 @@ Todos los departamentos tienen director: la FK y <code>[no nulo]</code> garantiz
 <p>Además, en nuestros apuntes aplicaremos las siguientes reglas:</p>
 <ul>
 <li>
-<p>Dependencia en <strong>existencia</strong>: la entidad débil se indica con <span class="tag-cascade">(borrar en cascada)</span>.</p>
+<p>Dependencia en <strong>existencia</strong>: indicamos <span class="tag-cascade">(borrar en cascada)</span> <strong>junto a la FK de la entidad débil que referencia a su entidad principal</strong>. Al borrar una fila de la entidad principal, se borran las filas dependientes que la referencian; no ocurre a la inversa.</p>
 <p><img alt="alt text" src="../image-37.png" /></p>
 </li>
 <li>
@@ -2285,9 +2286,9 @@ Todos los departamentos tienen director: la FK y <code>[no nulo]</code> garantiz
 <li>PK: (dni)</li>
 </ul>
 </li>
-<li>FAMILIAR (<u><mark>dni-e</mark>, nom-f</u>, fecha-n, parentesco)  <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li>FAMILIAR (<u><mark>dni-e</mark>, nom-f</u>, fecha-n, parentesco)<ul>
 <li>PK: (dni-e, nom-f)</li>
-<li>FK: dni-e-&gt;PERSONA(dni)</li>
+<li>FK: dni-e-&gt;EMPLEADO(dni) <span class="tag-cascade">(borrar en cascada)</span></li>
 </ul>
 </li>
 </ul>
@@ -2330,9 +2331,9 @@ Todos los departamentos tienen director: la FK y <code>[no nulo]</code> garantiz
 </ul>
 <div class="admonition quote">
 <ul>
-<li>FAMILIAR (<u><i>dni-e</i>, nom-f</u>, fecha-n, parentesco  <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li>FAMILIAR (<u><i>dni-e</i>, nom-f</u>, fecha-n, parentesco)<ul>
 <li>PK: (dni-e, nom-f)</li>
-<li>FK: dni-e-&gt;PERSONA(dni)</li>
+<li>FK: dni-e-&gt;EMPLEADO(dni) <span class="tag-cascade">(borrar en cascada)</span></li>
 </ul>
 </li>
 <li>CARTAS (<u>id</u>, texto, <mark>dni-e, nom-f</mark>)<ul>
@@ -2469,14 +2470,14 @@ Si la especialización es solapada, un campo con un único valor no basta: un em
 <li>PK: (dni)</li>
 </ul>
 </li>
-<li>JEFE (<u><mark>dni</mark></u>, opinion) <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li>JEFE (<u><mark>dni</mark></u>, opinion)<ul>
 <li>PK: (dni)</li>
-<li>FK: dni-&gt;EMPLEADO(dni)</li>
+<li>FK: dni-&gt;EMPLEADO(dni) <span class="tag-cascade">(borrar en cascada)</span></li>
 </ul>
 </li>
-<li>TRABAJADOR (<u><mark>dni</mark></u>, horas-extra) <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li>TRABAJADOR (<u><mark>dni</mark></u>, horas-extra)<ul>
 <li>PK: (dni)</li>
-<li>FK: dni-&gt;EMPLEADO(dni)</li>
+<li>FK: dni-&gt;EMPLEADO(dni) <span class="tag-cascade">(borrar en cascada)</span></li>
 </ul>
 </li>
 </ul>

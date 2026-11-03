@@ -131,7 +131,7 @@ La tabla PELICULA contiene información sobre las películas, sus estudios y los
 
 Se conocen las siguientes reglas del dominio:
 
-* De un mismo título pueden existir versiones de distintos años, pero nunca con los mismos actores.
+* De un mismo título pueden existir versiones de distintos años. Un actor puede participar en varias versiones del mismo título.
 * Un actor puede participar en varias películas durante un mismo año.
 * Un estudio no puede estar ubicado en más de una ciudad.
 * Un actor puede trabajar con distintos estudios a lo largo de su carrera.

@@ -1715,9 +1715,9 @@
 <li>FK: supervisor-&gt;EMPLEADO(dni)</li>
 </ul>
 </li>
-<li>FAMILIAR (<u><mark>dni-e</mark>, nombre-f</u>, fecha-n, parentesco, ) <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li>FAMILIAR (<u><mark>dni-e</mark>, nombre-f</u>, fecha-n, parentesco, )<ul>
 <li>PK: (dni-e, nombre-f)</li>
-<li>FK: dni-e-&gt;EMPLEADO(dni)</li>
+<li>FK: dni-e-&gt;EMPLEADO(dni) <span class="tag-cascade">(borrar en cascada)</span></li>
 </ul>
 </li>
 <li>DEPARTAMENTO (<u>num-d</u>, nombre-d, <mark>director</mark>, fecha)<ul>
@@ -1753,19 +1753,19 @@
 <li>FK: supervisor-&gt;EMPLEADO(dni)</li>
 </ul>
 </li>
-<li>JEFE (<u><mark>dni</mark></u>, opinion) <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li>JEFE (<u><mark>dni</mark></u>, opinion)<ul>
 <li>PK: (dni)</li>
-<li>FK: dni-&gt;EMPLEADO(dni)</li>
+<li>FK: dni-&gt;EMPLEADO(dni) <span class="tag-cascade">(borrar en cascada)</span></li>
 </ul>
 </li>
-<li>TRABAJADOR  (<u><mark>dni</mark></u>, horas-extra)  <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li>TRABAJADOR  (<u><mark>dni</mark></u>, horas-extra)<ul>
 <li>PK: (dni)</li>
-<li>FK: dni-&gt;EMPLEADO(dni)     </li>
+<li>FK: dni-&gt;EMPLEADO(dni) <span class="tag-cascade">(borrar en cascada)</span></li>
 </ul>
 </li>
-<li>FAMILIAR (<u><mark>dni-e</mark>, nombre-f</u>, fecha-n, parentesco, ) <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li>FAMILIAR (<u><mark>dni-e</mark>, nombre-f</u>, fecha-n, parentesco, )<ul>
 <li>PK: (dni-e, nombre-f)</li>
-<li>FK: dni-e-&gt;EMPLEADO(dni)</li>
+<li>FK: dni-e-&gt;EMPLEADO(dni) <span class="tag-cascade">(borrar en cascada)</span></li>
 </ul>
 </li>
 <li>DEPARTAMENTO (<u>num-d</u>, nombre-d, <mark>director</mark>, fecha)<ul>

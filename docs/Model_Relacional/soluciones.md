@@ -114,9 +114,9 @@ hide:
             - PK: (isbn)
             - FK: cod-t->TEMA(cod-t)
             - FK: cod-ed->EDITORIAL(cod-ed)
-        - **EJEMPLAR** (<u><mark>isbn</mark>, n-reg</u>, <mark>dni</mark>, fecha-p) <span class="tag-cascade">(borrar en cascada)</span>
+        - **EJEMPLAR** (<u><mark>isbn</mark>, n-reg</u>, <mark>dni</mark>, fecha-p)
             - PK: (isbn, n-reg)
-            - FK: isbn->LIBRO(isbn)
+            - FK: isbn->LIBRO(isbn) <span class="tag-cascade">(borrar en cascada)</span>
             - FK: dni->LECTOR(dni)
         - **ESCRIBE** (<u><mark>cod-aut</mark>, <mark>isbn</mark></u>)
             - PK: (cod-aut, isbn)
@@ -141,20 +141,20 @@ hide:
         !!! quote "Opción 1"
             - **BANCO** (<u>cod-ent</u>)
                 - PK: (cod-ent)
-            - **SUCURSAL** (<u><mark>cod-ent</mark>, cod-suc</u>) <span class="tag-cascade">(borrar en cascada)</span>
+            - **SUCURSAL** (<u><mark>cod-ent</mark>, cod-suc</u>)
                 - PK: (cod-ent, cod-suc)
-                - FK: cod-ent->BANCO(cod-ent)
-            - **CUENTA CORRIENTE** (<u><mark>cod-ent</mark>, <mark>cod-suc</mark></u>, <u>cod-cc</u>) <span class="tag-cascade">(borrar en cascada)</span>
+                - FK: cod-ent->BANCO(cod-ent) <span class="tag-cascade">(borrar en cascada)</span>
+            - **CUENTA CORRIENTE** (<u><mark>cod-ent</mark>, <mark>cod-suc</mark></u>, <u>cod-cc</u>)
                 - PK: (cod-ent, cod-suc, cod-cc)
-                - FK: cod-ent, cod-suc->SUCURSAL(cod-ent, cod-suc)
-            - **DOMICILIACION** (<u><mark>cod-ent</mark>, <mark>cod-suc</mark>, <mark>cod-cc</mark>, cod-d</u>) <span class="tag-cascade">(borrar en cascada)</span>
+                - FK: cod-ent, cod-suc->SUCURSAL(cod-ent, cod-suc) <span class="tag-cascade">(borrar en cascada)</span>
+            - **DOMICILIACION** (<u><mark>cod-ent</mark>, <mark>cod-suc</mark>, <mark>cod-cc</mark>, cod-d</u>)
                 - PK: (cod-ent, cod-suc, cod-cc, cod-d)
-                - FK: cod-ent, cod-suc, cod-cc->CUENTA CORRIENTE(cod-ent, cod-suc, cod-cc)
+                - FK: cod-ent, cod-suc, cod-cc->CUENTA CORRIENTE(cod-ent, cod-suc, cod-cc) <span class="tag-cascade">(borrar en cascada)</span>
             - **CLIENTE** (<u>dni</u>)
                 - PK: (dni)
-            - **PRESTAMO** (<u><mark>cod-ent</mark>, <mark>cod-suc</mark>, cod-p</u>, <mark>dni</mark>) <span class="tag-cascade">(borrar en cascada)</span>
+            - **PRESTAMO** (<u><mark>cod-ent</mark>, <mark>cod-suc</mark>, cod-p</u>, <mark>dni</mark>)
                 - PK: (cod-ent, cod-suc, cod-p)
-                - FK: cod-ent, cod-suc->SUCURSAL(cod-ent, cod-suc)
+                - FK: cod-ent, cod-suc->SUCURSAL(cod-ent, cod-suc) <span class="tag-cascade">(borrar en cascada)</span>
                 - FK: dni->CLIENTE(dni) <span class="tag-no-nulo">[no nulo]</span>
             - **PERMISOS** (<u><mark>cod-ent</mark>, <mark>cod-suc</mark>, <mark>cod-cc</mark>, <mark>dni</mark>, privilegio</u>)
                 - PK: (cod-ent, cod-suc, cod-cc, dni, privilegio)
@@ -167,20 +167,20 @@ hide:
          
             - **BANCO** (<u>cod-ent</u>)
                 - PK: (cod-ent)
-            - **SUCURSAL** (<u><mark>cod-ent</mark>, cod-suc</u>) <span class="tag-cascade">(borrar en cascada)</span>
+            - **SUCURSAL** (<u><mark>cod-ent</mark>, cod-suc</u>)
                 - PK: (cod-ent, cod-suc)
-                - FK: cod-ent->BANCO(cod-ent) 
-            - **CUENTA CORRIENTE** (<u><mark>cod-ent</mark>, <mark>cod-suc</mark></u>, <u>cod-cc</u>) <span class="tag-cascade">(borrar en cascada)</span>
+                - FK: cod-ent->BANCO(cod-ent) <span class="tag-cascade">(borrar en cascada)</span>
+            - **CUENTA CORRIENTE** (<u><mark>cod-ent</mark>, <mark>cod-suc</mark></u>, <u>cod-cc</u>)
                 - PK: (cod-ent, cod-suc, cod-cc)
-                - FK: cod-ent, cod-suc->SUCURSAL(cod-ent, cod-suc)
-            - **DOMICILIACION** (<u>num-d</u>,<mark>cod-ent</mark>, <mark>cod-suc</mark>, <mark>cod-cc</mark>) <span class="tag-cascade">(borrar en cascada)</span>
+                - FK: cod-ent, cod-suc->SUCURSAL(cod-ent, cod-suc) <span class="tag-cascade">(borrar en cascada)</span>
+            - **DOMICILIACION** (<u>num-d</u>,<mark>cod-ent</mark>, <mark>cod-suc</mark>, <mark>cod-cc</mark>)
                 - PK: (num-d)
-                - FK: cod-ent, cod-suc, cod-cc->CUENTA CORRIENTE(cod-ent, cod-suc, cod-cc) <span class="tag-no-nulo">[no nulo]</span>
+                - FK: cod-ent, cod-suc, cod-cc->CUENTA CORRIENTE(cod-ent, cod-suc, cod-cc) <span class="tag-no-nulo">[no nulo]</span> <span class="tag-cascade">(borrar en cascada)</span>
             - **CLIENTE** (<u>dni</u>)
                 - PK: (dni)
-            - **PRESTAMO** (<u><mark>cod-ent</mark>, <mark>cod-suc</mark>, cod-p</u>, <mark>dni</mark>) <span class="tag-cascade">(borrar en cascada)</span>
+            - **PRESTAMO** (<u><mark>cod-ent</mark>, <mark>cod-suc</mark>, cod-p</u>, <mark>dni</mark>)
                 - PK: (cod-ent, cod-suc, cod-p)
-                - FK: cod-ent, cod-suc->SUCURSAL(cod-ent, cod-suc)
+                - FK: cod-ent, cod-suc->SUCURSAL(cod-ent, cod-suc) <span class="tag-cascade">(borrar en cascada)</span>
                 - FK: dni->CLIENTE(dni) <span class="tag-no-nulo">[no nulo]</span>
             - **PERMISOS** (<u> cod-p</u>,<mark>cod-ent</mark>, <mark>cod-suc</mark>, <mark>cod-cc</mark>, <mark>dni</mark>, privilegio)
                 - PK: (cod-p)
@@ -200,12 +200,12 @@ hide:
         !!! quote "Opción 1"
             - **FAMILIA** (<u>nom-f</u>)
                 - PK: (nom-f)
-            - **GENERO** (<u>nom-g</u>, <mark>nom-f</mark>) <span class="tag-cascade">(borrar en cascada)</span>
+            - **GENERO** (<u>nom-g</u>, <mark>nom-f</mark>)
                 - PK: (nom-g)
-                - FK: nom-f->FAMILIA(nom-f) <span class="tag-no-nulo">[no nulo]</span>
-            - **ESPECIE** (<u><mark>nom-g</mark>,nom-e </u>) <span class="tag-cascade">(borrar en cascada)</span>
+                - FK: nom-f->FAMILIA(nom-f) <span class="tag-no-nulo">[no nulo]</span> <span class="tag-cascade">(borrar en cascada)</span>
+            - **ESPECIE** (<u><mark>nom-g</mark>,nom-e </u>)
                 - PK: (nom-g, nom-e)
-                - FK: nom-g->GENERO(nom-g)
+                - FK: nom-g->GENERO(nom-g) <span class="tag-cascade">(borrar en cascada)</span>
             - **PERSONA** (<u>dni</u>)
                 - PK: (dni)
             - **COMARCA** (<u>com</u>)
@@ -214,23 +214,23 @@ hide:
                 - PK: (nom-g, nom-e, com)
                 - FK: nom-g,nom-e->ESPECIE(nom-g,nom-e)
                 - FK: com->COMARCA(com)
-            - **EJEMPLAR** (<u><mark>nom-g</mark>,<mark>nom-e</mark>,cod-ej</u>, <mark>dni</mark>, <mark>com</mark>) <span class="tag-cascade">(borrar en cascada)</span>
+            - **EJEMPLAR** (<u><mark>nom-g</mark>,<mark>nom-e</mark>,cod-ej</u>, <mark>dni</mark>, <mark>com</mark>)
                 - PK: (nom-g, nom-e, cod-ej)
-                - FK: nom-g,nom-e->ESPECIE(nom-g,nom-e)
+                - FK: nom-g,nom-e->ESPECIE(nom-g,nom-e) <span class="tag-cascade">(borrar en cascada)</span>
                 - FK: dni->PERSONA(dni) <span class="tag-no-nulo">[no nulo]</span>
                 - FK: com->COMARCA(com) <span class="tag-no-nulo">[no nulo]</span>
-             - **EJ_COL** (<u><mark>nom-g</mark>,<mark>nom-e</mark>,<mark>cod-ej</mark></u>, <mark>dni</mark>, valor) <span class="tag-cascade">(borrar en cascada)</span>
+             - **EJ_COL** (<u><mark>nom-g</mark>,<mark>nom-e</mark>,<mark>cod-ej</mark></u>, <mark>dni</mark>, valor)
                 - PK: (nom-g, nom-e, cod-ej)
-                - FK: cod-ej,nom-g,nom-e->EJEMPLAR(cod-ej,nom-g,nom-e)
+                - FK: cod-ej,nom-g,nom-e->EJEMPLAR(cod-ej,nom-g,nom-e) <span class="tag-cascade">(borrar en cascada)</span>
                 - FK: dni->COLECCION(dni) <span class="tag-no-nulo">[no nulo]</span>
-            - **EJ_OBS** (<u><mark>nom-g</mark>,<mark>nom-e</mark>,<mark>cod-ej</mark></u>, tiempo-obs) <span class="tag-cascade">(borrar en cascada)</span>
+            - **EJ_OBS** (<u><mark>nom-g</mark>,<mark>nom-e</mark>,<mark>cod-ej</mark></u>, tiempo-obs)
                 - PK: (nom-g, nom-e,cod-ej)
-                - FK: cod-ej,nom-g,nom-e->EJEMPLAR(cod-ej,nom-g,nom-e)
+                - FK: cod-ej,nom-g,nom-e->EJEMPLAR(cod-ej,nom-g,nom-e) <span class="tag-cascade">(borrar en cascada)</span>
 
               
-            - **COLECCION** (<u><mark>dni</mark></u>, id-col) <span class="tag-cascade">(borrar en cascada)</span>
+            - **COLECCION** (<u><mark>dni</mark></u>, id-col)
                 - PK: (dni)
-                - FK: dni->PERSONA(dni)
+                - FK: dni->PERSONA(dni) <span class="tag-cascade">(borrar en cascada)</span>
                       
             <span class="tag-nota">[nota]</span> La PK de **COLECCION** es la misma que la de **PERSONA** (dni), ya que se trata de una relación 1:1 de identificación.
 
@@ -242,12 +242,12 @@ hide:
 
             - **FAMILIA** (<u>nom-f</u>)
                 - PK: (nom-f)
-            - **GENERO** (<u>nom-g</u>, <mark>nom-f</mark>) <span class="tag-cascade">(borrar en cascada)</span>
+            - **GENERO** (<u>nom-g</u>, <mark>nom-f</mark>)
                 - PK: (nom-g)
-                - FK: nom-f->FAMILIA(nom-f) <span class="tag-no-nulo">[no nulo]</span>
-            - **ESPECIE** (<u><mark>nom-g</mark>,nom-e</u>) <span class="tag-cascade">(borrar en cascada)</span>
+                - FK: nom-f->FAMILIA(nom-f) <span class="tag-no-nulo">[no nulo]</span> <span class="tag-cascade">(borrar en cascada)</span>
+            - **ESPECIE** (<u><mark>nom-g</mark>,nom-e</u>)
                 - PK: (nom-g, nom-e)
-                - FK: nom-g->GENERO(nom-g)
+                - FK: nom-g->GENERO(nom-g) <span class="tag-cascade">(borrar en cascada)</span>
             - **PERSONA** (<u>dni</u>)
                 - PK: (dni)
             - **COMARCA** (<u>com</u>)
@@ -256,23 +256,23 @@ hide:
                 - PK: (nom-g, nom-e, com)
                 - FK: nom-g,nom-e->ESPECIE(nom-g,nom-e)
                 - FK: com->COMARCA(com)
-            - **EJEMPLAR** (<u>cod-ej</u>, <mark>nom-g</mark>,<mark>nom-e</mark>, <mark>dni</mark>, <mark>com</mark>) <span class="tag-cascade">(borrar en cascada)</span>
+            - **EJEMPLAR** (<u>cod-ej</u>, <mark>nom-g</mark>,<mark>nom-e</mark>, <mark>dni</mark>, <mark>com</mark>)
                 - PK: (cod-ej)
-                - FK: nom-g,nom-e->ESPECIE(nom-g,nom-e) <span class="tag-no-nulo">[no nulo]</span>
+                - FK: nom-g,nom-e->ESPECIE(nom-g,nom-e) <span class="tag-no-nulo">[no nulo]</span> <span class="tag-cascade">(borrar en cascada)</span>
                 - FK: dni->PERSONA(dni) <span class="tag-no-nulo">[no nulo]</span>
                 - FK: com->COMARCA(com) <span class="tag-no-nulo">[no nulo]</span>
             
-            - **EJ_COL** (<u><mark>cod-ej</mark></u>, <mark>dni</mark>, valor) <span class="tag-cascade">(borrar en cascada)</span>
+            - **EJ_COL** (<u><mark>cod-ej</mark></u>, <mark>dni</mark>, valor)
                 - PK: (cod-ej)
-                - FK: cod-ej->EJEMPLAR(cod-ej)
+                - FK: cod-ej->EJEMPLAR(cod-ej) <span class="tag-cascade">(borrar en cascada)</span>
                 - FK: dni->COLECCION(dni) <span class="tag-no-nulo">[no nulo]</span>
-            - **EJ_OBS** (<u><mark>cod-ej</mark></u>, tiempo-obs) <span class="tag-cascade">(borrar en cascada)</span>
+            - **EJ_OBS** (<u><mark>cod-ej</mark></u>, tiempo-obs)
                 - PK: (cod-ej)
-                - FK: cod-ej->EJEMPLAR(cod-ej)
+                - FK: cod-ej->EJEMPLAR(cod-ej) <span class="tag-cascade">(borrar en cascada)</span>
 
-            - **COLECCION** (<u><mark>dni</mark></u>, id-col) <span class="tag-cascade">(borrar en cascada)</span>
+            - **COLECCION** (<u><mark>dni</mark></u>, id-col)
                 - PK: (dni)
-                - FK: dni->PERSONA(dni)<span class="tag-no-nulo">[no nulo]</span>    
+                - FK: dni->PERSONA(dni)<span class="tag-no-nulo">[no nulo]</span> <span class="tag-cascade">(borrar en cascada)</span>
 
              <span class="tag-nota">[nota]</span> La PK de **COLECCION** es la misma que la de **PERSONA** (dni), ya que se trata de una relación 1:1 de identificación.
 
@@ -293,12 +293,12 @@ hide:
     ??? success "Solución propuesta"
         - **EMPLEADO** (<u>dni</u>, nombre, direccion, telefono, fecha-inicio)
             - PK: (dni)
-        - **GUIA** (<u><mark>dni</mark></u>) <span class="tag-cascade">(borrar en cascada)</span>
+        - **GUIA** (<u><mark>dni</mark></u>)
             - PK: (dni)
-            - FK: dni->EMPLEADO(dni)
-        - **CUIDADOR** (<u><mark>dni</mark></u>) <span class="tag-cascade">(borrar en cascada)</span>
+            - FK: dni->EMPLEADO(dni) <span class="tag-cascade">(borrar en cascada)</span>
+        - **CUIDADOR** (<u><mark>dni</mark></u>)
             - PK: (dni)
-            - FK: dni->EMPLEADO(dni)
+            - FK: dni->EMPLEADO(dni) <span class="tag-cascade">(borrar en cascada)</span>
         - **HABITAT** (<u>cod-h</u>, clima, vegetacion)
             - PK: (cod-h)
         - **ZONA** (<u>cod-z</u>, extension)
@@ -338,12 +338,12 @@ hide:
         - **TRABAJADOR** (<u>codigo-trabajador</u>, <mark>codigo-estacion</mark>)
             - PK: (codigo-trabajador)
             - FK: codigo-estacion->ESTACIÓN(codigo-estacion)
-        - **NO CONDUCTOR** (<u><mark>codigo-trabajador</mark></u>) <span class="tag-cascade">(borrar en cascada)</span>
+        - **NO CONDUCTOR** (<u><mark>codigo-trabajador</mark></u>)
             - PK: (codigo-trabajador)
-            - FK: codigo-trabajador->TRABAJADOR(codigo-trabajador)
-        - **CONDUCTOR** (<u><mark>codigo-trabajador</mark></u>, horas) <span class="tag-cascade">(borrar en cascada)</span>
+            - FK: codigo-trabajador->TRABAJADOR(codigo-trabajador) <span class="tag-cascade">(borrar en cascada)</span>
+        - **CONDUCTOR** (<u><mark>codigo-trabajador</mark></u>, horas)
             - PK: (codigo-trabajador)
-            - FK: codigo-trabajador->TRABAJADOR(codigo-trabajador)
+            - FK: codigo-trabajador->TRABAJADOR(codigo-trabajador) <span class="tag-cascade">(borrar en cascada)</span>
         - **ESTACIÓN** (<u>codigo-estacion</u>, nombre, telefono)
             - PK: (codigo-estacion)
         - **TREN** (<u>codigo-tren</u>, <mark>codigo-estacion</mark>, tipo)
@@ -367,12 +367,12 @@ hide:
             - **TRABAJADOR** (<u>codigo-trabajador</u>, <mark>codigo-estacion</mark>)
                 - PK: (codigo-trabajador)
                 - FK: codigo-estacion->ESTACIÓN(codigo-estacion)
-            - **NO CONDUCTOR** (<u><mark>codigo-trabajador</mark></u>) <span class="tag-cascade">(borrar en cascada)</span>
+            - **NO CONDUCTOR** (<u><mark>codigo-trabajador</mark></u>)
                 - PK: (codigo-trabajador)
-                - FK: codigo-trabajador->TRABAJADOR(codigo-trabajador)
-            - **CONDUCTOR** (<u><mark>codigo-trabajador</mark></u>, horas) <span class="tag-cascade">(borrar en cascada)</span>
+                - FK: codigo-trabajador->TRABAJADOR(codigo-trabajador) <span class="tag-cascade">(borrar en cascada)</span>
+            - **CONDUCTOR** (<u><mark>codigo-trabajador</mark></u>, horas)
                 - PK: (codigo-trabajador)
-                - FK: codigo-trabajador->TRABAJADOR(codigo-trabajador)
+                - FK: codigo-trabajador->TRABAJADOR(codigo-trabajador) <span class="tag-cascade">(borrar en cascada)</span>
             - **ESTACIÓN** (<u>codigo-estacion</u>, nombre, telefono)
                 - PK: (codigo-estacion)
             - **TREN** (<u>codigo-tren</u>, <mark>codigo-estacion</mark>, tipo)
@@ -386,9 +386,9 @@ hide:
                 - PK: (codigo-estacion, codigo-trayecto)
                 - FK: codigo-trayecto->TRAYECTO(codigo-trayecto)
                 - FK: codigo-estacion->ESTACIÓN(codigo-estacion)
-            - **VIAJE** (<u><mark>codigo-trayecto</mark>, fecha</u>, <mark>codigo-tren</mark>, <mark>cod-temporada</mark>) <span class="tag-cascade">(borrar en cascada)</span>
+            - **VIAJE** (<u><mark>codigo-trayecto</mark>, fecha</u>, <mark>codigo-tren</mark>, <mark>cod-temporada</mark>)
                 - PK: (codigo-trayecto, fecha)
-                - FK: codigo-trayecto->TRAYECTO(codigo-trayecto)
+                - FK: codigo-trayecto->TRAYECTO(codigo-trayecto) <span class="tag-cascade">(borrar en cascada)</span>
                 - FK: codigo-tren->TREN(codigo-tren)
                 - FK: cod-temporada->TEMPORADA(cod-temporada)
             - **CONDUCTOR_VIAJE** (<u><mark>codigo-trabajador</mark>, <mark>codigo-trayecto</mark>, <mark>fecha</mark></u>)

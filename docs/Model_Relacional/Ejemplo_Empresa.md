@@ -17,9 +17,9 @@ Sin tener en cuenta la especialización tendremos esta solución:
         - PK: (dni)
         - FK: departamento->DEPARTAMENTO(num-d) <span class="tag-no-nulo">[no nulo]</span>
         - FK: supervisor->EMPLEADO(dni)
-    - FAMILIAR (<u><mark>dni-e</mark>, nombre-f</u>, fecha-n, parentesco, ) <span class="tag-cascade">(borrar en cascada)</span>
+    - FAMILIAR (<u><mark>dni-e</mark>, nombre-f</u>, fecha-n, parentesco, )
         - PK: (dni-e, nombre-f)
-        - FK: dni-e->EMPLEADO(dni)
+        - FK: dni-e->EMPLEADO(dni) <span class="tag-cascade">(borrar en cascada)</span>
     - DEPARTAMENTO (<u>num-d</u>, nombre-d, <mark>director</mark>, fecha)
         - PK: (num-d)
         - FK: director->EMPLEADO(dni) <span class="tag-no-nulo">[no nulo]</span> <span class="tag-unico">[unico]</span>
@@ -49,15 +49,15 @@ Y teniendo en cuenta la especialización:
         - PK: (dni)
         - FK: departamento->DEPARTAMENTO(num-d) <span class="tag-no-nulo">[no nulo]</span>
         - FK: supervisor->EMPLEADO(dni)
-    - JEFE (<u><mark>dni</mark></u>, opinion) <span class="tag-cascade">(borrar en cascada)</span>
+    - JEFE (<u><mark>dni</mark></u>, opinion)
         - PK: (dni)
-        - FK: dni->EMPLEADO(dni)
-    - TRABAJADOR  (<u><mark>dni</mark></u>, horas-extra)  <span class="tag-cascade">(borrar en cascada)</span>
+        - FK: dni->EMPLEADO(dni) <span class="tag-cascade">(borrar en cascada)</span>
+    - TRABAJADOR  (<u><mark>dni</mark></u>, horas-extra)
         - PK: (dni)
-        - FK: dni->EMPLEADO(dni)     
-    - FAMILIAR (<u><mark>dni-e</mark>, nombre-f</u>, fecha-n, parentesco, ) <span class="tag-cascade">(borrar en cascada)</span>
+        - FK: dni->EMPLEADO(dni) <span class="tag-cascade">(borrar en cascada)</span>
+    - FAMILIAR (<u><mark>dni-e</mark>, nombre-f</u>, fecha-n, parentesco, )
         - PK: (dni-e, nombre-f)
-        - FK: dni-e->EMPLEADO(dni)
+        - FK: dni-e->EMPLEADO(dni) <span class="tag-cascade">(borrar en cascada)</span>
     - DEPARTAMENTO (<u>num-d</u>, nombre-d, <mark>director</mark>, fecha)
         - PK: (num-d)
         - FK: director->JEFE(dni) <span class="tag-no-nulo">[no nulo]</span> <span class="tag-unico">[unico]</span>
