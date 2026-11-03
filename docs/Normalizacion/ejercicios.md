@@ -55,7 +55,10 @@ El grafo representa las dependencias entre los datos de una única tabla **PEDID
 
 <div class="normalizacion-exercise-table" markdown>
 
-Las relaciones representadas por los grafos ya se encuentran en **1FN**. Normaliza hasta **3FN** y presenta las tablas resultantes en el modelo relacional, indicando sus claves primarias (PK) y foráneas (FK).
+Se dispone de la siguiente tabla no normalizada, que almacena información sobre las líneas de pedidos de una Empresa:
+
+Normaliza hasta **3FN** y presenta las tablas resultantes en el modelo relacional, indicando sus claves primarias (PK) y foráneas (FK).
+
 
 | **id_orden** | **fecha** | **id_cliente** | **nom_cliente** | **estado** | **num_art** | **nom_art** | **cantidad** | **precio** |
 |-------------|-----------|----------------|-----------------|------------|-------------|-------------|----------|------------|
