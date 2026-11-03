@@ -93,7 +93,7 @@ hide:
 
     Con las dependencias indicadas, todas las tablas cumplen **FNBC**: en todas sus dependencias funcionales no triviales, el determinante es una clave.
 
-??? success "Ejercicio 3. Órdenes de pedido"
+??? success "Ejercicio 3. Líneas de pedido"
 
     **Tabla original de pedidos**
 
@@ -426,7 +426,7 @@ hide:
 
     El estudio y su ciudad se guardan una sola vez, los datos de cada película una sola vez por título y año y sus actores en REPARTO.
 
-??? success "Ejercicio 7. Matrículas universitarias"
+??? success "Ejercicio 7. Matrículas"
 
     **Tabla original MATRICULA**
 

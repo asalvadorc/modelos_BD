@@ -50,7 +50,7 @@ El grafo representa las dependencias entre los datos de una única tabla **PEDID
 
 </div>
 
-## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 3. Órdenes de pedido</span></span>
+## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 3. Líneas de pedido</span></span>
 
 
 <div class="normalizacion-exercise-table" markdown>
@@ -69,7 +69,7 @@ Las relaciones representadas por los grafos ya se encuentran en **1FN**. Normali
 </div>
 
 
-## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 4</span></span>
+## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 4. Exposiciones</span></span>
 
 La tabla EXPOSICIONES contiene información sobre las exposiciones, las galerías, las obras expuestas y sus autores.  Normaliza paso a paso hasta 3FN.
 
@@ -90,7 +90,7 @@ La clave principal es (codexp, codobr): una exposición puede incluir varias obr
 
 
 
-## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 5</span></span>
+## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 5. Trabajador</span></span>
 
 Se dispone de la siguiente tabla no normalizada, que almacena información sobre los trabajadores de una empresa:
 
@@ -111,7 +111,7 @@ Se dispone de la siguiente tabla no normalizada, que almacena información sobre
 3. Normaliza paso a paso hasta 3FN.
 4. Presenta las tablas resultantes con sus PK y FK.
 
-## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 6</span></span>
+## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 6. Películas</span></span>
 
 La tabla PELICULA contiene información sobre las películas, sus estudios y los actores que participan en ellas:
 
@@ -143,7 +143,7 @@ Se conocen las siguientes reglas del dominio:
 3. Aplica la normalización hasta 3FN.
 4. Presenta el esquema final con sus PK y FK.
 
-## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 7</span></span>
+## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 7. Matrículas</span></span>
 
 Una universidad utiliza una única tabla para registrar los alumnos y los cursos en los que se matriculan. El diseño actual genera redundancias y posibles errores de actualización.
 
