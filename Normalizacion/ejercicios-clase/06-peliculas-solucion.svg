@@ -19,11 +19,9 @@
 <rect x="576" y="380" width="420" height="36" rx="8" fill="white" stroke="#172554" stroke-width="2"/><text x="786" y="405" font-size="21">tipo</text><path d="M364 402.0H470V398H574" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
 <rect x="576" y="424" width="420" height="36" rx="8" fill="white" stroke="#172554" stroke-width="2"/><text x="786" y="449" font-size="21">estudio (FK)</text><path d="M364 402.0H470V442H574" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
 <text x="530" y="522" font-size="17">FK: estudio → ESTUDIO(estudio)</text>
-<rect x="20" y="560" width="1020" height="192" rx="12" fill="#f8faff" stroke="#d8e1f1"/><text x="530" y="588" font-size="22" font-weight="700">REPARTO</text>
-<rect x="44" y="603.0" width="320" height="86" rx="10" fill="#e9eff9" stroke="#2f4fb0" stroke-width="2.5"/>
-<text x="204" y="640.0" font-size="24" font-weight="700">titulo</text>
-<text x="204" y="668.0" font-size="24" font-weight="700">actor</text>
-<rect x="576" y="608" width="420" height="36" rx="8" fill="white" stroke="#172554" stroke-width="2"/><text x="786" y="633" font-size="21">anyo</text><path d="M364 646.0H470V626H574" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
-<text x="530" y="706" font-size="17">FK: (titulo, anyo) → PELICULA(titulo, anyo)</text>
-<text x="530" y="730" font-size="17">La pareja (titulo, actor) determina anyo según la regla de las versiones.</text>
-</g></svg>
+<rect x="20" y="560" width="1020" height="192" rx="12" fill="#f8faff" stroke="#d8e1f1"/>
+<text x="530" y="588" font-size="22" font-weight="700">REPARTO</text>
+<rect x="44" y="602" width="320" height="110" rx="10" fill="#e9eff9" stroke="#2f4fb0" stroke-width="2.5"/>
+<text x="204" y="631" font-size="24" font-weight="700">titulo</text><text x="204" y="664" font-size="24" font-weight="700">anyo</text><text x="204" y="697" font-size="24" font-weight="700">actor</text>
+<text x="760" y="640" font-size="22">Sin atributos adicionales</text><text x="760" y="677" font-size="18">Una fila por película, año y actor.</text>
+<text x="530" y="735" font-size="17">FK: (titulo, anyo) → PELICULA(titulo, anyo)</text></g></svg>

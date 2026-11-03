@@ -1935,40 +1935,18 @@ Sin conocer el empleado y el proyecto juntos, no se pueden determinar las HORAS 
 <h3 id="estructura-del-grafo">Estructura del Grafo</h3>
 <p>El siguiente esquema muestra cómo leer cada parte de un grafo. <strong>La clave principal es A . B . O</strong>: los tres atributos aparecen una sola vez dentro del recuadro exterior.</p>
 <p><img alt="Estructura de un grafo: el recuadro continuo contiene la clave A, B y O; el discontinuo agrupa B y O como parte de la clave; del recuadro completo salen las dependencias hacia M y S, de A hacia Q, de O hacia C, del grupo B y O hacia R, y de M hacia N y P." src="../image-3.svg" width="1100" /></p>
-<table>
-<thead>
-<tr>
-<th>Elemento</th>
-<th>Cómo se interpreta en el esquema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Recuadro exterior con línea continua</strong></td>
-<td>Engloba todos los atributos de la clave principal: <strong>A . B . O</strong>.</td>
-</tr>
-<tr>
-<td><strong>Recuadro interior con línea discontinua</strong></td>
-<td>Agrupa una parte de la clave: <strong>B . O</strong>. No representa otra tabla ni una clave candidata.</td>
-</tr>
-<tr>
-<td><strong>Flecha que sale del recuadro exterior</strong></td>
-<td>Depende de la clave completa: <strong>A . B . O → M</strong> y <strong>A . B . O → S</strong>.</td>
-</tr>
-<tr>
-<td><strong>Flecha que sale de un atributo interior</strong></td>
-<td>Depende solo de ese atributo: <strong>A → Q</strong> y <strong>O → C</strong>. Son dependencias parciales respecto a la clave completa.</td>
-</tr>
-<tr>
-<td><strong>Flecha que sale del recuadro interior</strong></td>
-<td>Depende de ese subconjunto: <strong>B . O → R</strong>. También es una dependencia parcial.</td>
-</tr>
-<tr>
-<td><strong>Flecha entre atributos exteriores</strong></td>
-<td>Representa otra dependencia funcional: <strong>M → N</strong> y <strong>M → P</strong>. Permite reconocer las cadenas transitivas <strong>A . B . O → M → N, P</strong>.</td>
-</tr>
-</tbody>
-</table>
+<!--
+| Elemento | Cómo se interpreta en el esquema |
+|----------|---------------------------------|
+| **Recuadro exterior con línea continua** | Engloba todos los atributos de la clave principal: **A . B . O**. |
+| **Recuadro interior con línea discontinua** | Agrupa una parte de la clave: **B . O**. No representa otra tabla ni una clave candidata. |
+| **Flecha que sale del recuadro exterior** | Depende de la clave completa: **A . B . O → M** y **A . B . O → S**. |
+| **Flecha que sale de un atributo interior** | Depende solo de ese atributo: **A → Q** y **O → C**. Son dependencias parciales respecto a la clave completa. |
+| **Flecha que sale del recuadro interior** | Depende de ese subconjunto: **B . O → R**. También es una dependencia parcial. |
+| **Flecha entre atributos exteriores** | Representa otra dependencia funcional: **M → N** y **M → P**. Permite reconocer las cadenas transitivas **A . B . O → M → N, P**. |
+
+-->
+
 <p>La <strong>posición de salida de cada flecha</strong> indica su determinante. Los atributos situados fuera del recuadro exterior no forman parte de la clave principal representada.</p>
 <p>El grafo permite visualizar:  </p>
 <ul>

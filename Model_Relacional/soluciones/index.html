@@ -1884,9 +1884,9 @@
 <li>FK: cod-ed-&gt;EDITORIAL(cod-ed)</li>
 </ul>
 </li>
-<li><strong>EJEMPLAR</strong> (<u><mark>isbn</mark>, n-reg</u>, <mark>dni</mark>, fecha-p) <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li><strong>EJEMPLAR</strong> (<u><mark>isbn</mark>, n-reg</u>, <mark>dni</mark>, fecha-p)<ul>
 <li>PK: (isbn, n-reg)</li>
-<li>FK: isbn-&gt;LIBRO(isbn)</li>
+<li>FK: isbn-&gt;LIBRO(isbn) <span class="tag-cascade">(borrar en cascada)</span></li>
 <li>FK: dni-&gt;LECTOR(dni)</li>
 </ul>
 </li>
@@ -1924,28 +1924,28 @@
 <li>PK: (cod-ent)</li>
 </ul>
 </li>
-<li><strong>SUCURSAL</strong> (<u><mark>cod-ent</mark>, cod-suc</u>) <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li><strong>SUCURSAL</strong> (<u><mark>cod-ent</mark>, cod-suc</u>)<ul>
 <li>PK: (cod-ent, cod-suc)</li>
-<li>FK: cod-ent-&gt;BANCO(cod-ent)</li>
+<li>FK: cod-ent-&gt;BANCO(cod-ent) <span class="tag-cascade">(borrar en cascada)</span></li>
 </ul>
 </li>
-<li><strong>CUENTA CORRIENTE</strong> (<u><mark>cod-ent</mark>, <mark>cod-suc</mark></u>, <u>cod-cc</u>) <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li><strong>CUENTA CORRIENTE</strong> (<u><mark>cod-ent</mark>, <mark>cod-suc</mark></u>, <u>cod-cc</u>)<ul>
 <li>PK: (cod-ent, cod-suc, cod-cc)</li>
-<li>FK: cod-ent, cod-suc-&gt;SUCURSAL(cod-ent, cod-suc)</li>
+<li>FK: cod-ent, cod-suc-&gt;SUCURSAL(cod-ent, cod-suc) <span class="tag-cascade">(borrar en cascada)</span></li>
 </ul>
 </li>
-<li><strong>DOMICILIACION</strong> (<u><mark>cod-ent</mark>, <mark>cod-suc</mark>, <mark>cod-cc</mark>, cod-d</u>) <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li><strong>DOMICILIACION</strong> (<u><mark>cod-ent</mark>, <mark>cod-suc</mark>, <mark>cod-cc</mark>, cod-d</u>)<ul>
 <li>PK: (cod-ent, cod-suc, cod-cc, cod-d)</li>
-<li>FK: cod-ent, cod-suc, cod-cc-&gt;CUENTA CORRIENTE(cod-ent, cod-suc, cod-cc)</li>
+<li>FK: cod-ent, cod-suc, cod-cc-&gt;CUENTA CORRIENTE(cod-ent, cod-suc, cod-cc) <span class="tag-cascade">(borrar en cascada)</span></li>
 </ul>
 </li>
 <li><strong>CLIENTE</strong> (<u>dni</u>)<ul>
 <li>PK: (dni)</li>
 </ul>
 </li>
-<li><strong>PRESTAMO</strong> (<u><mark>cod-ent</mark>, <mark>cod-suc</mark>, cod-p</u>, <mark>dni</mark>) <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li><strong>PRESTAMO</strong> (<u><mark>cod-ent</mark>, <mark>cod-suc</mark>, cod-p</u>, <mark>dni</mark>)<ul>
 <li>PK: (cod-ent, cod-suc, cod-p)</li>
-<li>FK: cod-ent, cod-suc-&gt;SUCURSAL(cod-ent, cod-suc)</li>
+<li>FK: cod-ent, cod-suc-&gt;SUCURSAL(cod-ent, cod-suc) <span class="tag-cascade">(borrar en cascada)</span></li>
 <li>FK: dni-&gt;CLIENTE(dni) <span class="tag-no-nulo">[no nulo]</span></li>
 </ul>
 </li>
@@ -1965,28 +1965,28 @@
 <li>PK: (cod-ent)</li>
 </ul>
 </li>
-<li><strong>SUCURSAL</strong> (<u><mark>cod-ent</mark>, cod-suc</u>) <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li><strong>SUCURSAL</strong> (<u><mark>cod-ent</mark>, cod-suc</u>)<ul>
 <li>PK: (cod-ent, cod-suc)</li>
-<li>FK: cod-ent-&gt;BANCO(cod-ent) </li>
+<li>FK: cod-ent-&gt;BANCO(cod-ent) <span class="tag-cascade">(borrar en cascada)</span></li>
 </ul>
 </li>
-<li><strong>CUENTA CORRIENTE</strong> (<u><mark>cod-ent</mark>, <mark>cod-suc</mark></u>, <u>cod-cc</u>) <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li><strong>CUENTA CORRIENTE</strong> (<u><mark>cod-ent</mark>, <mark>cod-suc</mark></u>, <u>cod-cc</u>)<ul>
 <li>PK: (cod-ent, cod-suc, cod-cc)</li>
-<li>FK: cod-ent, cod-suc-&gt;SUCURSAL(cod-ent, cod-suc)</li>
+<li>FK: cod-ent, cod-suc-&gt;SUCURSAL(cod-ent, cod-suc) <span class="tag-cascade">(borrar en cascada)</span></li>
 </ul>
 </li>
-<li><strong>DOMICILIACION</strong> (<u>num-d</u>,<mark>cod-ent</mark>, <mark>cod-suc</mark>, <mark>cod-cc</mark>) <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li><strong>DOMICILIACION</strong> (<u>num-d</u>,<mark>cod-ent</mark>, <mark>cod-suc</mark>, <mark>cod-cc</mark>)<ul>
 <li>PK: (num-d)</li>
-<li>FK: cod-ent, cod-suc, cod-cc-&gt;CUENTA CORRIENTE(cod-ent, cod-suc, cod-cc) <span class="tag-no-nulo">[no nulo]</span></li>
+<li>FK: cod-ent, cod-suc, cod-cc-&gt;CUENTA CORRIENTE(cod-ent, cod-suc, cod-cc) <span class="tag-no-nulo">[no nulo]</span> <span class="tag-cascade">(borrar en cascada)</span></li>
 </ul>
 </li>
 <li><strong>CLIENTE</strong> (<u>dni</u>)<ul>
 <li>PK: (dni)</li>
 </ul>
 </li>
-<li><strong>PRESTAMO</strong> (<u><mark>cod-ent</mark>, <mark>cod-suc</mark>, cod-p</u>, <mark>dni</mark>) <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li><strong>PRESTAMO</strong> (<u><mark>cod-ent</mark>, <mark>cod-suc</mark>, cod-p</u>, <mark>dni</mark>)<ul>
 <li>PK: (cod-ent, cod-suc, cod-p)</li>
-<li>FK: cod-ent, cod-suc-&gt;SUCURSAL(cod-ent, cod-suc)</li>
+<li>FK: cod-ent, cod-suc-&gt;SUCURSAL(cod-ent, cod-suc) <span class="tag-cascade">(borrar en cascada)</span></li>
 <li>FK: dni-&gt;CLIENTE(dni) <span class="tag-no-nulo">[no nulo]</span></li>
 </ul>
 </li>
@@ -2015,14 +2015,14 @@
 <li>PK: (nom-f)</li>
 </ul>
 </li>
-<li><strong>GENERO</strong> (<u>nom-g</u>, <mark>nom-f</mark>) <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li><strong>GENERO</strong> (<u>nom-g</u>, <mark>nom-f</mark>)<ul>
 <li>PK: (nom-g)</li>
-<li>FK: nom-f-&gt;FAMILIA(nom-f) <span class="tag-no-nulo">[no nulo]</span></li>
+<li>FK: nom-f-&gt;FAMILIA(nom-f) <span class="tag-no-nulo">[no nulo]</span> <span class="tag-cascade">(borrar en cascada)</span></li>
 </ul>
 </li>
-<li><strong>ESPECIE</strong> (<u><mark>nom-g</mark>,nom-e </u>) <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li><strong>ESPECIE</strong> (<u><mark>nom-g</mark>,nom-e </u>)<ul>
 <li>PK: (nom-g, nom-e)</li>
-<li>FK: nom-g-&gt;GENERO(nom-g)</li>
+<li>FK: nom-g-&gt;GENERO(nom-g) <span class="tag-cascade">(borrar en cascada)</span></li>
 </ul>
 </li>
 <li><strong>PERSONA</strong> (<u>dni</u>)<ul>
@@ -2039,31 +2039,31 @@
 <li>FK: com-&gt;COMARCA(com)</li>
 </ul>
 </li>
-<li><strong>EJEMPLAR</strong> (<u><mark>nom-g</mark>,<mark>nom-e</mark>,cod-ej</u>, <mark>dni</mark>, <mark>com</mark>) <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li><strong>EJEMPLAR</strong> (<u><mark>nom-g</mark>,<mark>nom-e</mark>,cod-ej</u>, <mark>dni</mark>, <mark>com</mark>)<ul>
 <li>PK: (nom-g, nom-e, cod-ej)</li>
-<li>FK: nom-g,nom-e-&gt;ESPECIE(nom-g,nom-e)</li>
+<li>FK: nom-g,nom-e-&gt;ESPECIE(nom-g,nom-e) <span class="tag-cascade">(borrar en cascada)</span></li>
 <li>FK: dni-&gt;PERSONA(dni) <span class="tag-no-nulo">[no nulo]</span></li>
 <li>FK: com-&gt;COMARCA(com) <span class="tag-no-nulo">[no nulo]</span></li>
 </ul>
 </li>
-<li><strong>EJ_COL</strong> (<u><mark>nom-g</mark>,<mark>nom-e</mark>,<mark>cod-ej</mark></u>, <mark>dni</mark>, valor) <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li><strong>EJ_COL</strong> (<u><mark>nom-g</mark>,<mark>nom-e</mark>,<mark>cod-ej</mark></u>, <mark>dni</mark>, valor)<ul>
 <li>PK: (nom-g, nom-e, cod-ej)</li>
-<li>FK: cod-ej,nom-g,nom-e-&gt;EJEMPLAR(cod-ej,nom-g,nom-e)</li>
+<li>FK: cod-ej,nom-g,nom-e-&gt;EJEMPLAR(cod-ej,nom-g,nom-e) <span class="tag-cascade">(borrar en cascada)</span></li>
 <li>FK: dni-&gt;COLECCION(dni) <span class="tag-no-nulo">[no nulo]</span></li>
 </ul>
 </li>
 <li>
-<p><strong>EJ_OBS</strong> (<u><mark>nom-g</mark>,<mark>nom-e</mark>,<mark>cod-ej</mark></u>, tiempo-obs) <span class="tag-cascade">(borrar en cascada)</span></p>
+<p><strong>EJ_OBS</strong> (<u><mark>nom-g</mark>,<mark>nom-e</mark>,<mark>cod-ej</mark></u>, tiempo-obs)</p>
 <ul>
 <li>PK: (nom-g, nom-e,cod-ej)</li>
-<li>FK: cod-ej,nom-g,nom-e-&gt;EJEMPLAR(cod-ej,nom-g,nom-e)</li>
+<li>FK: cod-ej,nom-g,nom-e-&gt;EJEMPLAR(cod-ej,nom-g,nom-e) <span class="tag-cascade">(borrar en cascada)</span></li>
 </ul>
 </li>
 <li>
-<p><strong>COLECCION</strong> (<u><mark>dni</mark></u>, id-col) <span class="tag-cascade">(borrar en cascada)</span></p>
+<p><strong>COLECCION</strong> (<u><mark>dni</mark></u>, id-col)</p>
 <ul>
 <li>PK: (dni)</li>
-<li>FK: dni-&gt;PERSONA(dni)</li>
+<li>FK: dni-&gt;PERSONA(dni) <span class="tag-cascade">(borrar en cascada)</span></li>
 </ul>
 </li>
 </ul>
@@ -2078,14 +2078,14 @@
 <li>PK: (nom-f)</li>
 </ul>
 </li>
-<li><strong>GENERO</strong> (<u>nom-g</u>, <mark>nom-f</mark>) <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li><strong>GENERO</strong> (<u>nom-g</u>, <mark>nom-f</mark>)<ul>
 <li>PK: (nom-g)</li>
-<li>FK: nom-f-&gt;FAMILIA(nom-f) <span class="tag-no-nulo">[no nulo]</span></li>
+<li>FK: nom-f-&gt;FAMILIA(nom-f) <span class="tag-no-nulo">[no nulo]</span> <span class="tag-cascade">(borrar en cascada)</span></li>
 </ul>
 </li>
-<li><strong>ESPECIE</strong> (<u><mark>nom-g</mark>,nom-e</u>) <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li><strong>ESPECIE</strong> (<u><mark>nom-g</mark>,nom-e</u>)<ul>
 <li>PK: (nom-g, nom-e)</li>
-<li>FK: nom-g-&gt;GENERO(nom-g)</li>
+<li>FK: nom-g-&gt;GENERO(nom-g) <span class="tag-cascade">(borrar en cascada)</span></li>
 </ul>
 </li>
 <li><strong>PERSONA</strong> (<u>dni</u>)<ul>
@@ -2103,34 +2103,34 @@
 </ul>
 </li>
 <li>
-<p><strong>EJEMPLAR</strong> (<u>cod-ej</u>, <mark>nom-g</mark>,<mark>nom-e</mark>, <mark>dni</mark>, <mark>com</mark>) <span class="tag-cascade">(borrar en cascada)</span></p>
+<p><strong>EJEMPLAR</strong> (<u>cod-ej</u>, <mark>nom-g</mark>,<mark>nom-e</mark>, <mark>dni</mark>, <mark>com</mark>)</p>
 <ul>
 <li>PK: (cod-ej)</li>
-<li>FK: nom-g,nom-e-&gt;ESPECIE(nom-g,nom-e) <span class="tag-no-nulo">[no nulo]</span></li>
+<li>FK: nom-g,nom-e-&gt;ESPECIE(nom-g,nom-e) <span class="tag-no-nulo">[no nulo]</span> <span class="tag-cascade">(borrar en cascada)</span></li>
 <li>FK: dni-&gt;PERSONA(dni) <span class="tag-no-nulo">[no nulo]</span></li>
 <li>FK: com-&gt;COMARCA(com) <span class="tag-no-nulo">[no nulo]</span></li>
 </ul>
 </li>
 <li>
-<p><strong>EJ_COL</strong> (<u><mark>cod-ej</mark></u>, <mark>dni</mark>, valor) <span class="tag-cascade">(borrar en cascada)</span></p>
+<p><strong>EJ_COL</strong> (<u><mark>cod-ej</mark></u>, <mark>dni</mark>, valor)</p>
 <ul>
 <li>PK: (cod-ej)</li>
-<li>FK: cod-ej-&gt;EJEMPLAR(cod-ej)</li>
+<li>FK: cod-ej-&gt;EJEMPLAR(cod-ej) <span class="tag-cascade">(borrar en cascada)</span></li>
 <li>FK: dni-&gt;COLECCION(dni) <span class="tag-no-nulo">[no nulo]</span></li>
 </ul>
 </li>
 <li>
-<p><strong>EJ_OBS</strong> (<u><mark>cod-ej</mark></u>, tiempo-obs) <span class="tag-cascade">(borrar en cascada)</span></p>
+<p><strong>EJ_OBS</strong> (<u><mark>cod-ej</mark></u>, tiempo-obs)</p>
 <ul>
 <li>PK: (cod-ej)</li>
-<li>FK: cod-ej-&gt;EJEMPLAR(cod-ej)</li>
+<li>FK: cod-ej-&gt;EJEMPLAR(cod-ej) <span class="tag-cascade">(borrar en cascada)</span></li>
 </ul>
 </li>
 <li>
-<p><strong>COLECCION</strong> (<u><mark>dni</mark></u>, id-col) <span class="tag-cascade">(borrar en cascada)</span></p>
+<p><strong>COLECCION</strong> (<u><mark>dni</mark></u>, id-col)</p>
 <ul>
 <li>PK: (dni)</li>
-<li>FK: dni-&gt;PERSONA(dni)<span class="tag-no-nulo">[no nulo]</span>    </li>
+<li>FK: dni-&gt;PERSONA(dni)<span class="tag-no-nulo">[no nulo]</span> <span class="tag-cascade">(borrar en cascada)</span></li>
 </ul>
 </li>
 </ul>
@@ -2153,14 +2153,14 @@
 <li>PK: (dni)</li>
 </ul>
 </li>
-<li><strong>GUIA</strong> (<u><mark>dni</mark></u>) <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li><strong>GUIA</strong> (<u><mark>dni</mark></u>)<ul>
 <li>PK: (dni)</li>
-<li>FK: dni-&gt;EMPLEADO(dni)</li>
+<li>FK: dni-&gt;EMPLEADO(dni) <span class="tag-cascade">(borrar en cascada)</span></li>
 </ul>
 </li>
-<li><strong>CUIDADOR</strong> (<u><mark>dni</mark></u>) <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li><strong>CUIDADOR</strong> (<u><mark>dni</mark></u>)<ul>
 <li>PK: (dni)</li>
-<li>FK: dni-&gt;EMPLEADO(dni)</li>
+<li>FK: dni-&gt;EMPLEADO(dni) <span class="tag-cascade">(borrar en cascada)</span></li>
 </ul>
 </li>
 <li><strong>HABITAT</strong> (<u>cod-h</u>, clima, vegetacion)<ul>
@@ -2222,14 +2222,14 @@
 <li>FK: codigo-estacion-&gt;ESTACIÓN(codigo-estacion)</li>
 </ul>
 </li>
-<li><strong>NO CONDUCTOR</strong> (<u><mark>codigo-trabajador</mark></u>) <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li><strong>NO CONDUCTOR</strong> (<u><mark>codigo-trabajador</mark></u>)<ul>
 <li>PK: (codigo-trabajador)</li>
-<li>FK: codigo-trabajador-&gt;TRABAJADOR(codigo-trabajador)</li>
+<li>FK: codigo-trabajador-&gt;TRABAJADOR(codigo-trabajador) <span class="tag-cascade">(borrar en cascada)</span></li>
 </ul>
 </li>
-<li><strong>CONDUCTOR</strong> (<u><mark>codigo-trabajador</mark></u>, horas) <span class="tag-cascade">(borrar en cascada)</span><ul>
+<li><strong>CONDUCTOR</strong> (<u><mark>codigo-trabajador</mark></u>, horas)<ul>
 <li>PK: (codigo-trabajador)</li>
-<li>FK: codigo-trabajador-&gt;TRABAJADOR(codigo-trabajador)</li>
+<li>FK: codigo-trabajador-&gt;TRABAJADOR(codigo-trabajador) <span class="tag-cascade">(borrar en cascada)</span></li>
 </ul>
 </li>
 <li><strong>ESTACIÓN</strong> (<u>codigo-estacion</u>, nombre, telefono)<ul>
@@ -2268,12 +2268,12 @@
             - **TRABAJADOR** (<u>codigo-trabajador</u>, <mark>codigo-estacion</mark>)
                 - PK: (codigo-trabajador)
                 - FK: codigo-estacion->ESTACIÓN(codigo-estacion)
-            - **NO CONDUCTOR** (<u><mark>codigo-trabajador</mark></u>) <span class="tag-cascade">(borrar en cascada)</span>
+            - **NO CONDUCTOR** (<u><mark>codigo-trabajador</mark></u>)
                 - PK: (codigo-trabajador)
-                - FK: codigo-trabajador->TRABAJADOR(codigo-trabajador)
-            - **CONDUCTOR** (<u><mark>codigo-trabajador</mark></u>, horas) <span class="tag-cascade">(borrar en cascada)</span>
+                - FK: codigo-trabajador->TRABAJADOR(codigo-trabajador) <span class="tag-cascade">(borrar en cascada)</span>
+            - **CONDUCTOR** (<u><mark>codigo-trabajador</mark></u>, horas)
                 - PK: (codigo-trabajador)
-                - FK: codigo-trabajador->TRABAJADOR(codigo-trabajador)
+                - FK: codigo-trabajador->TRABAJADOR(codigo-trabajador) <span class="tag-cascade">(borrar en cascada)</span>
             - **ESTACIÓN** (<u>codigo-estacion</u>, nombre, telefono)
                 - PK: (codigo-estacion)
             - **TREN** (<u>codigo-tren</u>, <mark>codigo-estacion</mark>, tipo)
@@ -2287,9 +2287,9 @@
                 - PK: (codigo-estacion, codigo-trayecto)
                 - FK: codigo-trayecto->TRAYECTO(codigo-trayecto)
                 - FK: codigo-estacion->ESTACIÓN(codigo-estacion)
-            - **VIAJE** (<u><mark>codigo-trayecto</mark>, fecha</u>, <mark>codigo-tren</mark>, <mark>cod-temporada</mark>) <span class="tag-cascade">(borrar en cascada)</span>
+            - **VIAJE** (<u><mark>codigo-trayecto</mark>, fecha</u>, <mark>codigo-tren</mark>, <mark>cod-temporada</mark>)
                 - PK: (codigo-trayecto, fecha)
-                - FK: codigo-trayecto->TRAYECTO(codigo-trayecto)
+                - FK: codigo-trayecto->TRAYECTO(codigo-trayecto) <span class="tag-cascade">(borrar en cascada)</span>
                 - FK: codigo-tren->TREN(codigo-tren)
                 - FK: cod-temporada->TEMPORADA(cod-temporada)
             - **CONDUCTOR_VIAJE** (<u><mark>codigo-trabajador</mark>, <mark>codigo-trayecto</mark>, <mark>fecha</mark></u>)
