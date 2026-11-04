@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://asalvadorc.github.io/modelos_BD/Normalizacion/6_tercera_forma_normal_3fn/">
       
       
-        <link rel="prev" href="../5_dependencia_funcional_transitiva/">
+        <link rel="prev" href="../4_segunda_forma_normal_2fn/">
       
       
         <link rel="next" href="../Ejemplo_completo/">
@@ -25,7 +25,7 @@
     
     
       
-        <title>6. Tercera Forma Normal (3FN) - BD - Modelado de Bases de Datos</title>
+        <title>5. Tercera Forma Normal (3FN) - BD - Modelado de Bases de Datos</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#6-tercera-forma-normal-3fn" class="md-skip">
+        <a href="#5-tercera-forma-normal-3fn" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              6. Tercera Forma Normal (3FN)
+              5. Tercera Forma Normal (3FN)
             
           </span>
         </div>
@@ -313,8 +313,6 @@
         <div class="md-main__inner md-grid">
           
             
-              
-                
               
               <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
@@ -1314,8 +1312,6 @@
       
         
       
-        
-      
     
     
     
@@ -1480,34 +1476,6 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../5_dependencia_funcional_transitiva/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    5. Dependencia Funcional Transitiva
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -1527,7 +1495,7 @@
   <span class="md-ellipsis">
     
   
-    6. Tercera Forma Normal (3FN)
+    5. Tercera Forma Normal (3FN)
   
 
     
@@ -1545,7 +1513,7 @@
   <span class="md-ellipsis">
     
   
-    6. Tercera Forma Normal (3FN)
+    5. Tercera Forma Normal (3FN)
   
 
     
@@ -1728,9 +1696,7 @@
             
             
               
-                
-              
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden>
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -1784,12 +1750,10 @@
               <article class="md-content__inner md-typeset">
                 
                   
-  
 
 
 
-
-<h1 id="6-tercera-forma-normal-3fn">6. Tercera Forma Normal (3FN)</h1>
+<h1 id="5-tercera-forma-normal-3fn">5. Tercera Forma Normal (3FN)</h1>
 <div class="definition-box">
 Se dice que una tabla está en Tercera Forma Normal (3FN) cuando se cumplen dos condiciones:
 <ul>
@@ -1840,7 +1804,7 @@ Se dice que una tabla está en Tercera Forma Normal (3FN) cuando se cumplen dos 
 </div>
 <p>Se hará una descomposición por cada dependencia transitiva que haya que afecte a campos distintos.</p>
 <h2 id="ejemplo-aplicado-empleados-departamentos-y-proyectos">Ejemplo aplicado: empleados, departamentos y proyectos</h2>
-<p>Continuamos el <a href="../3_dependencia_funcional/#ejemplo-empleados-departamentos-y-proyectos">ejemplo del apartado 3.3</a>, que ya hemos descompuesto en <a href="../4_segunda_forma_normal_2fn/#ejemplo-aplicado-empleados-departamentos-y-proyectos">segunda forma normal</a>:</p>
+<p>Continuamos el <a href="../3_dependencia_funcional/#ejemplo-empleados-departamentos-y-proyectos">ejemplo del apartado 3.4</a>, que ya hemos descompuesto en <a href="../4_segunda_forma_normal_2fn/#ejemplo-aplicado-empleados-departamentos-y-proyectos">segunda forma normal</a>:</p>
 <ul>
 <li><strong>TRABAJA (A, B, H)</strong>: DNI, Núm. proyecto, Horas semanales. Clave principal: <strong>A . B</strong>.</li>
 <li><strong>EMPLEADO (A, C, D, E, F)</strong>: DNI, Nombre empleado, Sueldo, Núm. departamento, Nombre departamento. Clave principal: <strong>A</strong>.</li>
@@ -1895,7 +1859,7 @@ Se dice que una tabla está en Tercera Forma Normal (3FN) cuando se cumplen dos 
 <table>
 <thead>
 <tr>
-<th>DNI (A)</th>
+<th><u>DNI (A)</u></th>
 <th>Nombre (C)</th>
 <th>Sueldo (D)</th>
 <th>Núm. departamento (E)</th>
@@ -1926,7 +1890,7 @@ Se dice que una tabla está en Tercera Forma Normal (3FN) cuando se cumplen dos 
 <table>
 <thead>
 <tr>
-<th>Núm. departamento (E)</th>
+<th><u>Núm. departamento (E)</u></th>
 <th>Nombre departamento (F)</th>
 </tr>
 </thead>
@@ -1953,13 +1917,8 @@ Se dice que una tabla está en Tercera Forma Normal (3FN) cuando se cumplen dos 
 
 
 
-  
-  
 
 
-
-
-  
 
 
 
@@ -1985,12 +1944,10 @@ Se dice que una tabla está en Tercera Forma Normal (3FN) cuando se cumplen dos 
   
     
       
-        
-      
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../5_dependencia_funcional_transitiva/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 5. Dependencia Funcional Transitiva">
+          <a href="../4_segunda_forma_normal_2fn/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 4. Segunda Forma Normal (2FN)">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -2000,7 +1957,7 @@ Se dice que una tabla está en Tercera Forma Normal (3FN) cuando se cumplen dos 
                 Previous
               </span>
               <div class="md-ellipsis">
-                5. Dependencia Funcional Transitiva
+                4. Segunda Forma Normal (2FN)
               </div>
             </div>
           </a>

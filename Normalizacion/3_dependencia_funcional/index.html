@@ -1312,8 +1312,6 @@
       
         
       
-        
-      
     
     
     
@@ -1529,10 +1527,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#33-grafo-de-dependencias-funcionales" class="md-nav__link">
+  <a href="#33-dependencia-funcional-transitiva" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3.3 Grafo de Dependencias Funcionales
+        3.3 Dependencia Funcional Transitiva
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#34-grafo-de-dependencias-funcionales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 Grafo de Dependencias Funcionales
       
     </span>
   </a>
@@ -1583,34 +1603,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../5_dependencia_funcional_transitiva/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    5. Dependencia Funcional Transitiva
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../6_tercera_forma_normal_3fn/" class="md-nav__link">
         
   
@@ -1618,7 +1610,7 @@
   <span class="md-ellipsis">
     
   
-    6. Tercera Forma Normal (3FN)
+    5. Tercera Forma Normal (3FN)
   
 
     
@@ -1822,10 +1814,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#33-grafo-de-dependencias-funcionales" class="md-nav__link">
+  <a href="#33-dependencia-funcional-transitiva" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3.3 Grafo de Dependencias Funcionales
+        3.3 Dependencia Funcional Transitiva
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#34-grafo-de-dependencias-funcionales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 Grafo de Dependencias Funcionales
       
     </span>
   </a>
@@ -1922,6 +1936,7 @@ Una dependencia funcional es total cuando un atributo depende de todos los atrib
 <p>NOMBRE solo depende de DNI; no necesita el NÚM. PROYECTO.
 Esta es una <strong>dependencia parcial</strong> (unos atributos son irrelevantes).</p>
 </div>
+<p><img alt="Dependencia parcial: DNI y número de proyecto forman la clave, pero la flecha hacia Nombre empleado sale solo de DNI." src="../empleado-parcial.svg" width="700" /></p>
 <h3 id="ejemplo-de-dependencia-total">Ejemplo de Dependencia Total</h3>
 <div class="admonition success">
 <p class="admonition-title">Dependencia Funcional Total (deseable)</p>
@@ -1929,8 +1944,41 @@ Esta es una <strong>dependencia parcial</strong> (unos atributos son irrelevante
 <p>Las HORAS semanales requieren tanto el DNI como el NÚM. PROYECTO.
 Sin conocer el empleado y el proyecto juntos, no se pueden determinar las HORAS de esa participación.</p>
 </div>
+<p><img alt="Dependencia total: la flecha hacia Horas semanales sale del recuadro completo de la clave DNI y número de proyecto." src="../empleado-total.svg" width="700" /></p>
 <hr />
-<h2 id="33-grafo-de-dependencias-funcionales">3.3 Grafo de Dependencias Funcionales</h2>
+<h2 id="33-dependencia-funcional-transitiva">3.3 Dependencia Funcional Transitiva</h2>
+<p>La dependencia funcional transitiva se aplica para analizar las tablas en tercera forma normal (3FN). Consiste básicamente en considerar que <strong>un atributo no primario solo debe conocerse a través de la clave principal o claves candidatas</strong> (atributos que, aunque no son claves principales, sirven para identificar de manera única una fila en algunos contextos específicos). En otro caso, estará produciendo redundancia de información con las anomalías típicas que lleva consigo.</p>
+<p>En términos simples, esta dependencia ocurre cuando un atributo no clave (o no primario) depende <strong>indirectamente</strong> de la clave principal mediante otro atributo.</p>
+<div class="definition-box">
+<div class="box-title">Dependencia transitiva: (A→B→C)</div> Si A→B y B→C, entonces decimos que C depende de forma transitiva de A.
+</div>
+<h2 id="_1"></h2>
+<!--
+Supongamos tres subconjuntos distintos de atributos A, B y C que pertenecen a una tabla T, de manera que se cumplen las condiciones: <b>A</b> → <b>B</b> y <b>B</b> −∕→ <b>A</b>. Se dice que C tiene una <b>dependencia funcional transitiva</b> con A o que es transitivamente dependiente de A si se cumple que <b>B</b> →<b>C</b> 
+-->
+
+<p>Gráficamente se puede mostrar:</p>
+<p><img alt="alt text" src="../image-12.png" width="200" /></p>
+<p>Por lo tanto, un atributo C es transitivamente dependiente de otro A si se conoce por diferentes vías, una directamente, y otra a partir de otro atributo intermedio B.</p>
+<h3 id="ejemplo-el-nombre-del-departamento">Ejemplo: el nombre del departamento</h3>
+<p>Consideremos una tabla <strong>EMPLEADO</strong> con una fila por empleado. Su clave principal es el <strong>DNI</strong> y contiene, entre otros, estos atributos de la empresa:</p>
+<ul>
+<li><strong>A = DNI</strong> del empleado.</li>
+<li><strong>E = Núm. departamento</strong> al que pertenece.</li>
+<li><strong>F = Nombre departamento</strong>.</li>
+</ul>
+<p>Se cumplen las dependencias:</p>
+<p><strong>A → E</strong>: cada empleado pertenece a un único departamento.<br />
+<strong>E → F</strong>: cada número de departamento determina su nombre.<br />
+<strong>Por tanto, A → F</strong>: el DNI determina indirectamente el nombre del departamento.</p>
+<p>La cadena de dependencia transitiva es:</p>
+<p><strong>DNI → Núm. departamento → Nombre departamento (A → E → F)</strong></p>
+<p><img alt="Dependencia transitiva: el DNI determina el número de departamento, y este determina el nombre del departamento." src="../empleado-transitiva.svg" width="700" /></p>
+<p>Por ejemplo, el empleado con DNI <strong>12345678A</strong> pertenece al departamento <strong>10</strong>, cuyo nombre es <strong>Informática</strong>. El nombre del departamento se conoce a través de su número; no es un dato propio del empleado.</p>
+<p>Aunque en el ejemplo los nombres de departamento también son únicos (<strong>F → E</strong>), ni el número ni el nombre del departamento identifican a un empleado: varios empleados pueden pertenecer al mismo departamento.</p>
+<p>Si guardamos el nombre del departamento en cada fila de EMPLEADO, repetimos ese dato para todos sus empleados. Al cambiar el nombre, tendríamos que actualizar varias filas. En la <strong>3FN</strong> separaremos <strong>DEPARTAMENTO (num-d, nombre-d)</strong> y conservaremos en EMPLEADO solo <strong>num-d</strong> como clave externa.</p>
+<hr />
+<h2 id="34-grafo-de-dependencias-funcionales">3.4 Grafo de Dependencias Funcionales</h2>
 <p>Es una representación visual que muestra gráficamente las relaciones entre atributos.</p>
 <h3 id="estructura-del-grafo">Estructura del Grafo</h3>
 <p>El siguiente esquema muestra cómo leer cada parte de un grafo. <strong>La clave principal es A . B . O</strong>: los tres atributos aparecen una sola vez dentro del recuadro exterior.</p>
@@ -1962,8 +2010,8 @@ Sin conocer el empleado y el proyecto juntos, no se pueden determinar las HORAS 
 <table>
 <thead>
 <tr>
-<th>DNI</th>
-<th>Núm. proyecto</th>
+<th><u>DNI</u></th>
+<th><u>Núm. proyecto</u></th>
 <th>Nombre empleado</th>
 <th>Sueldo (€)</th>
 <th>Núm. departamento</th>
@@ -2024,8 +2072,8 @@ Sin conocer el empleado y el proyecto juntos, no se pueden determinar las HORAS 
 <td>25</td>
 </tr>
 <tr>
-<td><strong>A</strong></td>
-<td><strong>B</strong></td>
+<td><u><strong>A</strong></u></td>
+<td><u><strong>B</strong></u></td>
 <td><strong>C</strong></td>
 <td><strong>D</strong></td>
 <td><strong>E</strong></td>
