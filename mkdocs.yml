@@ -123,9 +123,8 @@ nav:
     - 2. Primera Forma Normal (1FN): Normalizacion/2_primera_forma_normal_1fn.md
     - 3. Dependencia Funcional: Normalizacion/3_dependencia_funcional.md
     - 4. Segunda Forma Normal (2FN): Normalizacion/4_segunda_forma_normal_2fn.md
-    - 5. Dependencia Funcional Transitiva: Normalizacion/5_dependencia_funcional_transitiva.md
-    - 6. Tercera Forma Normal (3FN): Normalizacion/6_tercera_forma_normal_3fn.md
-    #- 7. Forma Normal Boyce-Codd (FNBC): Normalizacion/7_forma_normal_boycecodd_fnbc.md
+    - 5. Tercera Forma Normal (3FN): Normalizacion/6_tercera_forma_normal_3fn.md
+    #- 6. Forma Normal Boyce-Codd (FNBC): Normalizacion/7_forma_normal_boycecodd_fnbc.md
     - Ejemplo Completo: Normalizacion/Ejemplo_completo.md
     - Resumen: Normalizacion/resumen.md
     - Ejercicios: Normalizacion/ejercicios.md

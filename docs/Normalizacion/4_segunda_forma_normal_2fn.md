@@ -1,7 +1,4 @@
----
-hide:
-  - toc
----
+
 # 4. Segunda Forma Normal (2FN)
 
 
@@ -31,7 +28,7 @@ Se observa que la tabla no se encuentra en 2FN ya que el atributo D no tiene una
 ![alt text](image.png){ width=400 }
 
 
-## Poner en 2FN
+### Poner en 2FN
 
 Para convertir una tabla que no está en segunda forma normal a 2FN, se realiza una proyección en dos partes:
 
@@ -62,13 +59,13 @@ Se crea una **segunda tabla** con la parte de la clave que tiene dependencias, y
 !!!warning "Gráficamente"
     Si existe una flecha que sale del interior de la caja que engloba la clave, entonces la tabla no está en 2FN.
 
-### Ejemplo aplicado: empleados, departamentos y proyectos
+## Ejemplo aplicado: empleados, departamentos y proyectos
 
 Partimos de la tabla **EMPLEADO** del [ejemplo del grafo de dependencias funcionales](3_dependencia_funcional.md#ejemplo-empleados-departamentos-y-proyectos). Conservamos las mismas letras:
 
 <div class="empleado-table-fit" markdown>
 
-| A | B | C | D | E | F | G | H |
+| <u>A</u> | <u>B</u> | C | D | E | F | G | H |
 |---|---|---|---|---|---|---|---|
 | DNI | Núm. proyecto | Nombre empleado | Sueldo | Núm. departamento | Nombre departamento | Nombre proyecto | Horas semanales |
 
@@ -128,7 +125,7 @@ Con los mismos datos del ejemplo, obtenemos:
 
 **TRABAJA**
 
-| DNI (A) | Núm. proyecto (B) | Horas semanales (H) |
+| <u>DNI (A)</u> | <u>Núm. proyecto (B)</u> | Horas semanales (H) |
 |---------|------------------|--------------------|
 | 12345678A | 101 | 20 |
 | 12345678A | 102 | 15 |
@@ -138,7 +135,7 @@ Con los mismos datos del ejemplo, obtenemos:
 
 **EMPLEADO**
 
-| DNI (A) | Nombre (C) | Sueldo (D) | Núm. dpto. (E) | Nombre dpto. (F) |
+| <u>DNI (A)</u> | Nombre (C) | Sueldo (D) | Núm. dpto. (E) | Nombre dpto. (F) |
 |---------|------------|------------|----------------|-----------------|
 | 12345678A | Ana García López | 2400 | 10 | Informática |
 | 87654321B | Luis Pérez Ruiz | 2200 | 10 | Informática |
@@ -146,7 +143,7 @@ Con los mismos datos del ejemplo, obtenemos:
 
 **PROYECTO**
 
-| Núm. proyecto (B) | Nombre proyecto (G) |
+| <u>Núm. proyecto (B)</u> | Nombre proyecto (G) |
 |------------------|---------------------|
 | 101 | Portal web |
 | 102 | App móvil |

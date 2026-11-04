@@ -4,7 +4,7 @@ hide:
 ---
 
 
-# 7. Forma Normal Boyce-Codd (FNBC)
+# 6. Forma Normal Boyce-Codd (FNBC)
 
 
 

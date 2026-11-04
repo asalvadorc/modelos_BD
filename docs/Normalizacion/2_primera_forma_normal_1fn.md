@@ -1,7 +1,4 @@
----
-hide:
-  - toc
----
+
 # 2. Primera Forma Normal (1FN)
 
  
@@ -138,7 +135,7 @@ Retomamos la empresa de los temas de modelo E/R y modelo relacional. Un empleado
 
 ### Antes de aplicar la 1FN
 
-| DNI | Nombre empleado | Teléfonos |
+| <u>DNI</u> | Nombre empleado | Teléfonos |
 |-----|-----------------|-----------|
 | 12345678A | Ana García López | 612345678, 698765432 |
 | 87654321B | Luis Pérez Ruiz | 623456789 |
@@ -152,7 +149,7 @@ Separamos los teléfonos de los datos del empleado. En TELEFONO_EMPLEADO guardam
 
 **EMPLEADO**
 
-| DNI | Nombre empleado |
+| <u>DNI</u> | Nombre empleado |
 |-----|-----------------|
 | 12345678A | Ana García López |
 | 87654321B | Luis Pérez Ruiz |
@@ -160,7 +157,7 @@ Separamos los teléfonos de los datos del empleado. En TELEFONO_EMPLEADO guardam
 
 **TELEFONO_EMPLEADO**
 
-| DNI | Teléfono |
+| <u>DNI</u> | <u>Teléfono</u> |
 |-----|----------|
 | 12345678A | 612345678 |
 | 12345678A | 698765432 |

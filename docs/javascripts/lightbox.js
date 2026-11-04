@@ -83,9 +83,9 @@ function initTableZoom() {
   overlay.className = 'table-zoom-overlay';
   overlay.setAttribute('role', 'dialog');
   overlay.setAttribute('aria-modal', 'true');
-  overlay.setAttribute('aria-label', 'Tabla completa del ejercicio 4');
+  overlay.setAttribute('aria-label', 'Vista completa de la tabla');
   const panel = document.createElement('div');
-  panel.className = 'table-zoom-dialog md-typeset exposiciones-table';
+  panel.className = 'table-zoom-dialog md-typeset';
   const close = document.createElement('button');
   close.type = 'button';
   close.className = 'table-zoom-close';
@@ -96,6 +96,23 @@ function initTableZoom() {
   overlay.append(panel);
   document.body.append(overlay);
   let opener = null;
+  const tableTargets = new WeakMap();
+
+  function addTableButtons() {
+    if (!decodeURIComponent(window.location.pathname).toLowerCase().includes('/normalizacion/')) return;
+    document.querySelectorAll('.md-content table').forEach(function (table) {
+      if (table.dataset.zoomEnabled === 'true') return;
+      const wrapper = table.closest('.md-typeset__scrollwrap') ||
+        table.closest('.md-typeset__table') || table;
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'table-zoom-button';
+      button.textContent = '⛶ Ver tabla completa';
+      wrapper.before(button);
+      tableTargets.set(button, table);
+      table.dataset.zoomEnabled = 'true';
+    });
+  }
 
   function fitTable() {
     const table = frame.querySelector('table');
@@ -120,9 +137,7 @@ function initTableZoom() {
   document.addEventListener('click', function (event) {
     const button = event.target.closest('.table-zoom-button');
     if (!button) return;
-    const anchor = button.parentElement.tagName === 'P' ? button.parentElement : button;
-    const container = anchor.nextElementSibling;
-    const table = container && container.querySelector('table');
+    const table = tableTargets.get(button);
     if (!table) return;
     opener = button;
     const copy = table.cloneNode(true);
@@ -134,6 +149,9 @@ function initTableZoom() {
     overlay.classList.add('is-open');
     document.body.classList.add('table-zoom-open');
     fitTable();
+    copy.querySelectorAll('img').forEach(function (image) {
+      image.addEventListener('load', fitTable, { once: true });
+    });
     close.focus();
   });
   close.addEventListener('click', dismiss);
@@ -149,6 +167,9 @@ function initTableZoom() {
     }
   });
   window.addEventListener('resize', fitTable);
+  addTableButtons();
+  // Material vuelve a insertar el contenido al navegar sin recargar la página.
+  if (typeof document$ !== 'undefined') document$.subscribe(addTableButtons);
 }
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', initTableZoom);

@@ -17,14 +17,14 @@ Guardamos inicialmente los teléfonos de cada empleado juntos en una celda:
 
 <div class="empleado-table-fit" markdown>
 
-| DNI | Núm. proyecto | Nombre empleado | Sueldo (€) | Núm. departamento | Nombre departamento | Nombre proyecto | Horas semanales | Teléfonos |
+| <u>DNI</u> | <u>Núm. proyecto</u> | Nombre empleado | Sueldo (€) | Núm. departamento | Nombre departamento | Nombre proyecto | Horas semanales | Teléfonos |
 |-----|---------------|-----------------|------------|-------------------|---------------------|-----------------|-----------------|-----------|
 | 12345678A | 101 | Ana García López | 2400 | 10 | Informática | Portal web | 20 | 612345678, 698765432 |
 | 12345678A | 102 | Ana García López | 2400 | 10 | Informática | App móvil | 15 | 612345678, 698765432 |
 | 87654321B | 101 | Luis Pérez Ruiz | 2200 | 10 | Informática | Portal web | 30 | 623456789 |
 | 11223344C | 102 | Marta Sánchez Gil | 2600 | 20 | Administración | App móvil | 10 | 634567890, 645678901 |
 | 11223344C | 103 | Marta Sánchez Gil | 2600 | 20 | Administración | Gestión interna | 25 | 634567890, 645678901 |
-| **A** | **B** | **C** | **D** | **E** | **F** | **G** | **H** | **I** |
+| <u>**A**</u> | <u>**B**</u> | **C** | **D** | **E** | **F** | **G** | **H** | **I** |
 
 </div>
 
@@ -36,7 +36,7 @@ Separamos los teléfonos en **TELEFONO_EMPLEADO (dni, telefono)**, con una fila 
 
 **TELEFONO_EMPLEADO**
 
-| DNI (A) | Teléfono (I) |
+| <u>DNI (A)</u> | <u>Teléfono (I)</u> |
 |---------|--------------|
 | 12345678A | 612345678 |
 | 12345678A | 698765432 |
@@ -50,14 +50,14 @@ Cada teléfono se guarda una sola vez por empleado, sin repetirlo por cada proye
 
 <div class="empleado-table-fit" markdown>
 
-| DNI | Núm. proyecto | Nombre empleado | Sueldo (€) | Núm. departamento | Nombre departamento | Nombre proyecto | Horas semanales |
+| <u>DNI</u> | <u>Núm. proyecto</u> | Nombre empleado | Sueldo (€) | Núm. departamento | Nombre departamento | Nombre proyecto | Horas semanales |
 |-----|---------------|-----------------|------------|-------------------|---------------------|-----------------|-----------------|
 | 12345678A | 101 | Ana García López | 2400 | 10 | Informática | Portal web | 20 |
 | 12345678A | 102 | Ana García López | 2400 | 10 | Informática | App móvil | 15 |
 | 87654321B | 101 | Luis Pérez Ruiz | 2200 | 10 | Informática | Portal web | 30 |
 | 11223344C | 102 | Marta Sánchez Gil | 2600 | 20 | Administración | App móvil | 10 |
 | 11223344C | 103 | Marta Sánchez Gil | 2600 | 20 | Administración | Gestión interna | 25 |
-| **A** | **B** | **C** | **D** | **E** | **F** | **G** | **H** |
+| <u>**A**</u> | <u>**B**</u> | **C** | **D** | **E** | **F** | **G** | **H** |
 
 </div>
 
@@ -136,7 +136,7 @@ E queda en EMPLEADO como clave externa. Si el departamento 10 cambia de nombre, 
 
 **EMPLEADO**
 
-| DNI (A) | Nombre (C) | Sueldo (D) | Núm. departamento (E) |
+| <u>DNI (A)</u> | Nombre (C) | Sueldo (D) | Núm. departamento (E) |
 |---------|------------|------------|-----------------------|
 | 12345678A | Ana García López | 2400 | 10 |
 | 87654321B | Luis Pérez Ruiz | 2200 | 10 |
@@ -144,14 +144,14 @@ E queda en EMPLEADO como clave externa. Si el departamento 10 cambia de nombre, 
 
 **DEPARTAMENTO**
 
-| Núm. departamento (E) | Nombre departamento (F) |
+| <u>Núm. departamento (E)</u> | Nombre departamento (F) |
 |-----------------------|-------------------------|
 | 10 | Informática |
 | 20 | Administración |
 
 **PROYECTO**
 
-| Núm. proyecto (B) | Nombre proyecto (G) |
+| <u>Núm. proyecto (B)</u> | Nombre proyecto (G) |
 |------------------|---------------------|
 | 101 | Portal web |
 | 102 | App móvil |
@@ -159,7 +159,7 @@ E queda en EMPLEADO como clave externa. Si el departamento 10 cambia de nombre, 
 
 **TRABAJA**
 
-| DNI (A) | Núm. proyecto (B) | Horas semanales (H) |
+| <u>DNI (A)</u> | <u>Núm. proyecto (B)</u> | Horas semanales (H) |
 |---------|------------------|--------------------|
 | 12345678A | 101 | 20 |
 | 12345678A | 102 | 15 |
@@ -169,7 +169,7 @@ E queda en EMPLEADO como clave externa. Si el departamento 10 cambia de nombre, 
 
 **TELEFONO_EMPLEADO**
 
-| DNI (A) | Teléfono (I) |
+| <u>DNI (A)</u> | <u>Teléfono (I)</u> |
 |---------|--------------|
 | 12345678A | 612345678 |
 | 12345678A | 698765432 |

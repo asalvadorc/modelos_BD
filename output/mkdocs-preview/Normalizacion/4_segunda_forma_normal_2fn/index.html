@@ -14,7 +14,7 @@
         <link rel="prev" href="../3_dependencia_funcional/">
       
       
-        <link rel="next" href="../5_dependencia_funcional_transitiva/">
+        <link rel="next" href="../6_tercera_forma_normal_3fn/">
       
       
         
@@ -313,8 +313,6 @@
         <div class="md-main__inner md-grid">
           
             
-              
-                
               
               <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
@@ -1314,8 +1312,6 @@
       
         
       
-        
-      
     
     
     
@@ -1515,10 +1511,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#poner-en-2fn" class="md-nav__link">
+  <a href="#ejemplo-aplicado-empleados-departamentos-y-proyectos" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Poner en 2FN
+        Ejemplo aplicado: empleados, departamentos y proyectos
       
     </span>
   </a>
@@ -1541,34 +1537,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../5_dependencia_funcional_transitiva/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    5. Dependencia Funcional Transitiva
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../6_tercera_forma_normal_3fn/" class="md-nav__link">
         
   
@@ -1576,7 +1544,7 @@
   <span class="md-ellipsis">
     
   
-    6. Tercera Forma Normal (3FN)
+    5. Tercera Forma Normal (3FN)
   
 
     
@@ -1717,9 +1685,7 @@
             
             
               
-                
-              
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden>
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -1738,10 +1704,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#poner-en-2fn" class="md-nav__link">
+  <a href="#ejemplo-aplicado-empleados-departamentos-y-proyectos" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Poner en 2FN
+        Ejemplo aplicado: empleados, departamentos y proyectos
       
     </span>
   </a>
@@ -1762,8 +1728,6 @@
               <article class="md-content__inner md-typeset">
                 
                   
-  
-
 
 
 
@@ -1785,7 +1749,7 @@ Es decir, no pueden existir dependencias parciales respecto a una clave compuest
 <p><strong>B</strong> →<strong>D</strong></p>
 <p>Se observa que la tabla no se encuentra en 2FN ya que el atributo D no tiene una dependencia funcional total con la clave completa A . B, sino con una parte de la clave (B). El grafo de las dependencias funcionales sería:  </p>
 <p><img alt="alt text" src="../image.png" width="400" /></p>
-<h2 id="poner-en-2fn">Poner en 2FN</h2>
+<h3 id="poner-en-2fn">Poner en 2FN</h3>
 <p>Para convertir una tabla que no está en segunda forma normal a 2FN, se realiza una proyección en dos partes:</p>
 <div class="tables-side-by-side equal-height">
 <div>
@@ -1803,14 +1767,14 @@ Es decir, no pueden existir dependencias parciales respecto a una clave compuest
 <p class="admonition-title">Gráficamente</p>
 <p>Si existe una flecha que sale del interior de la caja que engloba la clave, entonces la tabla no está en 2FN.</p>
 </div>
-<h3 id="ejemplo-aplicado-empleados-departamentos-y-proyectos">Ejemplo aplicado: empleados, departamentos y proyectos</h3>
+<h2 id="ejemplo-aplicado-empleados-departamentos-y-proyectos">Ejemplo aplicado: empleados, departamentos y proyectos</h2>
 <p>Partimos de la tabla <strong>EMPLEADO</strong> del <a href="../3_dependencia_funcional/#ejemplo-empleados-departamentos-y-proyectos">ejemplo del grafo de dependencias funcionales</a>. Conservamos las mismas letras:</p>
 <div class="empleado-table-fit">
 <table>
 <thead>
 <tr>
-<th>A</th>
-<th>B</th>
+<th><u>A</u></th>
+<th><u>B</u></th>
 <th>C</th>
 <th>D</th>
 <th>E</th>
@@ -1884,8 +1848,8 @@ Es decir, no pueden existir dependencias parciales respecto a una clave compuest
 <table>
 <thead>
 <tr>
-<th>DNI (A)</th>
-<th>Núm. proyecto (B)</th>
+<th><u>DNI (A)</u></th>
+<th><u>Núm. proyecto (B)</u></th>
 <th>Horas semanales (H)</th>
 </tr>
 </thead>
@@ -1921,7 +1885,7 @@ Es decir, no pueden existir dependencias parciales respecto a una clave compuest
 <table>
 <thead>
 <tr>
-<th>DNI (A)</th>
+<th><u>DNI (A)</u></th>
 <th>Nombre (C)</th>
 <th>Sueldo (D)</th>
 <th>Núm. dpto. (E)</th>
@@ -1956,7 +1920,7 @@ Es decir, no pueden existir dependencias parciales respecto a una clave compuest
 <table>
 <thead>
 <tr>
-<th>Núm. proyecto (B)</th>
+<th><u>Núm. proyecto (B)</u></th>
 <th>Nombre proyecto (G)</th>
 </tr>
 </thead>
@@ -1987,13 +1951,8 @@ Es decir, no pueden existir dependencias parciales respecto a una clave compuest
 
 
 
-  
-  
 
 
-
-
-  
 
 
 
@@ -2019,8 +1978,6 @@ Es decir, no pueden existir dependencias parciales respecto a una clave compuest
   
     
       
-        
-      
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
@@ -2041,13 +1998,13 @@ Es decir, no pueden existir dependencias parciales respecto a una clave compuest
         
         
           
-          <a href="../5_dependencia_funcional_transitiva/" class="md-footer__link md-footer__link--next" aria-label="Next: 5. Dependencia Funcional Transitiva">
+          <a href="../6_tercera_forma_normal_3fn/" class="md-footer__link md-footer__link--next" aria-label="Next: 5. Tercera Forma Normal (3FN)">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                5. Dependencia Funcional Transitiva
+                5. Tercera Forma Normal (3FN)
               </div>
             </div>
             <div class="md-footer__button md-icon">

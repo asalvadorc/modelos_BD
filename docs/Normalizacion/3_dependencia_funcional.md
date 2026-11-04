@@ -82,6 +82,8 @@ Una dependencia funcional es total cuando un atributo depende de todos los atrib
     NOMBRE solo depende de DNI; no necesita el NÚM. PROYECTO.
     Esta es una **dependencia parcial** (unos atributos son irrelevantes).
 
+![Dependencia parcial: DNI y número de proyecto forman la clave, pero la flecha hacia Nombre empleado sale solo de DNI.](empleado-parcial.svg){ width=700 }
+
 ### Ejemplo de Dependencia Total
 
 !!! success "Dependencia Funcional Total (deseable)"
@@ -90,9 +92,61 @@ Una dependencia funcional es total cuando un atributo depende de todos los atrib
     Las HORAS semanales requieren tanto el DNI como el NÚM. PROYECTO.
     Sin conocer el empleado y el proyecto juntos, no se pueden determinar las HORAS de esa participación.
 
+![Dependencia total: la flecha hacia Horas semanales sale del recuadro completo de la clave DNI y número de proyecto.](empleado-total.svg){ width=700 }
+
 ---
 
-## 3.3 Grafo de Dependencias Funcionales
+## 3.3 Dependencia Funcional Transitiva
+
+
+
+La dependencia funcional transitiva se aplica para analizar las tablas en tercera forma normal (3FN). Consiste básicamente en considerar que **un atributo no primario solo debe conocerse a través de la clave principal o claves candidatas** (atributos que, aunque no son claves principales, sirven para identificar de manera única una fila en algunos contextos específicos). En otro caso, estará produciendo redundancia de información con las anomalías típicas que lleva consigo.
+
+En términos simples, esta dependencia ocurre cuando un atributo no clave (o no primario) depende **indirectamente** de la clave principal mediante otro atributo.
+
+<div class="definition-box">
+<div class="box-title">Dependencia transitiva: (A→B→C)</div> Si A→B y B→C, entonces decimos que C depende de forma transitiva de A.
+</div> 
+---  
+<!--
+Supongamos tres subconjuntos distintos de atributos A, B y C que pertenecen a una tabla T, de manera que se cumplen las condiciones: <b>A</b> → <b>B</b> y <b>B</b> −∕→ <b>A</b>. Se dice que C tiene una <b>dependencia funcional transitiva</b> con A o que es transitivamente dependiente de A si se cumple que <b>B</b> →<b>C</b> 
+--> 
+  
+Gráficamente se puede mostrar:
+
+![alt text](image-12.png){width=200}
+
+Por lo tanto, un atributo C es transitivamente dependiente de otro A si se conoce por diferentes vías, una directamente, y otra a partir de otro atributo intermedio B.
+
+### Ejemplo: el nombre del departamento
+
+Consideremos una tabla **EMPLEADO** con una fila por empleado. Su clave principal es el **DNI** y contiene, entre otros, estos atributos de la empresa:
+
+* **A = DNI** del empleado.
+* **E = Núm. departamento** al que pertenece.
+* **F = Nombre departamento**.
+
+Se cumplen las dependencias:
+
+**A → E**: cada empleado pertenece a un único departamento.  
+**E → F**: cada número de departamento determina su nombre.  
+**Por tanto, A → F**: el DNI determina indirectamente el nombre del departamento.
+
+La cadena de dependencia transitiva es:
+
+**DNI → Núm. departamento → Nombre departamento (A → E → F)**
+
+![Dependencia transitiva: el DNI determina el número de departamento, y este determina el nombre del departamento.](empleado-transitiva.svg){ width=700 }
+
+Por ejemplo, el empleado con DNI **12345678A** pertenece al departamento **10**, cuyo nombre es **Informática**. El nombre del departamento se conoce a través de su número; no es un dato propio del empleado.
+
+Aunque en el ejemplo los nombres de departamento también son únicos (**F → E**), ni el número ni el nombre del departamento identifican a un empleado: varios empleados pueden pertenecer al mismo departamento.
+
+Si guardamos el nombre del departamento en cada fila de EMPLEADO, repetimos ese dato para todos sus empleados. Al cambiar el nombre, tendríamos que actualizar varias filas. En la **3FN** separaremos **DEPARTAMENTO (num-d, nombre-d)** y conservaremos en EMPLEADO solo **num-d** como clave externa.
+
+---
+
+## 3.4 Grafo de Dependencias Funcionales
 
 Es una representación visual que muestra gráficamente las relaciones entre atributos.
 
@@ -131,14 +185,14 @@ Cada fila representa la participación de un empleado en un proyecto. Un emplead
 
 <div class="empleado-table-fit" markdown>
 
-| DNI | Núm. proyecto | Nombre empleado | Sueldo (€) | Núm. departamento | Nombre departamento | Nombre proyecto | Horas semanales |
+| <u>DNI</u> | <u>Núm. proyecto</u> | Nombre empleado | Sueldo (€) | Núm. departamento | Nombre departamento | Nombre proyecto | Horas semanales |
 |-----|---------------|-----------------|------------|-------------------|---------------------|-----------------|-----------------|
 | 12345678A | 101 | Ana García López | 2400 | 10 | Informática | Portal web | 20 |
 | 12345678A | 102 | Ana García López | 2400 | 10 | Informática | App móvil | 15 |
 | 87654321B | 101 | Luis Pérez Ruiz | 2200 | 10 | Informática | Portal web | 30 |
 | 11223344C | 102 | Marta Sánchez Gil | 2600 | 20 | Administración | App móvil | 10 |
 | 11223344C | 103 | Marta Sánchez Gil | 2600 | 20 | Administración | Gestión interna | 25 |
-| **A** | **B** | **C** | **D** | **E** | **F** | **G** | **H** |
+| <u>**A**</u> | <u>**B**</u> | **C** | **D** | **E** | **F** | **G** | **H** |
 
 </div>
 

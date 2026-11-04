@@ -1312,8 +1312,6 @@
       
         
       
-        
-      
     
     
     
@@ -1481,34 +1479,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../5_dependencia_funcional_transitiva/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    5. Dependencia Funcional Transitiva
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../6_tercera_forma_normal_3fn/" class="md-nav__link">
         
   
@@ -1516,7 +1486,7 @@
   <span class="md-ellipsis">
     
   
-    6. Tercera Forma Normal (3FN)
+    5. Tercera Forma Normal (3FN)
   
 
     
@@ -1716,9 +1686,9 @@
 <table>
 <thead>
 <tr>
-<th>IDcliente</th>
-<th>Región</th>
-<th>IDproducto</th>
+<th><u>IDcliente</u></th>
+<th><u>Región</u></th>
+<th><u>IDproducto</u></th>
 <th>IDpedido</th>
 <th>Cantidad</th>
 <th>NombreProducto</th>
@@ -1808,21 +1778,21 @@
 <p>Con las dependencias indicadas, todas las tablas cumplen <strong>FNBC</strong>: en todas sus dependencias funcionales no triviales, el determinante es una clave.</p>
 </details>
 <details class="success">
-<summary>Ejercicio 3. Órdenes de pedido</summary>
+<summary>Ejercicio 3. Líneas de pedido</summary>
 <p><strong>Tabla original de pedidos</strong></p>
 <div class="normalizacion-exercise-table" markdown>
 <table>
 <thead>
 <tr>
-<th><strong>id_orden</strong></th>
+<th><u><strong>id_orden</strong></u></th>
 <th><strong>fecha</strong></th>
 <th><strong>id_cliente</strong></th>
 <th><strong>nom_cliente</strong></th>
-<th><strong>estado</strong></th>
-<th><strong>num_art</strong></th>
+<th><strong>ciudad</strong></th>
+<th><u><strong>num_art</strong></u></th>
 <th><strong>nom_art</strong></th>
 <th><strong>cantidad</strong></th>
-<th><strong>precio</strong></th>
+<th><strong>precio_art</strong></th>
 </tr>
 </thead>
 <tbody>
@@ -1899,30 +1869,30 @@
 <p>Normaliza la relación del siguiente grafo y expresa el resultado en el modelo relacional.</p>
 <p>La clave principal es <strong>(id_orden, num_art)</strong>.</p>
 <p><strong>Grafo inicial</strong></p>
-<p><img alt="Grafo inicial de órdenes de pedido." src="../ejercicios-clase/03-ordenes.png" width="700" /></p>
+<p><img alt="Grafo inicial de órdenes de pedido." src="../ejercicios-clase/03-ordenes.svg" width="700" /></p>
 <h3 id="1-primera-forma-normal-1fn_1">1. Primera forma normal (1FN)</h3>
 <p>La relación ya está en <strong>1FN</strong>: todos sus atributos contienen valores atómicos.</p>
 <h3 id="2-segunda-forma-normal-2fn_1">2. Segunda forma normal (2FN)</h3>
 <p>Las siguientes dependencias son <strong>parciales</strong>, porque sus determinantes son una parte de la clave compuesta:</p>
 <ul>
 <li><strong>id_orden → fecha, id_cliente</strong>.</li>
-<li><strong>num_art → nom_art, precio</strong>.</li>
+<li><strong>num_art → nom_art, precio_art</strong>.</li>
 </ul>
 <p>La dependencia <strong>id_orden + num_art → cantidad</strong> es <strong>total</strong>: necesitamos conocer tanto la orden como el artículo para determinar la cantidad.</p>
 <p>Separamos los atributos según su determinante:</p>
 <ul>
-<li><strong>ORDEN</strong> (<u>id_orden</u>, fecha, id_cliente, nom_cliente, estado).</li>
-<li><strong>ARTICULO</strong> (<u>num_art</u>, nom_art, precio).</li>
+<li><strong>ORDEN</strong> (<u>id_orden</u>, fecha, id_cliente, nom_cliente, ciudad).</li>
+<li><strong>ARTICULO</strong> (<u>num_art</u>, nom_art, precio_art).</li>
 <li><strong>DETALLE_ORDEN</strong> (<u>id_orden, num_art</u>, cantidad).</li>
 </ul>
 <p>Los datos del cliente permanecen de momento en ORDEN, porque dependen de id_orden a través de id_cliente. La 2FN todavía permite esta dependencia transitiva.</p>
 <h3 id="3-tercera-forma-normal-3fn_1">3. Tercera forma normal (3FN)</h3>
 <p>En ORDEN existe una dependencia transitiva:</p>
-<p><strong>id_orden → id_cliente → nom_cliente, estado</strong>.</p>
+<p><strong>id_orden → id_cliente → nom_cliente, ciudad</strong>.</p>
 <p>Separamos los datos del cliente en una nueva tabla y conservamos id_cliente en ORDEN como clave externa.</p>
 <p><strong>Modelo relacional final</strong></p>
 <ul>
-<li><strong>CLIENTE</strong> (<u>id_cliente</u>, nom_cliente, estado).<ul>
+<li><strong>CLIENTE</strong> (<u>id_cliente</u>, nom_cliente, ciudad).<ul>
 <li>PK: id_cliente.</li>
 </ul>
 </li>
@@ -1931,7 +1901,7 @@
 <li>FK: id_cliente → CLIENTE(id_cliente).</li>
 </ul>
 </li>
-<li><strong>ARTICULO</strong> (<u>num_art</u>, nom_art, precio).<ul>
+<li><strong>ARTICULO</strong> (<u>num_art</u>, nom_art, precio_art).<ul>
 <li>PK: num_art.</li>
 </ul>
 </li>
@@ -1944,25 +1914,24 @@
 </ul>
 <p><strong>Esquema visual de la solución</strong></p>
 <p><img alt="Esquema normalizado: CLIENTE con clave id_cliente; ORDEN con clave id_orden y referencia al cliente; ARTICULO con clave num_art; DETALLE_ORDEN con clave id_orden y num_art y referencias a ORDEN y ARTICULO. Cada clave determina los atributos de su tabla." src="../ejercicios-clase/03-ordenes-solucion.svg" width="850" /></p>
-<p>La cantidad queda en DETALLE_ORDEN porque depende de la combinación de orden y artículo. El precio queda en ARTICULO, tal como establece la dependencia num_art → precio del grafo.</p>
+<p>La cantidad queda en DETALLE_ORDEN porque depende de la combinación de orden y artículo. El atributo precio_art queda en ARTICULO, tal como establece la dependencia num_art → precio_art del grafo.</p>
 <p>Con las dependencias indicadas, las cuatro tablas también cumplen <strong>FNBC</strong>: en todas sus dependencias funcionales no triviales, el determinante es una clave.</p>
 </details>
 <details class="success">
 <summary>Ejercicio 4. Exposiciones</summary>
 <p><strong>Tabla original EXPOSICIONES</strong></p>
-<p><button type="button" class="table-zoom-button">⛶ Ver tabla completa</button></p>
 <div class="normalizacion-exercise-table exposiciones-table" markdown>
 <table>
 <thead>
 <tr>
-<th>codexp</th>
+<th><u>codexp</u></th>
 <th>codgal</th>
 <th>nomgal</th>
 <th>dirgal</th>
 <th>cpgal</th>
 <th>ciugal</th>
 <th>fecha</th>
-<th>codobr</th>
+<th><u>codobr</u></th>
 <th>nomobr</th>
 <th>tip</th>
 <th>dim</th>
@@ -2128,7 +2097,7 @@
 <table>
 <thead>
 <tr>
-<th>nss</th>
+<th><u>nss</u></th>
 <th>nombre</th>
 <th>apellidos</th>
 <th>puesto</th>
@@ -2181,8 +2150,8 @@
 <table>
 <thead>
 <tr>
-<th>nss</th>
-<th>email</th>
+<th><u>nss</u></th>
+<th><u>email</u></th>
 </tr>
 </thead>
 <tbody>
@@ -2255,13 +2224,13 @@
 <table>
 <thead>
 <tr>
-<th>titulo</th>
-<th>anyo</th>
+<th><u>titulo</u></th>
+<th><u>anyo</u></th>
 <th>duracion</th>
 <th>tipo</th>
 <th>estudio</th>
 <th>ciudadestudio</th>
-<th>actor</th>
+<th><u>actor</u></th>
 </tr>
 </thead>
 <tbody>
@@ -2377,19 +2346,19 @@
 <p>El estudio y su ciudad se guardan una sola vez, los datos de cada película una sola vez por título y año y sus actores en REPARTO.</p>
 </details>
 <details class="success">
-<summary>Ejercicio 7. Matrículas universitarias</summary>
+<summary>Ejercicio 7. Matrículas</summary>
 <p><strong>Tabla original MATRICULA</strong></p>
 <div class="normalizacion-exercise-table" markdown>
 <table>
 <thead>
 <tr>
-<th>idmatricula</th>
+<th><u>idmatricula</u></th>
 <th>nombre</th>
 <th>apellido</th>
 <th>direccion</th>
 <th>telefono</th>
 <th>curso</th>
-<th>codigo</th>
+<th><u>codigo</u></th>
 <th>carrera</th>
 </tr>
 </thead>
@@ -2460,7 +2429,7 @@
 <table>
 <thead>
 <tr>
-<th>idmatricula</th>
+<th><u>idmatricula</u></th>
 <th>direccion</th>
 <th>localidad</th>
 </tr>

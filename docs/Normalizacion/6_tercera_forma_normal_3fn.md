@@ -1,9 +1,6 @@
----
-hide:
-  - toc
----
 
-# 6. Tercera Forma Normal (3FN)
+
+# 5. Tercera Forma Normal (3FN)
 
 
 <div class="definition-box">
@@ -94,7 +91,7 @@ Se hará una descomposición por cada dependencia transitiva que haya que afecte
 
 ## Ejemplo aplicado: empleados, departamentos y proyectos
 
-Continuamos el [ejemplo del apartado 3.3](3_dependencia_funcional.md#ejemplo-empleados-departamentos-y-proyectos), que ya hemos descompuesto en [segunda forma normal](4_segunda_forma_normal_2fn.md#ejemplo-aplicado-empleados-departamentos-y-proyectos):
+Continuamos el [ejemplo del apartado 3.4](3_dependencia_funcional.md#ejemplo-empleados-departamentos-y-proyectos), que ya hemos descompuesto en [segunda forma normal](4_segunda_forma_normal_2fn.md#ejemplo-aplicado-empleados-departamentos-y-proyectos):
 
 * **TRABAJA (A, B, H)**: DNI, Núm. proyecto, Horas semanales. Clave principal: **A . B**.
 * **EMPLEADO (A, C, D, E, F)**: DNI, Nombre empleado, Sueldo, Núm. departamento, Nombre departamento. Clave principal: **A**.
@@ -148,7 +145,7 @@ Con los datos del ejemplo, las dos tablas que resultan de este paso son:
 
 **EMPLEADO**
 
-| DNI (A) | Nombre (C) | Sueldo (D) | Núm. departamento (E) |
+| <u>DNI (A)</u> | Nombre (C) | Sueldo (D) | Núm. departamento (E) |
 |---------|------------|------------|-----------------------|
 | 12345678A | Ana García López | 2400 | 10 |
 | 87654321B | Luis Pérez Ruiz | 2200 | 10 |
@@ -156,7 +153,7 @@ Con los datos del ejemplo, las dos tablas que resultan de este paso son:
 
 **DEPARTAMENTO**
 
-| Núm. departamento (E) | Nombre departamento (F) |
+| <u>Núm. departamento (E)</u> | Nombre departamento (F) |
 |-----------------------|-------------------------|
 | 10 | Informática |
 | 20 | Administración |

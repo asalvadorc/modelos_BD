@@ -14,7 +14,7 @@
 <text x="698" y="159" font-size="20">nom_cliente</text>
 <path d="M324 168H425V152H524" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
 <rect x="526" y="178" width="344" height="36" rx="8" fill="white" stroke="#172554" stroke-width="2"/>
-<text x="698" y="203" font-size="20">estado</text>
+<text x="698" y="203" font-size="20">ciudad</text>
 <path d="M324 168H425V196H524" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
 <text x="480" y="237" font-size="17">La clave id_cliente determina los datos del cliente.</text>
 <rect x="20" y="278" width="920" height="176" rx="12" fill="#f8faff" stroke="#d8e1f1"/>
@@ -36,7 +36,7 @@
 <text x="698" y="543" font-size="20">nom_art</text>
 <path d="M324 552H425V536H524" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
 <rect x="526" y="562" width="344" height="36" rx="8" fill="white" stroke="#172554" stroke-width="2"/>
-<text x="698" y="587" font-size="20">precio</text>
+<text x="698" y="587" font-size="20">precio_art</text>
 <path d="M324 552H425V580H524" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
 <text x="480" y="621" font-size="17">La clave num_art determina los datos del artículo.</text>
 <rect x="20" y="662" width="920" height="176" rx="12" fill="#f8faff" stroke="#d8e1f1"/>
