@@ -1699,6 +1699,39 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#ejercicio-8-recetas-de-cocina-ingredientes-en-una-celda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📝Ejercicio 8. Recetas de cocina: ingredientes en una celda
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejercicio-9-recetas-de-cocina-una-columna-por-ingrediente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📝Ejercicio 9. Recetas de cocina: una columna por ingrediente
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejercicio-10-recetas-de-cocina-ingredientes-cantidades-y-stock" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📝Ejercicio 10. Recetas de cocina: ingredientes, cantidades y stock
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1846,6 +1879,39 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#ejercicio-8-recetas-de-cocina-ingredientes-en-una-celda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📝Ejercicio 8. Recetas de cocina: ingredientes en una celda
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejercicio-9-recetas-de-cocina-una-columna-por-ingrediente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📝Ejercicio 9. Recetas de cocina: una columna por ingrediente
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejercicio-10-recetas-de-cocina-ingredientes-cantidades-y-stock" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📝Ejercicio 10. Recetas de cocina: ingredientes, cantidades y stock
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1892,9 +1958,9 @@ FK: dni → EMPLEADO(dni)
 <table>
 <thead>
 <tr>
-<th><u>IDcliente</u></th>
-<th><u>Región</u></th>
-<th><u>IDproducto</u></th>
+<th>IDcliente</th>
+<th>Región</th>
+<th>IDproducto</th>
 <th>IDpedido</th>
 <th>Cantidad</th>
 <th>NombreProducto</th>
@@ -1928,12 +1994,12 @@ FK: dni → EMPLEADO(dni)
 <table>
 <thead>
 <tr>
-<th><u><strong>id_orden</strong></u></th>
+<th><strong>id_orden</strong></th>
 <th><strong>fecha</strong></th>
 <th><strong>id_cliente</strong></th>
 <th><strong>nom_cliente</strong></th>
 <th><strong>ciudad</strong></th>
-<th><u><strong>num_art</strong></u></th>
+<th><strong>num_art</strong></th>
 <th><strong>nom_art</strong></th>
 <th><strong>cantidad</strong></th>
 <th><strong>precio_art</strong></th>
@@ -2015,14 +2081,14 @@ FK: dni → EMPLEADO(dni)
 <table>
 <thead>
 <tr>
-<th><u>codexp</u></th>
+<th>codexp</th>
 <th>codgal</th>
 <th>nomgal</th>
 <th>dirgal</th>
 <th>cpgal</th>
 <th>ciugal</th>
 <th>fecha</th>
-<th><u>codobr</u></th>
+<th>codobr</th>
 <th>nomobr</th>
 <th>tip</th>
 <th>dim</th>
@@ -2101,7 +2167,7 @@ FK: dni → EMPLEADO(dni)
 <table>
 <thead>
 <tr>
-<th><u>nss</u></th>
+<th>nss</th>
 <th>nombre</th>
 <th>apellidos</th>
 <th>puesto</th>
@@ -2150,13 +2216,13 @@ FK: dni → EMPLEADO(dni)
 <table>
 <thead>
 <tr>
-<th><u>titulo</u></th>
-<th><u>anyo</u></th>
+<th>titulo</th>
+<th>anyo</th>
 <th>duracion</th>
 <th>tipo</th>
 <th>estudio</th>
 <th>ciudadestudio</th>
-<th><u>actor</u></th>
+<th>actor</th>
 </tr>
 </thead>
 <tbody>
@@ -2247,13 +2313,13 @@ FK: dni → EMPLEADO(dni)
 <table>
 <thead>
 <tr>
-<th><u>idmatricula</u></th>
+<th>idmatricula</th>
 <th>nombre</th>
 <th>apellido</th>
 <th>direccion</th>
 <th>telefono</th>
 <th>curso</th>
-<th><u>codigo</u></th>
+<th>codigo</th>
 <th>carrera</th>
 </tr>
 </thead>
@@ -2319,6 +2385,326 @@ FK: dni → EMPLEADO(dni)
 <li>Presenta las tablas resultantes con sus atributos, PK y FK.</li>
 </ol>
 <p>Para interpretar el ejercicio, <strong>idmatricula identifica al alumno</strong>, tal como muestran las filas del enunciado; <strong>codigo identifica al curso</strong>. Explicita cualquier otra regla que necesites asumir.</p>
+<h2 id="ejercicio-8-recetas-de-cocina-ingredientes-en-una-celda"><span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 8. Recetas de cocina: ingredientes en una celda</span></span></h2>
+<p>Una escuela de cocina está desarrollando una base de datos para almacenar los platos de su recetario. Toda la información se registra en una única tabla <strong>RECETAS_COCINA</strong>: código y nombre del plato, cocinero, región, tipo de plato e ingredientes.</p>
+<p>Los ingredientes de cada plato se guardan juntos en una misma celda.</p>
+<div class="normalizacion-exercise-table recetas-table">
+<table>
+<thead>
+<tr>
+<th>Cod_Plato</th>
+<th>Nombre_Plato</th>
+<th>Cocinero</th>
+<th>Región</th>
+<th>Tipo_Plato</th>
+<th>Ingredientes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P01</td>
+<td>Paella Valenciana</td>
+<td>Carlos García</td>
+<td>valenciana</td>
+<td>Principal</td>
+<td>Arroz, Pollo, Judías Verdes, Tomate</td>
+</tr>
+<tr>
+<td>P02</td>
+<td>Ensalada Mixta</td>
+<td>María López</td>
+<td>internacional</td>
+<td>Entrante</td>
+<td>Lechuga, Tomate, Atún, Aceitunas</td>
+</tr>
+<tr>
+<td>P03</td>
+<td>Tarta de Queso</td>
+<td>Laura Sánchez</td>
+<td>vasca</td>
+<td>Postre</td>
+<td>Queso Crema, Galletas, Mantequilla</td>
+</tr>
+<tr>
+<td>P04</td>
+<td>Gazpacho Andaluz</td>
+<td>Antonio Martínez</td>
+<td>andaluza</td>
+<td>Principal</td>
+<td>Tomate, Pepino, Pimiento, Aceite</td>
+</tr>
+<tr>
+<td>P05</td>
+<td>Cocido Madrileño</td>
+<td>Javier Pérez</td>
+<td>madrileña</td>
+<td>Entrante</td>
+<td>Garbanzos, Carne, Patata</td>
+</tr>
+<tr>
+<td>P06</td>
+<td>Flan de Huevo</td>
+<td>Elena Rodríguez</td>
+<td>internacional</td>
+<td>Postre</td>
+<td>Huevos, Leche, Azúcar</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Tareas:</strong></p>
+<ol>
+<li>Analiza la tabla: indica los problemas de diseño e identifica las dependencias funcionales según las reglas utilizadas.</li>
+<li>Determina la clave primaria y justifica tu elección.</li>
+<li>Normaliza paso a paso hasta 3FN.</li>
+<li>Entrega el grafo de dependencias normalizado y las tablas del modelo relacional con sus atributos, PK y FK.</li>
+</ol>
+<h2 id="ejercicio-9-recetas-de-cocina-una-columna-por-ingrediente"><span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 9. Recetas de cocina: una columna por ingrediente</span></span></h2>
+<p>Una escuela de cocina está desarrollando una base de datos para almacenar los platos de su recetario. Toda la información se registra en una única tabla <strong>RECETAS_COCINA</strong>: código y nombre del plato, cocinero, región, tipo de plato e ingredientes.</p>
+<p>Se utiliza una columna para cada ingrediente: Ingrediente1, Ingrediente2, Ingrediente3 e Ingrediente4.</p>
+<div class="normalizacion-exercise-table recetas-table">
+<table>
+<thead>
+<tr>
+<th>Cod_Plato</th>
+<th>Nombre_Plato</th>
+<th>Cocinero</th>
+<th>Región</th>
+<th>Tipo_Plato</th>
+<th>Ingrediente1</th>
+<th>Ingrediente2</th>
+<th>Ingrediente3</th>
+<th>Ingrediente4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P01</td>
+<td>Paella Valenciana</td>
+<td>Carlos García</td>
+<td>valenciana</td>
+<td>Principal</td>
+<td>Arroz</td>
+<td>Pollo</td>
+<td>Judías Verdes</td>
+<td>Tomate</td>
+</tr>
+<tr>
+<td>P02</td>
+<td>Ensalada Mixta</td>
+<td>María López</td>
+<td>internacional</td>
+<td>Entrante</td>
+<td>Lechuga</td>
+<td>Tomate</td>
+<td>Atún</td>
+<td>Aceitunas</td>
+</tr>
+<tr>
+<td>P03</td>
+<td>Tarta de Queso</td>
+<td>Laura Sánchez</td>
+<td>vasca</td>
+<td>Postre</td>
+<td>Queso Crema</td>
+<td>Galletas</td>
+<td>Mantequilla</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>P04</td>
+<td>Gazpacho Andaluz</td>
+<td>Antonio Martínez</td>
+<td>andaluza</td>
+<td>Principal</td>
+<td>Tomate</td>
+<td>Pepino</td>
+<td>Pimiento</td>
+<td>Aceite</td>
+</tr>
+<tr>
+<td>P05</td>
+<td>Cocido Madrileño</td>
+<td>Javier Pérez</td>
+<td>madrileña</td>
+<td>Entrante</td>
+<td>Garbanzos</td>
+<td>Carne</td>
+<td>Patata</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>P06</td>
+<td>Flan de Huevo</td>
+<td>Elena Rodríguez</td>
+<td>internacional</td>
+<td>Postre</td>
+<td>Huevos</td>
+<td>Leche</td>
+<td>Azúcar</td>
+<td>NULL</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Tareas:</strong></p>
+<ol>
+<li>Analiza la tabla: indica los problemas de diseño e identifica las dependencias funcionales según las reglas utilizadas.</li>
+<li>Determina la clave primaria y justifica tu elección.</li>
+<li>Normaliza paso a paso hasta 3FN.</li>
+<li>Entrega el grafo de dependencias normalizado y las tablas del modelo relacional con sus atributos, PK y FK.</li>
+</ol>
+<h2 id="ejercicio-10-recetas-de-cocina-ingredientes-cantidades-y-stock"><span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 10. Recetas de cocina: ingredientes, cantidades y stock</span></span></h2>
+<p>El recetario incorpora también el <strong>stock disponible de cada ingrediente</strong>. Cada grupo numerado contiene el ingrediente, la cantidad necesaria para el plato y su stock disponible.</p>
+<p><strong>RECETAS_COCINA</strong></p>
+<div class="normalizacion-exercise-table recetas-table">
+<table>
+<thead>
+<tr>
+<th>Cod_Plato</th>
+<th>Nombre_Plato</th>
+<th>Cocinero</th>
+<th>Región</th>
+<th>Tipo_Plato</th>
+<th>Ingrediente1</th>
+<th>Cantidad1</th>
+<th>Stock1</th>
+<th>Ingrediente2</th>
+<th>Cantidad2</th>
+<th>Stock2</th>
+<th>Ingrediente3</th>
+<th>Cantidad3</th>
+<th>Stock3</th>
+<th>Ingrediente4</th>
+<th>Cantidad4</th>
+<th>Stock4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P01</td>
+<td>Paella Valenciana</td>
+<td>Carlos García</td>
+<td>valenciana</td>
+<td>Principal</td>
+<td>Arroz</td>
+<td>300g</td>
+<td>50 kg</td>
+<td>Pollo</td>
+<td>200g</td>
+<td>20 kg</td>
+<td>Judías Verdes</td>
+<td>100g</td>
+<td>15 kg</td>
+<td>Tomate</td>
+<td>50g</td>
+<td>40 kg</td>
+</tr>
+<tr>
+<td>P02</td>
+<td>Ensalada Mixta</td>
+<td>María López</td>
+<td>internacional</td>
+<td>Entrante</td>
+<td>Lechuga</td>
+<td>150g</td>
+<td>30 kg</td>
+<td>Tomate</td>
+<td>80g</td>
+<td>40 kg</td>
+<td>Atún</td>
+<td>50g</td>
+<td>10 kg</td>
+<td>Aceitunas</td>
+<td>30g</td>
+<td>8 kg</td>
+</tr>
+<tr>
+<td>P03</td>
+<td>Tarta de Queso</td>
+<td>Laura Sánchez</td>
+<td>vasca</td>
+<td>Postre</td>
+<td>Queso Crema</td>
+<td>250g</td>
+<td>12 kg</td>
+<td>Galletas</td>
+<td>150g</td>
+<td>20 kg</td>
+<td>Mantequilla</td>
+<td>80g</td>
+<td>5 kg</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>P04</td>
+<td>Gazpacho Andaluz</td>
+<td>Antonio Martínez</td>
+<td>andaluza</td>
+<td>Principal</td>
+<td>Tomate</td>
+<td>500g</td>
+<td>40 kg</td>
+<td>Pepino</td>
+<td>150g</td>
+<td>18 kg</td>
+<td>Pimiento</td>
+<td>100g</td>
+<td>12 kg</td>
+<td>Aceite</td>
+<td>30ml</td>
+<td>25 l</td>
+</tr>
+<tr>
+<td>P05</td>
+<td>Cocido Madrileño</td>
+<td>Javier Pérez</td>
+<td>madrileña</td>
+<td>Entrante</td>
+<td>Garbanzos</td>
+<td>300g</td>
+<td>35 kg</td>
+<td>Carne</td>
+<td>250g</td>
+<td>30 kg</td>
+<td>Patata</td>
+<td>200g</td>
+<td>60 kg</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>P06</td>
+<td>Flan de Huevo</td>
+<td>Elena Rodríguez</td>
+<td>internacional</td>
+<td>Postre</td>
+<td>Huevos</td>
+<td>4 ud</td>
+<td>500 ud</td>
+<td>Leche</td>
+<td>500ml</td>
+<td>100 l</td>
+<td>Azúcar</td>
+<td>100g</td>
+<td>80 kg</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Tareas:</strong></p>
+<ol>
+<li>Analiza la tabla: indica los problemas de diseño e identifica las dependencias funcionales según las reglas utilizadas.</li>
+<li>Determina la clave primaria y justifica tu elección.</li>
+<li>Normaliza paso a paso hasta 3FN.</li>
+<li>Entrega el grafo de dependencias normalizado y las tablas del modelo relacional con sus atributos, PK y FK.</li>
+</ol>
 
 
 

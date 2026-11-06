@@ -1326,3 +1326,23 @@ body.table-zoom-open { overflow: hidden; }
     padding-left: 0;
     padding-right: 0;
 }
+
+.table-zoom-button[hidden] { display: none; }
+
+/* Recetas: conservar completos los encabezados y los valores de tablas anchas. */
+.md-typeset .recetas-table table:not([class]) {
+    table-layout: auto;
+    width: max-content;
+    min-width: 100%;
+    max-width: none;
+}
+.md-typeset .recetas-table table:not([class]) th,
+.md-typeset .recetas-table table:not([class]) td {
+    white-space: nowrap;
+    overflow-wrap: normal;
+    padding: 0.55em 0.5em;
+}
+.md-typeset .recetas-table table:not([class]) th + th,
+.md-typeset .recetas-table table:not([class]) td + td {
+    border-left: 1px solid var(--md-default-fg-color--light);
+}
