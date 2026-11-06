@@ -1,14 +1,8 @@
----
-hide:
-  - toc
----
-
 # Ejemplo completo: normalización de la empresa
 
 Seguimos el mismo caso de **empleados, departamentos y proyectos** de los temas de modelo E/R y modelo relacional. Partimos de una tabla que reúne los datos y la descomponemos paso a paso, manteniendo las letras **A–H** utilizadas en los apartados anteriores. Añadimos el atributo **I = Teléfono** para mostrar también el paso a 1FN. En esta ampliación, un empleado puede tener varios teléfonos, independientes de los proyectos en los que trabaja.
 
-<span class="example-chip chip-inicial">1. Tabla inicial y primera forma normal (1FN)</span>
-
+## 1. Tabla inicial y primera forma normal (1FN)
 La tabla inicial **EMPLEADO** contiene una fila por cada participación de un empleado en un proyecto. El departamento indicado es el del empleado, que puede ser distinto del que controla el proyecto.
 
 ### Antes de la 1FN
@@ -65,8 +59,7 @@ Los atributos son **A = DNI**, **B = Núm. proyecto**, **C = Nombre empleado**, 
 
 Elegimos **A . B** como clave principal: un empleado puede trabajar en varios proyectos y un proyecto puede tener varios empleados. Ahora ambas tablas están en **1FN**, porque cada celda contiene un único valor y no hay grupos repetidos de columnas.
 
-<span class="example-chip chip-grafo">2. Dependencias funcionales y grafo asociado</span>
-
+## 2. Dependencias funcionales y grafo asociado
 Analizamos las dependencias de los atributos A–H de EMPLEADO. TELEFONO_EMPLEADO se conserva por separado durante los pasos siguientes; con las reglas indicadas, ya está en FNBC. Los grafos siguientes muestran la normalización de la tabla de participaciones.
 
 Las reglas de la empresa establecen estas dependencias:
@@ -80,8 +73,7 @@ También se deduce **A → F**, a través de **A → E → F**. Como G identific
 
 ![Grafo inicial: A y B dentro del recuadro de la clave; A determina C, D y E; E y F se determinan mutuamente; B y G se determinan mutuamente; la clave completa determina H.](empleado-dependencias.svg){ width=760 }
 
-<span class="example-chip chip-norm">3. Segunda forma normal (2FN)</span>
-
+## 3. Segunda forma normal (2FN)
 La tabla inicial **no está en 2FN**. C, D y E dependen solo de A; F también depende de A por transitividad. G depende solo de B. Son dependencias parciales respecto a la clave compuesta A . B. Solo las horas H necesitan la clave completa.
 
 Separamos los atributos según su determinante:
@@ -97,8 +89,7 @@ Separamos los atributos según su determinante:
 
 Ahora el sueldo y el nombre de un empleado se guardan una sola vez por DNI, y el nombre de un proyecto una sola vez por número de proyecto. **Todavía conservamos el nombre del departamento en EMPLEADO**: la 2FN permite la dependencia transitiva A → E → F.
 
-<span class="example-chip chip-norm">4. Tercera forma normal (3FN)</span>
-
+## 4. Tercera forma normal (3FN)
 TRABAJA y PROYECTO ya están en 3FN. EMPLEADO aún no la cumple, porque el nombre del departamento depende del DNI a través de su número:
 
 **A → E → F: DNI → Núm. departamento → Nombre departamento**
@@ -114,8 +105,7 @@ E queda en EMPLEADO como clave externa. Si el departamento 10 cambia de nombre, 
 
 ![Grafo final de las cuatro tablas en 3FN: EMPLEADO, DEPARTAMENTO, PROYECTO y TRABAJA.](empresa-3fn.svg){ width=760 }
 
-<span class="example-chip chip-solucion">5. Solución: modelo relacional y datos</span>
-
+## 5. Solución: modelo relacional y datos
 !!! quote "Modelo relacional final"
     - EMPLEADO (<u>dni</u>, nombre, sueldo, num-d)
         - PK: dni

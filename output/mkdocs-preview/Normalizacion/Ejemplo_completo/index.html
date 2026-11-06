@@ -314,8 +314,6 @@
           
             
               
-                
-              
               <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
@@ -1518,6 +1516,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ejemplo Completo
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1534,6 +1550,80 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-tabla-inicial-y-primera-forma-normal-1fn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Tabla inicial y primera forma normal (1FN)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-dependencias-funcionales-y-grafo-asociado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Dependencias funcionales y grafo asociado
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-segunda-forma-normal-2fn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Segunda forma normal (2FN)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-tercera-forma-normal-3fn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Tercera forma normal (3FN)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-solucion-modelo-relacional-y-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Solución: modelo relacional y datos
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1639,9 +1729,7 @@
             
             
               
-                
-              
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden>
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -1652,6 +1740,69 @@
   
     
   
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-tabla-inicial-y-primera-forma-normal-1fn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Tabla inicial y primera forma normal (1FN)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-dependencias-funcionales-y-grafo-asociado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Dependencias funcionales y grafo asociado
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-segunda-forma-normal-2fn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Segunda forma normal (2FN)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-tercera-forma-normal-3fn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Tercera forma normal (3FN)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-solucion-modelo-relacional-y-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Solución: modelo relacional y datos
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1665,14 +1816,12 @@
               <article class="md-content__inner md-typeset">
                 
                   
-  
-
 
 
 
 <h1 id="ejemplo-completo-normalizacion-de-la-empresa">Ejemplo completo: normalización de la empresa</h1>
 <p>Seguimos el mismo caso de <strong>empleados, departamentos y proyectos</strong> de los temas de modelo E/R y modelo relacional. Partimos de una tabla que reúne los datos y la descomponemos paso a paso, manteniendo las letras <strong>A–H</strong> utilizadas en los apartados anteriores. Añadimos el atributo <strong>I = Teléfono</strong> para mostrar también el paso a 1FN. En esta ampliación, un empleado puede tener varios teléfonos, independientes de los proyectos en los que trabaja.</p>
-<p><span class="example-chip chip-inicial">1. Tabla inicial y primera forma normal (1FN)</span></p>
+<h2 id="1-tabla-inicial-y-primera-forma-normal-1fn">1. Tabla inicial y primera forma normal (1FN)</h2>
 <p>La tabla inicial <strong>EMPLEADO</strong> contiene una fila por cada participación de un empleado en un proyecto. El departamento indicado es el del empleado, que puede ser distinto del que controla el proyecto.</p>
 <h3 id="antes-de-la-1fn">Antes de la 1FN</h3>
 <p>Guardamos inicialmente los teléfonos de cada empleado juntos en una celda:</p>
@@ -1877,7 +2026,7 @@
 </div>
 <p>Los atributos son <strong>A = DNI</strong>, <strong>B = Núm. proyecto</strong>, <strong>C = Nombre empleado</strong>, <strong>D = Sueldo</strong>, <strong>E = Núm. departamento</strong>, <strong>F = Nombre departamento</strong>, <strong>G = Nombre proyecto</strong> y <strong>H = Horas semanales</strong>.</p>
 <p>Elegimos <strong>A . B</strong> como clave principal: un empleado puede trabajar en varios proyectos y un proyecto puede tener varios empleados. Ahora ambas tablas están en <strong>1FN</strong>, porque cada celda contiene un único valor y no hay grupos repetidos de columnas.</p>
-<p><span class="example-chip chip-grafo">2. Dependencias funcionales y grafo asociado</span></p>
+<h2 id="2-dependencias-funcionales-y-grafo-asociado">2. Dependencias funcionales y grafo asociado</h2>
 <p>Analizamos las dependencias de los atributos A–H de EMPLEADO. TELEFONO_EMPLEADO se conserva por separado durante los pasos siguientes; con las reglas indicadas, ya está en FNBC. Los grafos siguientes muestran la normalización de la tabla de participaciones.</p>
 <p>Las reglas de la empresa establecen estas dependencias:</p>
 <ul>
@@ -1888,7 +2037,7 @@
 </ul>
 <p>También se deduce <strong>A → F</strong>, a través de <strong>A → E → F</strong>. Como G identifica al proyecto, <strong>A . G</strong> es otra clave candidata de la tabla inicial.</p>
 <p><img alt="Grafo inicial: A y B dentro del recuadro de la clave; A determina C, D y E; E y F se determinan mutuamente; B y G se determinan mutuamente; la clave completa determina H." src="../empleado-dependencias.svg" width="760" /></p>
-<p><span class="example-chip chip-norm">3. Segunda forma normal (2FN)</span></p>
+<h2 id="3-segunda-forma-normal-2fn">3. Segunda forma normal (2FN)</h2>
 <p>La tabla inicial <strong>no está en 2FN</strong>. C, D y E dependen solo de A; F también depende de A por transitividad. G depende solo de B. Son dependencias parciales respecto a la clave compuesta A . B. Solo las horas H necesitan la clave completa.</p>
 <p>Separamos los atributos según su determinante:</p>
 <table>
@@ -1924,7 +2073,7 @@
 </table>
 <p><img alt="Descomposición en 2FN: TRABAJA conserva las horas por empleado y proyecto; EMPLEADO reúne los datos que dependen del DNI; PROYECTO reúne número y nombre." src="../empleado-2fn.svg" width="760" /></p>
 <p>Ahora el sueldo y el nombre de un empleado se guardan una sola vez por DNI, y el nombre de un proyecto una sola vez por número de proyecto. <strong>Todavía conservamos el nombre del departamento en EMPLEADO</strong>: la 2FN permite la dependencia transitiva A → E → F.</p>
-<p><span class="example-chip chip-norm">4. Tercera forma normal (3FN)</span></p>
+<h2 id="4-tercera-forma-normal-3fn">4. Tercera forma normal (3FN)</h2>
 <p>TRABAJA y PROYECTO ya están en 3FN. EMPLEADO aún no la cumple, porque el nombre del departamento depende del DNI a través de su número:</p>
 <p><strong>A → E → F: DNI → Núm. departamento → Nombre departamento</strong></p>
 <p><img alt="Dependencia transitiva del nombre del departamento a través de su número." src="../empleado-transitiva.svg" width="700" /></p>
@@ -1935,7 +2084,7 @@
 </ul>
 <p>E queda en EMPLEADO como clave externa. Si el departamento 10 cambia de nombre, solo tendremos que modificar una fila de DEPARTAMENTO.</p>
 <p><img alt="Grafo final de las cuatro tablas en 3FN: EMPLEADO, DEPARTAMENTO, PROYECTO y TRABAJA." src="../empresa-3fn.svg" width="760" /></p>
-<p><span class="example-chip chip-solucion">5. Solución: modelo relacional y datos</span></p>
+<h2 id="5-solucion-modelo-relacional-y-datos">5. Solución: modelo relacional y datos</h2>
 <div class="admonition quote">
 <p class="admonition-title">Modelo relacional final</p>
 <ul>
@@ -2116,13 +2265,8 @@
 
 
 
-  
-  
 
 
-
-
-  
 
 
 
@@ -2147,8 +2291,6 @@
         <footer class="md-footer">
   
     
-      
-        
       
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         

@@ -1455,6 +1455,39 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#caso-1-atributos-compuestos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Caso 1: Atributos compuestos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caso-2-atributos-repetidos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Caso 2: Atributos repetidos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caso-3-atributos-multivaluados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Caso 3: Atributos multivaluados
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#ejemplo-aplicado-los-telefonos-de-los-empleados" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1704,6 +1737,39 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#caso-1-atributos-compuestos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Caso 1: Atributos compuestos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caso-2-atributos-repetidos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Caso 2: Atributos repetidos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caso-3-atributos-multivaluados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Caso 3: Atributos multivaluados
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#ejemplo-aplicado-los-telefonos-de-los-empleados" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1749,44 +1815,77 @@
 <div class="admonition note">
 <p class="admonition-title">Casos en los que una tabla no está en 1FN:</p>
 <ul>
-<li>Varios valores en una misma celda.</li>
-<li>Un campo para cada posible valor.</li>
-<li>Atributos compuestos.</li>
+<li>Caso 1: Atributos compuestos.</li>
+<li>Caso 2: Atributos repetidos.</li>
+<li>Caso 3: Atributos multivaluados.</li>
 </ul>
 </div>
+<h2 id="caso-1-atributos-compuestos">Caso 1: Atributos compuestos</h2>
 <div class="case-card">
-<p><strong><span class="case-badge">CASO 1</span> Varios valores en una misma celda</strong></p>
-<p>En este caso tenemos un campo para almacenar varias medidas de un mismo material.</p>
+<p>En este caso el atributo PROVEEDOR mezcla dos datos distintos: el nombre del proveedor y la ciudad.</p>
 <table>
 <thead>
 <tr>
 <th><u><strong>COD-MAT</strong></u></th>
 <th><strong>DESCRIPCIÓN</strong></th>
-<th><strong>MEDIDAS</strong></th>
+<th><strong>PROVEEDOR</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>039</td>
 <td>Tornillo</td>
-<td>3,5 - 5 - 7 - 9</td>
+<td>Ferretería López, Castellón</td>
 </tr>
 <tr>
 <td>067</td>
 <td>Arandela</td>
-<td>2 - 5</td>
+<td>Suministros Pérez, Valencia</td>
 </tr>
 <tr>
 <td>461</td>
 <td>Broca</td>
-<td>2,5 - 3 - 3,5</td>
+<td>Herramientas SL, Madrid</td>
 </tr>
 </tbody>
 </table>
+<p><strong><u>Poner en 1FN</u></strong></p>
+<p>Si el problema es un <strong>atributo compuesto</strong>, la solución no consiste en crear una segunda tabla, sino en <strong>descomponer ese atributo en atributos atómicos</strong> dentro de la misma relación.</p>
+<table>
+<thead>
+<tr>
+<th><u><strong>COD-MAT</strong></u></th>
+<th><strong>DESCRIPCIÓN</strong></th>
+<th><strong>PROVEEDOR</strong></th>
+<th><strong>CIUDAD</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>039</td>
+<td>Tornillo</td>
+<td>Ferretería López</td>
+<td>Castellón</td>
+</tr>
+<tr>
+<td>067</td>
+<td>Arandela</td>
+<td>Suministros Pérez</td>
+<td>Valencia</td>
+</tr>
+<tr>
+<td>461</td>
+<td>Broca</td>
+<td>Herramientas SL</td>
+<td>Madrid</td>
+</tr>
+</tbody>
+</table>
+<p>En este caso, la tabla queda en 1FN porque cada atributo almacena un único dato elemental.</p>
 </div>
+<h2 id="caso-2-atributos-repetidos">Caso 2: Atributos repetidos</h2>
 <div class="case-card">
-<p><strong><span class="case-badge">CASO 2</span> Un campo para cada posible valor (grupos repetitivos)</strong></p>
-<p>En este caso tenemos un campo para cada medida. </p>
+<p>En este caso tenemos un campo para cada medida: MEDIDA1, MEDIDA2, MEDIDA3 y MEDIDA4. Son <strong>atributos repetidos</strong> que forman un grupo repetitivo. </p>
 <table>
 <thead>
 <tr>
@@ -1826,9 +1925,39 @@
 </tbody>
 </table>
 </div>
+<h2 id="caso-3-atributos-multivaluados">Caso 3: Atributos multivaluados</h2>
 <div class="case-card">
-<p><strong><u>Poner en 1FN</u></strong></p>
-<p>Los casos <strong>1</strong> y <strong>2</strong> comparten la misma solución: la tabla que no estaba en 1FN <strong>se descompone</strong> en <strong>dos</strong> tablas distintas:</p>
+<p>En este caso tenemos un campo para almacenar varias medidas de un mismo material. MEDIDAS es un <strong>atributo multivaluado</strong>, porque contiene varios valores en una misma celda.</p>
+<table>
+<thead>
+<tr>
+<th><u><strong>COD-MAT</strong></u></th>
+<th><strong>DESCRIPCIÓN</strong></th>
+<th><strong>MEDIDAS</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>039</td>
+<td>Tornillo</td>
+<td>3,5 - 5 - 7 - 9</td>
+</tr>
+<tr>
+<td>067</td>
+<td>Arandela</td>
+<td>2 - 5</td>
+</tr>
+<tr>
+<td>461</td>
+<td>Broca</td>
+<td>2,5 - 3 - 3,5</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="case-card">
+<h3 id="poner-en-1fn-los-casos-2-y-3">Poner en 1FN los casos 2 y 3</h3>
+<p>Los casos <strong>2</strong> y <strong>3</strong> comparten la misma solución: la tabla que no estaba en 1FN <strong>se descompone</strong> en <strong>dos</strong> tablas distintas:</p>
 <div class="tables-side-by-side">
 <div>
 <p><strong>A)</strong> La <strong>primera tabla</strong> se creará con los siguientes atributos:</p>
@@ -1915,69 +2044,6 @@
 </div>
 </div>
 <p>Con esta descomposición se eliminan los grupos repetitivos y se consigue que cada celda almacene un único valor atómico.</p>
-</div>
-<div class="case-card">
-<p><strong><span class="case-badge">CASO 3</span> Atributos compuestos</strong></p>
-<p>En este caso el atributo PROVEEDOR mezcla dos datos distintos: el nombre del proveedor y la ciudad.</p>
-<table>
-<thead>
-<tr>
-<th><u><strong>COD-MAT</strong></u></th>
-<th><strong>DESCRIPCIÓN</strong></th>
-<th><strong>PROVEEDOR</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>039</td>
-<td>Tornillo</td>
-<td>Ferretería López, Castellón</td>
-</tr>
-<tr>
-<td>067</td>
-<td>Arandela</td>
-<td>Suministros Pérez, Valencia</td>
-</tr>
-<tr>
-<td>461</td>
-<td>Broca</td>
-<td>Herramientas SL, Madrid</td>
-</tr>
-</tbody>
-</table>
-<p><strong><u>Poner en 1FN</u></strong></p>
-<p>Si el problema es un <strong>atributo compuesto</strong>, la solución no consiste en crear una segunda tabla, sino en <strong>descomponer ese atributo en atributos atómicos</strong> dentro de la misma relación.</p>
-<table>
-<thead>
-<tr>
-<th><u><strong>COD-MAT</strong></u></th>
-<th><strong>DESCRIPCIÓN</strong></th>
-<th><strong>PROVEEDOR</strong></th>
-<th><strong>CIUDAD</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>039</td>
-<td>Tornillo</td>
-<td>Ferretería López</td>
-<td>Castellón</td>
-</tr>
-<tr>
-<td>067</td>
-<td>Arandela</td>
-<td>Suministros Pérez</td>
-<td>Valencia</td>
-</tr>
-<tr>
-<td>461</td>
-<td>Broca</td>
-<td>Herramientas SL</td>
-<td>Madrid</td>
-</tr>
-</tbody>
-</table>
-<p>En este caso, la tabla queda en 1FN porque cada atributo almacena un único dato elemental.</p>
 </div>
 <h2 id="ejemplo-aplicado-los-telefonos-de-los-empleados">Ejemplo aplicado: los teléfonos de los empleados</h2>
 <p>Retomamos la empresa de los temas de modelo E/R y modelo relacional. Un empleado puede tener varios teléfonos. Para centrarnos en la 1FN, mostramos solo el DNI, el nombre y los teléfonos.</p>

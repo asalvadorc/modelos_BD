@@ -98,20 +98,60 @@ function initTableZoom() {
   let opener = null;
   const tableTargets = new WeakMap();
 
+  const tableButtons = new WeakMap();
+  let updatePending = false;
+
+  function updateTableButtons() {
+    updatePending = false;
+    document.querySelectorAll('.md-content table').forEach(function (table) {
+      const button = tableButtons.get(table);
+      if (!button) return;
+      const wrapper = table.closest('.md-typeset__scrollwrap') ||
+        table.closest('.md-typeset__table') || table.parentElement;
+      const available = wrapper.clientWidth;
+      const required = Math.max(table.scrollWidth, table.getBoundingClientRect().width);
+      const path = decodeURIComponent(window.location.pathname).toLowerCase();
+      const exercisePage = /\/(ejercicios|soluciones)(\/|\.html|$)/.test(path);
+      const headings = table.tHead ? table.tHead.textContent.toLowerCase() : '';
+      const employeeExample = path.includes('/ejemplo_completo') &&
+        headings.includes('dni') && headings.includes('nombre');
+      const alwaysOfferZoom = exercisePage || employeeExample;
+      button.hidden = !table.getClientRects().length || available === 0 ||
+        (!alwaysOfferZoom && required <= available + 2);
+    });
+  }
+
+  function scheduleTableUpdate() {
+    if (updatePending) return;
+    updatePending = true;
+    window.requestAnimationFrame(updateTableButtons);
+  }
+
+  const tableResizeObserver = typeof ResizeObserver !== 'undefined' ?
+    new ResizeObserver(scheduleTableUpdate) : null;
+
   function addTableButtons() {
+    if (tableResizeObserver) tableResizeObserver.disconnect();
     if (!decodeURIComponent(window.location.pathname).toLowerCase().includes('/normalizacion/')) return;
     document.querySelectorAll('.md-content table').forEach(function (table) {
-      if (table.dataset.zoomEnabled === 'true') return;
       const wrapper = table.closest('.md-typeset__scrollwrap') ||
         table.closest('.md-typeset__table') || table;
-      const button = document.createElement('button');
-      button.type = 'button';
-      button.className = 'table-zoom-button';
-      button.textContent = '⛶ Ver tabla completa';
-      wrapper.before(button);
-      tableTargets.set(button, table);
-      table.dataset.zoomEnabled = 'true';
+      if (!tableButtons.has(table)) {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'table-zoom-button';
+        button.textContent = '⛶ Ver tabla completa';
+        button.hidden = true;
+        wrapper.before(button);
+        tableTargets.set(button, table);
+        tableButtons.set(table, button);
+      }
+      if (tableResizeObserver) {
+        tableResizeObserver.observe(wrapper);
+        tableResizeObserver.observe(table);
+      }
     });
+    scheduleTableUpdate();
   }
 
   function fitTable() {
@@ -166,7 +206,13 @@ function initTableZoom() {
       close.focus();
     }
   });
-  window.addEventListener('resize', fitTable);
+  window.addEventListener('resize', function () {
+    fitTable();
+    scheduleTableUpdate();
+  });
+  document.addEventListener('toggle', scheduleTableUpdate, true);
+  document.addEventListener('load', scheduleTableUpdate, true);
+  if (document.fonts) document.fonts.ready.then(scheduleTableUpdate);
   addTableButtons();
   // Material vuelve a insertar el contenido al navegar sin recargar la página.
   if (typeof document$ !== 'undefined') document$.subscribe(addTableButtons);

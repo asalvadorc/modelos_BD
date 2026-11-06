@@ -41,7 +41,7 @@ El grafo representa las dependencias entre los datos de una única tabla **PEDID
 
 <div class="normalizacion-exercise-table" markdown>
 
-| <u>IDcliente</u> | <u>Región</u> | <u>IDproducto</u> | IDpedido | Cantidad | NombreProducto | Categoria | ImpuestoRegion | FechaPedido | PrecioUnitario |
+| IDcliente | Región | IDproducto | IDpedido | Cantidad | NombreProducto | Categoria | ImpuestoRegion | FechaPedido | PrecioUnitario |
 |-----------|--------|------------|----------|----------|----------------|-----------|----------------|-------------|----------------|
 
 ![Grafo de dependencias funcionales: pedidos.](ejercicios-clase/02-pedidos.png){ width=700 }
@@ -60,7 +60,7 @@ Se dispone de la siguiente tabla no normalizada, que almacena información sobre
 Normaliza hasta **3FN** y presenta las tablas resultantes en el modelo relacional, indicando sus claves primarias (PK) y foráneas (FK).
 
 
-| <u>**id_orden**</u> | **fecha** | **id_cliente** | **nom_cliente** | **ciudad** | <u>**num_art**</u> | **nom_art** | **cantidad** | **precio_art** |
+| **id_orden** | **fecha** | **id_cliente** | **nom_cliente** | **ciudad** | **num_art** | **nom_art** | **cantidad** | **precio_art** |
 |-------------|-----------|----------------|-----------------|------------|-------------|-------------|----------|------------|
 | 2301 | 23/02/11 | 101 | Martin | Caracas | 3786 | Red | 3 | 35,00 |
 | 2301 | 23/02/11 | 101 | Martin | Caracas | 4011 | Raqueta | 6 | 65,00 |
@@ -79,7 +79,7 @@ La tabla EXPOSICIONES contiene información sobre las exposiciones, las galería
 
 <div class="normalizacion-exercise-table exposiciones-table" markdown>
 
-| <u>codexp</u> | codgal | nomgal | dirgal | cpgal | ciugal | fecha | <u>codobr</u> | nomobr | tip | dim | codaut | nomaut |
+| codexp | codgal | nomgal | dirgal | cpgal | ciugal | fecha | codobr | nomobr | tip | dim | codaut | nomaut |
 |--------|--------|--------|--------|-------|--------|-------|--------|--------|-----|-----|--------|--------|
 | ART024 | ART | ARTACTUAL | C/ Enmig, 54 | 12001 | Castelló | Del 1-12-2012<br>al 15-12-2012 | GO-068 | Bodegón | Óleo | 60x40 | GM | Gregori Mifsud |
 | ART024 | ART | ARTACTUAL | C/ Enmig, 54 | 12001 | Castelló | Del 1-12-2012<br>al 15-12-2012 | GO-069 | Bodegón | Óleo | 50x30 | GM | Gregori Mifsud |
@@ -98,7 +98,7 @@ Se dispone de la siguiente tabla no normalizada, que almacena información sobre
 
 <div class="normalizacion-exercise-table" markdown>
 
-| <u>nss</u> | nombre | apellidos | puesto | salario | emails |
+| nss | nombre | apellidos | puesto | salario | emails |
 |-----|--------|-----------|--------|---------|--------|
 | 111 | Juan | Pérez Arias | Jefe de Área | 3000 | juanp@ecn.es; jefe2@ecn.es |
 | 222 | José | Sánchez Ramos | Administrativo | 1500 | juanp@ecn.es; jefe2@ecn.es |
@@ -119,7 +119,7 @@ La tabla PELICULA contiene información sobre las películas, sus estudios y los
 
 <div class="normalizacion-exercise-table" markdown>
 
-| <u>titulo</u> | <u>anyo</u> | duracion | tipo | estudio | ciudadestudio | <u>actor</u> |
+| titulo | anyo | duracion | tipo | estudio | ciudadestudio | actor |
 |--------|------|----------|------|---------|---------------|-------|
 | Star Wars | 1977 | 124 | Color | Fox | Hollywood | Carrie Fisher |
 | Star Wars | 1977 | 124 | Color | Fox | Hollywood | Mark Hamill |
@@ -153,7 +153,7 @@ Una universidad utiliza una única tabla para registrar los alumnos y los cursos
 
 <div class="normalizacion-exercise-table" markdown>
 
-| <u>idmatricula</u> | nombre | apellido | direccion | telefono | curso | <u>codigo</u> | carrera |
+| idmatricula | nombre | apellido | direccion | telefono | curso | codigo | carrera |
 |-------------|--------|----------|-----------|----------|-------|--------|---------|
 | 100 | Juan | Martín Arias | C/ Ongolmo 340, Concepción | 78872890 | base datos | bd1 | ingeniería civil informática |
 | 100 | Juan | Martín Arias | C/ Ongolmo 340, Concepción | 78872890 | estadística | e2 | ingeniería civil informática |

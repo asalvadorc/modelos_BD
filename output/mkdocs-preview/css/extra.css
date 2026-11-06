@@ -1326,3 +1326,5 @@ body.table-zoom-open { overflow: hidden; }
     padding-left: 0;
     padding-right: 0;
 }
+
+.table-zoom-button[hidden] { display: none; }

@@ -16,15 +16,56 @@
 
 
 !!!Note "Casos en los que una tabla no está en 1FN:"
-    - Varios valores en una misma celda.
-    - Un campo para cada posible valor.
-    - Atributos compuestos.
+    - Caso 1: Atributos compuestos.
+    - Caso 2: Atributos repetidos.
+    - Caso 3: Atributos multivaluados.
+
+## Caso 1: Atributos compuestos
 
 <div class="case-card" markdown>
 
-**<span class="case-badge">CASO 1</span> Varios valores en una misma celda**
+En este caso el atributo PROVEEDOR mezcla dos datos distintos: el nombre del proveedor y la ciudad.
 
-En este caso tenemos un campo para almacenar varias medidas de un mismo material.
+<u>**COD-MAT**</u> |  **DESCRIPCIÓN** |  **PROVEEDOR**  
+---|---|---  
+039  |  Tornillo  |  Ferretería López, Castellón   
+067  |  Arandela  |  Suministros Pérez, Valencia  
+461  |  Broca  |  Herramientas SL, Madrid  
+
+**<u>Poner en 1FN</u>**
+
+Si el problema es un **atributo compuesto**, la solución no consiste en crear una segunda tabla, sino en **descomponer ese atributo en atributos atómicos** dentro de la misma relación.
+
+
+<u>**COD-MAT**</u> | **DESCRIPCIÓN** | **PROVEEDOR** | **CIUDAD**
+---|---|---|---
+039 | Tornillo | Ferretería López | Castellón
+067 | Arandela | Suministros Pérez | Valencia
+461 | Broca | Herramientas SL | Madrid
+
+En este caso, la tabla queda en 1FN porque cada atributo almacena un único dato elemental.
+
+</div>
+
+## Caso 2: Atributos repetidos
+
+<div class="case-card" markdown>
+
+En este caso tenemos un campo para cada medida: MEDIDA1, MEDIDA2, MEDIDA3 y MEDIDA4. Son **atributos repetidos** que forman un grupo repetitivo. 
+
+<u>**COD-MAT**</u> |  **DESCRIPCIÓN** |  **MEDIDA1** | **MEDIDA2** |  **MEDIDA3** | **MEDIDA4**  
+---|---|---|---|---|---  
+039  |  Tornillo  |  3,5  |  5 |  7 |  9  
+067  |  Arandela  |  2  |  5 |  |   
+461  |  Broca  |  2,5  |  3 |  3,5 |   
+
+</div>
+
+## Caso 3: Atributos multivaluados
+
+<div class="case-card" markdown>
+
+En este caso tenemos un campo para almacenar varias medidas de un mismo material. MEDIDAS es un **atributo multivaluado**, porque contiene varios valores en una misma celda.
 
 <u>**COD-MAT**</u> |  **DESCRIPCIÓN** |  **MEDIDAS**  
 ---|---|---  
@@ -36,23 +77,9 @@ En este caso tenemos un campo para almacenar varias medidas de un mismo material
 
 <div class="case-card" markdown>
 
-**<span class="case-badge">CASO 2</span> Un campo para cada posible valor (grupos repetitivos)**
+### Poner en 1FN los casos 2 y 3
 
-En este caso tenemos un campo para cada medida. 
-
-<u>**COD-MAT**</u> |  **DESCRIPCIÓN** |  **MEDIDA1** | **MEDIDA2** |  **MEDIDA3** | **MEDIDA4**  
----|---|---|---|---|---  
-039  |  Tornillo  |  3,5  |  5 |  7 |  9  
-067  |  Arandela  |  2  |  5 |  |   
-461  |  Broca  |  2,5  |  3 |  3,5 |   
-
-</div>
-
-<div class="case-card" markdown>
-
-**<u>Poner en 1FN</u>**
-
-Los casos **1** y **2** comparten la misma solución: la tabla que no estaba en 1FN **se descompone** en **dos** tablas distintas:
+Los casos **2** y **3** comparten la misma solución: la tabla que no estaba en 1FN **se descompone** en **dos** tablas distintas:
 
 <div class="tables-side-by-side" markdown>
 
@@ -100,33 +127,6 @@ La clave primaria de esta segunda tabla estará formada por **COD-MAT + MEDIDA**
 Con esta descomposición se eliminan los grupos repetitivos y se consigue que cada celda almacene un único valor atómico.
 
   
-</div>
-
-<div class="case-card" markdown>
-
-**<span class="case-badge">CASO 3</span> Atributos compuestos**
-
-En este caso el atributo PROVEEDOR mezcla dos datos distintos: el nombre del proveedor y la ciudad.
-
-<u>**COD-MAT**</u> |  **DESCRIPCIÓN** |  **PROVEEDOR**  
----|---|---  
-039  |  Tornillo  |  Ferretería López, Castellón   
-067  |  Arandela  |  Suministros Pérez, Valencia  
-461  |  Broca  |  Herramientas SL, Madrid  
-
-**<u>Poner en 1FN</u>**
-
-Si el problema es un **atributo compuesto**, la solución no consiste en crear una segunda tabla, sino en **descomponer ese atributo en atributos atómicos** dentro de la misma relación.
-
-
-<u>**COD-MAT**</u> | **DESCRIPCIÓN** | **PROVEEDOR** | **CIUDAD**
----|---|---|---
-039 | Tornillo | Ferretería López | Castellón
-067 | Arandela | Suministros Pérez | Valencia
-461 | Broca | Herramientas SL | Madrid
-
-En este caso, la tabla queda en 1FN porque cada atributo almacena un único dato elemental.
-
 </div>
 
 ## Ejemplo aplicado: los teléfonos de los empleados
