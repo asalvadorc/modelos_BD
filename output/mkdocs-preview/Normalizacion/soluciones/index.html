@@ -2487,7 +2487,518 @@
 </ul>
 <p><strong>Esquema visual de la solución</strong></p>
 <p><img alt="Matrículas en 3FN: ALUMNO con clave idmatricula determina sus seis atributos; CURSO con clave codigo determina curso; MATRICULA registra la asociación con clave idmatricula y codigo." src="../ejercicios-clase/07-matriculas-solucion.svg" width="850" /></p>
-<p>La unión de las tres tablas por idmatricula y codigo recupera las cinco matrículas originales, con dirección y localidad separadas. </p>
+<p>La unión de las tres tablas por idmatricula y codigo recupera las cinco matrículas originales, con dirección y localidad separadas.</p>
+</details>
+<details class="success">
+<summary>Ejercicio 8. Recetas de cocina: ingredientes en una celda</summary>
+<p><strong>Tabla original RECETAS_COCINA</strong></p>
+<div class="normalizacion-exercise-table recetas-table" markdown>
+<table>
+<thead>
+<tr>
+<th>Cod_Plato</th>
+<th>Nombre_Plato</th>
+<th>Cocinero</th>
+<th>Región</th>
+<th>Tipo_Plato</th>
+<th>Ingredientes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P01</td>
+<td>Paella Valenciana</td>
+<td>Carlos García</td>
+<td>valenciana</td>
+<td>Principal</td>
+<td>Arroz, Pollo, Judías Verdes, Tomate</td>
+</tr>
+<tr>
+<td>P02</td>
+<td>Ensalada Mixta</td>
+<td>María López</td>
+<td>internacional</td>
+<td>Entrante</td>
+<td>Lechuga, Tomate, Atún, Aceitunas</td>
+</tr>
+<tr>
+<td>P03</td>
+<td>Tarta de Queso</td>
+<td>Laura Sánchez</td>
+<td>vasca</td>
+<td>Postre</td>
+<td>Queso Crema, Galletas, Mantequilla</td>
+</tr>
+<tr>
+<td>P04</td>
+<td>Gazpacho Andaluz</td>
+<td>Antonio Martínez</td>
+<td>andaluza</td>
+<td>Principal</td>
+<td>Tomate, Pepino, Pimiento, Aceite</td>
+</tr>
+<tr>
+<td>P05</td>
+<td>Cocido Madrileño</td>
+<td>Javier Pérez</td>
+<td>madrileña</td>
+<td>Entrante</td>
+<td>Garbanzos, Carne, Patata</td>
+</tr>
+<tr>
+<td>P06</td>
+<td>Flan de Huevo</td>
+<td>Elena Rodríguez</td>
+<td>internacional</td>
+<td>Postre</td>
+<td>Huevos, Leche, Azúcar</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Clave y reglas utilizadas</strong></p>
+<p>Cod_Plato identifica cada plato en la tabla original. Suponemos que cada plato tiene un nombre, un cocinero, una región y un tipo:</p>
+<p><strong>Cod_Plato → Nombre_Plato, Cocinero, Región, Tipo_Plato</strong>.</p>
+<p>Un plato puede tener varios ingredientes y un ingrediente puede aparecer en varios platos. No suponemos que el cocinero determine la región ni el tipo de plato; las coincidencias de los datos no bastan para establecer esas reglas.</p>
+<h3 id="1-primera-forma-normal-1fn_6">1. Primera forma normal (1FN)</h3>
+<p>La tabla no está en 1FN. Ingredientes es <strong>multivaluado</strong>: contiene una lista de valores en una sola celda.</p>
+<p>Separamos la lista de ingredientes en filas, una por cada pareja de plato e ingrediente.</p>
+<p>Conservamos los datos del plato en RECETA y creamos RECETA_INGREDIENTE para sus ingredientes. Su clave es <strong>(Cod_Plato, Ingrediente)</strong>: cada ingrediente se registra una sola vez en cada receta.</p>
+<p><strong>Ejemplo de las filas de la paella</strong></p>
+<table>
+<thead>
+<tr>
+<th>Cod_Plato</th>
+<th>Ingrediente</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P01</td>
+<td>Arroz</td>
+</tr>
+<tr>
+<td>P01</td>
+<td>Pollo</td>
+</tr>
+<tr>
+<td>P01</td>
+<td>Judías Verdes</td>
+</tr>
+<tr>
+<td>P01</td>
+<td>Tomate</td>
+</tr>
+</tbody>
+</table>
+<p>Este proceso se aplica a los seis platos. No creamos columnas nuevas para añadir ingredientes y el nombre del plato no se repite en las filas de RECETA_INGREDIENTE.</p>
+<p><strong>Grafo de dependencias tras aplicar 1FN</strong></p>
+<p><img alt="Tras aplicar 1FN: RECETA tiene clave Cod_Plato y determina Nombre_Plato, Cocinero, Región y Tipo_Plato; RECETA_INGREDIENTE tiene clave Cod_Plato e Ingrediente y no contiene otros atributos." src="../ejercicios-clase/08-09-recetas-1fn.svg" width="850" /></p>
+<h3 id="2-segunda-forma-normal-2fn_6">2. Segunda forma normal (2FN)</h3>
+<p>Las dos tablas ya están en 2FN:</p>
+<ul>
+<li>RECETA tiene clave simple, Cod_Plato; no hay dependencias parciales.</li>
+<li>RECETA_INGREDIENTE solo contiene los atributos de su clave compuesta.</li>
+</ul>
+<p>No necesitamos otra descomposición. Si hubiéramos repetido los datos del plato junto a cada ingrediente en una sola tabla en 1FN, tendríamos que separarlos ahora, porque dependen solo de Cod_Plato.</p>
+<h3 id="3-tercera-forma-normal-3fn_6">3. Tercera forma normal (3FN)</h3>
+<p>Con las reglas utilizadas no hay dependencias transitivas entre atributos no clave. Las tablas obtenidas en el primer paso ya cumplen 3FN.</p>
+<p>No creamos una tabla INGREDIENTE independiente, porque este ejercicio no aporta atributos propios del ingrediente ni exige un catálogo separado.</p>
+<p><strong>Modelo relacional final</strong></p>
+<ul>
+<li><strong>RECETA</strong> (<u>Cod_Plato</u>, Nombre_Plato, Cocinero, Región, Tipo_Plato).<ul>
+<li>PK: Cod_Plato.</li>
+</ul>
+</li>
+<li><strong>RECETA_INGREDIENTE</strong> (<u>Cod_Plato, Ingrediente</u>).<ul>
+<li>PK: (Cod_Plato, Ingrediente).</li>
+<li>FK: Cod_Plato → RECETA(Cod_Plato).</li>
+</ul>
+</li>
+</ul>
+<p><strong>Esquema visual de la solución</strong></p>
+<p><img alt="Resultado en 3FN: RECETA y RECETA_INGREDIENTE, con su clave compuesta y referencia a RECETA." src="../ejercicios-clase/08-09-recetas-solucion.svg" width="850" /></p>
+<p>La lista original se recupera consultando los ingredientes asociados a cada Cod_Plato, sin perder los datos de los seis platos.</p>
+</details>
+<details class="success">
+<summary>Ejercicio 9. Recetas de cocina: una columna por ingrediente</summary>
+<p><strong>Tabla original RECETAS_COCINA</strong></p>
+<div class="normalizacion-exercise-table recetas-table" markdown>
+<table>
+<thead>
+<tr>
+<th>Cod_Plato</th>
+<th>Nombre_Plato</th>
+<th>Cocinero</th>
+<th>Región</th>
+<th>Tipo_Plato</th>
+<th>Ingrediente1</th>
+<th>Ingrediente2</th>
+<th>Ingrediente3</th>
+<th>Ingrediente4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P01</td>
+<td>Paella Valenciana</td>
+<td>Carlos García</td>
+<td>valenciana</td>
+<td>Principal</td>
+<td>Arroz</td>
+<td>Pollo</td>
+<td>Judías Verdes</td>
+<td>Tomate</td>
+</tr>
+<tr>
+<td>P02</td>
+<td>Ensalada Mixta</td>
+<td>María López</td>
+<td>internacional</td>
+<td>Entrante</td>
+<td>Lechuga</td>
+<td>Tomate</td>
+<td>Atún</td>
+<td>Aceitunas</td>
+</tr>
+<tr>
+<td>P03</td>
+<td>Tarta de Queso</td>
+<td>Laura Sánchez</td>
+<td>vasca</td>
+<td>Postre</td>
+<td>Queso Crema</td>
+<td>Galletas</td>
+<td>Mantequilla</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>P04</td>
+<td>Gazpacho Andaluz</td>
+<td>Antonio Martínez</td>
+<td>andaluza</td>
+<td>Principal</td>
+<td>Tomate</td>
+<td>Pepino</td>
+<td>Pimiento</td>
+<td>Aceite</td>
+</tr>
+<tr>
+<td>P05</td>
+<td>Cocido Madrileño</td>
+<td>Javier Pérez</td>
+<td>madrileña</td>
+<td>Entrante</td>
+<td>Garbanzos</td>
+<td>Carne</td>
+<td>Patata</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>P06</td>
+<td>Flan de Huevo</td>
+<td>Elena Rodríguez</td>
+<td>internacional</td>
+<td>Postre</td>
+<td>Huevos</td>
+<td>Leche</td>
+<td>Azúcar</td>
+<td>NULL</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Clave y reglas utilizadas</strong></p>
+<p>Cod_Plato identifica cada plato en la tabla original. Suponemos que cada plato tiene un nombre, un cocinero, una región y un tipo:</p>
+<p><strong>Cod_Plato → Nombre_Plato, Cocinero, Región, Tipo_Plato</strong>.</p>
+<p>Un plato puede tener varios ingredientes y un ingrediente puede aparecer en varios platos. No suponemos que el cocinero determine la región ni el tipo de plato; las coincidencias de los datos no bastan para establecer esas reglas.</p>
+<h3 id="1-primera-forma-normal-1fn_7">1. Primera forma normal (1FN)</h3>
+<p>La tabla no está en 1FN. Ingrediente1, Ingrediente2, Ingrediente3 e Ingrediente4 forman un <strong>grupo repetitivo</strong>: representan el mismo atributo en distintas columnas.</p>
+<p>Convertimos las cuatro columnas de ingredientes en filas de una única columna Ingrediente.</p>
+<p>Conservamos los datos del plato en RECETA y creamos RECETA_INGREDIENTE para sus ingredientes. Su clave es <strong>(Cod_Plato, Ingrediente)</strong>: cada ingrediente se registra una sola vez en cada receta.</p>
+<p><strong>Ejemplo de las filas de la paella</strong></p>
+<table>
+<thead>
+<tr>
+<th>Cod_Plato</th>
+<th>Ingrediente</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P01</td>
+<td>Arroz</td>
+</tr>
+<tr>
+<td>P01</td>
+<td>Pollo</td>
+</tr>
+<tr>
+<td>P01</td>
+<td>Judías Verdes</td>
+</tr>
+<tr>
+<td>P01</td>
+<td>Tomate</td>
+</tr>
+</tbody>
+</table>
+<p>No creamos una fila con Ingrediente = NULL: esos valores indican que no hay un cuarto ingrediente.</p>
+<p>Este proceso se aplica a los seis platos. No creamos columnas nuevas para añadir ingredientes y el nombre del plato no se repite en las filas de RECETA_INGREDIENTE.</p>
+<p><strong>Grafo de dependencias tras aplicar 1FN</strong></p>
+<p><img alt="Tras aplicar 1FN: RECETA tiene clave Cod_Plato y determina Nombre_Plato, Cocinero, Región y Tipo_Plato; RECETA_INGREDIENTE tiene clave Cod_Plato e Ingrediente y no contiene otros atributos." src="../ejercicios-clase/08-09-recetas-1fn.svg" width="850" /></p>
+<h3 id="2-segunda-forma-normal-2fn_7">2. Segunda forma normal (2FN)</h3>
+<p>Las dos tablas ya están en 2FN:</p>
+<ul>
+<li>RECETA tiene clave simple, Cod_Plato; no hay dependencias parciales.</li>
+<li>RECETA_INGREDIENTE solo contiene los atributos de su clave compuesta.</li>
+</ul>
+<p>No necesitamos otra descomposición. Si hubiéramos repetido los datos del plato junto a cada ingrediente en una sola tabla en 1FN, tendríamos que separarlos ahora, porque dependen solo de Cod_Plato.</p>
+<h3 id="3-tercera-forma-normal-3fn_7">3. Tercera forma normal (3FN)</h3>
+<p>Con las reglas utilizadas no hay dependencias transitivas entre atributos no clave. Las tablas obtenidas en el primer paso ya cumplen 3FN.</p>
+<p>No creamos una tabla INGREDIENTE independiente, porque este ejercicio no aporta atributos propios del ingrediente ni exige un catálogo separado.</p>
+<p><strong>Modelo relacional final</strong></p>
+<ul>
+<li><strong>RECETA</strong> (<u>Cod_Plato</u>, Nombre_Plato, Cocinero, Región, Tipo_Plato).<ul>
+<li>PK: Cod_Plato.</li>
+</ul>
+</li>
+<li><strong>RECETA_INGREDIENTE</strong> (<u>Cod_Plato, Ingrediente</u>).<ul>
+<li>PK: (Cod_Plato, Ingrediente).</li>
+<li>FK: Cod_Plato → RECETA(Cod_Plato).</li>
+</ul>
+</li>
+</ul>
+<p><strong>Esquema visual de la solución</strong></p>
+<p><img alt="Resultado en 3FN: RECETA y RECETA_INGREDIENTE, con su clave compuesta y referencia a RECETA." src="../ejercicios-clase/08-09-recetas-solucion.svg" width="850" /></p>
+<p>El resultado es el mismo que en el ejercicio 8: cambia la forma inicial de guardar los ingredientes, pero no las tablas necesarias para representarlos.</p>
+</details>
+<details class="success">
+<summary>Ejercicio 10. Recetas de cocina: ingredientes, cantidades y stock</summary>
+<p><strong>Tabla original RECETAS_COCINA</strong></p>
+<div class="normalizacion-exercise-table recetas-table" markdown>
+<table>
+<thead>
+<tr>
+<th>Cod_Plato</th>
+<th>Nombre_Plato</th>
+<th>Cocinero</th>
+<th>Región</th>
+<th>Tipo_Plato</th>
+<th>Ingrediente1</th>
+<th>Cantidad1</th>
+<th>Stock1</th>
+<th>Ingrediente2</th>
+<th>Cantidad2</th>
+<th>Stock2</th>
+<th>Ingrediente3</th>
+<th>Cantidad3</th>
+<th>Stock3</th>
+<th>Ingrediente4</th>
+<th>Cantidad4</th>
+<th>Stock4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P01</td>
+<td>Paella Valenciana</td>
+<td>Carlos García</td>
+<td>valenciana</td>
+<td>Principal</td>
+<td>Arroz</td>
+<td>300g</td>
+<td>50 kg</td>
+<td>Pollo</td>
+<td>200g</td>
+<td>20 kg</td>
+<td>Judías Verdes</td>
+<td>100g</td>
+<td>15 kg</td>
+<td>Tomate</td>
+<td>50g</td>
+<td>40 kg</td>
+</tr>
+<tr>
+<td>P02</td>
+<td>Ensalada Mixta</td>
+<td>María López</td>
+<td>internacional</td>
+<td>Entrante</td>
+<td>Lechuga</td>
+<td>150g</td>
+<td>30 kg</td>
+<td>Tomate</td>
+<td>80g</td>
+<td>40 kg</td>
+<td>Atún</td>
+<td>50g</td>
+<td>10 kg</td>
+<td>Aceitunas</td>
+<td>30g</td>
+<td>8 kg</td>
+</tr>
+<tr>
+<td>P03</td>
+<td>Tarta de Queso</td>
+<td>Laura Sánchez</td>
+<td>vasca</td>
+<td>Postre</td>
+<td>Queso Crema</td>
+<td>250g</td>
+<td>12 kg</td>
+<td>Galletas</td>
+<td>150g</td>
+<td>20 kg</td>
+<td>Mantequilla</td>
+<td>80g</td>
+<td>5 kg</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>P04</td>
+<td>Gazpacho Andaluz</td>
+<td>Antonio Martínez</td>
+<td>andaluza</td>
+<td>Principal</td>
+<td>Tomate</td>
+<td>500g</td>
+<td>40 kg</td>
+<td>Pepino</td>
+<td>150g</td>
+<td>18 kg</td>
+<td>Pimiento</td>
+<td>100g</td>
+<td>12 kg</td>
+<td>Aceite</td>
+<td>30ml</td>
+<td>25 l</td>
+</tr>
+<tr>
+<td>P05</td>
+<td>Cocido Madrileño</td>
+<td>Javier Pérez</td>
+<td>madrileña</td>
+<td>Entrante</td>
+<td>Garbanzos</td>
+<td>300g</td>
+<td>35 kg</td>
+<td>Carne</td>
+<td>250g</td>
+<td>30 kg</td>
+<td>Patata</td>
+<td>200g</td>
+<td>60 kg</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>P06</td>
+<td>Flan de Huevo</td>
+<td>Elena Rodríguez</td>
+<td>internacional</td>
+<td>Postre</td>
+<td>Huevos</td>
+<td>4 ud</td>
+<td>500 ud</td>
+<td>Leche</td>
+<td>500ml</td>
+<td>100 l</td>
+<td>Azúcar</td>
+<td>100g</td>
+<td>80 kg</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Clave y reglas utilizadas</strong></p>
+<p>Cod_Plato identifica cada plato en la tabla original. Para resolver el ejercicio suponemos que Ingrediente identifica un ingrediente del almacén y que <strong>Stock es su existencia disponible en ese almacén en el momento considerado</strong>, común a todas las recetas. Cantidad, en cambio, indica cuánto se necesita de ese ingrediente para preparar cada plato.</p>
+<p>Las dependencias, una vez eliminados los grupos repetitivos, son:</p>
+<ul>
+<li><strong>Cod_Plato → Nombre_Plato, Cocinero, Región, Tipo_Plato</strong>.</li>
+<li><strong>Cod_Plato + Ingrediente → Cantidad</strong>.</li>
+<li><strong>Ingrediente → Stock</strong>.</li>
+</ul>
+<p>No se deducen reglas adicionales sobre el cocinero, la región o el tipo de plato a partir de las coincidencias de las filas.</p>
+<h3 id="1-primera-forma-normal-1fn_8">1. Primera forma normal (1FN)</h3>
+<p>Los grupos <strong>Ingrediente1, Cantidad1, Stock1</strong>, <strong>Ingrediente2, Cantidad2, Stock2</strong>, etc., se repiten. Convertimos cada grupo completo en una fila, manteniendo juntos el ingrediente, su cantidad y su stock.</p>
+<p>Obtenemos:</p>
+<ul>
+<li><strong>RECETA</strong> (<u>Cod_Plato</u>, Nombre_Plato, Cocinero, Región, Tipo_Plato).</li>
+<li><strong>RECETA_INGREDIENTE</strong> (<u>Cod_Plato, Ingrediente</u>, Cantidad, Stock).</li>
+</ul>
+<p>Omitimos los grupos en los que no hay ingrediente; no creamos filas con NULL como parte de la clave. Suponemos una sola cantidad por ingrediente y receta.</p>
+<p><strong>Ejemplo de la paella tras aplicar 1FN</strong></p>
+<table>
+<thead>
+<tr>
+<th>Cod_Plato</th>
+<th>Ingrediente</th>
+<th>Cantidad</th>
+<th>Stock</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P01</td>
+<td>Arroz</td>
+<td>300g</td>
+<td>50 kg</td>
+</tr>
+<tr>
+<td>P01</td>
+<td>Pollo</td>
+<td>200g</td>
+<td>20 kg</td>
+</tr>
+<tr>
+<td>P01</td>
+<td>Judías Verdes</td>
+<td>100g</td>
+<td>15 kg</td>
+</tr>
+<tr>
+<td>P01</td>
+<td>Tomate</td>
+<td>50g</td>
+<td>40 kg</td>
+</tr>
+</tbody>
+</table>
+<p>La cantidad y el stock son medidas con su unidad indicada; para este ejercicio las tratamos como valores atómicos.</p>
+<p><strong>Grafo de dependencias tras aplicar 1FN</strong></p>
+<p><img alt="En 1FN: RECETA con clave Cod_Plato determina los datos del plato; en RECETA_INGREDIENTE la clave completa Cod_Plato e Ingrediente determina Cantidad, mientras que solo Ingrediente determina Stock." src="../ejercicios-clase/10-recetas-1fn.svg" width="850" /></p>
+<h3 id="2-segunda-forma-normal-2fn_8">2. Segunda forma normal (2FN)</h3>
+<p>RECETA ya está en 2FN. RECETA_INGREDIENTE no la cumple: <strong>Ingrediente → Stock</strong> es una dependencia parcial respecto a la clave <strong>(Cod_Plato, Ingrediente)</strong>. El stock del tomate, por ejemplo, se repite en la paella, la ensalada y el gazpacho.</p>
+<p>Separamos el stock en <strong>INGREDIENTE (Ingrediente, Stock)</strong>. En RECETA_INGREDIENTE conservamos Cantidad, que depende de la clave completa: la paella necesita 50g de tomate, la ensalada 80g y el gazpacho 500g.</p>
+<h3 id="3-tercera-forma-normal-3fn_8">3. Tercera forma normal (3FN)</h3>
+<p>Con las reglas indicadas, las tres tablas resultantes ya están en 3FN: no quedan dependencias transitivas entre atributos no clave. No es necesaria otra descomposición.</p>
+<p><strong>Modelo relacional final</strong></p>
+<ul>
+<li><strong>RECETA</strong> (<u>Cod_Plato</u>, Nombre_Plato, Cocinero, Región, Tipo_Plato).<ul>
+<li>PK: Cod_Plato.</li>
+</ul>
+</li>
+<li><strong>INGREDIENTE</strong> (<u>Ingrediente</u>, Stock).<ul>
+<li>PK: Ingrediente.</li>
+</ul>
+</li>
+<li><strong>RECETA_INGREDIENTE</strong> (<u>Cod_Plato, Ingrediente</u>, Cantidad).<ul>
+<li>PK: (Cod_Plato, Ingrediente).</li>
+<li>FK: Cod_Plato → RECETA(Cod_Plato).</li>
+<li>FK: Ingrediente → INGREDIENTE(Ingrediente).</li>
+</ul>
+</li>
+</ul>
+<p><strong>Esquema visual de la solución</strong></p>
+<p><img alt="Resultado en 3FN: RECETA guarda los datos de cada plato; INGREDIENTE guarda el stock una sola vez; RECETA_INGREDIENTE tiene clave Cod_Plato e Ingrediente y guarda la cantidad necesaria para cada receta, con referencias a ambas tablas." src="../ejercicios-clase/10-recetas-solucion.svg" width="850" /></p>
+<p>El stock se actualiza en una sola fila de INGREDIENTE, mientras que cada receta conserva su cantidad. Podemos reconstruir los datos uniendo las tablas por Cod_Plato e Ingrediente. Si el stock se gestionara por almacén o fecha, habría que incorporar esos datos al diseño; esa situación no forma parte del ejercicio.</p>
 </details>
 
 

@@ -171,3 +171,81 @@ Una universidad utiliza una única tabla para registrar los alumnos y los cursos
 4. Presenta las tablas resultantes con sus atributos, PK y FK.
 
 Para interpretar el ejercicio, **idmatricula identifica al alumno**, tal como muestran las filas del enunciado; **codigo identifica al curso**. Explicita cualquier otra regla que necesites asumir.
+
+## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 8. Recetas de cocina: ingredientes en una celda</span></span>
+
+Una escuela de cocina está desarrollando una base de datos para almacenar los platos de su recetario. Toda la información se registra en una única tabla **RECETAS_COCINA**: código y nombre del plato, cocinero, región, tipo de plato e ingredientes.
+
+Los ingredientes de cada plato se guardan juntos en una misma celda.
+
+<div class="normalizacion-exercise-table recetas-table" markdown>
+
+| Cod_Plato | Nombre_Plato | Cocinero | Región | Tipo_Plato | Ingredientes |
+| --- | --- | --- | --- | --- | --- |
+| P01 | Paella Valenciana | Carlos García | valenciana | Principal | Arroz, Pollo, Judías Verdes, Tomate |
+| P02 | Ensalada Mixta | María López | internacional | Entrante | Lechuga, Tomate, Atún, Aceitunas |
+| P03 | Tarta de Queso | Laura Sánchez | vasca | Postre | Queso Crema, Galletas, Mantequilla |
+| P04 | Gazpacho Andaluz | Antonio Martínez | andaluza | Principal | Tomate, Pepino, Pimiento, Aceite |
+| P05 | Cocido Madrileño | Javier Pérez | madrileña | Entrante | Garbanzos, Carne, Patata |
+| P06 | Flan de Huevo | Elena Rodríguez | internacional | Postre | Huevos, Leche, Azúcar |
+
+</div>
+
+**Tareas:**
+
+1. Analiza la tabla: indica los problemas de diseño e identifica las dependencias funcionales según las reglas utilizadas.
+2. Determina la clave primaria y justifica tu elección.
+3. Normaliza paso a paso hasta 3FN.
+4. Entrega el grafo de dependencias normalizado y las tablas del modelo relacional con sus atributos, PK y FK.
+
+## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 9. Recetas de cocina: una columna por ingrediente</span></span>
+
+Una escuela de cocina está desarrollando una base de datos para almacenar los platos de su recetario. Toda la información se registra en una única tabla **RECETAS_COCINA**: código y nombre del plato, cocinero, región, tipo de plato e ingredientes.
+
+Se utiliza una columna para cada ingrediente: Ingrediente1, Ingrediente2, Ingrediente3 e Ingrediente4.
+
+<div class="normalizacion-exercise-table recetas-table" markdown>
+
+| Cod_Plato | Nombre_Plato | Cocinero | Región | Tipo_Plato | Ingrediente1 | Ingrediente2 | Ingrediente3 | Ingrediente4 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| P01 | Paella Valenciana | Carlos García | valenciana | Principal | Arroz | Pollo | Judías Verdes | Tomate |
+| P02 | Ensalada Mixta | María López | internacional | Entrante | Lechuga | Tomate | Atún | Aceitunas |
+| P03 | Tarta de Queso | Laura Sánchez | vasca | Postre | Queso Crema | Galletas | Mantequilla | NULL |
+| P04 | Gazpacho Andaluz | Antonio Martínez | andaluza | Principal | Tomate | Pepino | Pimiento | Aceite |
+| P05 | Cocido Madrileño | Javier Pérez | madrileña | Entrante | Garbanzos | Carne | Patata | NULL |
+| P06 | Flan de Huevo | Elena Rodríguez | internacional | Postre | Huevos | Leche | Azúcar | NULL |
+
+</div>
+
+**Tareas:**
+
+1. Analiza la tabla: indica los problemas de diseño e identifica las dependencias funcionales según las reglas utilizadas.
+2. Determina la clave primaria y justifica tu elección.
+3. Normaliza paso a paso hasta 3FN.
+4. Entrega el grafo de dependencias normalizado y las tablas del modelo relacional con sus atributos, PK y FK.
+
+## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 10. Recetas de cocina: ingredientes, cantidades y stock</span></span>
+
+El recetario incorpora también el **stock disponible de cada ingrediente**. Cada grupo numerado contiene el ingrediente, la cantidad necesaria para el plato y su stock disponible.
+
+**RECETAS_COCINA**
+
+<div class="normalizacion-exercise-table recetas-table" markdown>
+
+| Cod_Plato | Nombre_Plato | Cocinero | Región | Tipo_Plato | Ingrediente1 | Cantidad1 | Stock1 | Ingrediente2 | Cantidad2 | Stock2 | Ingrediente3 | Cantidad3 | Stock3 | Ingrediente4 | Cantidad4 | Stock4 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| P01 | Paella Valenciana | Carlos García | valenciana | Principal | Arroz | 300g | 50 kg | Pollo | 200g | 20 kg | Judías Verdes | 100g | 15 kg | Tomate | 50g | 40 kg |
+| P02 | Ensalada Mixta | María López | internacional | Entrante | Lechuga | 150g | 30 kg | Tomate | 80g | 40 kg | Atún | 50g | 10 kg | Aceitunas | 30g | 8 kg |
+| P03 | Tarta de Queso | Laura Sánchez | vasca | Postre | Queso Crema | 250g | 12 kg | Galletas | 150g | 20 kg | Mantequilla | 80g | 5 kg | NULL | NULL | NULL |
+| P04 | Gazpacho Andaluz | Antonio Martínez | andaluza | Principal | Tomate | 500g | 40 kg | Pepino | 150g | 18 kg | Pimiento | 100g | 12 kg | Aceite | 30ml | 25 l |
+| P05 | Cocido Madrileño | Javier Pérez | madrileña | Entrante | Garbanzos | 300g | 35 kg | Carne | 250g | 30 kg | Patata | 200g | 60 kg | NULL | NULL | NULL |
+| P06 | Flan de Huevo | Elena Rodríguez | internacional | Postre | Huevos | 4 ud | 500 ud | Leche | 500ml | 100 l | Azúcar | 100g | 80 kg | NULL | NULL | NULL |
+
+</div>
+
+**Tareas:**
+
+1. Analiza la tabla: indica los problemas de diseño e identifica las dependencias funcionales según las reglas utilizadas.
+2. Determina la clave primaria y justifica tu elección.
+3. Normaliza paso a paso hasta 3FN.
+4. Entrega el grafo de dependencias normalizado y las tablas del modelo relacional con sus atributos, PK y FK.
