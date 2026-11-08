@@ -1527,10 +1527,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#33-dependencia-funcional-transitiva" class="md-nav__link">
+  <a href="#33-dependencia-funcional-parcial" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3.3 Dependencia Funcional Transitiva
+        3.3 Dependencia Funcional Parcial
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#34-dependencia-funcional-transitiva" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 Dependencia Funcional Transitiva
       
     </span>
   </a>
@@ -1549,10 +1560,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#34-grafo-de-dependencias-funcionales" class="md-nav__link">
+  <a href="#35-grafo-de-dependencias-funcionales" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3.4 Grafo de Dependencias Funcionales
+        3.5 Grafo de Dependencias Funcionales
       
     </span>
   </a>
@@ -1814,10 +1825,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#33-dependencia-funcional-transitiva" class="md-nav__link">
+  <a href="#33-dependencia-funcional-parcial" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3.3 Dependencia Funcional Transitiva
+        3.3 Dependencia Funcional Parcial
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#34-dependencia-funcional-transitiva" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 Dependencia Funcional Transitiva
       
     </span>
   </a>
@@ -1836,10 +1858,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#34-grafo-de-dependencias-funcionales" class="md-nav__link">
+  <a href="#35-grafo-de-dependencias-funcionales" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3.4 Grafo de Dependencias Funcionales
+        3.5 Grafo de Dependencias Funcionales
       
     </span>
   </a>
@@ -1930,14 +1952,6 @@ La relación funciona en ambas direcciones.</p>
 Una dependencia funcional es total cuando un atributo depende de todos los atributos de una clave compuesta y no solo de una parte de ella.
 </div>
 
-<h3 id="ejemplo-de-dependencia-parcial">Ejemplo de Dependencia Parcial</h3>
-<div class="admonition warning">
-<p class="admonition-title">Dependencia Parcial (NO deseable)</p>
-<p><strong>DNI . NÚM. PROYECTO → NOMBRE</strong></p>
-<p>NOMBRE solo depende de DNI; no necesita el NÚM. PROYECTO.
-Esta es una <strong>dependencia parcial</strong> (unos atributos son irrelevantes).</p>
-</div>
-<p><img alt="Dependencia parcial: DNI y número de proyecto forman la clave, pero la flecha hacia Nombre empleado sale solo de DNI." src="../empleado-parcial.svg" width="700" /></p>
 <h3 id="ejemplo-de-dependencia-total">Ejemplo de Dependencia Total</h3>
 <div class="admonition success">
 <p class="admonition-title">Dependencia Funcional Total (deseable)</p>
@@ -1947,7 +1961,22 @@ Sin conocer el empleado y el proyecto juntos, no se pueden determinar las HORAS 
 </div>
 <p><img alt="Dependencia total: la flecha hacia Horas semanales sale del recuadro completo de la clave DNI y número de proyecto." src="../empleado-total.svg" width="700" /></p>
 <hr />
-<h2 id="33-dependencia-funcional-transitiva">3.3 Dependencia Funcional Transitiva</h2>
+<h2 id="33-dependencia-funcional-parcial">3.3 Dependencia Funcional Parcial</h2>
+<div class="definition-box">
+    <div class="box-title">Dependencia funcional parcial</div>
+Una dependencia funcional es parcial cuando un atributo depende de una parte de una clave compuesta y no necesita todos sus atributos para quedar determinado.
+</div>
+
+<h3 id="ejemplo-de-dependencia-parcial">Ejemplo de Dependencia Parcial</h3>
+<div class="admonition warning">
+<p class="admonition-title">Dependencia Parcial (NO deseable)</p>
+<p><strong>DNI . NÚM. PROYECTO → NOMBRE</strong></p>
+<p>NOMBRE solo depende de DNI; no necesita el NÚM. PROYECTO.
+Esta es una <strong>dependencia parcial</strong> (unos atributos son irrelevantes).</p>
+</div>
+<p><img alt="Dependencia parcial: DNI y número de proyecto forman la clave, pero la flecha hacia Nombre empleado sale solo de DNI." src="../empleado-parcial.svg" width="700" /></p>
+<hr />
+<h2 id="34-dependencia-funcional-transitiva">3.4 Dependencia Funcional Transitiva</h2>
 <p>La dependencia funcional transitiva se aplica para analizar las tablas en tercera forma normal (3FN). Consiste básicamente en considerar que <strong>un atributo no primario solo debe conocerse a través de la clave principal o claves candidatas</strong> (atributos que, aunque no son claves principales, sirven para identificar de manera única una fila en algunos contextos específicos). En otro caso, estará produciendo redundancia de información con las anomalías típicas que lleva consigo.</p>
 <p>En términos simples, esta dependencia ocurre cuando un atributo no clave (o no primario) depende <strong>indirectamente</strong> de la clave principal mediante otro atributo.</p>
 <div class="definition-box">
@@ -1979,7 +2008,7 @@ Supongamos tres subconjuntos distintos de atributos A, B y C que pertenecen a un
 <p>Aunque en el ejemplo los nombres de departamento también son únicos (<strong>F → E</strong>), ni el número ni el nombre del departamento identifican a un empleado: varios empleados pueden pertenecer al mismo departamento.</p>
 <p>Si guardamos el nombre del departamento en cada fila de EMPLEADO, repetimos ese dato para todos sus empleados. Al cambiar el nombre, tendríamos que actualizar varias filas. En la <strong>3FN</strong> separaremos <strong>DEPARTAMENTO (num-d, nombre-d)</strong> y conservaremos en EMPLEADO solo <strong>num-d</strong> como clave externa.</p>
 <hr />
-<h2 id="34-grafo-de-dependencias-funcionales">3.4 Grafo de Dependencias Funcionales</h2>
+<h2 id="35-grafo-de-dependencias-funcionales">3.5 Grafo de Dependencias Funcionales</h2>
 <p>Es una representación visual que muestra gráficamente las relaciones entre atributos.</p>
 <h3 id="estructura-del-grafo">Estructura del Grafo</h3>
 <p>El siguiente esquema muestra cómo leer cada parte de un grafo. <strong>La clave principal es A . B . O</strong>: los tres atributos aparecen una sola vez dentro del recuadro exterior.</p>
