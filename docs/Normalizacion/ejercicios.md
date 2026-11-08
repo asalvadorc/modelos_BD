@@ -12,11 +12,11 @@
 
     ```text
     EMPLEADO(dni, nombre)
-    PK: dni
+        PK: dni
 
     TRABAJA(dni, num_proyecto, horas)
-    PK: (dni, num_proyecto)
-    FK: dni → EMPLEADO(dni)
+        PK: (dni, num_proyecto)
+        FK: dni → EMPLEADO(dni)
     ```
 
     Explica cómo has marcado las claves en el grafo. Pide a la IA que revise **las dependencias, la normalización y las PK y FK**, dándote pistas sin resolver el ejercicio. Después de corregirlo, envía la versión actualizada.

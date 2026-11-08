@@ -65,9 +65,14 @@ Partimos de la tabla **EMPLEADO** del [ejemplo del grafo de dependencias funcion
 
 <div class="empleado-table-fit" markdown>
 
-| <u>A</u> | <u>B</u> | C | D | E | F | G | H |
-|---|---|---|---|---|---|---|---|
-| DNI | Núm. proyecto | Nombre empleado | Sueldo | Núm. departamento | Nombre departamento | Nombre proyecto | Horas semanales |
+| <u>DNI</u> | <u>Núm. proyecto</u> | Nombre empleado | Sueldo (€) | Núm. departamento | Nombre departamento | Nombre proyecto | Horas semanales |
+|-----|---------------|-----------------|------------|-------------------|---------------------|-----------------|-----------------|
+| 12345678A | 101 | Ana García López | 2400 | 10 | Informática | Portal web | 20 |
+| 12345678A | 102 | Ana García López | 2400 | 10 | Informática | App móvil | 15 |
+| 87654321B | 101 | Luis Pérez Ruiz | 2200 | 10 | Informática | Portal web | 30 |
+| 11223344C | 102 | Marta Sánchez Gil | 2600 | 20 | Administración | App móvil | 10 |
+| 11223344C | 103 | Marta Sánchez Gil | 2600 | 20 | Administración | Gestión interna | 25 |
+| <u>**A**</u> | <u>**B**</u> | **C** | **D** | **E** | **F** | **G** | **H** |
 
 </div>
 

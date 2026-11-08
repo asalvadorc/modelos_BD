@@ -111,6 +111,14 @@ Es decir: **DNI → Núm. departamento → Nombre departamento**. El nombre del 
 
 **EMPLEADO no está en 3FN**: el nombre del departamento se repite en las filas de sus empleados. Si el departamento 10 cambia de nombre, habría que modificar tanto la fila de Ana como la de Luis.
 
+**EMPLEADO**
+
+| <u>DNI (A)</u> | Nombre (C) | Sueldo (D) | Núm. dpto. (E) | Nombre dpto. (F) |
+|---------|------------|------------|----------------|-----------------|
+| 12345678A | Ana García López | 2400 | 10 | Informática |
+| 87654321B | Luis Pérez Ruiz | 2200 | 10 | Informática |
+| 11223344C | Marta Sánchez Gil | 2600 | 20 | Administración |
+
 ### Separar los datos del departamento
 
 Descomponemos EMPLEADO en dos tablas:

@@ -5,7 +5,7 @@ hide:
 
 # Resumen
 
-![](image-27.png)
+![Resumen de la normalización hasta tercera forma normal: 1FN, 2FN y 3FN.](resumen-sin-fnbc.png)
 
 **<u>1FN</u>**  
 <div class="definition-box">  
@@ -64,21 +64,3 @@ Se descompone la tabla en dos
 
 
 ![](T4_R_2.png)
-
-
-**<u>FNBC</u>**  
-  
-<div class="definition-box">
-Una tabla T está en FNBC si y solo si está en 1FN y las únicas dependencias funcionales elementales son aquellas en las cuales la clave principal (y claves candidatas) determinan un atributo.
-</div><p></p>
-
-
-Se descompone la tabla en dos
-
-> 1a.- Una tabla con todos los atributos menos la parte de la clave dependiente del atributo secundario. La clave está formada por el resto de la clave y el atributo secundario del que dependía parte de la clave.
-
-> 2a.- Otra tabla en la que el atributo del que depende parte de la clave será la nueva clave y esa parte de la clave como atributo secundario.
-
-![](T4_R_3.png)
-
-`r`n
