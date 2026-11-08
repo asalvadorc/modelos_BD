@@ -91,7 +91,7 @@ Se hará una descomposición por cada dependencia transitiva que haya que afecte
 
 ## Ejemplo aplicado: empleados, departamentos y proyectos
 
-Continuamos el [ejemplo del apartado 3.4](3_dependencia_funcional.md#ejemplo-empleados-departamentos-y-proyectos), que ya hemos descompuesto en [segunda forma normal](4_segunda_forma_normal_2fn.md#ejemplo-aplicado-empleados-departamentos-y-proyectos):
+Continuamos el [ejemplo del apartado 3.5](3_dependencia_funcional.md#ejemplo-empleados-departamentos-y-proyectos), que ya hemos descompuesto en [segunda forma normal](4_segunda_forma_normal_2fn.md#ejemplo-aplicado-empleados-departamentos-y-proyectos):
 
 * **TRABAJA (A, B, H)**: DNI, Núm. proyecto, Horas semanales. Clave principal: **A . B**.
 * **EMPLEADO (A, C, D, E, F)**: DNI, Nombre empleado, Sueldo, Núm. departamento, Nombre departamento. Clave principal: **A**.

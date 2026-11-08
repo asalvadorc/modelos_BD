@@ -75,17 +75,6 @@ Para comprender la **Segunda Forma Normal (2FN)** y la **Tercera Forma Normal (3
 Una dependencia funcional es total cuando un atributo depende de todos los atributos de una clave compuesta y no solo de una parte de ella.
 </div>
 
-### Ejemplo de Dependencia Parcial
-
-!!! warning "Dependencia Parcial (NO deseable)"
-
-    **DNI . NÚM. PROYECTO → NOMBRE**
-    
-    NOMBRE solo depende de DNI; no necesita el NÚM. PROYECTO.
-    Esta es una **dependencia parcial** (unos atributos son irrelevantes).
-
-![Dependencia parcial: DNI y número de proyecto forman la clave, pero la flecha hacia Nombre empleado sale solo de DNI.](empleado-parcial.svg){ width=700 }
-
 ### Ejemplo de Dependencia Total
 
 !!! success "Dependencia Funcional Total (deseable)"
@@ -98,7 +87,27 @@ Una dependencia funcional es total cuando un atributo depende de todos los atrib
 
 ---
 
-## 3.3 Dependencia Funcional Transitiva
+## 3.3 Dependencia Funcional Parcial
+
+<div class="definition-box">
+    <div class="box-title">Dependencia funcional parcial</div>
+Una dependencia funcional es parcial cuando un atributo depende de una parte de una clave compuesta y no necesita todos sus atributos para quedar determinado.
+</div>
+
+### Ejemplo de Dependencia Parcial
+
+!!! warning "Dependencia Parcial (NO deseable)"
+
+    **DNI . NÚM. PROYECTO → NOMBRE**
+    
+    NOMBRE solo depende de DNI; no necesita el NÚM. PROYECTO.
+    Esta es una **dependencia parcial** (unos atributos son irrelevantes).
+
+![Dependencia parcial: DNI y número de proyecto forman la clave, pero la flecha hacia Nombre empleado sale solo de DNI.](empleado-parcial.svg){ width=700 }
+
+---
+
+## 3.4 Dependencia Funcional Transitiva
 
 
 
@@ -148,7 +157,7 @@ Si guardamos el nombre del departamento en cada fila de EMPLEADO, repetimos ese 
 
 ---
 
-## 3.4 Grafo de Dependencias Funcionales
+## 3.5 Grafo de Dependencias Funcionales
 
 Es una representación visual que muestra gráficamente las relaciones entre atributos.
 
