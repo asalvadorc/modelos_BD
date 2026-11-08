@@ -1,5 +1,7 @@
 # 3. Dependencia Funcional
 
+Para comprender la **Segunda Forma Normal (2FN)** y la **Tercera Forma Normal (3FN)**, primero necesitamos conocer las **dependencias funcionales** entre los atributos de una tabla. En este apartado aprenderemos a identificarlas y a distinguir las dependencias totales, parciales y transitivas, que utilizaremos después para normalizar las tablas.
+
 ## 3.1 Dependencia Funcional
 
 <div class="definition-box">
