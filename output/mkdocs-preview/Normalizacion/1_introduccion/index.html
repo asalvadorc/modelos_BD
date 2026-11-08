@@ -1440,10 +1440,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#beneficios-de-la-normalizacion" class="md-nav__link">
+  <a href="#cuando-se-aplica-la-normalizacion" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Beneficios de la Normalización
+        Cuándo se aplica la Normalización
       
     </span>
   </a>
@@ -1451,10 +1451,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#cuando-se-aplica-la-normalizacion" class="md-nav__link">
+  <a href="#relacion-entre-las-formas-normales" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Cuándo se aplica la Normalización
+        Relación entre las formas normales
       
     </span>
   </a>
@@ -1741,10 +1741,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#beneficios-de-la-normalizacion" class="md-nav__link">
+  <a href="#cuando-se-aplica-la-normalizacion" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Beneficios de la Normalización
+        Cuándo se aplica la Normalización
       
     </span>
   </a>
@@ -1752,10 +1752,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#cuando-se-aplica-la-normalizacion" class="md-nav__link">
+  <a href="#relacion-entre-las-formas-normales" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Cuándo se aplica la Normalización
+        Relación entre las formas normales
       
     </span>
   </a>
@@ -1783,6 +1783,7 @@
 
 <h1 id="1-introduccion-a-la-normalizacion">1. Introducción a la Normalización</h1>
 <p>La <strong>normalización</strong> es el proceso que garantiza que los datos estén correctamente organizados en tablas, eliminando redundancias y asegurando la integridad.</p>
+<p>La teoría de la normalización va perdiendo peso con el paso de los años como herramienta de diseño de bases de datos relacionales en favor de modelos de datos más ricos en su representación, el primero de ellos Entidad-Relación de Chen. Aún así, los conceptos que se van a desarrollar aquí son totalmente válidos desde el punto de vista de comprobar lo correcto que es un esquema de base de datos relacional, en el sentido de que no se produzcan redundancias innecesarias entre los datos a almacenar. </p>
 <p>Debemos ser conscientes, sin embargo, de que si la Base de Datos está bien diseñada desde el principio, estará prácticamente normalizada. La utilidad real de la normalización será cuando partamos de una Base de Datos directamente importada de un sistema de ficheros (un fichero → una tabla), donde normalmente estará muy mal diseñada.</p>
 <h2 id="que-es-la-normalizacion">¿Qué es la Normalización?</h2>
 <p>La normalización aplica una serie de reglas (formas normales) para transformar un esquema relacional en una estructura óptima, donde:</p>
@@ -1792,39 +1793,18 @@
 <li>Cada tabla contiene los atributos necesarios para una entidad o relación</li>
 </ul>
 <hr />
-<h2 id="beneficios-de-la-normalizacion">Beneficios de la Normalización</h2>
-<div class="grid cards">
-<ul>
-<li>
-<p>📋 <strong>Facilidad de Uso</strong></p>
-<p>Datos agrupados en tablas que identifican claramente entidades y relaciones.</p>
-</li>
-<li>
-<p>🔄 <strong>Flexibilidad</strong></p>
-<p>Múltiples vistas combinando tablas mediante operaciones del álgebra relacional.</p>
-</li>
-<li>
-<p>🛠️ <strong>Implementación Simple</strong></p>
-<p>Las tablas resultantes son simples y fáciles de implementar.</p>
-</li>
-<li>
-<p>✨ <strong>Claridad</strong></p>
-<p>Representación clara y sencilla de la información para usuarios.</p>
-</li>
-<li>
-<p>🗑️ <strong>Redundancia Mínima</strong></p>
-<p>Información no duplicada innecesariamente en estructuras.</p>
-</li>
-<li>
-<p>⚡ <strong>Máximo Rendimiento</strong></p>
-<p>Solo se procesa la información útil para cada aplicación.</p>
-</li>
-</ul>
-</div>
-<hr />
 <h2 id="cuando-se-aplica-la-normalizacion">Cuándo se aplica la Normalización</h2>
 <p>La normalización se aplica después de completar todo el ciclo de diseño:</p>
-<p><img alt="alt text" src="../image-11.png" /></p>
+<p><img alt="Ciclo de diseño de bases de datos y etapas de normalización, sin FNBC." src="../introduccion-sin-fnbc.png" /></p>
+<h2 id="relacion-entre-las-formas-normales">Relación entre las formas normales</h2>
+<p><img alt="Formas normales representadas mediante círculos anidados: 3FN está dentro de 2FN, y 2FN dentro de 1FN." src="../formas-normales-anidadas.png" width="380" /></p>
+<p>Las formas normales son <strong>acumulativas</strong>: cada una añade condiciones a las anteriores. Por eso los círculos aparecen unos dentro de otros:</p>
+<ul>
+<li>Una tabla en <strong>1FN</strong> tiene valores atómicos y no presenta atributos multivaluados ni grupos repetitivos.</li>
+<li>Para estar en <strong>2FN</strong>, debe cumplir la 1FN y no tener dependencias parciales de atributos no clave respecto a ninguna clave candidata.</li>
+<li>Para estar en <strong>3FN</strong>, debe cumplir la 2FN y, en los casos que estudiaremos, eliminar las dependencias transitivas entre atributos no clave.</li>
+</ul>
+<p>Por tanto, <strong>toda tabla en 3FN también está en 2FN y en 1FN</strong>. El sentido inverso no está garantizado: una tabla puede estar en 1FN y todavía necesitar cambios para alcanzar la 2FN o la 3FN. La zona exterior representa las tablas que aún no cumplen la 1FN.</p>
 <div class="admonition info">
 <p class="admonition-title">Nota</p>
 <p>Las tablas obtenidas del esquema relacional suelen estar bastante normalizadas, pero es recomendable analizarlas todas.</p>
