@@ -1818,6 +1818,41 @@ Se dice que una tabla está en Tercera Forma Normal (3FN) cuando se cumplen dos 
 <p>Es decir: <strong>DNI → Núm. departamento → Nombre departamento</strong>. El nombre del departamento depende de un atributo que no es clave de EMPLEADO. Ni E ni F identifican a un empleado, ya que varios empleados pueden pertenecer al mismo departamento.</p>
 <p><img alt="El DNI determina el número de departamento y este determina el nombre del departamento." src="../empleado-transitiva.svg" width="700" /></p>
 <p><strong>EMPLEADO no está en 3FN</strong>: el nombre del departamento se repite en las filas de sus empleados. Si el departamento 10 cambia de nombre, habría que modificar tanto la fila de Ana como la de Luis.</p>
+<p><strong>EMPLEADO</strong></p>
+<table>
+<thead>
+<tr>
+<th><u>DNI (A)</u></th>
+<th>Nombre (C)</th>
+<th>Sueldo (D)</th>
+<th>Núm. dpto. (E)</th>
+<th>Nombre dpto. (F)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>12345678A</td>
+<td>Ana García López</td>
+<td>2400</td>
+<td>10</td>
+<td>Informática</td>
+</tr>
+<tr>
+<td>87654321B</td>
+<td>Luis Pérez Ruiz</td>
+<td>2200</td>
+<td>10</td>
+<td>Informática</td>
+</tr>
+<tr>
+<td>11223344C</td>
+<td>Marta Sánchez Gil</td>
+<td>2600</td>
+<td>20</td>
+<td>Administración</td>
+</tr>
+</tbody>
+</table>
 <h3 id="separar-los-datos-del-departamento">Separar los datos del departamento</h3>
 <p>Descomponemos EMPLEADO en dos tablas:</p>
 <ol>

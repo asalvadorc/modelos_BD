@@ -728,6 +728,20 @@ body.lightbox-open {
     margin-bottom: 0.2rem;
 }
 
+/* Contraste de los recuadros de definición en modo oscuro. */
+[data-md-color-scheme="slate"] .md-typeset .definition-box,
+[data-md-color-scheme="slate"] .md-typeset .info-box {
+    background: linear-gradient(180deg, #17333f 0%, #152c35 100%);
+    color: #e6f1ef;
+    border-left-color: #75c9f1;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+[data-md-color-scheme="slate"] .md-typeset .definition-box .box-title,
+[data-md-color-scheme="slate"] .md-typeset .info-box .box-title {
+    color: #9cddff;
+}
+
 /* Framed RA sections (RA_CE) */
 .md-typeset .ra-frame {
     margin: 1rem 0 1.4rem;
