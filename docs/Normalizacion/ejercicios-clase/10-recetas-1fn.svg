@@ -1,29 +1,23 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="720" viewBox="0 0 1120 720" role="img" aria-labelledby="title"><title id="title">Recetas con stock · Dependencias tras aplicar 1FN</title><defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#2f4fb0"/></marker></defs><rect width="1120" height="720" rx="16" fill="white"/><g font-family="Segoe UI,Arial,sans-serif" text-anchor="middle" fill="#172554"><text x="560" y="37" font-size="25" font-weight="700">Recetas con stock · Dependencias tras aplicar 1FN</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="720" viewBox="0 0 1120 720" role="img" aria-labelledby="title"><title id="title">Recetas con stock · Dependencias tras aplicar 1FN</title><defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#2f4fb0" /></marker></defs><rect width="1120" height="720" rx="16" fill="white" /><g font-family="Segoe UI,Arial,sans-serif" text-anchor="middle" fill="#172554"><text x="560" y="37" font-size="25" font-weight="700">Recetas con stock · Dependencias tras aplicar 1FN</text>
 <text x="560" y="80" font-size="23" font-weight="700">RECETA</text>
-<rect x="40" y="145" width="270" height="100" rx="10" fill="#e9eff9" stroke="#2f4fb0" stroke-width="2.5"/>
+<rect x="40" y="145" width="270" height="100" rx="10" fill="#e9eff9" stroke="#2f4fb0" stroke-width="2.5" />
 <text x="175" y="205" font-size="25" font-weight="700">Cod_Plato</text>
-<rect x="615" y="110" width="440" height="42" rx="10" fill="white" stroke="#172554" stroke-width="2.5"/>
-<text x="835.0" y="138" font-size="20">Nombre_Plato</text>
-<path d="M310 195H470V131H613" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
-<rect x="615" y="165" width="440" height="42" rx="10" fill="white" stroke="#172554" stroke-width="2.5"/>
-<text x="835.0" y="193" font-size="20">Cocinero</text>
-<path d="M310 195H470V186H613" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
-<rect x="615" y="220" width="440" height="42" rx="10" fill="white" stroke="#172554" stroke-width="2.5"/>
-<text x="835.0" y="248" font-size="20">Región</text>
-<path d="M310 195H470V241H613" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
-<rect x="615" y="275" width="440" height="42" rx="10" fill="white" stroke="#172554" stroke-width="2.5"/>
-<text x="835.0" y="303" font-size="20">Tipo_Plato</text>
-<path d="M310 195H470V296H613" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="627.0" y="138" font-size="20" text-anchor="start">Nombre_Plato</text>
+<path d="M310 162.5 L613 131" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)" />
+<text x="627.0" y="193" font-size="20" text-anchor="start">Cocinero</text>
+<path d="M310 184.167 L613 186" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)" />
+<text x="627.0" y="248" font-size="20" text-anchor="start">Región</text>
+<path d="M310 205.833 L613 241" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)" />
+<text x="627.0" y="303" font-size="20" text-anchor="start">Tipo_Plato</text>
+<path d="M310 227.5 L613 296" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)" />
 <text x="560" y="350" font-size="23" font-weight="700">RECETA_INGREDIENTE</text>
-<rect x="40" y="385" width="300" height="160" rx="10" fill="#e9eff9" stroke="#2f4fb0" stroke-width="2.5"/>
+<rect x="40" y="385" width="300" height="160" rx="10" fill="#e9eff9" stroke="#2f4fb0" stroke-width="2.5" />
 <text x="190" y="420" font-size="18">Clave principal</text>
 <text x="190" y="465" font-size="25" font-weight="700">Cod_Plato</text>
 <text x="190" y="515" font-size="25" font-weight="700">Ingrediente</text>
-<rect x="615" y="400" width="440" height="42" rx="10" fill="white" stroke="#172554" stroke-width="2.5"/>
-<text x="835.0" y="428" font-size="20">Cantidad</text>
-<path d="M340 421H613" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
-<rect x="615" y="495" width="440" height="42" rx="10" fill="white" stroke="#172554" stroke-width="2.5"/>
-<text x="835.0" y="523" font-size="20">Stock</text>
-<path d="M260 507H480V516H613" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="627.0" y="428" font-size="20" text-anchor="start">Cantidad</text>
+<path d="M340 421 L613 421" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)" />
+<text x="627.0" y="523" font-size="20" text-anchor="start">Stock</text>
+<path d="M260 507 L613 516" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)" />
 <text x="560" y="585" font-size="18">FK: Cod_Plato → RECETA(Cod_Plato)</text>
 <text x="560" y="665" font-size="19">Cantidad depende de la clave completa; Stock depende solo de Ingrediente.</text></g></svg>

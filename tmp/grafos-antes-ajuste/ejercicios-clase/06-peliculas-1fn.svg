@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="630" viewBox="0 0 1120 630" role="img" aria-labelledby="title desc">
+<title id="title">Películas: dependencias en 1FN</title><desc id="desc">La clave principal contiene titulo, anyo y actor. El recuadro interior agrupa titulo y anyo, que determinan duracion, tipo y estudio. estudio determina ciudadestudio.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#2f4fb0"/></marker></defs>
+<rect width="1120" height="630" rx="16" fill="white"/>
+<g font-family="Segoe UI,Arial,sans-serif" fill="#172554" text-anchor="middle">
+<text x="560" y="40" font-size="26" font-weight="700">Películas · Dependencias en 1FN</text>
+<rect x="40" y="90" width="270" height="420" rx="12" fill="#e9eff9" stroke="#2f4fb0" stroke-width="3"/>
+<text x="175" y="126" font-size="19">Clave principal</text>
+<rect x="75" y="155" width="200" height="190" rx="10" fill="none" stroke="#2f4fb0" stroke-width="2.5" stroke-dasharray="8 6"/>
+<text x="175" y="222" font-size="28" font-weight="700">titulo</text><text x="175" y="292" font-size="28" font-weight="700">anyo</text><text x="175" y="445" font-size="28" font-weight="700">actor</text>
+<rect x="510" y="150" width="225" height="54" rx="10" fill="white" stroke="#172554" stroke-width="2.5"/><text x="622" y="185" font-size="24">duracion</text><rect x="510" y="260" width="225" height="54" rx="10" fill="white" stroke="#172554" stroke-width="2.5"/><text x="622" y="295" font-size="24">tipo</text><rect x="510" y="370" width="225" height="54" rx="10" fill="white" stroke="#172554" stroke-width="2.5"/><text x="622" y="405" font-size="24">estudio</text><rect x="835" y="370" width="245" height="54" rx="10" fill="white" stroke="#172554" stroke-width="2.5"/><text x="957" y="405" font-size="24">ciudadestudio</text>
+<g fill="none" stroke="#2f4fb0" stroke-width="2.5"><path d="M275 250H405V177"/><path d="M405 250V397"/></g>
+<g fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"><path d="M405 177H508"/><path d="M405 287H508"/><path d="M405 397H508"/><path d="M735 397H833"/></g>
+<text x="560" y="562" font-size="20">Las dependencias salen del grupo titulo + anyo: son parciales.</text><text x="560" y="599" font-size="19">La clave completa de cada participación es titulo + anyo + actor.</text></g></svg>

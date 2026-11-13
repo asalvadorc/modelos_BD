@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="650" viewBox="0 0 820 650" role="img" aria-labelledby="title desc">
+<title id="title">Empresa en tercera forma normal</title>
+<desc id="desc">EMPLEADO: A determina C, D y E. DEPARTAMENTO: E y F son claves candidatas. PROYECTO: B y G son claves candidatas. TRABAJA: la clave A y B determina H.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2f4fb0"/></marker></defs>
+<rect width="820" height="650" rx="12" fill="white"/>
+<g font-family="Segoe UI,Arial,sans-serif" text-anchor="middle" fill="#172554">
+<text x="410" y="32" font-size="23" font-weight="700">Empresa · Tablas en 3FN</text>
+<text x="410" y="67" font-size="21" font-weight="700">EMPLEADO</text>
+<rect x="40" y="151" width="230" height="70" rx="10" fill="#e9eff9" stroke="#2f4fb0" stroke-width="2.5"/>
+<text x="155.0" y="178" font-size="23" font-weight="700">A</text><text x="155.0" y="202" font-size="16">DNI</text>
+<rect x="444" y="86" width="280" height="64" rx="10" fill="white" stroke="#172554" stroke-width="2.5"/>
+<text x="584.0" y="113" font-size="23" font-weight="700">C</text><text x="584.0" y="137" font-size="16">Nombre</text>
+<rect x="444" y="163" width="280" height="64" rx="10" fill="white" stroke="#172554" stroke-width="2.5"/>
+<text x="584.0" y="190" font-size="23" font-weight="700">D</text><text x="584.0" y="214" font-size="16">Sueldo</text>
+<rect x="444" y="240" width="280" height="64" rx="10" fill="white" stroke="#172554" stroke-width="2.5"/>
+<text x="584.0" y="267" font-size="23" font-weight="700">E</text><text x="584.0" y="291" font-size="16">Núm. departamento</text>
+<path d="M270 186H350V118H442" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
+<path d="M350 186V195H442" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
+<path d="M350 195V272H442" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="410" y="346" font-size="21" font-weight="700">DEPARTAMENTO</text>
+<rect x="40" y="360" width="230" height="62" rx="10" fill="#e9eff9" stroke="#2f4fb0" stroke-width="2.5"/>
+<text x="155.0" y="387" font-size="23" font-weight="700">E</text><text x="155.0" y="411" font-size="16">Núm. departamento</text>
+<rect x="444" y="360" width="280" height="62" rx="10" fill="white" stroke="#172554" stroke-width="2.5"/>
+<text x="584.0" y="387" font-size="23" font-weight="700">F</text><text x="584.0" y="411" font-size="16">Nombre departamento</text>
+<path d="M272 391H442" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+<text x="410" y="458" font-size="21" font-weight="700">PROYECTO</text>
+<rect x="40" y="472" width="230" height="62" rx="10" fill="#e9eff9" stroke="#2f4fb0" stroke-width="2.5"/>
+<text x="155.0" y="499" font-size="23" font-weight="700">B</text><text x="155.0" y="523" font-size="16">Núm. proyecto</text>
+<rect x="444" y="472" width="280" height="62" rx="10" fill="white" stroke="#172554" stroke-width="2.5"/>
+<text x="584.0" y="499" font-size="23" font-weight="700">G</text><text x="584.0" y="523" font-size="16">Nombre proyecto</text>
+<path d="M272 503H442" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+<text x="410" y="570" font-size="21" font-weight="700">TRABAJA</text>
+<rect x="40" y="584" width="230" height="62" rx="10" fill="#e9eff9" stroke="#2f4fb0" stroke-width="2.5"/>
+<text x="155.0" y="611" font-size="23" font-weight="700">A · B</text><text x="155.0" y="635" font-size="16">DNI · Núm. proyecto</text>
+<rect x="444" y="584" width="280" height="62" rx="10" fill="white" stroke="#172554" stroke-width="2.5"/>
+<text x="584.0" y="611" font-size="23" font-weight="700">H</text><text x="584.0" y="635" font-size="16">Horas semanales</text>
+<path d="M272 615H442" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
+</g></svg>

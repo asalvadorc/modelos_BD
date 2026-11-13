@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1060" height="1170" viewBox="0 0 1060 1170" role="img" aria-labelledby="title desc">
+<title id="title">Pedidos: solución en tercera forma normal</title>
+<desc id="desc">Cinco tablas: CANTIDAD, CATEGORIA, PRECIO, PRODUCTO y PEDIDOS. Cada clave primaria está dentro de un recuadro azul; las flechas indican dependencias funcionales y los pies indican las claves externas.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#2f4fb0"/></marker></defs>
+<rect width="1060" height="1170" rx="16" fill="white"/>
+<g font-family="Segoe UI,Arial,sans-serif" text-anchor="middle" fill="#172554">
+<text x="530" y="36" font-size="25" font-weight="700">Pedidos · Solución en 3FN</text>
+<text x="530" y="65" font-size="17">Recuadro azul: clave primaria · Flechas: dependencias funcionales</text>
+<rect x="20" y="86" width="1020" height="198" rx="12" fill="#f8faff" stroke="#d8e1f1"/>
+<text x="530" y="114" font-size="22" font-weight="700">CANTIDAD</text>
+<rect x="44" y="130" width="320" height="96" rx="10" fill="#e9eff9" stroke="#2f4fb0" stroke-width="2.5"/>
+<text x="204" y="178.0" font-size="23" font-weight="700">IDpedido</text>
+<rect x="576" y="158" width="420" height="36" rx="8" fill="white" stroke="#172554" stroke-width="2"/>
+<text x="786" y="183" font-size="20">Cantidad</text>
+<path d="M364 178H470V176H574" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="530" y="250" font-size="16">La clave IDpedido determina Cantidad.</text>
+<rect x="20" y="300" width="1020" height="198" rx="12" fill="#f8faff" stroke="#d8e1f1"/>
+<text x="530" y="328" font-size="22" font-weight="700">CATEGORIA</text>
+<rect x="44" y="344" width="320" height="96" rx="10" fill="#e9eff9" stroke="#2f4fb0" stroke-width="2.5"/>
+<text x="204" y="392.0" font-size="23" font-weight="700">NombreProducto</text>
+<rect x="576" y="372" width="420" height="36" rx="8" fill="white" stroke="#172554" stroke-width="2"/>
+<text x="786" y="397" font-size="20">Categoria</text>
+<path d="M364 392H470V390H574" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="530" y="464" font-size="16">La clave NombreProducto determina Categoria.</text>
+<rect x="20" y="514" width="1020" height="198" rx="12" fill="#f8faff" stroke="#d8e1f1"/>
+<text x="530" y="542" font-size="22" font-weight="700">PRECIO</text>
+<rect x="44" y="558" width="320" height="96" rx="10" fill="#e9eff9" stroke="#2f4fb0" stroke-width="2.5"/>
+<text x="204" y="606.0" font-size="23" font-weight="700">IDproducto</text>
+<rect x="576" y="586" width="420" height="36" rx="8" fill="white" stroke="#172554" stroke-width="2"/>
+<text x="786" y="611" font-size="20">PrecioUnitario</text>
+<path d="M364 606H470V604H574" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="530" y="678" font-size="16">La clave IDproducto determina PrecioUnitario.</text>
+<rect x="20" y="728" width="1020" height="198" rx="12" fill="#f8faff" stroke="#d8e1f1"/>
+<text x="530" y="756" font-size="22" font-weight="700">PRODUCTO</text>
+<rect x="44" y="772" width="320" height="96" rx="10" fill="#e9eff9" stroke="#2f4fb0" stroke-width="2.5"/>
+<text x="204" y="806.5" font-size="23" font-weight="700">Región</text>
+<text x="204" y="833.5" font-size="23" font-weight="700">IDproducto</text>
+<rect x="576" y="780" width="420" height="36" rx="8" fill="white" stroke="#172554" stroke-width="2"/>
+<text x="786" y="805" font-size="20">NombreProducto (FK)</text>
+<path d="M364 820H470V798H574" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="576" y="827" width="420" height="36" rx="8" fill="white" stroke="#172554" stroke-width="2"/>
+<text x="786" y="852" font-size="20">ImpuestoRegion</text>
+<path d="M364 820H470V845H574" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="530" y="892" font-size="16">FK: IDproducto → PRECIO(IDproducto)</text>
+<text x="530" y="915" font-size="16">FK: NombreProducto → CATEGORIA(NombreProducto)</text>
+<rect x="20" y="942" width="1020" height="198" rx="12" fill="#f8faff" stroke="#d8e1f1"/>
+<text x="530" y="970" font-size="22" font-weight="700">PEDIDOS</text>
+<rect x="44" y="986" width="320" height="96" rx="10" fill="#e9eff9" stroke="#2f4fb0" stroke-width="2.5"/>
+<text x="204" y="1007.0" font-size="23" font-weight="700">IDcliente</text>
+<text x="204" y="1034.0" font-size="23" font-weight="700">Región</text>
+<text x="204" y="1061.0" font-size="23" font-weight="700">IDproducto</text>
+<rect x="576" y="994" width="420" height="36" rx="8" fill="white" stroke="#172554" stroke-width="2"/>
+<text x="786" y="1019" font-size="20">IDpedido (FK)</text>
+<path d="M364 1034H470V1012H574" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="576" y="1041" width="420" height="36" rx="8" fill="white" stroke="#172554" stroke-width="2"/>
+<text x="786" y="1066" font-size="20">FechaPedido</text>
+<path d="M364 1034H470V1059H574" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="530" y="1106" font-size="16">FK: (Región, IDproducto) → PRODUCTO(Región, IDproducto)</text>
+<text x="530" y="1129" font-size="16">FK: IDpedido → CANTIDAD(IDpedido)</text>
+</g></svg>

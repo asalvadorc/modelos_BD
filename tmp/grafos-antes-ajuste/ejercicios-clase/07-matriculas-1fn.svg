@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="710" viewBox="0 0 1120 710" role="img" aria-labelledby="title"><title id="title">Matrículas · Dependencias tras aplicar 1FN</title><defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#2f4fb0"/></marker></defs><rect width="1120" height="710" rx="16" fill="white"/><g font-family="Segoe UI,Arial,sans-serif" fill="#172554"><text x="560.0" y="36" text-anchor="middle" font-size="25" font-weight="700">Matrículas · Dependencias tras aplicar 1FN</text>
+<rect x="30" y="105" width="285" height="545" rx="10" fill="#e9eff9" stroke="#2f4fb0" stroke-width="2.5"/>
+<text x="172" y="142" text-anchor="middle" font-size="18">Clave principal compuesta</text>
+<text x="172" y="270" text-anchor="middle" font-size="26" font-weight="700">idmatricula</text>
+<text x="172" y="585" text-anchor="middle" font-size="26" font-weight="700">codigo</text>
+<rect x="590" y="90" width="440" height="42" rx="10" fill="white" stroke="#172554" stroke-width="2.5"/>
+<text x="810.0" y="118" text-anchor="middle" font-size="20">nombre</text>
+<path d="M248 262H440V111H588" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="590" y="165" width="440" height="42" rx="10" fill="white" stroke="#172554" stroke-width="2.5"/>
+<text x="810.0" y="193" text-anchor="middle" font-size="20">apellido</text>
+<path d="M248 262H440V186H588" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="590" y="240" width="440" height="42" rx="10" fill="white" stroke="#172554" stroke-width="2.5"/>
+<text x="810.0" y="268" text-anchor="middle" font-size="20">direccion</text>
+<path d="M248 262H440V261H588" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="590" y="315" width="440" height="42" rx="10" fill="white" stroke="#172554" stroke-width="2.5"/>
+<text x="810.0" y="343" text-anchor="middle" font-size="20">localidad</text>
+<path d="M248 262H440V336H588" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="590" y="390" width="440" height="42" rx="10" fill="white" stroke="#172554" stroke-width="2.5"/>
+<text x="810.0" y="418" text-anchor="middle" font-size="20">telefono</text>
+<path d="M248 262H440V411H588" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="590" y="465" width="440" height="42" rx="10" fill="white" stroke="#172554" stroke-width="2.5"/>
+<text x="810.0" y="493" text-anchor="middle" font-size="20">carrera</text>
+<path d="M248 262H440V486H588" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="590" y="555" width="440" height="42" rx="10" fill="white" stroke="#172554" stroke-width="2.5"/>
+<text x="810.0" y="583" text-anchor="middle" font-size="20">curso</text>
+<path d="M218 577H588" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="560" y="691" text-anchor="middle" font-size="19">Las flechas salen de cada parte de la clave: son dependencias parciales.</text></g></svg>

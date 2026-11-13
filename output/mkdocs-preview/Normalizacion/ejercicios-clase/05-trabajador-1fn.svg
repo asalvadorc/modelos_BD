@@ -1,23 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1060" height="550" viewBox="0 0 1060 550" role="img" aria-labelledby="title"><title id="title">Trabajador · Dependencias tras aplicar 1FN</title><defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#2f4fb0"/></marker></defs><rect width="1060" height="550" rx="16" fill="white"/><g font-family="Segoe UI,Arial,sans-serif" fill="#172554"><text x="530.0" y="36" text-anchor="middle" font-size="25" font-weight="700">Trabajador · Dependencias tras aplicar 1FN</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1060" height="550" viewBox="0 0 1060 550" role="img" aria-labelledby="title"><title id="title">Trabajador · Dependencias tras aplicar 1FN</title><defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#2f4fb0" /></marker></defs><rect width="1060" height="550" rx="16" fill="white" /><g font-family="Segoe UI,Arial,sans-serif" fill="#172554"><text x="530.0" y="36" text-anchor="middle" font-size="25" font-weight="700">Trabajador · Dependencias tras aplicar 1FN</text>
 <text x="530" y="78" text-anchor="middle" font-size="22" font-weight="700">TRABAJADOR</text>
-<rect x="40" y="140" width="230" height="160" rx="10" fill="#e9eff9" stroke="#2f4fb0" stroke-width="2.5"/>
+<rect x="40" y="140" width="230" height="160" rx="10" fill="#e9eff9" stroke="#2f4fb0" stroke-width="2.5" />
 <text x="155" y="178" text-anchor="middle" font-size="18">Clave principal</text>
 <text x="155" y="232" text-anchor="middle" font-size="27" font-weight="700">nss</text>
-<rect x="425" y="115" width="220" height="42" rx="10" fill="white" stroke="#172554" stroke-width="2.5"/>
-<text x="535.0" y="143" text-anchor="middle" font-size="20">nombre</text>
-<path d="M270 220H350V136H423" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
-<rect x="425" y="185" width="220" height="42" rx="10" fill="white" stroke="#172554" stroke-width="2.5"/>
-<text x="535.0" y="213" text-anchor="middle" font-size="20">apellidos</text>
-<path d="M270 220H350V206H423" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
-<rect x="425" y="255" width="220" height="42" rx="10" fill="white" stroke="#172554" stroke-width="2.5"/>
-<text x="535.0" y="283" text-anchor="middle" font-size="20">puesto</text>
-<path d="M270 220H350V276H423" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
-<rect x="810" y="255" width="205" height="42" rx="10" fill="white" stroke="#172554" stroke-width="2.5"/>
-<text x="912.5" y="283" text-anchor="middle" font-size="20">salario</text>
-<path d="M645 276H808" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="437.0" y="143" text-anchor="start" font-size="20">nombre</text>
+<path d="M270 198 L423 136" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)" />
+<text x="437.0" y="213" text-anchor="start" font-size="20">apellidos</text>
+<path d="M270 220 L423 206" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)" />
+<text x="437.0" y="283" text-anchor="start" font-size="20">puesto</text>
+<path d="M270 242 L423 276" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)" />
+<text x="822.0" y="283" text-anchor="start" font-size="20">salario</text>
+<path d="M509.516 276.6 L810 276.6" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)" />
 <text x="685" y="332" text-anchor="middle" font-size="18">Regla asumida: puesto → salario fijo.</text>
 <text x="530" y="391" text-anchor="middle" font-size="22" font-weight="700">EMAIL_TRABAJADOR</text>
-<rect x="40" y="410" width="320" height="95" rx="10" fill="#e9eff9" stroke="#2f4fb0" stroke-width="2.5"/>
+<rect x="40" y="410" width="320" height="95" rx="10" fill="#e9eff9" stroke="#2f4fb0" stroke-width="2.5" />
 <text x="200" y="442" text-anchor="middle" font-size="23" font-weight="700">Clave: nss + email</text>
 <text x="200" y="476" text-anchor="middle" font-size="18">nss es FK a TRABAJADOR</text>
 <text x="700" y="450" text-anchor="middle" font-size="20">Sin atributos adicionales ni dependencias</text>

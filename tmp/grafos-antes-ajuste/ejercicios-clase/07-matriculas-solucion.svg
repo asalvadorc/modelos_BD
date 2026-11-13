@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1060" height="892" viewBox="0 0 1060 892" role="img" aria-labelledby="title desc">
+<title id="title">Matrículas universitarias: solución en 3FN</title>
+<desc id="desc">Tablas normalizadas con claves primarias en recuadros azules, dependencias funcionales mediante flechas y claves externas al pie de cada tabla.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#2f4fb0"/></marker></defs>
+<rect width="1060" height="892" rx="16" fill="white"/>
+<g font-family="Segoe UI,Arial,sans-serif" text-anchor="middle" fill="#172554">
+<text x="530" y="36" font-size="25" font-weight="700">Matrículas universitarias · Solución en 3FN</text>
+<text x="530" y="65" font-size="17">Recuadro azul: clave primaria · Flechas: dependencias funcionales</text>
+<rect x="20" y="86" width="1020" height="388" rx="12" fill="#f8faff" stroke="#d8e1f1"/><text x="530" y="114" font-size="22" font-weight="700">ALUMNO</text>
+<rect x="44" y="223.0" width="320" height="86" rx="10" fill="#e9eff9" stroke="#2f4fb0" stroke-width="2.5"/>
+<text x="204" y="274.0" font-size="24" font-weight="700">idmatricula</text>
+<rect x="576" y="134" width="420" height="36" rx="8" fill="white" stroke="#172554" stroke-width="2"/><text x="786" y="159" font-size="21">nombre</text><path d="M364 266.0H470V152H574" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="576" y="178" width="420" height="36" rx="8" fill="white" stroke="#172554" stroke-width="2"/><text x="786" y="203" font-size="21">apellido</text><path d="M364 266.0H470V196H574" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="576" y="222" width="420" height="36" rx="8" fill="white" stroke="#172554" stroke-width="2"/><text x="786" y="247" font-size="21">direccion</text><path d="M364 266.0H470V240H574" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="576" y="266" width="420" height="36" rx="8" fill="white" stroke="#172554" stroke-width="2"/><text x="786" y="291" font-size="21">localidad</text><path d="M364 266.0H470V284H574" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="576" y="310" width="420" height="36" rx="8" fill="white" stroke="#172554" stroke-width="2"/><text x="786" y="335" font-size="21">telefono</text><path d="M364 266.0H470V328H574" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="576" y="354" width="420" height="36" rx="8" fill="white" stroke="#172554" stroke-width="2"/><text x="786" y="379" font-size="21">carrera</text><path d="M364 266.0H470V372H574" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="530" y="452" font-size="17">idmatricula identifica al alumno según el enunciado.</text>
+<rect x="20" y="490" width="1020" height="186" rx="12" fill="#f8faff" stroke="#d8e1f1"/><text x="530" y="518" font-size="22" font-weight="700">CURSO</text>
+<rect x="44" y="533.0" width="320" height="86" rx="10" fill="#e9eff9" stroke="#2f4fb0" stroke-width="2.5"/>
+<text x="204" y="584.0" font-size="24" font-weight="700">codigo</text>
+<rect x="576" y="538" width="420" height="36" rx="8" fill="white" stroke="#172554" stroke-width="2"/><text x="786" y="563" font-size="21">curso</text><path d="M364 576.0H470V556H574" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="530" y="654" font-size="17">El código identifica al curso.</text>
+<rect x="20" y="692" width="1020" height="186" rx="12" fill="#f8faff" stroke="#d8e1f1"/><text x="530" y="720" font-size="22" font-weight="700">MATRICULA</text>
+<rect x="44" y="735.0" width="320" height="86" rx="10" fill="#e9eff9" stroke="#2f4fb0" stroke-width="2.5"/>
+<text x="204" y="772.0" font-size="24" font-weight="700">idmatricula (FK)</text>
+<text x="204" y="800.0" font-size="24" font-weight="700">codigo (FK)</text>
+<text x="735" y="778.0" font-size="20">Sin atributos adicionales</text>
+<text x="530" y="832" font-size="17">FK: idmatricula → ALUMNO(idmatricula)</text>
+<text x="530" y="856" font-size="17">FK: codigo → CURSO(codigo)</text>
+</g></svg>
