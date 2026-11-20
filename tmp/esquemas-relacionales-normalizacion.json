@@ -1,0 +1,713 @@
+{
+  "2": [
+    {
+      "name": "CANTIDAD",
+      "fields": [
+        "IDpedido",
+        "Cantidad"
+      ],
+      "pk": [
+        "IDpedido"
+      ],
+      "fks": []
+    },
+    {
+      "name": "CATEGORIA",
+      "fields": [
+        "NombreProducto",
+        "Categoria"
+      ],
+      "pk": [
+        "NombreProducto"
+      ],
+      "fks": []
+    },
+    {
+      "name": "PRECIO",
+      "fields": [
+        "IDproducto",
+        "PrecioUnitario"
+      ],
+      "pk": [
+        "IDproducto"
+      ],
+      "fks": []
+    },
+    {
+      "name": "PRODUCTO",
+      "fields": [
+        "Región",
+        "IDproducto",
+        "NombreProducto",
+        "ImpuestoRegion"
+      ],
+      "pk": [
+        "Región",
+        "IDproducto"
+      ],
+      "fks": [
+        {
+          "fields": [
+            "IDproducto"
+          ],
+          "target": "PRECIO",
+          "refs": [
+            "IDproducto"
+          ]
+        },
+        {
+          "fields": [
+            "NombreProducto"
+          ],
+          "target": "CATEGORIA",
+          "refs": [
+            "NombreProducto"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "PEDIDOS",
+      "fields": [
+        "IDcliente",
+        "Región",
+        "IDproducto",
+        "IDpedido",
+        "FechaPedido"
+      ],
+      "pk": [
+        "IDcliente",
+        "Región",
+        "IDproducto"
+      ],
+      "fks": [
+        {
+          "fields": [
+            "Región",
+            "IDproducto"
+          ],
+          "target": "PRODUCTO",
+          "refs": [
+            "Región",
+            "IDproducto"
+          ]
+        },
+        {
+          "fields": [
+            "IDpedido"
+          ],
+          "target": "CANTIDAD",
+          "refs": [
+            "IDpedido"
+          ]
+        }
+      ]
+    }
+  ],
+  "3": [
+    {
+      "name": "CLIENTE",
+      "fields": [
+        "id_cliente",
+        "nom_cliente",
+        "ciudad"
+      ],
+      "pk": [
+        "id_cliente"
+      ],
+      "fks": []
+    },
+    {
+      "name": "ORDEN",
+      "fields": [
+        "id_orden",
+        "fecha",
+        "id_cliente"
+      ],
+      "pk": [
+        "id_orden"
+      ],
+      "fks": [
+        {
+          "fields": [
+            "id_cliente"
+          ],
+          "target": "CLIENTE",
+          "refs": [
+            "id_cliente"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ARTICULO",
+      "fields": [
+        "num_art",
+        "nom_art",
+        "precio_art"
+      ],
+      "pk": [
+        "num_art"
+      ],
+      "fks": []
+    },
+    {
+      "name": "DETALLE_ORDEN",
+      "fields": [
+        "id_orden",
+        "num_art",
+        "cantidad"
+      ],
+      "pk": [
+        "id_orden",
+        "num_art"
+      ],
+      "fks": [
+        {
+          "fields": [
+            "id_orden"
+          ],
+          "target": "ORDEN",
+          "refs": [
+            "id_orden"
+          ]
+        },
+        {
+          "fields": [
+            "num_art"
+          ],
+          "target": "ARTICULO",
+          "refs": [
+            "num_art"
+          ]
+        }
+      ]
+    }
+  ],
+  "4": [
+    {
+      "name": "GALERIA",
+      "fields": [
+        "codgal",
+        "nomgal",
+        "dirgal",
+        "cpgal",
+        "ciugal"
+      ],
+      "pk": [
+        "codgal"
+      ],
+      "fks": []
+    },
+    {
+      "name": "EXPOSICION",
+      "fields": [
+        "codexp",
+        "fecha_inicio",
+        "fecha_fin",
+        "codgal"
+      ],
+      "pk": [
+        "codexp"
+      ],
+      "fks": [
+        {
+          "fields": [
+            "codgal"
+          ],
+          "target": "GALERIA",
+          "refs": [
+            "codgal"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "AUTOR",
+      "fields": [
+        "codaut",
+        "nomaut"
+      ],
+      "pk": [
+        "codaut"
+      ],
+      "fks": []
+    },
+    {
+      "name": "OBRA",
+      "fields": [
+        "codobr",
+        "nomobr",
+        "tip",
+        "dim",
+        "codaut"
+      ],
+      "pk": [
+        "codobr"
+      ],
+      "fks": [
+        {
+          "fields": [
+            "codaut"
+          ],
+          "target": "AUTOR",
+          "refs": [
+            "codaut"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "PARTICIPA",
+      "fields": [
+        "codexp",
+        "codobr"
+      ],
+      "pk": [
+        "codexp",
+        "codobr"
+      ],
+      "fks": [
+        {
+          "fields": [
+            "codexp"
+          ],
+          "target": "EXPOSICION",
+          "refs": [
+            "codexp"
+          ]
+        },
+        {
+          "fields": [
+            "codobr"
+          ],
+          "target": "OBRA",
+          "refs": [
+            "codobr"
+          ]
+        }
+      ]
+    }
+  ],
+  "5": [
+    {
+      "name": "PUESTO",
+      "fields": [
+        "puesto",
+        "salario"
+      ],
+      "pk": [
+        "puesto"
+      ],
+      "fks": []
+    },
+    {
+      "name": "TRABAJADOR",
+      "fields": [
+        "nss",
+        "nombre",
+        "apellidos",
+        "puesto"
+      ],
+      "pk": [
+        "nss"
+      ],
+      "fks": [
+        {
+          "fields": [
+            "puesto"
+          ],
+          "target": "PUESTO",
+          "refs": [
+            "puesto"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "EMAIL_TRABAJADOR",
+      "fields": [
+        "nss",
+        "email"
+      ],
+      "pk": [
+        "nss",
+        "email"
+      ],
+      "fks": [
+        {
+          "fields": [
+            "nss"
+          ],
+          "target": "TRABAJADOR",
+          "refs": [
+            "nss"
+          ]
+        }
+      ]
+    }
+  ],
+  "6": [
+    {
+      "name": "ESTUDIO",
+      "fields": [
+        "estudio",
+        "ciudadestudio"
+      ],
+      "pk": [
+        "estudio"
+      ],
+      "fks": []
+    },
+    {
+      "name": "PELICULA",
+      "fields": [
+        "titulo",
+        "anyo",
+        "duracion",
+        "tipo",
+        "estudio"
+      ],
+      "pk": [
+        "titulo",
+        "anyo"
+      ],
+      "fks": [
+        {
+          "fields": [
+            "estudio"
+          ],
+          "target": "ESTUDIO",
+          "refs": [
+            "estudio"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "REPARTO",
+      "fields": [
+        "titulo",
+        "anyo",
+        "actor"
+      ],
+      "pk": [
+        "titulo",
+        "anyo",
+        "actor"
+      ],
+      "fks": [
+        {
+          "fields": [
+            "titulo",
+            "anyo"
+          ],
+          "target": "PELICULA",
+          "refs": [
+            "titulo",
+            "anyo"
+          ]
+        }
+      ]
+    }
+  ],
+  "7": [
+    {
+      "name": "ALUMNO",
+      "fields": [
+        "idmatricula",
+        "nombre",
+        "apellido",
+        "direccion",
+        "localidad",
+        "telefono",
+        "carrera"
+      ],
+      "pk": [
+        "idmatricula"
+      ],
+      "fks": []
+    },
+    {
+      "name": "CURSO",
+      "fields": [
+        "codigo",
+        "curso"
+      ],
+      "pk": [
+        "codigo"
+      ],
+      "fks": []
+    },
+    {
+      "name": "MATRICULA",
+      "fields": [
+        "idmatricula",
+        "codigo"
+      ],
+      "pk": [
+        "idmatricula",
+        "codigo"
+      ],
+      "fks": [
+        {
+          "fields": [
+            "idmatricula"
+          ],
+          "target": "ALUMNO",
+          "refs": [
+            "idmatricula"
+          ]
+        },
+        {
+          "fields": [
+            "codigo"
+          ],
+          "target": "CURSO",
+          "refs": [
+            "codigo"
+          ]
+        }
+      ]
+    }
+  ],
+  "8": [
+    {
+      "name": "RECETA",
+      "fields": [
+        "Cod_Plato",
+        "Nombre_Plato",
+        "Cocinero",
+        "Región",
+        "Tipo_Plato"
+      ],
+      "pk": [
+        "Cod_Plato"
+      ],
+      "fks": []
+    },
+    {
+      "name": "RECETA_INGREDIENTE",
+      "fields": [
+        "Cod_Plato",
+        "Ingrediente"
+      ],
+      "pk": [
+        "Cod_Plato",
+        "Ingrediente"
+      ],
+      "fks": [
+        {
+          "fields": [
+            "Cod_Plato"
+          ],
+          "target": "RECETA",
+          "refs": [
+            "Cod_Plato"
+          ]
+        }
+      ]
+    }
+  ],
+  "9": [
+    {
+      "name": "RECETA",
+      "fields": [
+        "Cod_Plato",
+        "Nombre_Plato",
+        "Cocinero",
+        "Región",
+        "Tipo_Plato"
+      ],
+      "pk": [
+        "Cod_Plato"
+      ],
+      "fks": []
+    },
+    {
+      "name": "RECETA_INGREDIENTE",
+      "fields": [
+        "Cod_Plato",
+        "Ingrediente"
+      ],
+      "pk": [
+        "Cod_Plato",
+        "Ingrediente"
+      ],
+      "fks": [
+        {
+          "fields": [
+            "Cod_Plato"
+          ],
+          "target": "RECETA",
+          "refs": [
+            "Cod_Plato"
+          ]
+        }
+      ]
+    }
+  ],
+  "10": [
+    {
+      "name": "RECETA",
+      "fields": [
+        "Cod_Plato",
+        "Nombre_Plato",
+        "Cocinero",
+        "Región",
+        "Tipo_Plato"
+      ],
+      "pk": [
+        "Cod_Plato"
+      ],
+      "fks": []
+    },
+    {
+      "name": "INGREDIENTE",
+      "fields": [
+        "Ingrediente",
+        "Stock"
+      ],
+      "pk": [
+        "Ingrediente"
+      ],
+      "fks": []
+    },
+    {
+      "name": "RECETA_INGREDIENTE",
+      "fields": [
+        "Cod_Plato",
+        "Ingrediente",
+        "Cantidad"
+      ],
+      "pk": [
+        "Cod_Plato",
+        "Ingrediente"
+      ],
+      "fks": [
+        {
+          "fields": [
+            "Cod_Plato"
+          ],
+          "target": "RECETA",
+          "refs": [
+            "Cod_Plato"
+          ]
+        },
+        {
+          "fields": [
+            "Ingrediente"
+          ],
+          "target": "INGREDIENTE",
+          "refs": [
+            "Ingrediente"
+          ]
+        }
+      ]
+    }
+  ],
+  "1": [
+    {
+      "name": "R1",
+      "fields": [
+        "A",
+        "B",
+        "O",
+        "M",
+        "S"
+      ],
+      "pk": [
+        "A",
+        "B",
+        "O"
+      ],
+      "fks": [
+        {
+          "fields": [
+            "A"
+          ],
+          "target": "R2",
+          "refs": [
+            "A"
+          ]
+        },
+        {
+          "fields": [
+            "B",
+            "O"
+          ],
+          "target": "R4",
+          "refs": [
+            "B",
+            "O"
+          ]
+        },
+        {
+          "fields": [
+            "O"
+          ],
+          "target": "R3",
+          "refs": [
+            "O"
+          ]
+        },
+        {
+          "fields": [
+            "M"
+          ],
+          "target": "R5",
+          "refs": [
+            "M"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "R2",
+      "fields": [
+        "A",
+        "Q"
+      ],
+      "pk": [
+        "A"
+      ],
+      "fks": []
+    },
+    {
+      "name": "R3",
+      "fields": [
+        "O",
+        "C"
+      ],
+      "pk": [
+        "O"
+      ],
+      "fks": []
+    },
+    {
+      "name": "R4",
+      "fields": [
+        "B",
+        "O",
+        "R"
+      ],
+      "pk": [
+        "B",
+        "O"
+      ],
+      "fks": []
+    },
+    {
+      "name": "R5",
+      "fields": [
+        "M",
+        "N",
+        "P"
+      ],
+      "pk": [
+        "M"
+      ],
+      "fks": []
+    }
+  ]
+}

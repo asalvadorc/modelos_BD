@@ -12,7 +12,37 @@ hide:
 
 ??? success "Ejercicio 1. Grafo de dependencias funcionales"
 
-    ![alt text](image-19.png)
+    ### 1. Normalización hasta 3FN
+
+    #### 1.1. Primera forma normal (1FN)
+
+    La relación ya está en 1FN. La clave principal es **(A, B, O)**.
+
+    ![Grafo inicial con clave A, B y O.](ejercicios-clase/01-grafo-df.png){ width=700 }
+
+    #### 1.2. Segunda forma normal (2FN)
+
+    Separamos las dependencias parciales **A → Q**, **O → C** y **B + O → R** en R2, R3 y R4. R1 conserva la clave completa y M y S; N y P permanecen de momento junto a M.
+
+    **Grafo tras aplicar 2FN**
+
+    ![En 2FN quedan R1, R2, R3 y R4; M todavía determina N y P dentro de R1.](ejercicios-clase/01-grafo-2fn.svg){ width=900 }
+
+    #### 1.3. Tercera forma normal (3FN)
+
+    En R1 quedan **A + B + O → M → N, P**. Separamos M, N y P en R5 y conservamos M en R1.
+
+    **Grafo tras aplicar 3FN**
+
+    ![En 3FN se añade R5 con clave M y atributos N y P.](ejercicios-clase/01-grafo-3fn.svg){ width=900 }
+
+    ??? info "Ver diagrama relacional de la base de datos"
+
+        Cada recuadro representa una tabla con sus columnas. **PK** identifica los campos de la clave primaria y **FK** los de una clave externa. Las flechas conectan cada FK con la PK referenciada; los corchetes agrupan los campos de una clave compuesta. Si hay varios campos marcados como PK en una tabla, **todos juntos forman su clave primaria**.
+
+        ![Diagrama relacional de las tablas del ejercicio 1, con sus columnas, claves primarias y claves externas.](ejercicios-clase/01-diagrama-relacional.svg){ width=1200 }
+
+        R1 conserva la relación original; R2, R3 y R4 recogen las dependencias parciales y R5 la dependencia transitiva. Los nombres corresponden a los grafos de la resolución.
 
 ??? success "Ejercicio 2. Pedidos"
 
@@ -31,6 +61,10 @@ hide:
     </div>
 
 
+    ### 1. Normalización hasta 3FN
+
+    La clave principal de la relación inicial es **(IDcliente, Región, IDproducto)**.
+
     Las dependencias representadas son:
 
     - **IDcliente + Región + IDproducto → IDpedido, FechaPedido**.
@@ -39,11 +73,11 @@ hide:
     - **NombreProducto → Categoria**.
     - **IDproducto → PrecioUnitario**.
 
-    ### 1. Primera forma normal (1FN)
+    #### 1.1. Primera forma normal (1FN)
 
     La relación ya está en **1FN**: todos sus atributos contienen valores atómicos.
 
-    ### 2. Segunda forma normal (2FN)
+    #### 1.2. Segunda forma normal (2FN)
 
     Identificamos las dependencias **parciales** respecto a la clave compuesta:
 
@@ -61,7 +95,11 @@ hide:
 
     Es importante separar PRECIO: dejar PrecioUnitario en PRODUCTO mantendría una dependencia parcial respecto a su clave (Región, IDproducto).
 
-    ### 3. Tercera forma normal (3FN)
+    **Grafo tras aplicar 2FN**
+
+    ![Grafo del ejercicio 2 tras aplicar segunda forma normal.](ejercicios-clase/02-pedidos-2fn.svg){ width=900 }
+
+    #### 1.3. Tercera forma normal (3FN)
 
     Quedan dos dependencias transitivas:
 
@@ -70,7 +108,11 @@ hide:
 
     Separamos Cantidad y Categoria en sus propias tablas. Conservamos IDpedido en PEDIDOS y NombreProducto en PRODUCTO como claves externas.
 
-    **Modelo relacional final**
+    **Grafo tras aplicar 3FN**
+
+    ![Solución de pedidos en 3FN: cinco tablas, cada una con su clave y sus dependencias. PEDIDOS referencia PRODUCTO y CANTIDAD; PRODUCTO referencia PRECIO y CATEGORIA.](ejercicios-clase/02-pedidos-solucion.svg){ width=850 }
+
+    ### 2. Tablas resultantes con PK y FK
 
     - **CANTIDAD** (<u>IDpedido</u>, Cantidad).
         - PK: IDpedido.
@@ -87,11 +129,14 @@ hide:
         - FK: (Región, IDproducto) → PRODUCTO(Región, IDproducto).
         - FK: IDpedido → CANTIDAD(IDpedido).
 
-    **Esquema visual de la solución**
-
-    ![Solución de pedidos en 3FN: cinco tablas, cada una con su clave y sus dependencias. PEDIDOS referencia PRODUCTO y CANTIDAD; PRODUCTO referencia PRECIO y CATEGORIA.](ejercicios-clase/02-pedidos-solucion.svg){ width=850 }
 
     Con las dependencias indicadas, todas las tablas cumplen **FNBC**: en todas sus dependencias funcionales no triviales, el determinante es una clave.
+
+    ??? info "Ver diagrama relacional de la base de datos"
+
+        Cada recuadro representa una tabla con sus columnas. **PK** identifica los campos de la clave primaria y **FK** los de una clave externa. Las flechas conectan cada FK con la PK referenciada; los corchetes agrupan los campos de una clave compuesta. Si hay varios campos marcados como PK en una tabla, **todos juntos forman su clave primaria**.
+
+        ![Diagrama relacional de las tablas del ejercicio 2, con sus columnas, claves primarias y claves externas.](ejercicios-clase/02-diagrama-relacional.svg){ width=1200 }
 
 ??? success "Ejercicio 3. Líneas de pedido"
 
@@ -110,21 +155,30 @@ hide:
 
     </div>
 
-    El grafo representa las dependencias funcionales de esta relación.
+    ### 1. Análisis de la tabla y clave primaria
 
-    Normaliza la relación del siguiente grafo y expresa el resultado en el modelo relacional.
+    Partimos de una tabla con una fila por artículo incluido en una orden. Los datos de la orden y del cliente se repiten cuando una orden contiene varios artículos.
 
-    La clave principal es **(id_orden, num_art)**.
+    La clave principal es **(id_orden, num_art)**: una orden puede tener varios artículos y el mismo artículo puede aparecer en distintas órdenes.
 
-    **Grafo inicial**
+    ### 2. Dependencias funcionales y grafo
 
-    ![Grafo inicial de órdenes de pedido.](ejercicios-clase/03-ordenes.svg){ width=700 }
+    - **id_orden → fecha, id_cliente**.
+    - **id_cliente → nom_cliente, ciudad**.
+    - **num_art → nom_art, precio_art**.
+    - **id_orden + num_art → cantidad**.
 
-    ### 1. Primera forma normal (1FN)
+    **Grafo de dependencias**
+
+    ![Grafo inicial de líneas de pedido.](ejercicios-clase/03-ordenes.svg){ width=700 }
+
+    ### 3. Normalización paso a paso hasta 3FN
+
+    #### 3.1. Primera forma normal (1FN)
 
     La relación ya está en **1FN**: todos sus atributos contienen valores atómicos.
 
-    ### 2. Segunda forma normal (2FN)
+    #### 3.2. Segunda forma normal (2FN)
 
     Las siguientes dependencias son **parciales**, porque sus determinantes son una parte de la clave compuesta:
 
@@ -141,7 +195,11 @@ hide:
 
     Los datos del cliente permanecen de momento en ORDEN, porque dependen de id_orden a través de id_cliente. La 2FN todavía permite esta dependencia transitiva.
 
-    ### 3. Tercera forma normal (3FN)
+    **Grafo tras aplicar 2FN**
+
+    ![Grafo del ejercicio 3 tras aplicar segunda forma normal.](ejercicios-clase/03-ordenes-2fn.svg){ width=900 }
+
+    #### 3.3. Tercera forma normal (3FN)
 
     En ORDEN existe una dependencia transitiva:
 
@@ -149,7 +207,11 @@ hide:
 
     Separamos los datos del cliente en una nueva tabla y conservamos id_cliente en ORDEN como clave externa.
 
-    **Modelo relacional final**
+    **Grafo tras aplicar 3FN**
+
+    ![Esquema normalizado: CLIENTE con clave id_cliente; ORDEN con clave id_orden y referencia al cliente; ARTICULO con clave num_art; DETALLE_ORDEN con clave id_orden y num_art y referencias a ORDEN y ARTICULO. Cada clave determina los atributos de su tabla.](ejercicios-clase/03-ordenes-solucion.svg){ width=850 }
+
+    ### 4. Tablas resultantes con PK y FK
 
     - **CLIENTE** (<u>id_cliente</u>, nom_cliente, ciudad).
         - PK: id_cliente.
@@ -163,13 +225,16 @@ hide:
         - FK: id_orden → ORDEN(id_orden).
         - FK: num_art → ARTICULO(num_art).
 
-    **Esquema visual de la solución**
-
-    ![Esquema normalizado: CLIENTE con clave id_cliente; ORDEN con clave id_orden y referencia al cliente; ARTICULO con clave num_art; DETALLE_ORDEN con clave id_orden y num_art y referencias a ORDEN y ARTICULO. Cada clave determina los atributos de su tabla.](ejercicios-clase/03-ordenes-solucion.svg){ width=850 }
 
     La cantidad queda en DETALLE_ORDEN porque depende de la combinación de orden y artículo. El atributo precio_art queda en ARTICULO, tal como establece la dependencia num_art → precio_art del grafo.
 
     Con las dependencias indicadas, las cuatro tablas también cumplen **FNBC**: en todas sus dependencias funcionales no triviales, el determinante es una clave.
+
+    ??? info "Ver diagrama relacional de la base de datos"
+
+        Cada recuadro representa una tabla con sus columnas. **PK** identifica los campos de la clave primaria y **FK** los de una clave externa. Las flechas conectan cada FK con la PK referenciada; los corchetes agrupan los campos de una clave compuesta. Si hay varios campos marcados como PK en una tabla, **todos juntos forman su clave primaria**.
+
+        ![Diagrama relacional de las tablas del ejercicio 3, con sus columnas, claves primarias y claves externas.](ejercicios-clase/03-diagrama-relacional.svg){ width=1200 }
 
 ??? success "Ejercicio 4. Exposiciones"
 
@@ -187,26 +252,28 @@ hide:
 
     </div>
 
-    Partimos de la relación:
+    ### 1. Análisis de la tabla y clave primaria
 
-    **ORDENES** (<u>codexp, codobr</u>, codgal, nomgal, dirgal, cpgal, ciugal, fecha, nomobr, tip, dim, codaut, nomaut).
+    La relación original es **EXPOSICIONES** (<u>codexp, codobr</u>, codgal, nomgal, dirgal, cpgal, ciugal, fecha, nomobr, tip, dim, codaut, nomaut).
 
-    La clave principal es **(codexp, codobr)**: una exposición puede incluir varias obras y una obra puede participar en distintas exposiciones.
+    Su clave principal es **(codexp, codobr)**: una exposición puede incluir varias obras y una obra puede participar en distintas exposiciones. Los datos de la exposición, la galería y el autor se repiten. Además, fecha combina el inicio y el fin de la exposición y deberá separarse en 1FN.
 
-    Para cumplir la **Primera Forma Normal (1FN)**, hemos separado el campo compuesto **fecha** en dos atributos: **fecha_inicio** y **fecha_fin**. Así, el valor «Del 1-12-2012 al 15-12-2012» pasa a almacenarse como **01/12/2012** y **15/12/2012**, cada uno en su propia columna. El siguiente grafo ya incorpora esta separación.
+    ### 2. Dependencias funcionales y grafo
 
-    **Grafo tras separar las fechas (1FN)**
-
-    ![Grafo de exposiciones con fecha_inicio y fecha_fin separados.](ejercicios-clase/04-exposiciones-grafo.svg){ width=700 }
-
-    Las dependencias representadas, con las fechas ya separadas, son:
-
-    - **codexp → fecha_inicio, fecha_fin, codgal**.
+    - **codexp → fecha, codgal**.
     - **codgal → nomgal, dirgal, cpgal, ciugal**.
     - **codobr → nomobr, tip, dim, codaut**.
     - **codaut → nomaut**.
 
-    ### 1. Primera forma normal (1FN)
+    **Grafo de dependencias**
+
+    Para que se vea la descomposición del campo fecha, el grafo ya muestra **fecha_inicio** y **fecha_fin** por separado: **codexp → fecha_inicio, fecha_fin, codgal**. El cambio para cumplir la 1FN se explica en el paso 3.1.
+
+    ![Grafo de exposiciones con las fechas separadas.](ejercicios-clase/04-exposiciones-grafo.svg){ width=700 }
+
+    ### 3. Normalización paso a paso hasta 3FN
+
+    #### 3.1. Primera forma normal (1FN)
 
     El campo **fecha** combina dos datos que queremos consultar por separado: el inicio y el fin de la exposición. Antes de continuar, lo descomponemos en **fecha_inicio** y **fecha_fin**:
 
@@ -218,11 +285,11 @@ hide:
 
     La relación en 1FN queda así:
 
-    **ORDENES** (<u>codexp, codobr</u>, codgal, nomgal, dirgal, cpgal, ciugal, fecha_inicio, fecha_fin, nomobr, tip, dim, codaut, nomaut).
+    **EXPOSICIONES** (<u>codexp, codobr</u>, codgal, nomgal, dirgal, cpgal, ciugal, fecha_inicio, fecha_fin, nomobr, tip, dim, codaut, nomaut).
 
     La dependencia del grafo se actualiza a **codexp → fecha_inicio, fecha_fin, codgal**. La clave principal no cambia.
 
-    ### 2. Segunda forma normal (2FN)
+    #### 3.2. Segunda forma normal (2FN)
 
     La tabla no está en 2FN: sus atributos descriptivos dependen solo de una parte de la clave compuesta.
 
@@ -237,7 +304,11 @@ hide:
 
     PARTICIPA conserva la asociación entre exposición y obra. **Es necesaria aunque no tenga atributos adicionales**: si la elimináramos, perderíamos la información sobre qué obras se exponen en cada exposición.
 
-    ### 3. Tercera forma normal (3FN)
+    **Grafo tras aplicar 2FN**
+
+    ![Grafo del ejercicio 4 tras aplicar segunda forma normal.](ejercicios-clase/04-exposiciones-2fn.svg){ width=900 }
+
+    #### 3.3. Tercera forma normal (3FN)
 
     Quedan dos dependencias transitivas:
 
@@ -246,7 +317,11 @@ hide:
 
     Separamos los datos de la galería y del autor en dos tablas nuevas. Conservamos codgal en EXPOSICION y codaut en OBRA como claves externas.
 
-    **Modelo relacional final**
+    **Grafo tras aplicar 3FN**
+
+    ![Solución en 3FN: GALERIA, EXPOSICION, AUTOR, OBRA y PARTICIPA, con sus claves y dependencias. EXPOSICION referencia GALERIA; OBRA referencia AUTOR; PARTICIPA referencia EXPOSICION y OBRA.](ejercicios-clase/04-exposiciones-solucion.svg){ width=850 }
+
+    ### 4. Tablas resultantes con PK y FK
 
     - **GALERIA** (<u>codgal</u>, nomgal, dirgal, cpgal, ciugal).
         - PK: codgal.
@@ -263,13 +338,16 @@ hide:
         - FK: codexp → EXPOSICION(codexp).
         - FK: codobr → OBRA(codobr).
 
-    **Esquema visual de la solución**
-
-    ![Solución en 3FN: GALERIA, EXPOSICION, AUTOR, OBRA y PARTICIPA, con sus claves y dependencias. EXPOSICION referencia GALERIA; OBRA referencia AUTOR; PARTICIPA referencia EXPOSICION y OBRA.](ejercicios-clase/04-exposiciones-solucion.svg){ width=850 }
 
     Ahora los datos de cada galería se guardan una sola vez, los del autor una sola vez y las participaciones se registran mediante parejas de códigos. Con las dependencias indicadas, las cinco tablas cumplen **3FN**.
 
     No añadimos **cpgal → ciugal**, porque el enunciado no establece esa dependencia. La descomposición se basa en las reglas dadas, no únicamente en las coincidencias de las cuatro filas de muestra.
+
+    ??? info "Ver diagrama relacional de la base de datos"
+
+        Cada recuadro representa una tabla con sus columnas. **PK** identifica los campos de la clave primaria y **FK** los de una clave externa. Las flechas conectan cada FK con la PK referenciada; los corchetes agrupan los campos de una clave compuesta. Si hay varios campos marcados como PK en una tabla, **todos juntos forman su clave primaria**.
+
+        ![Diagrama relacional de las tablas del ejercicio 4, con sus columnas, claves primarias y claves externas.](ejercicios-clase/04-diagrama-relacional.svg){ width=1200 }
 
 ??? success "Ejercicio 5. Trabajador"
 
@@ -285,15 +363,26 @@ hide:
 
     </div>
 
-    La clave que identifica a cada trabajador es **nss**. El atributo emails es multivaluado: todavía no tenemos una relación en 1FN.
+    ### 1. Análisis de la tabla y clave primaria
 
-    **Dependencias y reglas utilizadas**
+    La clave que identifica a cada trabajador es **nss**. El atributo emails es multivaluado, por lo que la tabla original no está en 1FN. Varios trabajadores pueden compartir un email, como muestran las filas de Juan y José.
+
+    ### 2. Dependencias funcionales y grafo
 
     - **nss → nombre, apellidos, puesto, salario**.
-    - Para desarrollar la descomposición hasta 3FN, **suponemos que cada puesto tiene un salario fijo**: **puesto → salario**. Esta regla debe confirmarse con la empresa; no basta con observar los salarios de la muestra.
-    - Un trabajador puede tener varios emails y un email puede ser compartido por distintos trabajadores, como ocurre en los datos.
+    - **puesto → salario**, si cada puesto tiene un salario fijo. Esta es la regla que asumimos para resolver el ejercicio; debe confirmarse con la empresa y no se deduce solo de las tres filas.
 
-    ### 1. Primera forma normal (1FN)
+    Un trabajador puede tener varios emails. No suponemos nss → email ni email → nss en la relación que almacena un email por fila.
+
+    Para representar las dependencias con atributos atómicos, el grafo muestra la estructura obtenida tras aplicar 1FN. Esta transformación se desarrolla en el paso 3.1.
+
+    **Grafo de dependencias**
+
+    ![Grafo en 1FN: nss determina nombre, apellidos y puesto; puesto determina salario. EMAIL_TRABAJADOR tiene clave nss y email y no tiene atributos adicionales.](ejercicios-clase/05-trabajador-1fn.svg){ width=850 }
+
+    ### 3. Normalización paso a paso hasta 3FN
+
+    #### 3.1. Primera forma normal (1FN)
 
     Separamos el atributo multivaluado en una tabla con **una fila por cada email de un trabajador**:
 
@@ -313,11 +402,7 @@ hide:
 
     La clave de EMAIL_TRABAJADOR es **(nss, email)**. Ni nss ni email identifican una fila por separado. Ahora cada celda contiene un único valor.
 
-    **Grafo de dependencias tras aplicar 1FN**
-
-    ![Grafo en 1FN: nss determina nombre, apellidos y puesto; puesto determina salario. EMAIL_TRABAJADOR tiene clave nss y email y no tiene atributos adicionales.](ejercicios-clase/05-trabajador-1fn.svg){ width=850 }
-
-    ### 2. Segunda forma normal (2FN)
+    #### 3.2. Segunda forma normal (2FN)
 
     Las dos tablas ya están en **2FN**:
 
@@ -326,7 +411,13 @@ hide:
 
     No es necesario descomponer ninguna tabla en este paso.
 
-    ### 3. Tercera forma normal (3FN)
+    **Grafo tras aplicar 2FN**
+
+    El grafo se mantiene respecto a 1FN: no hay dependencias parciales. La dependencia puesto → salario se separará en 3FN.
+
+    ![Grafo del ejercicio 5 tras aplicar segunda forma normal.](ejercicios-clase/05-trabajador-2fn.svg){ width=900 }
+
+    #### 3.3. Tercera forma normal (3FN)
 
     Con la regla del salario fijo por puesto, en TRABAJADOR existe la dependencia transitiva:
 
@@ -334,7 +425,11 @@ hide:
 
     Separamos los salarios por puesto y conservamos puesto en TRABAJADOR como clave externa.
 
-    **Modelo relacional final**
+    **Grafo tras aplicar 3FN**
+
+    ![Trabajador en 3FN: PUESTO determina salario; TRABAJADOR con clave nss determina nombre, apellidos y puesto; EMAIL_TRABAJADOR asocia trabajadores y emails con clave compuesta.](ejercicios-clase/05-trabajador-solucion.svg){ width=850 }
+
+    ### 4. Tablas resultantes con PK y FK
 
     - **PUESTO** (<u>puesto</u>, salario).
         - PK: puesto.
@@ -345,13 +440,16 @@ hide:
         - PK: (nss, email).
         - FK: nss → TRABAJADOR(nss).
 
-    **Esquema visual de la solución**
-
-    ![Trabajador en 3FN: PUESTO determina salario; TRABAJADOR con clave nss determina nombre, apellidos y puesto; EMAIL_TRABAJADOR asocia trabajadores y emails con clave compuesta.](ejercicios-clase/05-trabajador-solucion.svg){ width=850 }
 
     Ahora los salarios se guardan una sola vez por puesto y los emails se registran sin repetir el resto de los datos del trabajador. Con las reglas utilizadas, las tres tablas cumplen **3FN**.
 
     Si cada trabajador pudiera tener un salario diferente dentro del mismo puesto, **puesto → salario no se cumpliría**: salario permanecería en TRABAJADOR y no crearíamos PUESTO para esta descomposición.
+
+    ??? info "Ver diagrama relacional de la base de datos"
+
+        Cada recuadro representa una tabla con sus columnas. **PK** identifica los campos de la clave primaria y **FK** los de una clave externa. Las flechas conectan cada FK con la PK referenciada; los corchetes agrupan los campos de una clave compuesta. Si hay varios campos marcados como PK en una tabla, **todos juntos forman su clave primaria**.
+
+        ![Diagrama relacional de las tablas del ejercicio 5, con sus columnas, claves primarias y claves externas.](ejercicios-clase/05-diagrama-relacional.svg){ width=1200 }
 
 ??? success "Ejercicio 6. Películas"
 
@@ -371,23 +469,30 @@ hide:
 
     </div>
 
-    **Dependencias y clave principal**
+    ### 1. Análisis de la tabla y clave primaria
+
+    La tabla tiene una fila por participación de un actor en una versión de una película. Los datos de la película y la ciudad del estudio se repiten para sus distintos actores.
+
+    La clave principal es **(titulo, anyo, actor)**. Los tres campos son necesarios: título y año no distinguen a los actores de una película; título y actor no distinguen las versiones en las que participa; año y actor no distinguen las películas de ese año.
+
+    ### 2. Dependencias funcionales y grafo
 
     - **titulo + anyo → duracion, tipo, estudio**: título y año identifican una versión de la película.
     - **estudio → ciudadestudio**: cada estudio está ubicado en una sola ciudad.
-    - Un actor puede participar en varias versiones del mismo título y una película puede tener varios actores.
 
-    La clave principal de la tabla original es **(titulo, anyo, actor)**. Los tres campos son necesarios: título y año no distinguen a los actores de una película; título y actor no distinguen las versiones en las que participa; año y actor no distinguen las películas de ese año.
+    Un actor puede participar en varias versiones del mismo título y una película puede tener varios actores. No se cumple titulo + actor → anyo.
 
-    ### 1. Primera forma normal (1FN)
-
-    La tabla ya está en **1FN**: cada fila contiene un único actor y cada celda un único valor. Que una película aparezca en varias filas no incumple la 1FN.
-
-    **Grafo de dependencias tras aplicar 1FN**
+    **Grafo de dependencias**
 
     ![Grafo en 1FN: la clave principal contiene titulo, anyo y actor. El subconjunto titulo y anyo determina duracion, tipo y estudio; estudio determina ciudadestudio.](ejercicios-clase/06-peliculas-1fn.svg){ width=850 }
 
-    ### 2. Segunda forma normal (2FN)
+    ### 3. Normalización paso a paso hasta 3FN
+
+    #### 3.1. Primera forma normal (1FN)
+
+    La tabla ya está en **1FN**: cada fila contiene un único actor y cada celda un único valor. Que una película aparezca en varias filas no incumple la 1FN.
+
+    #### 3.2. Segunda forma normal (2FN)
 
     La tabla **no está en 2FN**: duracion, tipo y estudio dependen solo de **titulo + anyo**, una parte de la clave principal. ciudadestudio también depende de esa parte, a través de estudio.
 
@@ -398,7 +503,11 @@ hide:
 
     REPARTO conserva qué actores participan en cada versión. No tiene atributos adicionales y ya está en 3FN. En PELICULA aún queda una dependencia transitiva.
 
-    ### 3. Tercera forma normal (3FN)
+    **Grafo tras aplicar 2FN**
+
+    ![Grafo del ejercicio 6 tras aplicar segunda forma normal.](ejercicios-clase/06-peliculas-2fn.svg){ width=900 }
+
+    #### 3.3. Tercera forma normal (3FN)
 
     En PELICULA tenemos la cadena:
 
@@ -406,7 +515,11 @@ hide:
 
     Separamos la ciudad del estudio en ESTUDIO y conservamos estudio en PELICULA como clave externa.
 
-    **Modelo relacional final**
+    **Grafo tras aplicar 3FN**
+
+    ![Películas en 3FN: ESTUDIO determina ciudadestudio; PELICULA con clave titulo y anyo determina duracion, tipo y estudio; REPARTO tiene clave titulo, anyo y actor, sin atributos adicionales, y referencia a PELICULA.](ejercicios-clase/06-peliculas-solucion.svg){ width=850 }
+
+    ### 4. Tablas resultantes con PK y FK
 
     - **ESTUDIO** (<u>estudio</u>, ciudadestudio).
         - PK: estudio.
@@ -419,11 +532,14 @@ hide:
 
     La clave compuesta de REPARTO permite registrar varios actores en una película y también al mismo actor en distintas versiones del mismo título.
 
-    **Esquema visual de la solución**
-
-    ![Películas en 3FN: ESTUDIO determina ciudadestudio; PELICULA con clave titulo y anyo determina duracion, tipo y estudio; REPARTO tiene clave titulo, anyo y actor, sin atributos adicionales, y referencia a PELICULA.](ejercicios-clase/06-peliculas-solucion.svg){ width=850 }
 
     El estudio y su ciudad se guardan una sola vez, los datos de cada película una sola vez por título y año y sus actores en REPARTO.
+
+    ??? info "Ver diagrama relacional de la base de datos"
+
+        Cada recuadro representa una tabla con sus columnas. **PK** identifica los campos de la clave primaria y **FK** los de una clave externa. Las flechas conectan cada FK con la PK referenciada; los corchetes agrupan los campos de una clave compuesta. Si hay varios campos marcados como PK en una tabla, **todos juntos forman su clave primaria**.
+
+        ![Diagrama relacional de las tablas del ejercicio 6, con sus columnas, claves primarias y claves externas.](ejercicios-clase/06-diagrama-relacional.svg){ width=1200 }
 
 ??? success "Ejercicio 7. Matrículas"
 
@@ -441,17 +557,28 @@ hide:
 
     </div>
 
-    **Interpretación y dependencias funcionales**
+    ### 1. Análisis de la tabla y clave primaria
 
-    Tal como indica el enunciado, **idmatricula identifica al alumno** y **codigo identifica al curso**. Suponemos que cada alumno tiene una dirección, un teléfono y una carrera. No suponemos que el nombre del curso sea único.
+    Tal como indica el enunciado, **idmatricula identifica al alumno** y **codigo identifica al curso**. La clave principal de la tabla original es **(idmatricula, codigo)**: un alumno se matricula en varios cursos y un curso puede tener varios alumnos.
+
+    Los datos del alumno se repiten en cada matrícula y el nombre del curso se repite para sus alumnos. Además, direccion combina la dirección y la localidad, que separaremos en el paso 3.1.
+
+    ### 2. Dependencias funcionales y grafo
 
     - **idmatricula → nombre, apellido, direccion, telefono, carrera**.
     - **codigo → curso**.
-    - Clave principal de la relación original: **(idmatricula, codigo)**.
 
-    Ni idmatricula ni codigo identifican una fila por separado: un alumno se matricula en varios cursos y un curso puede tener varios alumnos.
+    Suponemos que cada alumno tiene una dirección, un teléfono y una carrera; no suponemos que el nombre del curso sea único. Al separar direccion en dirección y localidad, idmatricula también determina localidad.
 
-    ### 1. Primera forma normal (1FN)
+    Para representar las dependencias con atributos atómicos, el grafo muestra la estructura obtenida tras aplicar 1FN. Esta transformación se desarrolla en el paso 3.1.
+
+    **Grafo de dependencias**
+
+    ![Grafo en 1FN: la clave compuesta contiene idmatricula y codigo; idmatricula determina los datos del alumno, con direccion y localidad separados, y codigo determina curso.](ejercicios-clase/07-matriculas-1fn.svg){ width=850 }
+
+    ### 3. Normalización paso a paso hasta 3FN
+
+    #### 3.1. Primera forma normal (1FN)
 
     Para tratar por separado la dirección y la localidad, descomponemos el atributo direccion, tal como pide el ejercicio:
 
@@ -466,11 +593,7 @@ hide:
 
     Cada fila ya contiene un solo curso. Repetir los datos de un alumno en filas distintas **no es, por sí mismo, una infracción de la 1FN**; las dependencias parciales de esos datos se eliminan en 2FN.
 
-    **Grafo de dependencias tras aplicar 1FN**
-
-    ![Grafo en 1FN: la clave compuesta contiene idmatricula y codigo; idmatricula determina los datos del alumno, con direccion y localidad separados, y codigo determina curso.](ejercicios-clase/07-matriculas-1fn.svg){ width=850 }
-
-    ### 2. Segunda forma normal (2FN)
+    #### 3.2. Segunda forma normal (2FN)
 
     Existen dependencias parciales respecto a (idmatricula, codigo):
 
@@ -485,13 +608,25 @@ hide:
 
     MATRICULA es necesaria aunque no tenga atributos adicionales: guarda qué cursos ha elegido cada alumno.
 
-    ### 3. Tercera forma normal (3FN)
+    **Grafo tras aplicar 2FN**
+
+    Las tres tablas obtenidas en 2FN ya cumplen también la 3FN; en el siguiente paso el grafo no cambia.
+
+    ![Grafo del ejercicio 7 tras aplicar segunda forma normal.](ejercicios-clase/07-matriculas-2fn.svg){ width=900 }
+
+    #### 3.3. Tercera forma normal (3FN)
 
     Con las reglas indicadas, no quedan dependencias transitivas entre atributos no clave. Las tres tablas obtenidas en 2FN **ya están en 3FN**: no hace falta otra descomposición.
 
     No separamos carrera en una tabla propia, porque el enunciado no aporta otros atributos ni dependencias que lo exijan. Tampoco suponemos que direccion determine localidad: una misma dirección escrita puede existir en distintas localidades.
 
-    **Modelo relacional final**
+    El grafo se mantiene: no quedan dependencias transitivas que requieran otra descomposición.
+
+    **Grafo tras aplicar 3FN**
+
+    ![Matrículas en 3FN: ALUMNO con clave idmatricula determina sus seis atributos; CURSO con clave codigo determina curso; MATRICULA registra la asociación con clave idmatricula y codigo.](ejercicios-clase/07-matriculas-solucion.svg){ width=850 }
+
+    ### 4. Tablas resultantes con PK y FK
 
     - **ALUMNO** (<u>idmatricula</u>, nombre, apellido, direccion, localidad, telefono, carrera).
         - PK: idmatricula.
@@ -502,11 +637,14 @@ hide:
         - FK: idmatricula → ALUMNO(idmatricula).
         - FK: codigo → CURSO(codigo).
 
-    **Esquema visual de la solución**
-
-    ![Matrículas en 3FN: ALUMNO con clave idmatricula determina sus seis atributos; CURSO con clave codigo determina curso; MATRICULA registra la asociación con clave idmatricula y codigo.](ejercicios-clase/07-matriculas-solucion.svg){ width=850 }
 
     La unión de las tres tablas por idmatricula y codigo recupera las cinco matrículas originales, con dirección y localidad separadas.
+
+    ??? info "Ver diagrama relacional de la base de datos"
+
+        Cada recuadro representa una tabla con sus columnas. **PK** identifica los campos de la clave primaria y **FK** los de una clave externa. Las flechas conectan cada FK con la PK referenciada; los corchetes agrupan los campos de una clave compuesta. Si hay varios campos marcados como PK en una tabla, **todos juntos forman su clave primaria**.
+
+        ![Diagrama relacional de las tablas del ejercicio 7, con sus columnas, claves primarias y claves externas.](ejercicios-clase/07-diagrama-relacional.svg){ width=1200 }
 
 ??? success "Ejercicio 8. Recetas de cocina: ingredientes en una celda"
 
@@ -525,15 +663,27 @@ hide:
 
     </div>
 
-    **Clave y reglas utilizadas**
+    ### 1. Análisis de la tabla y clave primaria
 
-    Cod_Plato identifica cada plato en la tabla original. Suponemos que cada plato tiene un nombre, un cocinero, una región y un tipo:
+    **Cod_Plato** identifica cada plato en la tabla original y es su clave principal. Ingredientes contiene varios valores en una misma celda: es un **atributo multivaluado**. La estructura no cumple la 1FN y dificulta añadir ingredientes sin modificar las columnas o el contenido de una lista.
+
+    ### 2. Dependencias funcionales y grafo
 
     **Cod_Plato → Nombre_Plato, Cocinero, Región, Tipo_Plato**.
 
-    Un plato puede tener varios ingredientes y un ingrediente puede aparecer en varios platos. No suponemos que el cocinero determine la región ni el tipo de plato; las coincidencias de los datos no bastan para establecer esas reglas.
+    Suponemos un nombre, un cocinero, una región y un tipo por plato. Un plato puede tener varios ingredientes y un ingrediente puede aparecer en varios platos.
 
-    ### 1. Primera forma normal (1FN)
+    No suponemos que el cocinero determine la región ni el tipo de plato. En la relación que guarda un ingrediente por fila, la pareja **(Cod_Plato, Ingrediente)** identifica cada participación.
+
+    Para representar las dependencias con atributos atómicos, el grafo muestra la estructura obtenida tras aplicar 1FN. Esta transformación se desarrolla en el paso 3.1.
+
+    **Grafo de dependencias**
+
+    ![Tras aplicar 1FN: RECETA tiene clave Cod_Plato y determina Nombre_Plato, Cocinero, Región y Tipo_Plato; RECETA_INGREDIENTE tiene clave Cod_Plato e Ingrediente y no contiene otros atributos.](ejercicios-clase/08-09-recetas-1fn.svg){ width=850 }
+
+    ### 3. Normalización paso a paso hasta 3FN
+
+    #### 3.1. Primera forma normal (1FN)
 
     La tabla no está en 1FN. Ingredientes es **multivaluado**: contiene una lista de valores en una sola celda.
 
@@ -552,11 +702,7 @@ hide:
 
     Este proceso se aplica a los seis platos. No creamos columnas nuevas para añadir ingredientes y el nombre del plato no se repite en las filas de RECETA_INGREDIENTE.
 
-    **Grafo de dependencias tras aplicar 1FN**
-
-    ![Tras aplicar 1FN: RECETA tiene clave Cod_Plato y determina Nombre_Plato, Cocinero, Región y Tipo_Plato; RECETA_INGREDIENTE tiene clave Cod_Plato e Ingrediente y no contiene otros atributos.](ejercicios-clase/08-09-recetas-1fn.svg){ width=850 }
-
-    ### 2. Segunda forma normal (2FN)
+    #### 3.2. Segunda forma normal (2FN)
 
     Las dos tablas ya están en 2FN:
 
@@ -565,13 +711,25 @@ hide:
 
     No necesitamos otra descomposición. Si hubiéramos repetido los datos del plato junto a cada ingrediente en una sola tabla en 1FN, tendríamos que separarlos ahora, porque dependen solo de Cod_Plato.
 
-    ### 3. Tercera forma normal (3FN)
+    **Grafo tras aplicar 2FN**
+
+    Las tablas ya cumplían 2FN tras separar los ingredientes en 1FN; este paso no cambia el grafo.
+
+    ![Grafo del ejercicio 8 tras aplicar segunda forma normal.](ejercicios-clase/08-09-recetas-2fn.svg){ width=900 }
+
+    #### 3.3. Tercera forma normal (3FN)
 
     Con las reglas utilizadas no hay dependencias transitivas entre atributos no clave. Las tablas obtenidas en el primer paso ya cumplen 3FN.
 
     No creamos una tabla INGREDIENTE independiente, porque este ejercicio no aporta atributos propios del ingrediente ni exige un catálogo separado.
 
-    **Modelo relacional final**
+    El grafo se mantiene: no quedan dependencias transitivas que requieran otra descomposición.
+
+    **Grafo tras aplicar 3FN**
+
+    ![Resultado en 3FN: RECETA y RECETA_INGREDIENTE, con su clave compuesta y referencia a RECETA.](ejercicios-clase/08-09-recetas-solucion.svg){ width=850 }
+
+    ### 4. Tablas resultantes con PK y FK
 
     - **RECETA** (<u>Cod_Plato</u>, Nombre_Plato, Cocinero, Región, Tipo_Plato).
         - PK: Cod_Plato.
@@ -579,11 +737,14 @@ hide:
         - PK: (Cod_Plato, Ingrediente).
         - FK: Cod_Plato → RECETA(Cod_Plato).
 
-    **Esquema visual de la solución**
-
-    ![Resultado en 3FN: RECETA y RECETA_INGREDIENTE, con su clave compuesta y referencia a RECETA.](ejercicios-clase/08-09-recetas-solucion.svg){ width=850 }
 
     La lista original se recupera consultando los ingredientes asociados a cada Cod_Plato, sin perder los datos de los seis platos.
+
+    ??? info "Ver diagrama relacional de la base de datos"
+
+        Cada recuadro representa una tabla con sus columnas. **PK** identifica los campos de la clave primaria y **FK** los de una clave externa. Las flechas conectan cada FK con la PK referenciada; los corchetes agrupan los campos de una clave compuesta. Si hay varios campos marcados como PK en una tabla, **todos juntos forman su clave primaria**.
+
+        ![Diagrama relacional de las tablas del ejercicio 8, con sus columnas, claves primarias y claves externas.](ejercicios-clase/08-diagrama-relacional.svg){ width=1200 }
 
 ??? success "Ejercicio 9. Recetas de cocina: una columna por ingrediente"
 
@@ -602,15 +763,27 @@ hide:
 
     </div>
 
-    **Clave y reglas utilizadas**
+    ### 1. Análisis de la tabla y clave primaria
 
-    Cod_Plato identifica cada plato en la tabla original. Suponemos que cada plato tiene un nombre, un cocinero, una región y un tipo:
+    **Cod_Plato** identifica cada plato en la tabla original y es su clave principal. Ingrediente1, Ingrediente2, Ingrediente3 e Ingrediente4 forman un **grupo repetitivo**. Los NULL muestran que no todos los platos tienen cuatro ingredientes. La estructura no cumple la 1FN y dificulta añadir ingredientes sin modificar las columnas o el contenido de una lista.
+
+    ### 2. Dependencias funcionales y grafo
 
     **Cod_Plato → Nombre_Plato, Cocinero, Región, Tipo_Plato**.
 
-    Un plato puede tener varios ingredientes y un ingrediente puede aparecer en varios platos. No suponemos que el cocinero determine la región ni el tipo de plato; las coincidencias de los datos no bastan para establecer esas reglas.
+    Suponemos un nombre, un cocinero, una región y un tipo por plato. Un plato puede tener varios ingredientes y un ingrediente puede aparecer en varios platos.
 
-    ### 1. Primera forma normal (1FN)
+    No suponemos que el cocinero determine la región ni el tipo de plato. En la relación que guarda un ingrediente por fila, la pareja **(Cod_Plato, Ingrediente)** identifica cada participación.
+
+    Para representar las dependencias con atributos atómicos, el grafo muestra la estructura obtenida tras aplicar 1FN. Esta transformación se desarrolla en el paso 3.1.
+
+    **Grafo de dependencias**
+
+    ![Tras aplicar 1FN: RECETA tiene clave Cod_Plato y determina Nombre_Plato, Cocinero, Región y Tipo_Plato; RECETA_INGREDIENTE tiene clave Cod_Plato e Ingrediente y no contiene otros atributos.](ejercicios-clase/08-09-recetas-1fn.svg){ width=850 }
+
+    ### 3. Normalización paso a paso hasta 3FN
+
+    #### 3.1. Primera forma normal (1FN)
 
     La tabla no está en 1FN. Ingrediente1, Ingrediente2, Ingrediente3 e Ingrediente4 forman un **grupo repetitivo**: representan el mismo atributo en distintas columnas.
 
@@ -631,11 +804,7 @@ hide:
 
     Este proceso se aplica a los seis platos. No creamos columnas nuevas para añadir ingredientes y el nombre del plato no se repite en las filas de RECETA_INGREDIENTE.
 
-    **Grafo de dependencias tras aplicar 1FN**
-
-    ![Tras aplicar 1FN: RECETA tiene clave Cod_Plato y determina Nombre_Plato, Cocinero, Región y Tipo_Plato; RECETA_INGREDIENTE tiene clave Cod_Plato e Ingrediente y no contiene otros atributos.](ejercicios-clase/08-09-recetas-1fn.svg){ width=850 }
-
-    ### 2. Segunda forma normal (2FN)
+    #### 3.2. Segunda forma normal (2FN)
 
     Las dos tablas ya están en 2FN:
 
@@ -644,13 +813,25 @@ hide:
 
     No necesitamos otra descomposición. Si hubiéramos repetido los datos del plato junto a cada ingrediente en una sola tabla en 1FN, tendríamos que separarlos ahora, porque dependen solo de Cod_Plato.
 
-    ### 3. Tercera forma normal (3FN)
+    **Grafo tras aplicar 2FN**
+
+    Las tablas ya cumplían 2FN tras eliminar las columnas repetidas; este paso no cambia el grafo.
+
+    ![Grafo del ejercicio 9 tras aplicar segunda forma normal.](ejercicios-clase/08-09-recetas-2fn.svg){ width=900 }
+
+    #### 3.3. Tercera forma normal (3FN)
 
     Con las reglas utilizadas no hay dependencias transitivas entre atributos no clave. Las tablas obtenidas en el primer paso ya cumplen 3FN.
 
     No creamos una tabla INGREDIENTE independiente, porque este ejercicio no aporta atributos propios del ingrediente ni exige un catálogo separado.
 
-    **Modelo relacional final**
+    El grafo se mantiene: no quedan dependencias transitivas que requieran otra descomposición.
+
+    **Grafo tras aplicar 3FN**
+
+    ![Resultado en 3FN: RECETA y RECETA_INGREDIENTE, con su clave compuesta y referencia a RECETA.](ejercicios-clase/08-09-recetas-solucion.svg){ width=850 }
+
+    ### 4. Tablas resultantes con PK y FK
 
     - **RECETA** (<u>Cod_Plato</u>, Nombre_Plato, Cocinero, Región, Tipo_Plato).
         - PK: Cod_Plato.
@@ -658,11 +839,14 @@ hide:
         - PK: (Cod_Plato, Ingrediente).
         - FK: Cod_Plato → RECETA(Cod_Plato).
 
-    **Esquema visual de la solución**
-
-    ![Resultado en 3FN: RECETA y RECETA_INGREDIENTE, con su clave compuesta y referencia a RECETA.](ejercicios-clase/08-09-recetas-solucion.svg){ width=850 }
 
     El resultado es el mismo que en el ejercicio 8: cambia la forma inicial de guardar los ingredientes, pero no las tablas necesarias para representarlos.
+
+    ??? info "Ver diagrama relacional de la base de datos"
+
+        Cada recuadro representa una tabla con sus columnas. **PK** identifica los campos de la clave primaria y **FK** los de una clave externa. Las flechas conectan cada FK con la PK referenciada; los corchetes agrupan los campos de una clave compuesta. Si hay varios campos marcados como PK en una tabla, **todos juntos forman su clave primaria**.
+
+        ![Diagrama relacional de las tablas del ejercicio 9, con sus columnas, claves primarias y claves externas.](ejercicios-clase/09-diagrama-relacional.svg){ width=1200 }
 
 ??? success "Ejercicio 10. Recetas de cocina: ingredientes, cantidades y stock"
 
@@ -681,19 +865,29 @@ hide:
 
     </div>
 
-    **Clave y reglas utilizadas**
+    ### 1. Análisis de la tabla y clave primaria
 
-    Cod_Plato identifica cada plato en la tabla original. Para resolver el ejercicio suponemos que Ingrediente identifica un ingrediente del almacén y que **Stock es su existencia disponible en ese almacén en el momento considerado**, común a todas las recetas. Cantidad, en cambio, indica cuánto se necesita de ese ingrediente para preparar cada plato.
+    **Cod_Plato** identifica cada plato en la tabla original y es su clave principal. Los grupos Ingrediente, Cantidad y Stock se repiten en columnas numeradas, lo que incumple la 1FN. También se repite el stock cuando un ingrediente aparece en distintas recetas.
 
-    Las dependencias, una vez eliminados los grupos repetitivos, son:
+    Cantidad indica cuánto ingrediente necesita un plato; Stock es la existencia disponible del ingrediente en el almacén en el momento considerado.
+
+    ### 2. Dependencias funcionales y grafo
 
     - **Cod_Plato → Nombre_Plato, Cocinero, Región, Tipo_Plato**.
     - **Cod_Plato + Ingrediente → Cantidad**.
     - **Ingrediente → Stock**.
 
-    No se deducen reglas adicionales sobre el cocinero, la región o el tipo de plato a partir de las coincidencias de las filas.
+    Suponemos que Ingrediente identifica un ingrediente del almacén y que el stock es común a todas las recetas. Tras eliminar los grupos repetitivos, la clave de RECETA_INGREDIENTE es **(Cod_Plato, Ingrediente)**. No deducimos reglas adicionales sobre el cocinero, la región o el tipo de plato a partir de la muestra.
 
-    ### 1. Primera forma normal (1FN)
+    Para representar las dependencias con atributos atómicos, el grafo muestra la estructura obtenida tras aplicar 1FN. Esta transformación se desarrolla en el paso 3.1.
+
+    **Grafo de dependencias**
+
+    ![En 1FN: RECETA con clave Cod_Plato determina los datos del plato; en RECETA_INGREDIENTE la clave completa Cod_Plato e Ingrediente determina Cantidad, mientras que solo Ingrediente determina Stock.](ejercicios-clase/10-recetas-1fn.svg){ width=850 }
+
+    ### 3. Normalización paso a paso hasta 3FN
+
+    #### 3.1. Primera forma normal (1FN)
 
     Los grupos **Ingrediente1, Cantidad1, Stock1**, **Ingrediente2, Cantidad2, Stock2**, etc., se repiten. Convertimos cada grupo completo en una fila, manteniendo juntos el ingrediente, su cantidad y su stock.
 
@@ -715,21 +909,29 @@ hide:
 
     La cantidad y el stock son medidas con su unidad indicada; para este ejercicio las tratamos como valores atómicos.
 
-    **Grafo de dependencias tras aplicar 1FN**
-
-    ![En 1FN: RECETA con clave Cod_Plato determina los datos del plato; en RECETA_INGREDIENTE la clave completa Cod_Plato e Ingrediente determina Cantidad, mientras que solo Ingrediente determina Stock.](ejercicios-clase/10-recetas-1fn.svg){ width=850 }
-
-    ### 2. Segunda forma normal (2FN)
+    #### 3.2. Segunda forma normal (2FN)
 
     RECETA ya está en 2FN. RECETA_INGREDIENTE no la cumple: **Ingrediente → Stock** es una dependencia parcial respecto a la clave **(Cod_Plato, Ingrediente)**. El stock del tomate, por ejemplo, se repite en la paella, la ensalada y el gazpacho.
 
     Separamos el stock en **INGREDIENTE (Ingrediente, Stock)**. En RECETA_INGREDIENTE conservamos Cantidad, que depende de la clave completa: la paella necesita 50g de tomate, la ensalada 80g y el gazpacho 500g.
 
-    ### 3. Tercera forma normal (3FN)
+    **Grafo tras aplicar 2FN**
+
+    La separación de Stock elimina la dependencia parcial. Estas tablas ya cumplen también la 3FN.
+
+    ![Grafo del ejercicio 10 tras aplicar segunda forma normal.](ejercicios-clase/10-recetas-2fn.svg){ width=900 }
+
+    #### 3.3. Tercera forma normal (3FN)
 
     Con las reglas indicadas, las tres tablas resultantes ya están en 3FN: no quedan dependencias transitivas entre atributos no clave. No es necesaria otra descomposición.
 
-    **Modelo relacional final**
+    El grafo se mantiene: no quedan dependencias transitivas que requieran otra descomposición.
+
+    **Grafo tras aplicar 3FN**
+
+    ![Resultado en 3FN: RECETA guarda los datos de cada plato; INGREDIENTE guarda el stock una sola vez; RECETA_INGREDIENTE tiene clave Cod_Plato e Ingrediente y guarda la cantidad necesaria para cada receta, con referencias a ambas tablas.](ejercicios-clase/10-recetas-solucion.svg){ width=850 }
+
+    ### 4. Tablas resultantes con PK y FK
 
     - **RECETA** (<u>Cod_Plato</u>, Nombre_Plato, Cocinero, Región, Tipo_Plato).
         - PK: Cod_Plato.
@@ -740,8 +942,12 @@ hide:
         - FK: Cod_Plato → RECETA(Cod_Plato).
         - FK: Ingrediente → INGREDIENTE(Ingrediente).
 
-    **Esquema visual de la solución**
-
-    ![Resultado en 3FN: RECETA guarda los datos de cada plato; INGREDIENTE guarda el stock una sola vez; RECETA_INGREDIENTE tiene clave Cod_Plato e Ingrediente y guarda la cantidad necesaria para cada receta, con referencias a ambas tablas.](ejercicios-clase/10-recetas-solucion.svg){ width=850 }
 
     El stock se actualiza en una sola fila de INGREDIENTE, mientras que cada receta conserva su cantidad. Podemos reconstruir los datos uniendo las tablas por Cod_Plato e Ingrediente. Si el stock se gestionara por almacén o fecha, habría que incorporar esos datos al diseño; esa situación no forma parte del ejercicio.
+
+    ??? info "Ver diagrama relacional de la base de datos"
+
+        Cada recuadro representa una tabla con sus columnas. **PK** identifica los campos de la clave primaria y **FK** los de una clave externa. Las flechas conectan cada FK con la PK referenciada; los corchetes agrupan los campos de una clave compuesta. Si hay varios campos marcados como PK en una tabla, **todos juntos forman su clave primaria**.
+
+        ![Diagrama relacional de las tablas del ejercicio 10, con sus columnas, claves primarias y claves externas.](ejercicios-clase/10-diagrama-relacional.svg){ width=1200 }
+

@@ -57,7 +57,6 @@ El grafo representa las dependencias entre los datos de una única tabla **PEDID
 
 Se dispone de la siguiente tabla no normalizada, que almacena información sobre las líneas de pedidos de una Empresa:
 
-Normaliza hasta **3FN** y presenta las tablas resultantes en el modelo relacional, indicando sus claves primarias (PK) y foráneas (FK).
 
 
 | **id_orden** | **fecha** | **id_cliente** | **nom_cliente** | **ciudad** | **num_art** | **nom_art** | **cantidad** | **precio_art** |
@@ -70,6 +69,13 @@ Normaliza hasta **3FN** y presenta las tablas resultantes en el modelo relaciona
 | 2303 | 27/02/11 | 110 | Pedro | Maracay | 3141 | Funda | 2 | 10,00 |
 
 </div>
+
+**Tareas:**
+
+1. Analiza la tabla y determina su clave primaria.
+2. Identifica las dependencias funcionales y elabora su grafo. 
+3. Normaliza paso a paso hasta 3FN.
+4. Presenta las tablas resultantes con sus PK y FK.
 
 
 ## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 4. Exposiciones</span></span>
@@ -90,7 +96,12 @@ La tabla EXPOSICIONES contiene información sobre las exposiciones, las galería
 
 La clave principal es (codexp, codobr): una exposición puede incluir varias obras y una obra puede participar en distintas exposiciones.
 
+**Tareas:**
 
+1. Analiza la tabla y determina su clave primaria.
+2. Identifica las dependencias funcionales y elabora su grafo. 
+3. Normaliza paso a paso hasta 3FN.
+4. Presenta las tablas resultantes con sus PK y FK.
 
 ## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 5. Trabajador</span></span>
 
@@ -109,7 +120,7 @@ Se dispone de la siguiente tabla no normalizada, que almacena información sobre
 **Tareas:**
 
 1. Analiza la tabla y determina su clave primaria.
-2. Identifica las dependencias funcionales y elabora su grafo. Explicita las reglas que asumas: los valores de una muestra no bastan para establecer una dependencia.
+2. Identifica las dependencias funcionales y elabora su grafo. 
 3. Normaliza paso a paso hasta 3FN.
 4. Presenta las tablas resultantes con sus PK y FK.
 
@@ -140,10 +151,10 @@ Se conocen las siguientes reglas del dominio:
 
 **Tareas:**
 
-1. Determina la clave primaria de la tabla original y justifica tu elección.
-2. Identifica las dependencias funcionales y las posibles claves candidatas.
-3. Aplica la normalización hasta 3FN.
-4. Presenta el esquema final con sus PK y FK.
+1. Analiza la tabla y determina su clave primaria.
+2. Identifica las dependencias funcionales y elabora su grafo. 
+3. Normaliza paso a paso hasta 3FN.
+4. Presenta las tablas resultantes con sus PK y FK.
 
 ## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 7. Matrículas</span></span>
 
@@ -163,14 +174,16 @@ Una universidad utiliza una única tabla para registrar los alumnos y los cursos
 
 </div>
 
+Para interpretar el ejercicio, **idmatricula identifica al alumno**, tal como muestran las filas del enunciado; **codigo identifica al curso**.
+
 **Tareas:**
 
-1. Analiza los problemas de diseño e identifica las dependencias funcionales.
-2. Determina la clave primaria y justifica tu elección.
-3. Normaliza paso a paso hasta 3FN. Separa la dirección y la localidad para poder tratarlas como datos independientes.
-4. Presenta las tablas resultantes con sus atributos, PK y FK.
+1. Analiza la tabla y determina su clave primaria.
+2. Identifica las dependencias funcionales y elabora su grafo. 
+3. Normaliza paso a paso hasta 3FN.
+4. Presenta las tablas resultantes con sus PK y FK.
 
-Para interpretar el ejercicio, **idmatricula identifica al alumno**, tal como muestran las filas del enunciado; **codigo identifica al curso**. Explicita cualquier otra regla que necesites asumir.
+
 
 ## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 8. Recetas de cocina: ingredientes en una celda</span></span>
 
@@ -193,10 +206,10 @@ Los ingredientes de cada plato se guardan juntos en una misma celda.
 
 **Tareas:**
 
-1. Analiza la tabla: indica los problemas de diseño e identifica las dependencias funcionales según las reglas utilizadas.
-2. Determina la clave primaria y justifica tu elección.
+1. Analiza la tabla y determina su clave primaria.
+2. Identifica las dependencias funcionales y elabora su grafo. 
 3. Normaliza paso a paso hasta 3FN.
-4. Entrega el grafo de dependencias normalizado y las tablas del modelo relacional con sus atributos, PK y FK.
+4. Presenta las tablas resultantes con sus PK y FK.
 
 ## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 9. Recetas de cocina: una columna por ingrediente</span></span>
 
@@ -219,16 +232,15 @@ Se utiliza una columna para cada ingrediente: Ingrediente1, Ingrediente2, Ingred
 
 **Tareas:**
 
-1. Analiza la tabla: indica los problemas de diseño e identifica las dependencias funcionales según las reglas utilizadas.
-2. Determina la clave primaria y justifica tu elección.
+1. Analiza la tabla y determina su clave primaria.
+2. Identifica las dependencias funcionales y elabora su grafo. 
 3. Normaliza paso a paso hasta 3FN.
-4. Entrega el grafo de dependencias normalizado y las tablas del modelo relacional con sus atributos, PK y FK.
+4. Presenta las tablas resultantes con sus PK y FK.
 
 ## <span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 10. Recetas de cocina: ingredientes, cantidades y stock</span></span>
 
 El recetario incorpora también el **stock disponible de cada ingrediente**. Cada grupo numerado contiene el ingrediente, la cantidad necesaria para el plato y su stock disponible.
 
-**RECETAS_COCINA**
 
 <div class="normalizacion-exercise-table recetas-table" markdown>
 
@@ -245,7 +257,7 @@ El recetario incorpora también el **stock disponible de cada ingrediente**. Cad
 
 **Tareas:**
 
-1. Analiza la tabla: indica los problemas de diseño e identifica las dependencias funcionales según las reglas utilizadas.
-2. Determina la clave primaria y justifica tu elección.
+1. Analiza la tabla y determina su clave primaria.
+2. Identifica las dependencias funcionales y elabora su grafo. 
 3. Normaliza paso a paso hasta 3FN.
-4. Entrega el grafo de dependencias normalizado y las tablas del modelo relacional con sus atributos, PK y FK.
+4. Presenta las tablas resultantes con sus PK y FK.
