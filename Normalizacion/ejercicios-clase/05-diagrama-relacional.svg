@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1350" height="410" viewBox="0 0 1350 410" role="img" aria-labelledby="title desc">
+<title id="title">Ejercicio 5: diagrama relacional de las tablas</title>
+<desc id="desc">Tablas PUESTO, TRABAJADOR, EMAIL_TRABAJADOR. PK indica clave primaria y FK clave externa. Las flechas van desde la clave externa a la clave primaria referenciada; los corchetes agrupan las claves compuestas.</desc>
+<defs><marker id="fk-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#2476b4"/></marker></defs>
+<rect width="1350" height="410" rx="12" fill="#fff"/>
+<g font-family="Segoe UI,Arial,sans-serif" fill="#173c37">
+<text x="675.0" y="35" text-anchor="middle" font-size="26" font-weight="700">Ejercicio 5 · Diagrama relacional</text>
+<text x="675.0" y="67" text-anchor="middle" font-size="18">PK: clave primaria · FK: clave externa · Flecha: FK → PK</text>
+<path d="M495 304L390 196" fill="none" stroke="#2476b4" stroke-width="2.5" marker-end="url(#fk-arrow)"/>
+<path d="M945 276L840 196" fill="none" stroke="#2476b4" stroke-width="2.5" marker-end="url(#fk-arrow)"/>
+<rect x="45" y="130" width="345" height="120" rx="8" fill="white" stroke="#537c72" stroke-width="2"/>
+<path d="M53 130H382Q390 130 390 138V178H45V138Q45 130 53 130" fill="#013e37"/>
+<text x="217.5" y="161" text-anchor="middle" font-size="20" font-weight="700" fill="white">PUESTO</text>
+<rect x="46" y="178" width="343" height="36" fill="#e8f3ed"/>
+<line x1="45" y1="178" x2="390" y2="178" stroke="#d1e0db"/>
+<text x="57" y="202" font-size="14" font-weight="700" fill="#2476b4">PK</text><text x="136" y="203" font-size="19" font-weight="700">puesto</text>
+<line x1="45" y1="214" x2="390" y2="214" stroke="#d1e0db"/>
+<text x="57" y="238" font-size="14" font-weight="700" fill="#2476b4"></text><text x="136" y="239" font-size="19">salario</text>
+<rect x="495" y="130" width="345" height="192" rx="8" fill="white" stroke="#537c72" stroke-width="2"/>
+<path d="M503 130H832Q840 130 840 138V178H495V138Q495 130 503 130" fill="#013e37"/>
+<text x="667.5" y="161" text-anchor="middle" font-size="20" font-weight="700" fill="white">TRABAJADOR</text>
+<rect x="496" y="178" width="343" height="36" fill="#e8f3ed"/>
+<line x1="495" y1="178" x2="840" y2="178" stroke="#d1e0db"/>
+<text x="507" y="202" font-size="14" font-weight="700" fill="#2476b4">PK</text><text x="586" y="203" font-size="19" font-weight="700">nss</text>
+<line x1="495" y1="214" x2="840" y2="214" stroke="#d1e0db"/>
+<text x="507" y="238" font-size="14" font-weight="700" fill="#2476b4"></text><text x="586" y="239" font-size="19">nombre</text>
+<line x1="495" y1="250" x2="840" y2="250" stroke="#d1e0db"/>
+<text x="507" y="274" font-size="14" font-weight="700" fill="#2476b4"></text><text x="586" y="275" font-size="19">apellidos</text>
+<line x1="495" y1="286" x2="840" y2="286" stroke="#d1e0db"/>
+<text x="507" y="310" font-size="14" font-weight="700" fill="#2476b4">FK</text><text x="586" y="311" font-size="19">puesto</text>
+<rect x="945" y="210" width="345" height="120" rx="8" fill="white" stroke="#537c72" stroke-width="2"/>
+<path d="M953 210H1282Q1290 210 1290 218V258H945V218Q945 210 953 210" fill="#013e37"/>
+<text x="1117.5" y="241" text-anchor="middle" font-size="20" font-weight="700" fill="white">EMAIL_TRABAJADOR</text>
+<rect x="946" y="258" width="343" height="36" fill="#e8f3ed"/>
+<line x1="945" y1="258" x2="1290" y2="258" stroke="#d1e0db"/>
+<text x="957" y="282" font-size="14" font-weight="700" fill="#2476b4">PK / FK</text><text x="1036" y="283" font-size="19" font-weight="700">nss</text>
+<rect x="946" y="294" width="343" height="36" fill="#e8f3ed"/>
+<line x1="945" y1="294" x2="1290" y2="294" stroke="#d1e0db"/>
+<text x="957" y="318" font-size="14" font-weight="700" fill="#2476b4">PK</text><text x="1036" y="319" font-size="19" font-weight="700">email</text>
+</g></svg>

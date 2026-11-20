@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1060" height="892" viewBox="0 0 1060 892" role="img" aria-labelledby="title desc">
+<title id="title">Matrículas universitarias: grafo en 2FN</title>
+<desc id="desc">Tablas normalizadas con claves primarias en recuadros azules, dependencias funcionales mediante flechas y claves externas al pie de cada tabla.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#2f4fb0" /></marker></defs>
+<rect width="1060" height="892" rx="16" fill="white" />
+<g font-family="Segoe UI,Arial,sans-serif" text-anchor="middle" fill="#172554">
+<text x="530" y="36" font-size="25" font-weight="700">Matrículas universitarias · Grafo en 2FN</text>
+<text x="530" y="65" font-size="17">Recuadro azul: clave primaria · Flechas: dependencias funcionales</text>
+<text x="530" y="114" font-size="22" font-weight="700">ALUMNO</text>
+<rect x="44" y="223.0" width="320" height="86" rx="10" fill="#e9eff9" stroke="#2f4fb0" stroke-width="2.5" />
+<text x="204" y="274.0" font-size="24" font-weight="700">idmatricula</text>
+<text x="588.0" y="159" font-size="21" text-anchor="start">nombre</text><path d="M364 238.05 L574 152" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)" />
+<text x="588.0" y="203" font-size="21" text-anchor="start">apellido</text><path d="M364 249.23 L574 196" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)" />
+<text x="588.0" y="247" font-size="21" text-anchor="start">direccion</text><path d="M364 260.41 L574 240" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)" />
+<text x="588.0" y="291" font-size="21" text-anchor="start">localidad</text><path d="M364 271.59 L574 284" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)" />
+<text x="588.0" y="335" font-size="21" text-anchor="start">telefono</text><path d="M364 282.77 L574 328" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)" />
+<text x="588.0" y="379" font-size="21" text-anchor="start">carrera</text><path d="M364 293.95 L574 372" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)" />
+<text x="530" y="452" font-size="17">idmatricula identifica al alumno según el enunciado.</text>
+<text x="530" y="518" font-size="22" font-weight="700">CURSO</text>
+<rect x="44" y="533.0" width="320" height="86" rx="10" fill="#e9eff9" stroke="#2f4fb0" stroke-width="2.5" />
+<text x="204" y="584.0" font-size="24" font-weight="700">codigo</text>
+<text x="588.0" y="563" font-size="21" text-anchor="start">curso</text><path d="M364 576 L574 556" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)" />
+<text x="530" y="654" font-size="17">El código identifica al curso.</text>
+<text x="530" y="720" font-size="22" font-weight="700">MATRICULA</text>
+<rect x="44" y="735.0" width="320" height="86" rx="10" fill="#e9eff9" stroke="#2f4fb0" stroke-width="2.5" />
+<text x="204" y="772.0" font-size="24" font-weight="700">idmatricula (FK)</text>
+<text x="204" y="800.0" font-size="24" font-weight="700">codigo (FK)</text>
+<text x="735" y="778.0" font-size="20">Sin atributos adicionales</text>
+<text x="530" y="832" font-size="17">FK: idmatricula → ALUMNO(idmatricula)</text>
+<text x="530" y="856" font-size="17">FK: codigo → CURSO(codigo)</text>
+</g></svg>

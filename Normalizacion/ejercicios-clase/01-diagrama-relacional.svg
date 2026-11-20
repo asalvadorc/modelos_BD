@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="966" viewBox="0 0 900 966" role="img" aria-labelledby="title desc">
+<title id="title">Ejercicio 1: diagrama relacional de las tablas</title>
+<desc id="desc">Tablas R1, R2, R3, R4, R5. PK indica clave primaria y FK clave externa. Las flechas van desde la clave externa a la clave primaria referenciada; los corchetes agrupan las claves compuestas.</desc>
+<defs><marker id="fk-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#2476b4"/></marker></defs>
+<rect width="900" height="966" rx="12" fill="#fff"/>
+<g font-family="Segoe UI,Arial,sans-serif" fill="#173c37">
+<text x="450.0" y="35" text-anchor="middle" font-size="26" font-weight="700">Ejercicio 1 · Diagrama relacional</text>
+<text x="450.0" y="67" text-anchor="middle" font-size="18">PK: clave primaria · FK: clave externa · Flecha: FK → PK</text>
+<path d="M495 426L390 166" fill="none" stroke="#2476b4" stroke-width="2.5" marker-end="url(#fk-arrow)"/>
+<path d="M495 462H482V498H495" fill="none" stroke="#2476b4" stroke-width="2"/>
+<path d="M390 366H403V402H390" fill="none" stroke="#2476b4" stroke-width="2"/>
+<path d="M482 480.0L403 384.0" fill="none" stroke="#2476b4" stroke-width="2.5" marker-end="url(#fk-arrow)"/>
+<path d="M495 498L390 596" fill="none" stroke="#2476b4" stroke-width="2.5" marker-end="url(#fk-arrow)"/>
+<path d="M495 534L390 796" fill="none" stroke="#2476b4" stroke-width="2.5" marker-end="url(#fk-arrow)"/>
+<rect x="495" y="360" width="345" height="228" rx="8" fill="white" stroke="#537c72" stroke-width="2"/>
+<path d="M503 360H832Q840 360 840 368V408H495V368Q495 360 503 360" fill="#013e37"/>
+<text x="667.5" y="391" text-anchor="middle" font-size="20" font-weight="700" fill="white">R1</text>
+<rect x="496" y="408" width="343" height="36" fill="#e8f3ed"/>
+<line x1="495" y1="408" x2="840" y2="408" stroke="#d1e0db"/>
+<text x="507" y="432" font-size="14" font-weight="700" fill="#2476b4">PK / FK</text><text x="586" y="433" font-size="19" font-weight="700">A</text>
+<rect x="496" y="444" width="343" height="36" fill="#e8f3ed"/>
+<line x1="495" y1="444" x2="840" y2="444" stroke="#d1e0db"/>
+<text x="507" y="468" font-size="14" font-weight="700" fill="#2476b4">PK / FK</text><text x="586" y="469" font-size="19" font-weight="700">B</text>
+<rect x="496" y="480" width="343" height="36" fill="#e8f3ed"/>
+<line x1="495" y1="480" x2="840" y2="480" stroke="#d1e0db"/>
+<text x="507" y="504" font-size="14" font-weight="700" fill="#2476b4">PK / FK</text><text x="586" y="505" font-size="19" font-weight="700">O</text>
+<line x1="495" y1="516" x2="840" y2="516" stroke="#d1e0db"/>
+<text x="507" y="540" font-size="14" font-weight="700" fill="#2476b4">FK</text><text x="586" y="541" font-size="19">M</text>
+<line x1="495" y1="552" x2="840" y2="552" stroke="#d1e0db"/>
+<text x="507" y="576" font-size="14" font-weight="700" fill="#2476b4"></text><text x="586" y="577" font-size="19">S</text>
+<rect x="45" y="100" width="345" height="120" rx="8" fill="white" stroke="#537c72" stroke-width="2"/>
+<path d="M53 100H382Q390 100 390 108V148H45V108Q45 100 53 100" fill="#013e37"/>
+<text x="217.5" y="131" text-anchor="middle" font-size="20" font-weight="700" fill="white">R2</text>
+<rect x="46" y="148" width="343" height="36" fill="#e8f3ed"/>
+<line x1="45" y1="148" x2="390" y2="148" stroke="#d1e0db"/>
+<text x="57" y="172" font-size="14" font-weight="700" fill="#2476b4">PK</text><text x="136" y="173" font-size="19" font-weight="700">A</text>
+<line x1="45" y1="184" x2="390" y2="184" stroke="#d1e0db"/>
+<text x="57" y="208" font-size="14" font-weight="700" fill="#2476b4"></text><text x="136" y="209" font-size="19">Q</text>
+<rect x="45" y="530" width="345" height="120" rx="8" fill="white" stroke="#537c72" stroke-width="2"/>
+<path d="M53 530H382Q390 530 390 538V578H45V538Q45 530 53 530" fill="#013e37"/>
+<text x="217.5" y="561" text-anchor="middle" font-size="20" font-weight="700" fill="white">R3</text>
+<rect x="46" y="578" width="343" height="36" fill="#e8f3ed"/>
+<line x1="45" y1="578" x2="390" y2="578" stroke="#d1e0db"/>
+<text x="57" y="602" font-size="14" font-weight="700" fill="#2476b4">PK</text><text x="136" y="603" font-size="19" font-weight="700">O</text>
+<line x1="45" y1="614" x2="390" y2="614" stroke="#d1e0db"/>
+<text x="57" y="638" font-size="14" font-weight="700" fill="#2476b4"></text><text x="136" y="639" font-size="19">C</text>
+<rect x="45" y="300" width="345" height="156" rx="8" fill="white" stroke="#537c72" stroke-width="2"/>
+<path d="M53 300H382Q390 300 390 308V348H45V308Q45 300 53 300" fill="#013e37"/>
+<text x="217.5" y="331" text-anchor="middle" font-size="20" font-weight="700" fill="white">R4</text>
+<rect x="46" y="348" width="343" height="36" fill="#e8f3ed"/>
+<line x1="45" y1="348" x2="390" y2="348" stroke="#d1e0db"/>
+<text x="57" y="372" font-size="14" font-weight="700" fill="#2476b4">PK</text><text x="136" y="373" font-size="19" font-weight="700">B</text>
+<rect x="46" y="384" width="343" height="36" fill="#e8f3ed"/>
+<line x1="45" y1="384" x2="390" y2="384" stroke="#d1e0db"/>
+<text x="57" y="408" font-size="14" font-weight="700" fill="#2476b4">PK</text><text x="136" y="409" font-size="19" font-weight="700">O</text>
+<line x1="45" y1="420" x2="390" y2="420" stroke="#d1e0db"/>
+<text x="57" y="444" font-size="14" font-weight="700" fill="#2476b4"></text><text x="136" y="445" font-size="19">R</text>
+<rect x="45" y="730" width="345" height="156" rx="8" fill="white" stroke="#537c72" stroke-width="2"/>
+<path d="M53 730H382Q390 730 390 738V778H45V738Q45 730 53 730" fill="#013e37"/>
+<text x="217.5" y="761" text-anchor="middle" font-size="20" font-weight="700" fill="white">R5</text>
+<rect x="46" y="778" width="343" height="36" fill="#e8f3ed"/>
+<line x1="45" y1="778" x2="390" y2="778" stroke="#d1e0db"/>
+<text x="57" y="802" font-size="14" font-weight="700" fill="#2476b4">PK</text><text x="136" y="803" font-size="19" font-weight="700">M</text>
+<line x1="45" y1="814" x2="390" y2="814" stroke="#d1e0db"/>
+<text x="57" y="838" font-size="14" font-weight="700" fill="#2476b4"></text><text x="136" y="839" font-size="19">N</text>
+<line x1="45" y1="850" x2="390" y2="850" stroke="#d1e0db"/>
+<text x="57" y="874" font-size="14" font-weight="700" fill="#2476b4"></text><text x="136" y="875" font-size="19">P</text>
+</g></svg>

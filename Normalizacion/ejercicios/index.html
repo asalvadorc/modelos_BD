@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../img/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
     
     
       
@@ -1990,7 +1990,6 @@ TRABAJA(dni, num_proyecto, horas)
 <h2 id="ejercicio-3-lineas-de-pedido"><span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 3. Líneas de pedido</span></span></h2>
 <div class="normalizacion-exercise-table">
 <p>Se dispone de la siguiente tabla no normalizada, que almacena información sobre las líneas de pedidos de una Empresa:</p>
-<p>Normaliza hasta <strong>3FN</strong> y presenta las tablas resultantes en el modelo relacional, indicando sus claves primarias (PK) y foráneas (FK).</p>
 <table>
 <thead>
 <tr>
@@ -2075,6 +2074,13 @@ TRABAJA(dni, num_proyecto, horas)
 </tbody>
 </table>
 </div>
+<p><strong>Tareas:</strong></p>
+<ol>
+<li>Analiza la tabla y determina su clave primaria.</li>
+<li>Identifica las dependencias funcionales y elabora su grafo. </li>
+<li>Normaliza paso a paso hasta 3FN.</li>
+<li>Presenta las tablas resultantes con sus PK y FK.</li>
+</ol>
 <h2 id="ejercicio-4-exposiciones"><span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 4. Exposiciones</span></span></h2>
 <p>La tabla EXPOSICIONES contiene información sobre las exposiciones, las galerías, las obras expuestas y sus autores.  Normaliza paso a paso hasta 3FN.</p>
 <div class="normalizacion-exercise-table exposiciones-table">
@@ -2161,6 +2167,13 @@ TRABAJA(dni, num_proyecto, horas)
 </table>
 </div>
 <p>La clave principal es (codexp, codobr): una exposición puede incluir varias obras y una obra puede participar en distintas exposiciones.</p>
+<p><strong>Tareas:</strong></p>
+<ol>
+<li>Analiza la tabla y determina su clave primaria.</li>
+<li>Identifica las dependencias funcionales y elabora su grafo. </li>
+<li>Normaliza paso a paso hasta 3FN.</li>
+<li>Presenta las tablas resultantes con sus PK y FK.</li>
+</ol>
 <h2 id="ejercicio-5-trabajador"><span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 5. Trabajador</span></span></h2>
 <p>Se dispone de la siguiente tabla no normalizada, que almacena información sobre los trabajadores de una empresa:</p>
 <div class="normalizacion-exercise-table">
@@ -2206,7 +2219,7 @@ TRABAJA(dni, num_proyecto, horas)
 <p><strong>Tareas:</strong></p>
 <ol>
 <li>Analiza la tabla y determina su clave primaria.</li>
-<li>Identifica las dependencias funcionales y elabora su grafo. Explicita las reglas que asumas: los valores de una muestra no bastan para establecer una dependencia.</li>
+<li>Identifica las dependencias funcionales y elabora su grafo. </li>
 <li>Normaliza paso a paso hasta 3FN.</li>
 <li>Presenta las tablas resultantes con sus PK y FK.</li>
 </ol>
@@ -2301,10 +2314,10 @@ TRABAJA(dni, num_proyecto, horas)
 </ul>
 <p><strong>Tareas:</strong></p>
 <ol>
-<li>Determina la clave primaria de la tabla original y justifica tu elección.</li>
-<li>Identifica las dependencias funcionales y las posibles claves candidatas.</li>
-<li>Aplica la normalización hasta 3FN.</li>
-<li>Presenta el esquema final con sus PK y FK.</li>
+<li>Analiza la tabla y determina su clave primaria.</li>
+<li>Identifica las dependencias funcionales y elabora su grafo. </li>
+<li>Normaliza paso a paso hasta 3FN.</li>
+<li>Presenta las tablas resultantes con sus PK y FK.</li>
 </ol>
 <h2 id="ejercicio-7-matriculas"><span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 7. Matrículas</span></span></h2>
 <p>Una universidad utiliza una única tabla para registrar los alumnos y los cursos en los que se matriculan. El diseño actual genera redundancias y posibles errores de actualización.</p>
@@ -2377,14 +2390,14 @@ TRABAJA(dni, num_proyecto, horas)
 </tbody>
 </table>
 </div>
+<p>Para interpretar el ejercicio, <strong>idmatricula identifica al alumno</strong>, tal como muestran las filas del enunciado; <strong>codigo identifica al curso</strong>.</p>
 <p><strong>Tareas:</strong></p>
 <ol>
-<li>Analiza los problemas de diseño e identifica las dependencias funcionales.</li>
-<li>Determina la clave primaria y justifica tu elección.</li>
-<li>Normaliza paso a paso hasta 3FN. Separa la dirección y la localidad para poder tratarlas como datos independientes.</li>
-<li>Presenta las tablas resultantes con sus atributos, PK y FK.</li>
+<li>Analiza la tabla y determina su clave primaria.</li>
+<li>Identifica las dependencias funcionales y elabora su grafo. </li>
+<li>Normaliza paso a paso hasta 3FN.</li>
+<li>Presenta las tablas resultantes con sus PK y FK.</li>
 </ol>
-<p>Para interpretar el ejercicio, <strong>idmatricula identifica al alumno</strong>, tal como muestran las filas del enunciado; <strong>codigo identifica al curso</strong>. Explicita cualquier otra regla que necesites asumir.</p>
 <h2 id="ejercicio-8-recetas-de-cocina-ingredientes-en-una-celda"><span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 8. Recetas de cocina: ingredientes en una celda</span></span></h2>
 <p>Una escuela de cocina está desarrollando una base de datos para almacenar los platos de su recetario. Toda la información se registra en una única tabla <strong>RECETAS_COCINA</strong>: código y nombre del plato, cocinero, región, tipo de plato e ingredientes.</p>
 <p>Los ingredientes de cada plato se guardan juntos en una misma celda.</p>
@@ -2454,10 +2467,10 @@ TRABAJA(dni, num_proyecto, horas)
 </div>
 <p><strong>Tareas:</strong></p>
 <ol>
-<li>Analiza la tabla: indica los problemas de diseño e identifica las dependencias funcionales según las reglas utilizadas.</li>
-<li>Determina la clave primaria y justifica tu elección.</li>
+<li>Analiza la tabla y determina su clave primaria.</li>
+<li>Identifica las dependencias funcionales y elabora su grafo. </li>
 <li>Normaliza paso a paso hasta 3FN.</li>
-<li>Entrega el grafo de dependencias normalizado y las tablas del modelo relacional con sus atributos, PK y FK.</li>
+<li>Presenta las tablas resultantes con sus PK y FK.</li>
 </ol>
 <h2 id="ejercicio-9-recetas-de-cocina-una-columna-por-ingrediente"><span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 9. Recetas de cocina: una columna por ingrediente</span></span></h2>
 <p>Una escuela de cocina está desarrollando una base de datos para almacenar los platos de su recetario. Toda la información se registra en una única tabla <strong>RECETAS_COCINA</strong>: código y nombre del plato, cocinero, región, tipo de plato e ingredientes.</p>
@@ -2549,14 +2562,13 @@ TRABAJA(dni, num_proyecto, horas)
 </div>
 <p><strong>Tareas:</strong></p>
 <ol>
-<li>Analiza la tabla: indica los problemas de diseño e identifica las dependencias funcionales según las reglas utilizadas.</li>
-<li>Determina la clave primaria y justifica tu elección.</li>
+<li>Analiza la tabla y determina su clave primaria.</li>
+<li>Identifica las dependencias funcionales y elabora su grafo. </li>
 <li>Normaliza paso a paso hasta 3FN.</li>
-<li>Entrega el grafo de dependencias normalizado y las tablas del modelo relacional con sus atributos, PK y FK.</li>
+<li>Presenta las tablas resultantes con sus PK y FK.</li>
 </ol>
 <h2 id="ejercicio-10-recetas-de-cocina-ingredientes-cantidades-y-stock"><span class="exercise-title"><span class="exercise-icon">📝</span><span>Ejercicio 10. Recetas de cocina: ingredientes, cantidades y stock</span></span></h2>
 <p>El recetario incorpora también el <strong>stock disponible de cada ingrediente</strong>. Cada grupo numerado contiene el ingrediente, la cantidad necesaria para el plato y su stock disponible.</p>
-<p><strong>RECETAS_COCINA</strong></p>
 <div class="normalizacion-exercise-table recetas-table">
 <table>
 <thead>
@@ -2700,10 +2712,10 @@ TRABAJA(dni, num_proyecto, horas)
 </div>
 <p><strong>Tareas:</strong></p>
 <ol>
-<li>Analiza la tabla: indica los problemas de diseño e identifica las dependencias funcionales según las reglas utilizadas.</li>
-<li>Determina la clave primaria y justifica tu elección.</li>
+<li>Analiza la tabla y determina su clave primaria.</li>
+<li>Identifica las dependencias funcionales y elabora su grafo. </li>
 <li>Normaliza paso a paso hasta 3FN.</li>
-<li>Entrega el grafo de dependencias normalizado y las tablas del modelo relacional con sus atributos, PK y FK.</li>
+<li>Presenta las tablas resultantes con sus PK y FK.</li>
 </ol>
 
 

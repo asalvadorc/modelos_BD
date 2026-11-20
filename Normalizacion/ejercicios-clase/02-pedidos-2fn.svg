@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1250" height="762" viewBox="0 0 1250 762" role="img" aria-labelledby="title desc">
+<title id="title">Pedidos · Grafo en 2FN</title><desc id="desc">Sin dependencias parciales; Cantidad y Categoria siguen dependiendo de atributos no clave. Las claves están en recuadros. Cada flecha es independiente y los atributos de destino no tienen recuadro.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#2f4fb0"/></marker></defs>
+<rect width="1250" height="762" rx="14" fill="white"/><g font-family="Segoe UI,Arial,sans-serif" fill="#172554">
+<text x="625" y="36" text-anchor="middle" font-size="26" font-weight="700">Pedidos · Grafo en 2FN</text>
+<text x="625" y="68" text-anchor="middle" font-size="18">Sin dependencias parciales; Cantidad y Categoria siguen dependiendo de atributos no clave.</text>
+<text x="625" y="127" text-anchor="middle" font-size="23" font-weight="700">PEDIDOS</text>
+<rect x="40" y="152" width="315" height="145" rx="12" fill="#e9eff9" stroke="#2f4fb0" stroke-width="2.5"/>
+<text x="197.5" y="202.5" text-anchor="middle" font-size="23" font-weight="700">IDcliente</text>
+<text x="197.5" y="232.5" text-anchor="middle" font-size="23" font-weight="700">Región</text>
+<text x="197.5" y="262.5" text-anchor="middle" font-size="23" font-weight="700">IDproducto</text>
+<text x="530" y="193.0" text-anchor="start" font-size="21">IDpedido</text>
+<path d="M355 214.5 L515 186" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="965" y="193.0" text-anchor="start" font-size="21">Cantidad</text>
+<path d="M630 186 L950 186" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="530" y="258.0" text-anchor="start" font-size="21">FechaPedido</text>
+<path d="M355 234.5 L515 251" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="625" y="363" text-anchor="middle" font-size="23" font-weight="700">PRODUCTO</text>
+<rect x="40" y="403" width="315" height="115" rx="12" fill="#e9eff9" stroke="#2f4fb0" stroke-width="2.5"/>
+<text x="197.5" y="453.5" text-anchor="middle" font-size="23" font-weight="700">Región</text>
+<text x="197.5" y="483.5" text-anchor="middle" font-size="23" font-weight="700">IDproducto</text>
+<text x="530" y="429.0" text-anchor="start" font-size="21">NombreProducto</text>
+<path d="M355 450.5 L515 422" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="965" y="429.0" text-anchor="start" font-size="21">Categoria</text>
+<path d="M696 422 L950 422" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="530" y="494.0" text-anchor="start" font-size="21">ImpuestoRegion</text>
+<path d="M355 470.5 L515 487" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="625" y="599" text-anchor="middle" font-size="23" font-weight="700">PRECIO</text>
+<rect x="40" y="631.5" width="315" height="95" rx="12" fill="#e9eff9" stroke="#2f4fb0" stroke-width="2.5"/>
+<text x="197.5" y="687.0" text-anchor="middle" font-size="23" font-weight="700">IDproducto</text>
+<text x="530" y="662.0" text-anchor="start" font-size="21">PrecioUnitario</text>
+<path d="M355 679 L515 655" fill="none" stroke="#2f4fb0" stroke-width="2.5" marker-end="url(#arrow)"/>
+</g></svg>
